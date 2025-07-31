@@ -18,33 +18,33 @@ Teach yourself Computer Science for free (equivalent to a Bachelor Degree in CS)
 
 ## Computer science
 
-- [**Mathematics:**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/computer_science/Mathematics.md)
+- [**Mathematics:**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_science/Mathematics.md)
   - Algebra
   - Calculus
   - Discrete mathematics
   - Statistics
-- [**Programming:**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/computer_science/Programming.md).
-- [**Data structures and Algorithms](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/computer_science/data_structures_and_algorithms.md)
-- [**Computer systems:**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/computer_science/Computer_systems.md)
+- [**Programming:**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_science/Programming.md).
+- [**Data structures and Algorithms**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_science/data_structures_and_algorithms.md)
+- [**Computer systems:**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_science/Computer_systems.md)
   - Computer systems
   - Operating systems
-- [**Networking:**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/computer_science/networking/networking.md)
+- [**Networking:**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_science/networking/networking.md)
   - Communications & Networking
   - Advanced networking & Data security
-- [**Databases**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/computer_science/Databases.md)
-- [**Web programming**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/computer_science/Web_programming.md)
-- [**Software engineering**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/computer_science/Software_engineering.md)
-- [**Others:**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/computer_science/others/Others.md)
+- [**Databases**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_science/Databases.md)
+- [**Web programming**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_science/Web_programming.md)
+- [**Software engineering**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_science/Software_engineering.md)
+- [**Others:**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_science/others/Others.md)
   - Programming languages
   - Information retrieval
 - **Bonus**:
-  - [**Machine learning**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/machine_learning.md)
-  - [**Recommended readings:**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/readings.md)
+  - [**Machine learning**](https://github.com/AnselmoGPP/know_base/blob/master/topics/machine_learning.md)
+  - [**Recommended readings**](https://github.com/AnselmoGPP/know_base/blob/master/topics/readings.md)
 
 ## Languages
 
-- [**C++ language**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/languages/cpp/cpp_language.md)
-- [**English grammar**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/languages/english_grammar/english_grammar.md)
+- [**C++ language**](https://github.com/AnselmoGPP/know_base/blob/master/topics/languages/cpp/cpp_language.md)
+- [**English grammar**](https://github.com/AnselmoGPP/know_base/blob/master/topics/languages/english_grammar/english_grammar.md)
 
 
 ## Software development
@@ -59,16 +59,16 @@ Teach yourself Computer Science for free (equivalent to a Bachelor Degree in CS)
 
 ## Computer graphics
 
-- [**Computer graphics**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/computer_graphics/computer_graphics.md)
-- [**Vulkan API**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/computer_graphics/vulkan_fundamentals.md)
-- [**Blender**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/computer_graphics/blender.md)
+- [**Computer graphics**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_graphics/computer_graphics.md)
+- [**Vulkan API**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_graphics/vulkan_fundamentals.md)
+- [**Blender**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_graphics/blender.md)
 
 
 ## Security
 
-- [**Cybersecurity**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/security/cybersecurity.md)
-- [**Cryptography**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/security/cryptography.md)
-- [**Blockchain**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/security/blockchain/blockchain.md)
+- [**Cybersecurity**](https://github.com/AnselmoGPP/know_base/blob/master/topics/security/cybersecurity.md)
+- [**Cryptography**](https://github.com/AnselmoGPP/know_base/blob/master/topics/security/cryptography.md)
+- [**Blockchain**](https://github.com/AnselmoGPP/know_base/blob/master/topics/security/blockchain/blockchain.md)
 
 
 ## Miscellany

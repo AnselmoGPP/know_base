@@ -35,7 +35,7 @@ It depicts classes, their structure, and the static relationships between them.
 
 - **Operations implementation** can be sketched using a dashed line with circle base.
 
-<br>![class_diagrams](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/class_diagrams.png)
+<br>![class_diagrams](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/class_diagrams.png)
 
 
 ## Object diagrams
@@ -48,7 +48,7 @@ It depicts a particular object structure at run-time. It shows instances exclusi
 
 - Arrows indicate the object referenced.
 
-<br>![object_diagrams](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/object_diagrams.png)
+<br>![object_diagrams](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/object_diagrams.png)
 
 
 ## Interaction diagrams
@@ -67,6 +67,6 @@ It shows the flow of requests between objects, the order in which requests betwe
  
 Example: `aCreationTool` requests to create `aLineShape`. Then, `aLineShape` is added to `aDrawing`, which prompts `aDrawing` to send a `Refresh` request to itself (`aDrawing` sends a `Draw` request to `aLineShape` as part of the `Refresh` operation). 
 
-<br>![interaction_diagrams](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/interaction_diagrams.png)
+<br>![interaction_diagrams](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/interaction_diagrams.png)
 
 

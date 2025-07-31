@@ -50,7 +50,7 @@ sudo make install
 
 The executable **doxygen** is the program that parses the sources and generates documentation. The graphical environment is **doxywizard**. Below you can see the tools and the flow of information between them:
 
-<br>![information_flow](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/infoflow.png)
+<br>![information_flow](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/infoflow.png)
 
 By default, Doxygen supports C, C++, C#, Objective-C, IDL, JAVA, VHDL, PHP, Python, Fortran, D.
 

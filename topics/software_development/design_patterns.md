@@ -37,7 +37,7 @@ A **pattern** describes a problem that happens very often in our environment, an
 
 **Design patterns**: Descriptions of communicating objects and classes that are customized to solve a general design problem in a particular context.
 
-<br>![design patterns table](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/design_patterns_table.png)
+<br>![design patterns table](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/design_patterns_table.png)
 
 **Purpose**: What a pattern does.
 
@@ -112,7 +112,7 @@ The simplest and most common patterns are: Abstract factory, Adapter, Composite,
 
 Some patterns are often used **together** (e.g.: Composite + Iterator/Visitor). Some are **alternatives** (Prototype, Abstract factory). Some result in **similar designs** (Composite, Decorator).
 
-<br>![relationships](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/relationships.png)
+<br>![relationships](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/relationships.png)
 
 ### Solving design problems
 
@@ -149,7 +149,7 @@ A sub-class may **override** an operation defined by its parent class, which giv
 
 **Mixin class**: Class designed to provide an optional interface or functionality to other classes through inheritance (which promotes code reuse and modularity). It's not intended to be instantiated. It requires multiple inheritance.
 
-<br>![mixin class](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/mixin_class.png)
+<br>![mixin class](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/mixin_class.png)
 
 **Object**:
 
@@ -216,7 +216,7 @@ It is a type of object composition that makes composition as powerful for reuse 
 
 Example: Instead of making class Window a subclass of Rectangle, Window class might keep a rectangle member variable and delegate Rectangle-specific behavior to it.
 
-<br>![window object](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/delegation.png)
+<br>![window object](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/delegation.png)
 
   - Advantages:
 
@@ -305,7 +305,7 @@ These are some guidelines, but you will develop your own way over time.
 - Implement the operations to carry out the responsibilities and collaborations in the pattern. 
 - Evaluate consequences of the pattern. They achieve flexibility and variability by introducing additional levels of indirection, which may complicate a design and/or cost some performance. Design patterns should only be applied where the flexibility they afford is actually needed.
 
-<br>![modifiable design aspects](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/modifiable_design_aspects.png)
+<br>![modifiable design aspects](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/modifiable_design_aspects.png)
 
 
 ## Case study: Designing a document editor
@@ -359,9 +359,9 @@ We can devote an object to each important element (characters, graphics, lines, 
 
 We define a **Glyph** abstract class for all objects that can appear in a document structure. Its subclasses define both primitive graphical (characters, images...) and structural elements (rows, columns...)
 
-<br>![recursive composition](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/recursive_composition.png)
+<br>![recursive composition](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/recursive_composition.png)
 
-<br>![glyph structure](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/glyph.png)
+<br>![glyph structure](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/glyph.png)
 
 Glyphs have 3 basic responsibilities: they know how to draw themselves, what space they occupy, and their children and parent
 
@@ -407,13 +407,13 @@ We can get this by isolating the FA in an object. We will define a separate clas
 
 A **Compositor** class will encapsulate a FA. The interface lets the compositor know what glyphs to format and when to do the formatting. The glyphs it formats are the children of a special `Glyph` subclass called **Composition**, which gets an instance of a Compositor subclass when it's created and tells it to `Compose` its glyphs when necessary. Each compositor subclass can implement a different FA.
 
-<br>![compositor and composition](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/compositor_and_composition.png)
+<br>![compositor and composition](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/compositor_and_composition.png)
 
 An unformatted Composition object (composite) contains only the visible glyphs, but doesn't contain glyphs that determine the document's physical structure (Row, Column...). When the composition needs formatting, it calls its compositor's `Compose` operation, which iterates through the composition's children and inserts new Row and Column glyphs according to the its FA. 
 
 The Compositor-Composition class split ensures strong separation between code for the physical structure and code for different FAs. We can add new Compositor subclasses without touching the glyph classes, and vice versa. We can even change the FA at run-time by adding a single `SetCompositor` operation to Composition's basic glyph interface.
 
-<br>![compositor generated glyphs](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/compositor.png)
+<br>![compositor generated glyphs](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/compositor.png)
 
 #### Strategy pattern
 
@@ -437,7 +437,7 @@ Object composition offers a potentially more workable and flexible extension mec
 
 We can apply the concept of transparent enclosure to all glyphs that embellish other glyphs. We define a subclass of Glyph called **MonoGlyph** to serve as an abstract class for "embellishment glyphs". It stores a reference to a component and forwards all requests to it. It makes MonoGlyph totally transparent to clients by default. MonoGlyph subclasses reimplement `Draw`, which draws the glyph and then the embellishment.
 
-<br>![MonoGlyph](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/monoglyph.png)
+<br>![MonoGlyph](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/monoglyph.png)
 
 ```
 void MonoGlyph::Draw(Window* w) {
@@ -458,7 +458,7 @@ void Border::Draw(Window* w) {
 
 To add a border and a scrolling interface we compose the Composition instance in a Scroller instance, and compose this in a Border instance.
 
-<br>![Embellished object structure](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/embellished_object_structure.png)
+<br>![Embellished object structure](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/embellished_object_structure.png)
 
 Reversing the order of composition, putting the bordered composition into the Scroller instance, would make the border be scrolled along with the text. Transparent enclosure makes it easy to experiment and keeps clients free of embellishment code. 
 
@@ -486,4 +486,4 @@ We want Lexi to be portable across hardware and software platforms. We should ma
 
 64/378
 
-<br>![glyph structure](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/glyph.png)
+<br>![glyph structure](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/glyph.png)

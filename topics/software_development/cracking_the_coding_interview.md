@@ -368,7 +368,7 @@ We might still have sum in a runtime. For example, O(B<sup>2</sup> + A) cannot b
 
 Rates of increase of common big O times:
 
-<br>![design patterns table](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/software_development/resources/rates_of_increase.png)
+<br>![design patterns table](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/rates_of_increase.png)
 
 #### Multi-part algorithms: Add vs. Multiply
 

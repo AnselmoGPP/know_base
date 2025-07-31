@@ -1,6 +1,6 @@
 # Clean code
 
-<br>![flow image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/flow.jpg)
+<br>![flow image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/flow.jpg)
 
 
 ## Table of Contents
