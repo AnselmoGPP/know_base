@@ -1,0 +1,67 @@
+# Age of Empires II tips
+
+## Lessons learned
+
+Use your army/resources
+Beware of backstabs (to be attacked by A while attacking B)
+Don't let others build military buildings near your base (avoid surprise/focused attacks)
+Stablish early alert systems (watch towers)
+Petards can help enter a single-wall base quickly
+Have alternative military building for building alternative types of units to adapt to enemy units
+Check territories and markets of eliminated players (somebody could take advantage)
+Grow fast: multiple TCs
+Multiple simultaneous attacks
+
+## Tatoh basics
+
+**Golden rules**:
+
+- Don't stop producing villagers (the more villagers, the more resources). Every time you have 50 food, create a villager.
+- Villagers should be working all time.
+- Spend all your resources (unless we reached maximum population or want to get next age).
+
+**Timing**: Time spent by a villager (vill) to get 10 resources is ~30 seconds average.
+
+- A vill costs 50 food and takes 25 seconds.
+- 5 vills getting food take 30 seconds to get 50 food.
+- Thus, 6 vills getting food ensure the town centre (TC) can produce vills non-stop.
+
+**Food sources**:
+
+- __Fruits__: Slow to extract.
+- __Domestic animals__ (sheep, goat, cow, buffalo): Faster than fruits. Taken to TC with villager. About 6 or 8, depending on the animal.
+- __Small wild animals__ (deer, ostrich, zebra): Faster than domestic animals. Taken to TC with scout.
+- __Big wild animals__ (boar, rhinoceros, elephant): Faster than domestic animals. Taken to TC with villager's hit-and-run.
+
+**Key shortcuts**: Use them to quickly select options in the villager's and any building's menu.
+
+**Dark Age**:
+
+- 6 vill to food (one sheep at a time)
+- 4 vills to wood
+- 1 vill > Hunt the boar (we should have ~11 vills at minute 3).
+- 1 vill > Build 2 houses and get fruits
+- 1 vill > Build mill and get fruits
+- 4 vills to fruits
+- Go Feudal with 22 vills
+
+Note: If you get food shortage for villagers creation, force hunters to unload food. Villagers looting the boar get food faster than from sheep, but load a bigger amount. 
+
+**Game speed**: Slow (x1.0), casual (x1.5), normal (x1.7), fast (x2.0). Normal speed is used in competitives matches.
+
+**Control groups** (`Ctrl` + `number`): Used for units and buildings. One click selects the group. Two clicks move camera to the group.
+
+**Boar hunt**:
+- __Normal way__: One villager attracts the boar to the TC and the other villagers (~6) kill it. Garrison unit with `T` or `Alt`.
+- __Advanced way__: One villager attracts the boar to the TC, the others (~6) garrison in the TC, the TC shoots twice, then they ungarrison, and kill it. Even better, if TC's meeting point (`T`) is at the boar, the villagers will attack it immediately after ungarrisoning them.
+
+**Commands queue**: Use `Shift` to give a unit a concatenated queue of commands (construct building, get resource, get relic, attack unit).
+
+**Feudal age strategies**: Rush of scouts.
+
+**Rush of scouts**:
+
+
+## References
+
+- [Tatoh guide](https://www.youtube.com/playlist?list=PLB1AJxrCNNIPGyyYIHy3xaY06zqZRJUXm)
