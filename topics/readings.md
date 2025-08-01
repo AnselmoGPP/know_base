@@ -18,7 +18,7 @@
 ## Cpp
 
 - **C++**
-  - [StackOverflow C++ book guide](Stackoverflow book guide)
+  - [StackOverflow C++ book guide](https://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
   - S.B. Lippman, J. Lajoie, B.E. Moo (2012) _**C++ Primer**_ (5th). Addison-Wesley.
   - [CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines?tab=readme-ov-file)
   - Scott Meyers (2005) _**Effective C++**_ (3th). Addison-Wesley.
