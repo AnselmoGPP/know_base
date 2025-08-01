@@ -1,6 +1,6 @@
 # Networking
 
-<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/networking.jpg)
+<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/networking.jpg)
 
 
 ## Table of Content

@@ -1,15 +1,15 @@
 # Blockchain
 
-<br>![miscellaneous image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/miscellany.jpg)
+<br>![miscellaneous image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/miscellany.jpg)
 
 
 ## Chapters
 
-- [**Bitcoin**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/security/blockchain/bitcoin.md)
-- [**Ethereum and Smart contracts**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/security/blockchain/ethereum_and_smart_contracts.md)
-- [**Web3**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/security/blockchain/web3.md)
-- [**Decentralized Finance (DeFi)**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/security/blockchain/defi.md)
-- [**Privacy coins**](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/security/blockchain/privacy_coins.md)
+- [**Bitcoin**](https://github.com/AnselmoGPP/know_base/blob/master/topics/security/blockchain/bitcoin.md)
+- [**Ethereum and Smart contracts**](https://github.com/AnselmoGPP/know_base/blob/master/topics/security/blockchain/ethereum_and_smart_contracts.md)
+- [**Web3**](https://github.com/AnselmoGPP/know_base/blob/master/topics/security/blockchain/web3.md)
+- [**Decentralized Finance (DeFi)**](https://github.com/AnselmoGPP/know_base/blob/master/topics/security/blockchain/defi.md)
+- [**Privacy coins**](https://github.com/AnselmoGPP/know_base/blob/master/topics/security/blockchain/privacy_coins.md)
 
 
 ## References

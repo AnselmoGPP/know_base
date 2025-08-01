@@ -4,7 +4,7 @@ Model matrix for Normals: Normals are passed to fragment shader in world coordin
 
 # Vulkan API fundamentals
 
-<br>![computer graphics image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/computer_graphics.jpg)
+<br>![computer graphics image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/computer_graphics.jpg)
 
 ## Table of Contents
 + [Quick overview](#quick-overview)

@@ -1,6 +1,6 @@
 # Cryptography
 
-<br>![miscellaneous image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/miscellany.jpg)
+<br>![miscellaneous image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/miscellany.jpg)
 
 ## Table of Contents
 + [Classical Cryptography](#classical-cryptography)

@@ -1,6 +1,6 @@
 # Economics
 
-<br>![miscellaneous image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/economics.jpg)
+<br>![miscellaneous image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/economics.jpg)
 
 ## Table of Contents
 + [Principles of economics](#principles-of-economics)

@@ -1,6 +1,6 @@
 # English grammar
 
-<br>![flow image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/english_grammar/resources/english.png)
+<br>![flow image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/english_grammar/resources/english.png)
 
 
 ## Table of Contents

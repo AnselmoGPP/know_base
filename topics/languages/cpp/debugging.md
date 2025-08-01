@@ -85,7 +85,7 @@ Preprocessor defines 4 other names:
 
 ## Exception handling
 
-See chapter [Exception handling](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/cpp/exception_handling.md).
+See chapter [Exception handling](https://github.com/AnselmoGPP/know_base/blob/master/topics/cpp/exception_handling.md).
 
 
 ## macros in MVS to avoid warnings

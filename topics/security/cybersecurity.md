@@ -1,6 +1,6 @@
 # Cybersecurity
 
-<br>![miscellaneous image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/miscellany.jpg)
+<br>![miscellaneous image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/miscellany.jpg)
 
 ## Table of Contents
 + [Foundations](#foundations)
@@ -483,7 +483,7 @@ If bandwidth or speed are irregular, it may indicate an attack.
 
 **Port**: Software-based location in the OS of a network device that organizes the sending and receiving of data between devices on a network. When data packets are sent and received across a network, they are assigned a port. Ports divide network traffic into segments based on the service they will perform between two devices. Network devices use port numbers to determine what to do with the packet's data. Computers use them to know how to prioritize and process these segments. Firewalls can filter out unwanted traffic based on port numbers (example: an organization may configure a firewall to only allow access to TCP port 995 (POP3) by IP addresses belonging to the organization). Some common ports are: 25 (e-mail), 443 (secure internet communications), 20 (large file transfers).
 
-<br>![models image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/network_models.png)
+<br>![models image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/network_models.png)
 
 **TCP/IP model** (Transmission Control Protocol / Internet Protocol): It's the standard model for network communication, based on the TCP/IP protocols suite. It's a framework for visualizing how data is organized and transmitted accross the network. It has 4 layers:
 
@@ -903,7 +903,7 @@ Most common ones are:
 
 The **defense in depth** approach adds layers of security (devices, tools, strategies) to a network until the network owner is satisfied with the level of security. Some tools available are: Firewall, IDS (Intrusion Detection System), IPS (Intrusion Prevention System), SIEM tools. Each tool is a layer that incrementally hardens the network.
 
-<br>![defense in depth](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/defense_in_depth.png)
+<br>![defense in depth](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/defense_in_depth.png)
 
 - **Firewall**: It allows or blocks traffic based on a set of rules. The header of incoming packets are inspected and allowed or denied based on its port number. NGFWs also inspect packet payloads. Each system should have its own firewall, regardless of the network firewall.
 
@@ -1412,10 +1412,10 @@ Common **data types** in DBs:
 
 Note: You can use `LEFT JOIN` and ``RIGHT JOIN` and return the exact same result if you use the tables in reverse order.
 
-<br>![inner join image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/join_inner.jpg)
-<br>![left join image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/join_left.jpg)
-<br>![right join image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/join_right.jpg)
-<br>![full outer join image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/join_full_outer.jpg)
+<br>![inner join image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/join_inner.jpg)
+<br>![left join image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/join_left.jpg)
+<br>![right join image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/join_right.jpg)
+<br>![full outer join image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/join_full_outer.jpg)
 
 **Aggregate functions**: Functions that perform a calculation over multiple data points and return the result of the calculation. The actual data is not returned. Syntax: Place the aggregate function keyword after SELECT, and then in parentheses, indicate the column you want to perform the calculation on. Some function examples are: 
 

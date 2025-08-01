@@ -1,6 +1,6 @@
 # Other CS topics
 
-<br>![miscellany image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/miscellany.jpg)
+<br>![miscellany image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/miscellany.jpg)
 
 
 ## Table of Contents

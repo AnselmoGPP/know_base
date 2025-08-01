@@ -1,6 +1,6 @@
 # Communications and Networking
 
-<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/networking.jpg)
+<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/networking.jpg)
 
 
 ## Table of Contents
@@ -88,7 +88,7 @@ When a router or switch receives a packet, it (generally) reads in the entire pa
 
 This is a model of packet delivery where the header contains a destination address. The routers or switches will look at this address and get the packet to its destination. Each switch has a **forwarding table** of pairs (**destination**, **next_hop**).
 
-<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/net_1.png)
+<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/net_1.png)
 
 **Next_hop:** When a packet arrives, the switch looks up the destination address (presumed globally unique) in its forwarding table and finds the next_hop (immediate-neighbor address to which, or interface by which, the packet should be forwarded in order to bring it closer to its final destination). The next_hop value is a single entry, and each switch is responsible for only one step in the packet’s path.
 
@@ -96,7 +96,7 @@ This is a model of packet delivery where the header contains a destination addre
 
 Example: Switch S1 has interfaces 0, 1, 2, and S2 has 0, 1, 2, 3. If A sends a packet to B, S1 will have a forwarding-table entry indicating that destination B is reached via its interface 2, and S2 must have an entry forwarding the packet out on interface 3.
 
-<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/net_2.jpg)
+<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/net_2.jpg)
 
 Each interface corresponds to the unique immediate neighbor reached by that interface. We can thus replace the interface entries (next_hop) with the name of the corresponding neighbor (more human-readable).
 
@@ -228,7 +228,7 @@ In turn, IETF has a “two working implementation” rule for a protocol to beco
 
 Trying to fit protocols into specific layers is often useless. A more successful approach to understand layers is to view them as parts of a **protocol graph**.
 
-<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/net_3.jpg)
+<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/net_3.jpg)
 
 
 ### LANs
@@ -251,7 +251,7 @@ A **VPN** supports the creation of **virtual links** that join farflung nodes vi
 
 Your workplace has a security policy that doesn’t allow outside IP addresses to access essential internal resources, which prevent you from working from home. This ca be solved by connecting your computer (via TCP or UDP) to a workplace **VPN server** (IP-layer packet encapsulation can also be used, avoiding timeout problems sometimes created by sending TCP packets within another TCP stream). Each end of the connection is typically associated with a software-created **virtual network interface**, each one with its own IP address. When send a packet along the virtual link, it is sent through Internet to the VPN server (**tunneling**). The virtual link behaves like any other physical link. These packets are often encrypted and encapsulated. At workplace side, the virtual network interface in the VPN server is attached to a router or switch. At home user’s end, the virtual network interface can now be assigned an internal workplace IP address, making this computer part of the internal workplace network.
 
-<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/net_4.jpg)
+<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/net_4.jpg)
 
 The user’s regular Internet connection is via hardware interface eth0. To connect to site A’s VPN server, a virtual interface tun0 (with its own site-A IP address) is created on user’s machine, which looks like a direct link to the VPN server. But, in fact, packets sent via tun0 interface travel via eth0 through Internet. The home host’s tun0 interface will appear to be locally connected to site A. The home host’s forwarding table would route site A’s private addresses via interface tun0.
 
@@ -349,7 +349,7 @@ To reduce design complexity, most networks are organized as a stack of **layers*
 - **Protocol:** Agreement between the communicating parties on how communication is to proceed (i.e., the rules and conventions used for layer n in a machine A for having a conversation with layer n in another machine).
 - **Peers:** Entities that communicate by using the protocol to talk to each other. Entities (software processes, hardware devices, or human beings) comprising the corresponding layers on different machines.
 
-<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/net_5.jpg)
+<br>![networking image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/net_5.jpg)
 
 In reality, no data are directly transferred from layer n on one machine to layer n on another machine. Instead, each layer passes data and control information to the layer immediately below it, until the lowes layer is reached. Actual communication occurs through the **physical medium**. Virtual communication is shown by dotted lines, and physical communication by solid lines.
 

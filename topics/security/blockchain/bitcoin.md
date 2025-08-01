@@ -1,6 +1,6 @@
 # Bitcoin
 
-<br>![miscellaneous image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/miscellany.jpg)
+<br>![miscellaneous image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/miscellany.jpg)
 
 
 ## Table of Contents
@@ -53,7 +53,7 @@ Differences between **money** and **currency**:
 
 **Bitcoin**: It was needed a decentralized system that solved the double-spending problem, that could not be targeted by a government or hacker, and without a parent company. Bitcoin is a decentralized currency that solved this problem using **blockchain** and **proof of work**.
 
-**Satoshi Nakamoto**: Creator of Bitcoin. See a compilations of his publications [here](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/security/blockchain/satoshi.md).
+**Satoshi Nakamoto**: Creator of Bitcoin. See a compilations of his publications [here](https://github.com/AnselmoGPP/know_base/blob/master/topics/security/blockchain/satoshi.md).
 
 
 ## Introduction

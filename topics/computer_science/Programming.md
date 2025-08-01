@@ -1,6 +1,6 @@
 # Programming
 
-<br>![code image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/code.jpg)
+<br>![code image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/code.jpg)
 
 ## Table of Contents
 

@@ -1,6 +1,6 @@
 # Software engineering
 
-<br>![maths image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/software_engineering.jpg)
+<br>![maths image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/software_engineering.jpg)
 
 ## Table of Contents
 + [Software engineering](#software-engineering) (-> work in progress)

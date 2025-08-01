@@ -49,7 +49,7 @@
   - Chapter 5. Sensation and perception
   - Chapter 6. Learning
 
-- **_Applied Behavior Analysis (ABA)_**. (n.d.). Retrieved from [here](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/miscellany/applied_behavior_analysis.md).
+- **_Applied Behavior Analysis (ABA)_**. (n.d.). Retrieved from [here](https://github.com/AnselmoGPP/know_base/blob/master/topics/miscellany/applied_behavior_analysis.md).
 
 - Jha, A. (2017, March). **_How to tame your wandering mind_** [Video]. TEDxCoconutGrove. Retrieved from [here](https://www.ted.com/talks/amishi_jha_how_to_tame_your_wandering_mind).
 

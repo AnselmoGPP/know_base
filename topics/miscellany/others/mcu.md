@@ -1,6 +1,6 @@
 # MCU (Marvel Cinematic Universe)
 
-<br>![flow image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/tickets.jpg)
+<br>![flow image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/tickets.jpg)
 
 ## Table of Contents
 

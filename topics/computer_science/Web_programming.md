@@ -1,6 +1,6 @@
 # Web programming
 
-<br>![web image](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/web.jpg)
+<br>![web image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/web.jpg)
 
 ## Table of Contents
 + [The Internet](#the-internet)
@@ -222,7 +222,7 @@ This makes any content enclosed within `<p></p>` tags to have double the line he
 - Line 1 (`<!DOCTYPE html>`): Document type declaration (or doctype). It makes the browser render the page properly in "standards mode". [Choose the right doctype for your HTML documents](https://www.w3.org/wiki/Choosing_the_right_doctype_for_your_HTML_documents).
 - Lines 5-7`: Import a CSS file into the page. The styles it contains will be applied to the various elements on the page.
 
-<br>![Example image without CSS](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/examplewithoutCSS.png)
+<br>![Example image without CSS](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/examplewithoutCSS.png)
 
 #### CSS example
 
@@ -299,7 +299,7 @@ h1 {
 - `div {…}`: Page is set to 800 pixels width (a percentage can be used, which depends on the browser window size). The margin setting ensures the page content stays centered.
 - `background: url;`: Background image used. Three images were used (gradient, semi-transparent pen, semi-transparent heading).
 
-<br>![Example image with CSS](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/resources/examplewithCSS.jpg)
+<br>![Example image with CSS](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/examplewithCSS.jpg)
 
 #### Use modern web standards and best practices
 

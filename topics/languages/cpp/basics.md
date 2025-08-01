@@ -898,7 +898,7 @@ std::cout << "\115I\x4dO";         // prints MIMO
 
 ### ASCII characters
 
-<br>![ascii_table](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/cpp/resources/asciifull.png)
+<br>![ascii_table](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/cpp/resources/asciifull.png)
 
 
 ## Type conversions
@@ -1832,7 +1832,7 @@ last = *a + 4;            // 4
 cin >> v1 >> v2;   // IO operators are left associative, so we can combine them
 ```
 
-<br>![operator_precedence_table](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/cpp/resources/operator_precedence_table.png)
+<br>![operator_precedence_table](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/cpp/resources/operator_precedence_table.png)
 
 ### Order of evaluation
 
@@ -1889,7 +1889,7 @@ f() + g() * h() + j()
 
 Unary arithmetic operators have higher **precedence** than multiplication/division operator, which in turn have higher precedence than the binary addition and substraction operators. These operators are **left associative** (they group left to right when precedence levels are the same).
 
-<br>![operator_precedence_table](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/cpp/resources/arithmetic_operators.png)
+<br>![operator_precedence_table](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/cpp/resources/arithmetic_operators.png)
 
 Unless noted otherwise, the arithmetic operators may be applied to any of the arithmetic types or to any type that can be converted to an arithmetic type. The operands and results of these operators are rvalues. Operands of small integral types are promoted to a larger integral type, and all operands may be converted to a common type as part of evaluating these operators.
 
@@ -1936,7 +1936,7 @@ In a division, a nonzero quotient is positive if the operands have same sign, ne
 
 Both return type `bool` values. Operands to these operators are rvalues and the result is rvalue.
 
-<br>![operator_precedence_table](https://raw.githubusercontent.com/AnselmoGPP/Learn_Computer_Science/master/topics/cpp/resources/log_and_rel_operators.png)
+<br>![operator_precedence_table](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/cpp/resources/log_and_rel_operators.png)
 
 **AND** and **OR** always evaluate their left operand before the right. The right is evaluated if and only if the left operand does not determine the result (**short-circuit evaluation**).
 
@@ -2327,7 +2327,7 @@ Statements usually execute sequencially, but some flow-of-control statements all
 
 ### try block and exception handling
 
-See chapter [Exception handling](https://github.com/AnselmoGPP/Learn_Computer_Science/blob/master/topics/cpp/exception_handling.md)
+See chapter [Exception handling](https://github.com/AnselmoGPP/know_base/blob/master/topics/cpp/exception_handling.md)
 
 
 ## Keywords, operators and punctuators
