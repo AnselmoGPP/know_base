@@ -208,6 +208,28 @@ The complexityof operations supported by distributed data structures (like searc
 
 How easy it is to operate and maintain the system. Simplicity and speed with which a system can be repaired or maintained. The longer it takes to fix a failed system, the lower availability it has. Things to consider are: ease of diagnosing and understanding problems when they occur, ease of making updates or modifications, and how simple the system is to operate (i.e., does it routinely operate without failure/exceptions?). Early detection of faults can decrease or avoid system downtime (example: some enterprise systems automatically call a service center when a system fault happens).
 
+### Load balancing
+
+**Load balancer (LB):** Important component of distributed systems. It helps spread traffic across a cluster of servers to improve responsiveness and availability of applications, websites or databases, and keeps track of the status of all resources while distributing requests. If a server is not available, or not responding, or has high error rate, LB will stop sending traffic to it. LB typically sits between client and server, accepting incoming network and application traffic and distributing traffic across multiple backend servers using various algorithms. By balancing application requrest across multiple servers, LB reduces individual server load and prevents any one application server from becoming a single point of failure, thus improving overall application availability and responsiveness.
+
+For full scalability and redundancy, we can try to balance load at each system's layer. We can add LBs at 3 places:
+
+- Between user and web server.
+- Between web servers and internal platform layer (like application servers or cache servers).
+- Between internal platform layer and database.
+
+[flow image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_2.png)
+
+test
+
+<br>![flow image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_2.png)
+
+
+
+
+
+
+
 
 ## Tradeoffs
 
