@@ -218,11 +218,8 @@ For full scalability and redundancy, we can try to balance load at each system's
 - Between web servers and internal platform layer (like application servers or cache servers).
 - Between internal platform layer and database.
 
-[flow image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_2.png)
 
-test
-
-<br>![flow image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_2.png)
+![flow image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_2.png)
 
 
 
