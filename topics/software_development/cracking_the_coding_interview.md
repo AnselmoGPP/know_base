@@ -33,7 +33,9 @@
   * [Threads and Locks](#threads-and-locks)
   * [Moderate](#moderate)
   * [Hard](#hard)
-
+  
+* [Notes](#notes)
+  
 
 ## References
 
@@ -295,7 +297,7 @@ They're asked to know your personality, understand your resume deeper, and ease 
 
 #### Time complexity
 
-**Big O time**, or **asymptotic runtime**, is the language and metric to describe the efficiency of algorithms. Most common runtimes are: O(1), O(n), O(log n), O(n log n), O(n), O(n<sup>2</sup>), and O(2<sup>n</sup>).
+**Big O time**, or **asymptotic runtime**, is the language and metric to describe the efficiency of algorithms. Most common runtimes are: O(1), O(n), O(log n), O(n log n), O(n), O(n<sup>2</sup>), and O(2<sup>n</sup>). Derive the runtime, don't guess it.
 
 Given a O(1) (constant time) algorithm and a O(n) (linear time) algorithm, it doesn't matter how big the constant is and how slow the linear increase is, linear will surpass constant at some point.
 
@@ -733,60 +735,437 @@ You can walk through you brute force looking for BUD (Bottlenecks, Unnecessary w
 
 #### Optimize & solve technique: DIY (Do It Yourself)
 
-Given an actual example, our intuition can give us a very nice algorithm (somebody that knows nothing about binary search still can use a dictionary book and lookup a word very quickly). Thus, when you get a question, try just working it through intuitively on a real example. Often a bigger example will be easier.
+Given an actual example, our intuition can give us a very nice algorithm (example: somebody that knows nothing about binary search still can use a dictionary book and lookup a word very quickly). Thus, when you get a question, try just working it through intuitively (manually) on a good example. Often a bigger example will be easier. Then, think about how you solved it and reverse engineer your approach. Be aware of any "optimizations" you intuitively or automatically made.
 
+Example: Given a smaller string s and a bigger string b, find all permutations of the shorter string within the longer one. Print the location of each permutation.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Permutation: Rearrangements of the string, so the characters in s can appear in any order in b. They must be contiguous.
+- Most people would generate all permutations of s and then lok for each in b. This takes O(s! b) time (extraordinarily slow).
+- However, when trying to solve this manually, most people walk through b looking at sliding windows of `s.length` characters, checking it it's a permutation of s. This takes O(b s).
 
 #### Optimize & solve technique: Simplify and Generalize
+
+First, simplify/tweak some constraint (such as the data type); then, solve this new simplified problem; finally, try to adapt it for the more complex problem.
+
+Example: Figure out if a certain message (string) can be formed from the words in a given text (string).
+
+- Simplification: Modify it so that we are taking characters out of the text instead of words. We can solve this by creating an array and counting the characters (we count the number of times a character appears both in the message and the text).
+- Generalization: We do a similar thing, but using a hash table that maps a word to its frequency.
+
 #### Optimize & solve technique: Base case and Build
+
+First, solve the problem for a base case (like n=1); then, try to build up form there. We try to build more complex cases using prior solutions. Base case and Build algorithms often lead to natural recursive algorithms.
+
+Example: Print all permutations of a string. For simplicity, assume all characters are unique.
+
+- Case "a" = { "a" }
+- Case "ab" = { "ab", "ba" }
+- Case "abc" → Insert "c" into all locations of all strings in case "ab" (i.e., "ab" and "ba").
+- Understanding the pattern we can develop a general recursive algorithm that iterates through all permutations of length n and, for each permutation, inserts the next character into all positions, creating all permutations of length n+1.
+
 #### Optimize & solve technique: Data structure brainstorm
+
+Run through a list of data structures and try to apply each one. Sometimes, using a certain data structure makes the problem trivial to solve.
+
+Example: Numbers are randomly generated and stored into an expanding array. How would you keep track of the median?
+
+- Linked list? No, it's not good for accessing and sorting numbers.
+- Array? Maybe. We already have an array. Keeping elements sorted is probably expensive. Let's hold off on this for now.
+- Binary tree? It's possible. It's good ordering. If it's perfectly balanced, the top might be the median. But if there's an even number of elements, the median is the average of the middle two elements, and two elements cannot both be at the top.
+- Heap? It's good at basic ordering and keeping track of max and mins. Having two heaps you can keep track of the bigger half (in a min-heap, so its smaller element is at the root) and the smaller half (in a max-heap, so its biggest element is at the root) of the elements. The potential median elements are at the roots. If heap have no longer the same size, you can quickly rebalance them by popping an element off one heap and pushing it onto the other.
+
 #### Best Conceivable Runtime (BCR)
+
+**BCR**: Best runtime you could conceive of a solution ot a problem having. You can easily prove that there's no way you could beat the BCR. The BCR is not necessarily achievable, it only says that you can't do better than it. The BCR is for a problem, it's a function of the inputs and outputs, and has no connection to a specific algorithm. Don't confuse BCR with **Best Case Runtime**, which is for a specific algorithm, and is a mostly useless value.
+
+- Example: Compute the number of element that two arrays, of length A and B, have in common. You know that you can't do that better than O(A+B) time because you have to touch each element in each array, so BCR = O(A+B).
+
+- Example: Print all pairs of values within an array. You know you can't do this better than O(n<sup>2</sup>) time because there're n<sup>2</sup> pairs to print, so BCR = O(n<sup>2</sup>).
+
+- Example: Find all pairs with sum k within an array, assuming all distinct elements. You might think BCR is O(n<sup>2</sup>) because you have to look at n<sup>2</sup> pairs, but this is false. Just because you want all pairs with a particular sum doesn't mean you've to look at all pairs.
+
+- Example: Given 2 sorted arrays of same length, each having all distinct elements, find the number of elements in common. The BCR is O(n) because we know we have to look at each element at least once and there are 2n total elements.
+  - Brute force algorithm: Traverse A and search (linearly) for each element in B, which takes O(n<sup>2</sup>) time.
+  - We want to do better than O(n<sup>2</sup>) potentially, but not necessarily as O(n).
+  - __BCR gives us a hint for what we need to reduce__. Given our O(n·n) runtime, maybe we can reduce the second O(n) to O(1) or O(log n). Since they're sorted arrays, we can do a binary search, getting a total O(n log n) time. In general, we cannot search an array better than O(log n) time.
+  - __BCR indicates where we should look for improvements__. BCR tells that it cannot be faster than O(n). Therefore, any work in the O(n) time won't impact our runtime, so improving it isn't a priority. We should focus on reducing the O(log n) search.
+  - We can throw everything in B into a hash table (O(n)). Then, we traverse A and look up each element in the hash table (O(n · 1)). Total runtime: O(n + n) = O(n).
+  - __BCR tells us when we're done with runtime optimizations, and we should turn to work on the space complexity__. We cannot optimize big O time anymore, but we could potentially optimize space complexity.
+  - Note that the arrays were sorted, but we would achieve the same runtime if they weren't. So why did the interviewer give us sorted arrays?
+  - O(n) space is used. Maybe we can get O(1) space, which means that we have to drop the hash table. Probably, it can still take O(n) time. Let's use the fact that the arrays are sorted.
+  - BUD → The bottleneck is the searching. It's not necessary to search all elements from A all over B. Each binary search should start where the last one left off. In fact, we can do a linear search instead, where the search in B picks up where the last one left off. This takes O(1) space and O(n) time. Big O time or space cannot be optimized.
+
 #### Handling incorrect answers
+
+It's not true that candidates need to get every question right. It's not about whether the question is correct or incorrect. Everybody make mistakes, even those that get offers.
+
+- It's about how optimal the final solution is, how long it took, how much help was needed, and how clean was the code.
+- A candidate is evaluated in comparison to other candidates, so the difficulty of the questions doesn't matter.
+- Many/most questions are too difficult to expect even a strong candidate to immediately get the optimal algorithm.
+
 #### When you've heard a question before
+
+If you've heard a question before, admit this to your interviewers. Otherwise, he won't be able to evaluate you and he may find it highly dishonest. Admitting it will allow him to evaluate your problem-solving skills and you will get big honesty points. 
+
 #### The "perfect" language for interviews
+
+Many companies aren't picky about programming languages, they just want to know how well you solve problems. Other companies want to see how well you can code in a particular language. If possible, you should probably pick whatever language you're most comfortable with. If you have several good languages, keep in mind:
+
+- __Prevalence__: It's not required, but ideal that your interviewer knows the language you use.
+- __Language readability__: Even if the interviewer doesn't know you language, they should be able to basically understand it. Example: C, C++, or Java are more understandable than Scala or Objective C.
+- __Potential problems__: Some languages open you up to potential issues. Example: C++ can have memory management and pointer issues.
+- __Verbosity__: Some languages are more verbose than others. Example: Java is more verbose than Python. However, verbosity can be reduced by abbreviating code, which most interviewers wouldn't mind as long as you explain the abbreviations.
+- __Ease of use__: Some operations are easier in some languages than others. Example: Python functions can return multiple values, but Java functions would require a new class. However, this can be mitigates by abbreviating code or presuming methods that you don't have.
+
 #### Good coding
 
+Employers want to see you writing good, clean code. Good code properties are:
 
+- __Correct__: Operates correctly on all expected and unexpected inputs.
+- __Efficient__: Operates as efficiently as possible in time and space, including both the asymptotic (big O) efficiency and the practical efficiency (constant factors that matter).
+- __Simple__: Use the least possible lines. Code should be as quick as possible for a developer to write.
+- __Readable__: Another developer should be able to read your code and understand what it does and how. Put comments where necessary, but implement things in an easily understandable way.
+- __Maintainable__: Code should be reasonably adaptable to changes during a product's life cycle, and easy to maintain by any developer.
 
+Striving for these aspects require balancing (example: it's often advisable to sacrifice some degree of efficiency to make code more maintainable, and vice versa).
 
+Some advices to get good code are:
+
+- __Use data structures generously__: 
+  - Example: Write a function to add two mathematical expression of the form Ax<sup>a</sup> + Bx<sup>b</sup> + …
+  - Bad implementation: Store the expression as a single array of double, where the kth element is the coeficient of the x<sup>k</sup> term. However, this doesn't support negative exponents, and requires an array of 1000 elements just to store expression x<sup>1000</sup>.
+  - Less bad implementation: Store the expression in two arrays (`coefficients` and `exponents`). However this is messy: you keep track of two arrays for one expression, arrays of different lengths produce undefined values, and returning an expression is annoying because you've to return two arrays.
+  - Good implementation: Design a data structure for the expression (`class ExprTerm { double coefficient; double exponent }`). Expressions can be passed as arrays. This demonstrates you think about how to design your code.
+
+- __Appropriate code reuse__:
+  - Example: Write a function to check if a binary number (string) equals an hexadecimal number (string).
+  - Implemented function and reusable helper functions are:
+    - `bool compareBinToHex(string, string)`
+      - `int convertFromBase(string number, int base)`: Convert a given number of a given base to an integer.
+	    - `int digitToValue(char c)`: Converts a digit to integer.
+  - Implementing `convertFromBin` and `converFromHex` would make our code harder to write and maintain.
+
+- __Modular__: Separate isolated chunks of code out into their own methods. This helps keep code maintainable, readable, and testable. As code gets more complex, modularity becomes increasingly important.
+  - Example: Swap the minimum and maximum element in an integer array.
+  - Not modular: Implement everything in `void swapMinMax(int[] array)`.
+  - Modular: Implement `void swapMinMax(int[] array)`, which uses:
+    - `int getMinIndex(int[] array)`
+	- `int getMaxIndex(int[] array)`
+	- `void swap(int[] array, int m, int n)`
+
+- __Flexible and Robust__: Write flexible, general-purpose code, . This may require using variables instead of hard-coded values, or templates/generics. However, if the solution is too complex for the general case, and it seems unnecessary, the simple expected case may be better.
+  - Example: Check if a normal tic-tac-toe board has a winner. We can assume it's a 3x3 board; or even better, implement a general way for a NxN board.
+
+- __Error checking__: Don't make assumptions about the input. Validate that it is what is should be (through `assert` statements or if-statements). Error checking is critical in production code.
+  - Example: Function `int convertFromBase(string number, int base)` can check if `base` is valid, and ensure that each digits falls within the allowable range.
+  - Point out that you would write the checks. If they are complex, leave some space and indicate that you will fill them once finished with the rest of the code.
 
 
 ### The offer and beyond
 
 #### Handling offers and rejection
+
+- **Offer deadline**: Offers almost always come with a deadline attached, usually of 1-4 weeks. You can ask for an extension if necessary.
+
+- **Declining offer**: If you want to decline the offer, do it on good terms and keep a line of communication open. Provide a reason that is non-offensive and inarguable (like telling a big company that "I think a startup is the right choice for me at this time").
+
+- **Rejection**: It doesn't mean you're not a great engineer. These interviews are not perfect and many good engineers get rejected. That's why companies often accept to re-interview previously rejected candidates, some even reach out them or expedite their application. Build a bridge to re-apply: thank your recruiter, explain that you're disappointed but that you understand their position, and ask when you can re-apply. You can also ask for feedback, though not all companies offer it.
+
 #### Evaluating the offer
+
+Once you get an offer, the recruiter will encourage you to accept it. While evaluating the offer, you should consider:
+
+- **Financial package**: Don't look too much at the salary. You should also look at:
+  - __One time perks__ (signing bonus, relocation, …): When comparing offers, amortize this cash over 3 years (or however long you expect to stay).
+  - __Cost of living difference__: Taxes and other cost of living differences can make a big difference in your take-home pay.
+  - __Annual bonus__: They are 3-30% at tech companies. Your recruiter might reveal the average annual bonus, but if not, check with friends at the company.
+  - __Stock options and Grants__: Equity compensation can form a big part of your annual compensation. When comparing, amortize it over 3 years and lump that value into salary.
+- **Career development**: Think about how this offer would impact your career path. Consider:
+  - How good does this company looks on my resume?
+  - How much will I learn? Will I learn relevant things?
+  - What's the promotion plan? How do developers careers progress?
+  - If I want to move into management, does this company offer a realistic plan?
+  - Is the company/team growing?
+  - If I want to leave the company, is it near other companies I'm interested in, or will I need to move?
+- **Company stability**: No one wants to be fired or laid off. The more stable companies are also often growing more slowly. The emphasis you put on company stability depends on you and your values (can you find a new job quickly? do you have work visa restrictions? …).
+- **Happiness factor**: Consider how happy you will be. These factors can impact that:
+  - __Product__: Many people look heavily at what product they're building. However, for most engineers, there're more important factors (who you work with …).
+  - __Manager and Teammates__: This is often the reason one love or hate his job.
+  - __Company culture__: It's tied to everything (how decisions get made, social atmosphere, company organization, …).
+  - __Hours__: How long is the typical work day? Does it meshes with your lifestyle? Remember that hours before major deadlines are  typically much longer.
+  - Note that if you're given the opportunity to switch teams easily, you could find a team and product that matches you well.
+
 #### Negotiation
+
+The financial benefits of negotiating are usually worth it. The difference you can get from negociating is what you pay for not negociating. Tips for negociating:
+
+- __Just do it__. Negociating is not nice, but it's so worth it. Recruiters won't revoke an offer because you negociated, so you've little to lose.
+- __Have a viable alternative__. Recruiters  negociate with you because they're concerned you may not join the company otherwise, especially if you have alternative options.
+- __Have a specific "Ask"__: It's more effective to ask for additional $7000 in salary than just ask for "more" (the recruiter may add $1000 and technically satisfy you).
+- __Overshoot__: In negotiations, people usually don't agree to your demand. Ask for a bit more than you really want, since the company will probably meet you in the middle.
+- __Think beyond salary__: Companies often prefer to negociate non-salary components (equity, signing bonus, relocation benefits in cash, …), since they could end up paying you more than your peers.
+- __Use your best medium__: It's usually better to negociate over the phone. If you're not comfortable, do it via email.
+- Big companies often have "levels" for employees. Employees at a particular level are paid around the same amount. You can negociate within the salary range for your level, but going beyond requires to convince the recruiter and your future team that your experience matches a higher level (difficult, but feasible).
+
 #### On the job
 
+Once you join the company, think about your career path.
 
-
+- __Set a timeline__: Avoid falling into a complacency trap where you stay in a position that doesn't advance your career (neither your skill set nor your resume are improved). Outline your career path (Where will you go in 10 years, and how will you get there?), and each year think about how your skill set advanced the past year and what will you get the next year.
+- __Build strong relationships__: Applying online is tricky; a personal referral is much better, and your ability to do so hingers on your network. Establish strong relationships with your manager and teammates. Keep it touch with employees that leave (example: a friendly note a few weeks after their departure). Help others, and they'll be likely to help you.
+- __Ask for what you want__: Tell your manager about your goals and what you want to work on. It's up to you to pursue the challenges that help your career.
+- __Keep interviewing__: Set a goal of interviewing at least once a year, even if you're not actively looking for job. This will keep your interview skills fresh, and keep you in tune with the market opportunities and salaries. You don't have to accept any offer, but it will build a connection with that company in case you join them in the future.
 
 
 ## Interview questions
 
+
 ### Arrays and Strings
+
+Array questions and strings questions are often interchangeable (questions that use an array may be asked using a string, and vice versa).
+
+#### Hash tables
+
+**Hash tables** (`std::unordered_map`): Data structure that maps keys to values for highly efficient lookup. This can be implemented in different ways.
+
+One common implementation is:
+
+- This requires an __array of linked list__ and a __hash code function__.
+- Insert a key-value pair:
+  - Compute hash code from the key. Hash code is usually `int` or `long`. Two different keys could have same hash code (there's a finite number of ints, but an almost infinite number of keys).
+  - Map the hash code to an index in the array (`hash(key) % array_length`. Two different hash codes could map to same index.
+  - Store key-value pair in this index, which is a linked-list because of collisions (two different keys can have same hash code, or two different hash codes can map to same index).
+- Retrieve value by its key:
+  - Compute hash code from the key.
+  - Compute index from the hash code.
+  - Search through the linked list for the value with this key.
+
+If there's a high number of collisions, the lookup worst runtime is O(n) (n = number of keys). We generally assume a good implementation that keeps collisions to a minimum, so it's O(1).
+
+Another implementation uses a balanced binary search tree. This gives O(log n) lookup time, but uses less space (no need to allocate a large array), and allows to iterate through keys in order.
+
+#### Dynamic arrays
+
+**Arrays** have fixed size, defined at construction (some languages automatically resize arrays).
+
+**Dynamic array** is a resizable array.
+
+**`std::vector`** (or `ArrayList` in Java) is an array that dynamically resizes itself as needed while still providing O(1) access. Typically, when the array is full, the array doubles in size (resizing factor = 2). Each doubling takes O(n) time, but happens so rarely that its amortized insertion time is still O(1).
+
+- Why amortized insertion runtime is O(1)?
+  - How many elements we copy at each capacity increase?
+    - final capacity increase = n/2 elements to copy
+    - previous increase = n/4
+    - previous increase = n/8
+    - …
+    - second increase = 2
+    - first increase = 1
+  - Total number of copies = n/2 + n/4 + n/8 + … + 2 + 1 = less than n
+  - Thus, inserting n elements takes O(n) total time. Each insertion is O(1) on average, even though some insertions take O(n) time in the worst case.
+
+#### Dynamic strings
+
+String concatenation (`myString += ...`) makes the string allocate a new buffer, copy the old content, and append the new part. For many iterations, this becomes very expensive, requiring O(n<sup>2</sup>) time. Example:
+
+```
+string joinWords(string words[])   // Concatenate a list of strings
+{
+  string sentence = "";
+  for (string w : words) sentence += w;
+  return sentence;
+}
+```
+
+On each concatenation, a new copy of the string is created, and it's copied over, character by character. The first iteration copies x characters, the second copies 2x, the third 3x, and so on.
+
+- Total time  =  O(x + 2x + 3x + … + nx)  =  O(x (1 + 2 + 3 + … + n))
+- 1 + 2 + 3 + … + n  =  n (n + 1) / 2
+- Total time  =  O(x n<sup>2</sup>)
+
+In **Java**, this is solved using the **`StringBuilder`** class. It's a mutable, efficient string-building type that allows to build up a string piece-by-piece without repeatedly creating new string objects. Similar to a `std::vector`, but for strings. This avoids the concatenation problem by creating a resizable array of all the strings, copying them back to a string only when necessary. Runtime = O(n).
+
+```
+String joinWords(string words[])
+{
+  StringBuilder sentence = new StringBuilder();
+  for(string w : words) sentence.append(w);
+  return sentence.toString();
+}
+```
+
+In **C++**, there're two ways of solving this:
+
+- Using **`std::ostringstream`**, the idiomatic C++ equivalent of `StringBuilder`. It buffers internally and is efficient for many small appends.
+- Using **`std::string::reserve()`** and **`append()`** to preallocate space, avoiding repeated memory allocations.
+
+```
+#include <sstream>
+
+std::ostringstream sb;
+sb << "abc";
+sb << 123;
+sb << "def";
+std::string result = sb.str();
+size_t size = result.tellp();
+```
+
+```
+std::string sb;
+sb.reserve(1000);
+for(int i = 0; i < 1000; ++i)
+sb.append(std::to_string(i));
+```
+
+It's a good exercise to implement your own `DynamicArray` (`Vector`), `DynamicString`, and `HashTable`.
+
+Read more: Hash table collision resolution, Rabin-Karp substring search.
+
 
 ### Linked lists
 
+**Linked list:** Data structure representing a sequence of nodes. __Random access__ takes no constant time (unlike arrays) because it requires iterating. But __adding/removing__ elements from the extremes takes constant time.
+
+- **Singly linked list:** Each node points to the next node.
+- **Doubly linked list:** Each node points to the next and previous node.
+  
+Ways of accessing a linked list:
+
+- __Reference to head `Node`__. Be careful when changing the head of the linked list, maybe some objects that need a reference to it might still point to the old head.
+- __Class wrapping the `Node` class__. It may have a single member variable, the `Node`. This solves the previous issue.
+  
+__Delete node__: In singly linked lists, given node `n`, find `prev` and set `prev.next = n.next`. In double linked lists, we must also set `n.next.prev = n.prev`. Check for null pointer. Update the head or tail pointer as necessary. Consider if a removed node should be deallocated (`delete`) (memory management).
+  
+**"Runner" (or second pointer) technique:** Iteration through the linked list with 2 pointers simultaneously, one ahead of the other. The "fast" node might be ahead by a fixed amount, or might be hopping multiple nodes for each one node that the "slow" node iterates through.
+
+- Example: Given linked list a<sub>1</sub>→a<sub>2</sub>→…→a<sub>n</sub>→b<sub>1</sub>→b<sub>2</sub>→…→b<sub>n</sub>, rearrange it into a<sub>1</sub>→b<sub>1</sub>→a<sub>2</sub>→b<sub>2</sub>→…→a<sub>n</sub>→b<sub>n</sub>. The length of the linked list is unknown, by we know it's an even number.
+- Locate the middle: p1 (fast pointer) moves every 2 elements for every one move tha p2 makes. When p1 hits the end of the linked list, p2 will be at the midpoint.
+- Rearrange nodes: Move p1 back to the front and iterate again with both pointers. On each iteration, p2 selects an element and inserts it after p1.
+
+**Recursive problems:** Some linked list problems rely on recursion. If have trouble solving a linked list problem, explore if a recursive approach works. Recursive algorithms take at least O(n) space (n = depth of the recursive call). All recursive algorithms can be implemented iteratively, although they may be much more complex. Recursive solutions are often cleaner but less optimal.
+
+
 ### Stacks and Queues
 
+Stacks and Queues can be implemented as arrays or linked-lists.
+
+#### Stack
+
+A **stack** implements LIFO (Last-In First-Out) ordering. It doesn't offer constant-time access to the ith item, but allows constant-time addition and removal on top (no need of shifting elements around). Operations:
+
+- `pop()`: Remove top item.
+- `push(item)`: Add item to the top.
+- `top()`: Return top.
+- `empty()`: Return true if it's empty.
+
+Stacks can be useful in certain recursive algorithms. Examples:
+
+- To push temporary data onto a stack as you recurse, and remove them as you backtrack (for example, because the recursive check failed).
+- To implement a recursive algorithm iteratively.
+
+#### Queues
+
+A **queue** implements FIFO (First-In First-Out) ordering. Operations:
+
+- `pop()`: Remove first item.
+- `push(item)`: Add item at the end.
+- `front()`: Return first item.
+- `empty()`: Return true if it's empty.
+
+Queues are often used in:
+
+- Breadth-first search. Example: to use a queue to store a list of nodes to process. Each time we process a node, we add its adjacent nodes to the back of the queue. This way, nodes are processed in the order in which they're viewed.
+- Implementing a cache.
+
+
 ### Trees and Graphs
+
+#### Trees
+
+Operations on trees are usually more complicated than in linear structures (arrays, linked lists…), and the worst case and average case time may vary wildly.
+
+**Tree:** Data structure composed of nodes. Each tree has a root node, which can have zero or more child nodes. Each child has zero or more childs, and so on. A tree cannot contain cycles. The nodes may or may not be in a particular order, they can have any data type as values, and they may or may not have links back to their parent nodes.
+
+We typically don't use a `Tree` class in interview questions. It can be used if it's good for your code, but it rarely is.
+
+```
+class TreeNode
+{
+public:
+  string name;
+  TreeNode* child_1;
+  TreeNode* child_2;  
+}
+```
+
+**Leaf node:** Node with no children.
+
+**Tree types:** There're different types, based on different trees' characteristics.
+
+- **Number of nodes:**
+  - **Binary tree:** Nodes have up to 2 children. 
+  - **Ternary tree:** Nodes have up to 3 children.
+  - **Quaternary tree (or Quadtree):** Nodes have up to 4 children (quad nodes).
+  - **X-ary tree:** Nodes have up to X children (example: 10-ary tree).
+  
+- **Nodes order:**
+  - **Binary search tree (BST):** Every node fits a specific ordering property (`all_left_descendents <= n < all_right_descendents`). This must be true for each node n. Depending on the definition used, it may or may not allow duplicate values, or store duplicates on the left, right, or either side.
+  - **Non binary search tree:** 
+
+- **Balancing:**
+  - **Unbalanced:** Imbalanced tree.
+  - **Balanced:** Tree not terribly imbalanced. It's balanced enough to ensure O(log n) time for `insert` and `find`. Examples: red-black tree, AVL tree.
+
+- **Special binary trees:**
+  - **Complete:** Every tree level is fully filled, except for perhaps the last level. The last level is filled left to right.
+  - **Full:** Every node has either 0 or 2 children.
+  - **Perfect:** Tree that is both full and complete, where all leaf nodes are at the same level (so the last level has the maximum number of nodes). It has exactly 2<sup>k</sup>-1 nodes (k = number of levels). This tree is rare.
+  
+**Binary tree traversal:**
+
+- **In-order:** First visit left branch, then current node, then right branch. In a BST, it visits nodes in ascending order. Most common traversal type.
+- **Pre-order:** First visit current node before its child nodes. Root is the first node visited.
+- **Post-order:** First visit child nodes before root. Root is the last node visited.
+
+```
+void inOrderTraversal(TreeNode* node)
+{
+  if(!node) return;
+  inOrderTraversal(node->left);
+  visit(node);
+  inOrderTraversal(node->right);
+}
+
+void preOrderTraversal(TreeNode* node)
+{
+  if(!node) return;
+  visit(node);
+  preOrderTraversal(node->left);
+  preOrderTraversal(node->right);
+}
+
+void postOrderTraversal(TreeNode* node)
+{
+  if(!node) return;
+  postOrderTraversal(node->left);
+  postOrderTraversal(node->right);
+  visit(node);
+}
+```
+
+#### Binary heaps (min-heaps and max-heaps)
+
+**Binary heap types:**
+
+- **Min-heap:** Complete binary tree where each node is smaller than its children (ascending order). Thus, the root is the minimum element in the tree. Key operations: `insert` and `extract_min`.
+
+- **Max-heap**: Similar to min-heap, but elements are in descending order. Key operations: `insert` and `extract_max`.
+
+**Key operations:**
+
+- **`insert`:**
+
+- **`extract_min`:**
+
 
 ### Bit manipulation
 
@@ -795,6 +1174,54 @@ Given an actual example, our intuition can give us a very nice algorithm (somebo
 ### Object oriented design
 
 ### Recursion and Dynamic programming
+
+Recursive solutions are often cleaner but less optimal.
+
+**Parts** of a recursive function:
+
+```
+int fact(int n)
+{
+  if (!n) return 1;
+  return n * fact(n - 1);
+}
+```
+
+- __Base case__ (`if (!n) return 1`): Prevents infinite recursion.
+- __Recursive case__ (`fact(n - 1)`): The function calls itself with a smaller/simpler input version.
+- __Progress toward base case__ (`n - 1`): Each recursive call reduce problem size or move closer to termination.
+
+**Types** of recursive functions:
+
+- __Direct vs. Indirect__ recursion:
+  - __Direct__: Function calls itself directly.
+  - __Indirect__: Function calls another function that calls the first.
+
+- __Tail vs. Non-tail__ recursion:
+  - __Tail__: The recursive call is the last operation in the function. Compilers can optimize it into a loop.
+  - __Non-tail__: The recursive call must be combined with other work.
+  
+- __Linear__ recursion: Each call makes at most one recursive call (factorial, Fibonacci, binary search…).
+
+- __Tree__ recursion: Each call makes more than one recursive call (naive Fibonacci…), expanding into a recursion tree.
+
+- __Divide & Conquer__ recursion: Problem is divided into independent subproblems, solved recursively, then combined (merge sort, quicksort, binary search…).
+
+- __Mutual__ recursion (subset of indirect recursion): Two or more functions call each other in turns (determining if a number is even/odd…).
+
+```
+bool isEven(int n) { return !n || isOdd (n - 1); }
+bool isOdd (int n) { return  n && isEven(n - 1); }
+```
+
+**Building intuition**:
+
+- __Break down__ problems into smaller subproblems:
+  - __Base case__: Simplest problem version where recursion stops.
+  - __Recursive case__: Small problem instance close to the base case.
+- __Recursive leap of faith__: Instead of unrolling the recursion step by step (messy), assume the recursive call works as intended, and focus on how your current step relates to it. Instead of considering recursion a function calling itself over and over, consider solving one step and delegating the rest to a smaller version of myself.	
+- Visualize the __call stack__: Every recursive call pauses the current function and pushes a new frame onto the stack. When the base case is hit, results bubble back up.
+
 
 ### System design and Scalability
 
@@ -811,6 +1238,250 @@ Given an actual example, our intuition can give us a very nice algorithm (somebo
 ### Moderate
 
 ### Hard
+
+
+## Notes
+
+- A list of size n have indices in range [0, n-1].
+- `n / 2` = Element in the middle ([0][1]**[2]**[3][4]) or right after the middle ([0][1]**[2]**[3]).
+- `n - 1 - i` = Opposing index ([0]**[1]**[2]**[3]**[4]).
+- Storing elements of a list in a stack gets the list reversed.
+- Passing elements from one stack to another inverts the order of the elements.
+
+### Technical patterns
+
+These patterns can handle roughly ~90% of common technical interview questions. Most questions are variations or combinations of these patterns.
+
+- **Nested loop traversal** (O(n<sup>2</sup>)): One loop inside another loop.
+  - When:
+  - Sub-patterns:
+  - Examples:
+    - Palindromic substrings (O(n<sup>2</sup>))
+	- All subarrays
+	- All substrings
+
+- **Pairwise comparison / All-pairs iteration** (O(n<sup>2</sup>)): Nested loop traversal where the outer loop iterates through each element, and the inner loop iterates over the elements after the current one. Brute-force all combinations.
+  - When: Check for duplicates, find pairs with some property, compare all possible combinations.
+  - Examples:
+    - Closest pair of points
+	- 2-sum brute force
+	- Check duplicates in array
+  
+- **Two pointers / Runner technique**: Use two indices moving through a list to avoid nested loops.
+  - When: Sorted arrays, find pairs with a sum, reverse strings in-place, remove duplicates.
+  - Sub-patterns: Opposite ends, same-direction pointers, fast/slow pointers.
+  - Examples:
+    - Sorted array two-sum → Find if two numbers sum to a target.
+	- Container with most water → Maximize area between two lines.
+    - Remove duplicates from sorted array → In-place removal using read/write pointers.
+	- Container with most water.
+	- 3-sum problem.
+	- Linked list cycle detection (Floyd's algorithm).
+	
+- **Sliding window**: Maintain a contiguous range (window) over data and slide it to track sums, counts, or max/min.
+  - When: Substring/array problems involving a length or sum constraint.
+  - Sub-patterns: Fixed-size window, dynamic-size window, string window problems.
+  - Examples:
+    - Longest substring without repeating characters → Variable-length window.
+    - Minimum window substring → Dynamic shrinking and expanding window.
+    - Longest repeating character replacement → Fixed-size window with char counts.
+	- Maximum sum subarray of size k.
+  
+- **Fast & slow pointers** (or **Tortoise and hare**): Two pointers moving at different speeds to detect cycles or middle elements.
+  - When: Linked-lists, circular arrays.
+  - Sub-patterns: Cycle detection, middle finding, length of cycle.
+  - Examples:
+    - Linked list cycle detection → Floyd’s Tortoise and Hare.
+    - Happy number → Detect loop in digit-sum transformation.
+    - Find middle of linked list → Move one pointer twice as fast.
+	- Reorder linked-list.
+  
+- **Hashing/Hash-map lookup**: Store visited elements or counts for O(1) lookups.
+  - When: Detect duplicates, frequency counts, prefix sums.
+  - Sub-patterns: Frequency maps, hash sets, rolling hash.
+  - Examples:
+    - Two sum
+	- Group anagrams
+	- Longest consecutive sequence
+	
+- **Binary search**: 
+  - When:
+  - Sub-patterns: Iterative, recursive, binary search on answer space.
+  - Examples:
+    - Search in Rotated Sorted Array
+    - Find Minimum in Rotated Sorted Array
+    - Median of Two Sorted Arrays  
+	
+- **BST (Binary Search Tree)**:
+  - When:
+  - Sub-patterns: In-order traversal, insertion/deletion, lowest common ancestor.
+  - Examples:
+    - Validate BST
+    - Lowest Common Ancestor of BST
+    - Convert Sorted Array to BST
+  
+- **Sorting + Binary search**: Sort data to apply binary search or fimplify constraints.
+  - When: Search problems, interval merging, deduplication.
+  
+- **Graph traversal**: Explore data structures (graphs, grids, trees) systematically.
+  - When: Connectivity, shortest path, tree processing.
+  - Sub-patterns: BFS, DFS, Union-Find, Dijkstra's, Bellman-Ford.
+  - Examples:
+    - Number of connected components (islands) → Flood fill BFS/DFS.
+    - Clone graph → BFS/DFS with visited map.
+    - Word ladder → BFS shortest path on word graph.
+	- Minimum spanning tree (Kruskal / Prim)
+	
+- **BFS (Breadth-First Search)**:
+  - When:
+  - Sub-patterns: Level-order traversal, shortest path in unweighted graphs.
+  - Examples:
+    - Binary tree level order traversal
+	- Minimum depth of binary tree
+	- Word ladder
+	
+- **DFS (Depth-First Search)**:
+  - When:
+  - Sub-patterns: Preorder/inorder/postorder, recursive vs. iterative.
+  - Examples:
+    - Binary tree path sum
+	- Number of islands
+	- Word search
+  
+- **Backtracking**: Try all possible choices, backtrack when a choice fails.
+  - When: Combinatorics, permutations, constraint satisfaction.
+  - Sub-patterns: DFS + decision-making, constraint-based recursion.
+  - Examples:
+    - N-Queens
+	- Word search
+	- Permutations/Combinations
+  
+- **Dynamic programming (DP)**: Break problems into overlapping subproblems and reuse results.
+  - When: Optimization problems, sequences, combinatorics.
+  - Sub-patterns: 1D DP (Fibonacci, Coin change), 2D DP (Knapsack, Grid paths), Interval DP (Palindromic substrings).
+  - Examples:
+    - Climbing stairs → Fibonacci DP.
+    - Coin change → Min coins to reach amount.
+    - Longest common subsequence → Classic DP table.
+	- Longest common subsequence
+	- House robber
+	- Edit distance
+  
+- **Greedy algorithms**: Always take the locally optimal choice.
+  - When: Interval scheduling, coin change (specific denominations), Huffman coding.
+  - Sub-patterns: Interval scheduling, coin change (when greedy works), Huffma coding.
+  - Examples:
+    - Activity selection
+	- Jump game
+	- Huffman encoding
+  
+- **Union-Find / Disjoint set**: Keep track of connected components efficiently. Kruskal's algorithm.
+  - When: Graph connectivity, Kruskal's algorithm.
+  - Examples:
+    - Redundant connection
+	- Number of connected components
+	- Accounts merge
+  
+- **Heap / Priority queue**: Always fetch min/max element efficiently.
+  - When: Kth largest element, merging sorted lists.
+  - Sub-patterns: Min-heap, max-heap, k-way merge.
+  - Examples:
+    - Kth largest element
+	- Merge k sorted lists
+	- Top K frequent elements.
+  
+- **Matrix traversal patterns**: Row/column scanning (row-by-row, column-by-column), spiral order, diagonal, boundary first, DFS/BFS on grids.
+  - When: Board games, image processing.
+  - Sub-patterns:
+  - Examples:
+    - Spiral matrix
+	- Rotate image
+	- Word search
+  
+- **Pairwise comparison / Nested loops**: Compare each element with the rest. Brute-force all combinations.
+  - When: Closest points, brute-force matching.
+  - Sub-patterns:
+  - Examples:
+    - Closest pair of points
+	- 2-sum brute force
+	- Check duplicates in array
+  
+- **Bit manipulation**: Use bitwise ops for compact storage or fast computation.
+  - When: Flags, subsets, parity checks.
+  - Sub-patterns: Masking, XOR tricks, bit DP.
+  - Examples:
+    - Single number → XOR to find unique element.
+    - Find missing number → XOR all indices and elements.
+    - Two single numbers → Partition by set bit.
+	- Subsets using bitmask
+	- Reverse bits
+  
+- **Prefix sum / Cumulative sum**: Precompute running sums to answer range queries fast.
+  - When: Range sum queries, subarray sums.
+  - Sub-patterns: 1D prefix sum, 2D prefix sum, difference array.
+  - Example:
+    - Subarray sum equals K
+	- Range sum query (immutable)
+	- 2D matrix sum region query
+  
+- **Merge intervals**: 
+  - When:
+  - Sub-patterns: Sorting by start time, merging, interval insertion.
+  - Examples:
+    - Merge intervals.
+	- Insert interval.
+	- Employee free time.
+	
+- **Cyclic sort**: 
+  - When:
+  - Sub-patterns: In-place index placement, missing number detection.
+  - Examples:
+    - Find all missing numbers.
+	- First missing positive.
+	- Find duplicate number.
+	
+- **Linked list reversal**: 
+  - When:
+  - Sub-patterns: Reverse entire list, reverse sublist, reverse k-group.
+  - Examples:
+    - Reverse linked list.
+	- Reverse nodes in k-group.
+	- Palindrome linked list.
+	
+- **Topological sort**:
+  - When:
+  - Sub-patterns: kahn's algorithm, DFS-based topo sort.
+  - Examples:
+    - Course schedule
+	- Alien dictionary
+	- Minimum height trees
+	
+- **Mathematical patterns**:
+  - When:
+  - Sub-patterns: GCD/LCM, modular arithmetic, combinatorics.
+  - Examples:
+    - Greatest common divisor
+	- Modular exponentiation
+	- Pascal's triangle
+	
+- **Recursion**:
+  - When:
+  - Sub-patterns:
+  - Examples:
+    - Divide & conquer (binary search, merge sort)
+	- Tree recursion (traversing binary trees)
+	- Backtracking (generating permutations, solving mazes)
+	- Dynamic programming (top-down) (recursion + memoization)
+
+The other ~10% are often:
+
+- Math-heavy problems (number theory, probability)
+- Specialized algorithms (suffix arrays, KMP)
+- Domain-specific (low-level systems, graphics programming…)
+
+I can map each pattern to 2–3 canonical problems so you’d have a training set that hits all the main scenarios. That’s how you get from “knowing patterns” to “recognizing them instantly.”
+
+
 
 
 Symbols: ≤, ≥, ≠, ≈, √, ∑, →, ↔, ∨, ∧, ~, ¬, ∀, ∃, ⌊⌋, ⌈⌉, <sub>i</sub>, <sup>i</sup>, ∞, Ω, Θ, …

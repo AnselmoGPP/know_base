@@ -19,7 +19,30 @@
 
 ## Definitions
 
-Consciousness is not easy to define, and not everybody agree on its definition. Some definitions (retrieved 7/19/2025) are:
+Consciousness is not easy to define, and not everybody agree on its definition. Some common definitions are:
+
+- **Awareness**: Knowledge and understanding that something is happening or exists.
+
+- **Consciousness**:
+  - Quality or state of being aware, specially of something within oneself.
+  - State of being characterized by sensation, emotion, volition, and thought.
+  - State of being awake, thinking, aware of what is around around you, and able to think.
+
+
+- **Mind**: Element or complex of elements in an individual that feels, perceives, thinks, wills, and especially reasons.
+
+
+  - Faculty or capacity from which awareness of thought, feeling, and volition and of the external world arises. Also, the exercise of this.
+  - The aspect of the mind made up of operations which are known to the subject.
+  - Totality of the impressions, thoughts, and feelings, which make up a person's sense of self or define a person's identity.
+
+
+The definition we manage here is:
+
+**
+
+
+Some definitions (retrieved 7/19/2025) are:
 
 - Merriam-Webster:
 
@@ -78,7 +101,7 @@ baby, animals... are conscious?
 - Any kind of cognition, experience, feeling, or perception.
 
 
-
+- Damages in the brain directly affect the mind
 
 
 
