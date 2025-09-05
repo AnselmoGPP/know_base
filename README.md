@@ -50,8 +50,8 @@ Teach yourself Computer Science for free (equivalent to a Bachelor Degree in CS)
 ## Software development
 
 - [Recommended topics](https://github.com/AnselmoGPP/know_base/blob/master/topics/software_development/recommended_topics.md)
-- [Cracking the coding interview](https://github.com/AnselmoGPP/know_base/blob/master/topics/software_development/cracking_the_coding_interview.md)
-- [Grokking the system design interview](https://github.com/AnselmoGPP/know_base/blob/master/topics/software_development/grokking_system_design.md)
+- [Cracking coding interview](https://github.com/AnselmoGPP/know_base/blob/master/topics/software_development/cracking_coding_interview.md)
+- [System design](https://github.com/AnselmoGPP/know_base/blob/master/topics/software_development/grokking_system_design.md)
 - [Diagrams](https://github.com/AnselmoGPP/know_base/blob/master/topics/software_development/diagrams.md)
 - [Design patterns](https://github.com/AnselmoGPP/know_base/blob/master/topics/software_development/design_patterns.md)
 - [Clean code](https://github.com/AnselmoGPP/know_base/blob/master/topics/software_development/clean_code.md)

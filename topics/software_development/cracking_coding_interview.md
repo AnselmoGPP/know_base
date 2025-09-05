@@ -1,4 +1,4 @@
-# Cracking the coding interview (synthesis)
+# Cracking coding interview (synthesis)
 
 
 ## Table of Contents

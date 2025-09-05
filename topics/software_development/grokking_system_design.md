@@ -1,9 +1,31 @@
-# Grokking system design
+# System design
 
 ## Table of Contents
 + [References](#references)
 + [Introduction](#introduction)
+  + [System design interview]()
+  + [Functional vs. Non-functional requirements]()
+  + [Back-of-the-envelope estimations]()
+  + [Things to avoid]()
 + [Glosary](#glosary)
+  + [System design basics]()
+  + [Key characteristics of Distributed systems]()
+  + [Load balancing]()
+  + [Caching]()
+  + [Data partitioning]()
+  + [Indexes]()
+  + [Proxies]()
+  + [Redundancy and Replication]()
+  + [SQL vs. NoSQL]()
+  + [CAP theorem]()
+  + [PACELC theorem]()
+  + [Consistent hashing]()
+  + [Long-polling vs WebSockets vs Server-sent events]()
+  + [Bloom filters]()  
+  + [Quorum]()
+  + [Leader and follower]()
+  + [Heartbeat]()
+  + [Checksum]()  
 + [Tradeoffs](#Tradeoffs)
 + [Problems](#problems)
 
@@ -147,7 +169,7 @@ A system design interview is not just about getting the right answer, but about 
   - It's ok not to konw everything. Be open about what you're unsure of to prevent providing incorrect information.
 
 
-## Glosary
+## Glossary
 
 ### System design basics
 
@@ -172,6 +194,8 @@ Capacity of a system/process/network to grow and manage increased demand. An sca
 - __Scaling types__:
   - __Horizontal__: Scaling by adding more servers into your pool of resources. This is often easier for scaling dynamically. Examples: MongoDB, Cassandra.
   - __Vertical__: Scaling by adding more power (CPU, RAM, storage, …) to an existing server. This is usually limited by the capacity of a single server, and scaling beyond that capacity often involves downtime and comes with an upper limit. Example: MySQL.
+  
+![Scalability](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_1.png)
 
 #### Reliability
 
@@ -212,16 +236,145 @@ How easy it is to operate and maintain the system. Simplicity and speed with whi
 
 **Load balancer (LB):** Important component of distributed systems. It helps spread traffic across a cluster of servers to improve responsiveness and availability of applications, websites or databases, and keeps track of the status of all resources while distributing requests. If a server is not available, or not responding, or has high error rate, LB will stop sending traffic to it. LB typically sits between client and server, accepting incoming network and application traffic and distributing traffic across multiple backend servers using various algorithms. By balancing application requrest across multiple servers, LB reduces individual server load and prevents any one application server from becoming a single point of failure, thus improving overall application availability and responsiveness.
 
+![Load balancer](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_2.png)
+
 For full scalability and redundancy, we can try to balance load at each system's layer. We can add LBs at 3 places:
 
 - Between user and web server.
 - Between web servers and internal platform layer (like application servers or cache servers).
 - Between internal platform layer and database.
 
+![Load balancer positions](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_3.png)
 
-![flow image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_2.png)
+**Benefits of load balancing:**
+
+- Users experience faster, uninterrupted service. No need to wait for a single struggling server to finish its previous task, since requests are immediately passed on to a more readily available resource.
+- Service providers experience less downtime and higher throughput. Even a full server failure won't affect the end user expereince as the LB will route around it to a healthy server.
+- Load balancing makes it easier for system administrators to handle incoming requests while decreasing wait time for users.
+- Smart LBs provide benefits like predictive analytics that determine traffic bottlenecks before they happen. It gives an organization actionable insights, which are key to automation and can help drive business decisions.
+- System administrators experience fewer failed or stressed components. Load balancing has several devices performing a little bit of work, instead of a single device performing a lot of work.
+
+**Load balancing algorithms:**
+
+Before forwarding a request to a backend server, a LB first ensures that the server they choose is actually responding appropriately to requests, and then use a pre-configured algorithm to select one from the set of healthy servers. Servers health is monitored through **health checks**: regular attempts to connect to servers to ensure that they are listening. A server that fails a health check is automatically removed from the pool, and traffic will not be forwardedto it until it responds to health checks again.
+
+There're different load balancing algorithms for different needs:
+
+- __Least connection method__: Directs trafic to the server with the fewest active connections. Useful when there're a large number of persisten client connections which are unevenly distributed between servers.
+- __Least response time method__: Directs traffic to the server with the fewest active connections and the lowest average response time.
+- __Least bandwidth method__: Selects the server that is currently serving the least amount of traffic measured in Mbps (megabits per second).
+- __Round robin method__: Cycles through a list of servers and sends each new request to the next server. If the end of the list is reached, it starts over at the beginning. Useful when servers have equal specification and there're not many persistent connections.
+- __Weighted round robin method__: Each server is assigned a weight (integer value indicating processing capacity). Servers with higher weights receive new connections before those with less weights, and servers with higher weights get more connections that those with less weights. This is designed to better handle servers with different processing capacities.
+- __IP Hash__: A hash of the IP address of the client is calculated to redirect the request to a server.
+
+**Redundant load balancers:** The LB can be a single point of failure. To overcome this, a second LB can be connected to the first to form a cluster. Each LB monitors the health of the other and, if the main LB fails, the second LB takes over.
+
+![Redundant load balancers](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_4.png)
+
+More about LBs:
+
+- [What is load balancing](https://avinetworks.com/what-is-load-balancing/)
+- [Introduction to architecting systems](https://lethain.com/introduction-to-architecting-systems-for-scale/)
+- [Load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
+
+### Caching
+
+**Locality of reference principle:** Recently requested data is likely to be requested again. Caches take advantage of this principle.
+
+**Cache:** High-speed storage layer that sits between the applications and the original source of the data (database, file system, remote web service…). When the application requests data, it's first checked in the cache. If the data is found in the cache, it's returned to the application; otherwise, it's retrieved from its original source, stored in the cache for future use, and returned to the application. It's used in almost every computing layer (hardware, OSs, web browsers, web applications…), with various types of data (web pages, database queries, API responses, images, videos…). Caching's goal is to reduce the number of times data needs to be fetched from its original source, resulting in faster processing and reduced latency.
+
+Load balancing helps you scale horizontally across an ever-increasing number of servers. Caching enables you to make vastly better use of the resources you already have and makes otherwise unattainable product requirements feasible.
+
+**Concepts:**
+
+- __Cache__: Temporary storage location for data or computation results, typically designed for fast access and retrieval.
+- __Cache hit__: When a requested data item or computation result is found in the cache.
+- __Cache miss__: When a requested data item or computation result is not found in the cache and needs to be fetched form the original data source or recalculated.
+- __Cache eviction__: Process of removing data from the cache, typically to make room for new data or based on a predefined cache eviction policy.
+- __Cache staleness__: When data in the cache is outdated compared to the original data source.
+
+**Types of caching:** Caching can be implemented in various ways, depending on the use case and type of data. Some common types are:
+
+- **In-memory caching:** Stores data in the main memory of the computer, which is faster to access than disk storage. Useful for frequently accessed data that fits into memory. Commonly used for caching API responses, session data, and web page fragments. Some implementation techniques are including custom caching logic within the application code, and using a cache library (Memcached, Redis…).
+
+- **Disk caching:** Stores data on the hard disk, which is slower than main memory but faster than retireving data from a remote source. Useful for data too large to fit in memory or for data that needs to persist between application restarts. Commonly used for caching database queries and file system data.
+
+- **Database caching:** Stores data in the database itself, reducing the need to access external storage. Useful for data stored in a database and frequently accessed by multiple users. Some implementation techniques are database query caching and result set caching.
+
+- **Client-side caching:** Stores frequently accessed data (images, CSS, JavaScript files…) to reduce the need of repeated requests to the server. It occurs on the client device (web browser, mobile app…). Examples: browser caching, local storage, etc.
+
+- **Server-side caching:**: Used to store frequently accessed data, precomputed results, or intermediate processing results to improve the performance of the server. It occurs on the server (typically, web applications or other backend systems). Examples: full page caching, fragment caching, object caching, etc.
+
+- **CDN caching:** Stores data on a distributed network of servers, reducing the latency of accessing data from remote locations. useful for data accessed from multiple locations around the world (like images, videos, and other static assets). Commonly used for content delivery networks and large-scale web applications.
+
+- **DNS caching:** Cache used in the DNS (Domain Name System) to store results of DNS queries for a period of time. The computer (user) trying to access a website sends a DNS query to a DNS server to resolve the website's domain name to an IP address. The DNS server responds with the IP address, which the computer uses to access the website. When a DNS server receives a request for a domain name, it checks its local cache to see if it has the corresponding IP address. This reduces response time for DNS queries (no need to query other servers) and improves the overall performance of the system (reduced number of queries).
+
+![Cache types](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_5.png)
+
+**Cache invalidation:** We must ensure that the data in the cache is still correct. Otherwise, we serve out-of-date (stale) information.
+
+- __Ensure data freshness__: When the underlying data changes (prices, names…), mark or remove the old cached data (cache invalidation). Otherwise, caches will serve outdated data and lead to inconsistencies across your application.
+- __Maintain system consistency__: Large systems often have multiple caching laryers. If any layer serves old data while others serve new data, user can get conflicting information. Properly invalidating caches at each layer helps maintain a consistent view of your system's state.
+- __Balance performance and accuracy__: Cache invalidation strategies (time-to-live/TTL, manual triggers, even-based invalidation…) are designed to minimize the performance cost of continuously refreshing the cache. The goal is to keep data as accurate as possible while still still getting high-speed data retrieval.
+- __Reduce errors and mismatched states__: When caches go stale, you risk presenting users wrong or invalid information. Strategically invalidating caches when data changes reduces these odds.
+
+**Cache invalidation schemes**: There are 3 main schemes that are used:
+
+- __Write-through cache__: Data is simultaneouly written into the cache and the corresponding database (permanent storage). This allows for fast retrieval, keeps consistency between cache and storage, and ensures no data is lost during a system disruption (crash, power failure…). However, since every write operation is done twice before returning success to the client, it causes higher latency for write operations.
+- __Write-around cache__: Similar to write-through cache, but data is written directly to permanent storage, bypassing the cache. This reduce the cache being flooded with write operations that will not subsequently be re-read. However, a read request for recently written data will create a "cache miss" and must be read from slower back-end storage, causing higher latency.
+- __Write-back cache__: Data is written to cache alone. Writting to permanent storage is done after specified intervals or under certain conditions. This results in low-latency and high-throughput for write-intensive applications. However, since the only copy of the written data is in the cache, there's risk of data loss during a system disruption.
+
+![Cache types](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_6.png)
+
+**Cache invalidation methods:** Most famous ones are:
+
+- **Purge:** Remove cached content for a specific object, URL, or set of URLs. When a purge request is received, the cached content is immediately removed. Typically used when there's an update or change to the content and the cached version is no longer valid.
+- **Refresh:** Update cached content with the latest version. When a refresh request is received, the cached content is updated with the latest version from the origin server.
+- **Ban:** Invalidate cached content based on specific criteria (URL pattern, header…). When a ban request is received, any cached content matching the specified criteria is immediately removed.
+- **TTL (Time-to-live) expiration:** Set a time-to-live value ofr cached content, after which the content is considered stale and must be refreshed. When a request for a content is received, the cache checks the TTL value and serves the cached content if it hasn't expired. Otherwise, it fetches the latest version from the origin server and caches it.
+- **Stale-while-revalidate (SWI):** Serve stale content from cache while content is updated in the background. When a request for content is received, the cached version is immediately served, and an asynchronous request is made to the origin server to fetch the latest version of the content to update the cached version. This ensures content is served quickly, even if it's slightly outdated. Used in browsers and CDNs.
+
+![Cache types](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_7.png)
+
+**Cache read strategies:** Two famous ones are:
+
+- **Read through cache:** The cache is responsible for retrieving the data from the underlying data store when a cache miss occurs. After a cache miss, cache retrieves data from the data store, updates cache, and returns data to the application. The application requests data from the cache instead of the data store directly. It maintains consistency between cache and data store, and simplifies code. Useful when data retrieval from data store is expensive, and cache misses are relatively infrequent.
+
+- **Read aside cache (or cache-aside, or lazy loading):** The application is responsible for retrieving data from the underlying data store when a cache miss occurs. The application first checks the cache for the requested data. If not found (cache miss), the application retrieves it from data store, updates cache, and uses the data. This provides better control over the caching process, but adds complexity to the application code. Useful when you need to ensure that a cache failure won't take down your whole system, or when you want to optimize cache usage based on specific data access patterns.
+
+![Cache types](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_8.png)
+
+**Cache eviction policies:** Most common ones are:
+
+- **FIFO (First In First Out)**: The cache evicts the first block accessed first without any regard to how often or how many times it was accessed before.
+- **LIFO (Last In First Out)**: Similar to FIFO, but it evicts the block accessed most recently first.
+- **LRU (Least Recently Used)**: Discard the least recently used items first.
+- **MRU (Most Recently Used)**: Discards the most recently used items first.
+- **LFU (Least Frequently Used)**: Discards the least often used items first.
+- **RR (Random Replacement)**: Randomly selects an item and discards it to make space when necessary.
+
+### Data partitioning
+
+**Data partitioning:** Process of dividing a large database (DB) into smaller, more manageable parts called **partitions** or **shards**. Each partition is independent and contains a subset of the overall data.
 
 
+
+
+
+
+### Indexes
+### Proxies
+### Redundancy and Replication
+### SQL vs. NoSQL
+### CAP theorem
+### PACELC theorem
+### Consistent hashing
+### Long-polling vs WebSockets vs Server-sent events
+### Bloom filters
+### Quorum
+### Leader and follower
+### Heartbeat
+### Checksum
 
 
 
