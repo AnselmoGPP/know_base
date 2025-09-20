@@ -24,9 +24,9 @@
 A **mesh** is made of a single **vertex** (singular) or many **vertices** (plural). An **edge** is made of two vertices joined by a line. A **face** is made of 4 vertices forming a square.
 
 - **Basic windows**:
-  - Viewport: Scene showing 3D objects.
-  - Scene objects menu: List of objects in the scene.
-  - Properties menu: Different properties (some are general, some are selection dependent).
+  - **Viewport**: Scene showing 3D objects.
+  - **Scene objects menu**: List of objects in the scene.
+  - **Properties menu**: Different properties (some are general, some are selection dependent).
 
 - **Viewport shading**: Type of rendering used in the viewport(wireframe, solid, material, rendered). Change it using the top right icons.
 

@@ -74,9 +74,10 @@ Teach yourself Computer Science for free (equivalent to a Bachelor Degree in CS)
 
 ## Miscellany
 
-- [Principles of economics](https://github.com/AnselmoGPP/know_base/blob/master/topics/miscellany/principles_of_economics.md)
-- [Introduction to psychology](https://github.com/AnselmoGPP/know_base/blob/master/topics/miscellany/introduction_to_psychology.md)
-- [Introduction to biology](https://github.com/AnselmoGPP/know_base/blob/master/topics/miscellany/introduction_to_biology.md)
+- [Introduction to Philosophy](https://github.com/AnselmoGPP/know_base/blob/master/topics/miscellany/introduction_to_philosophy.md)
+- [Principles of Economics](https://github.com/AnselmoGPP/know_base/blob/master/topics/miscellany/principles_of_economics.md)
+- [Introduction to Psychology](https://github.com/AnselmoGPP/know_base/blob/master/topics/miscellany/introduction_to_psychology.md)
+- [Introduction to Biology](https://github.com/AnselmoGPP/know_base/blob/master/topics/miscellany/introduction_to_biology.md)
 - [Consciousness](https://github.com/AnselmoGPP/know_base/blob/master/topics/miscellany/consciousness.md)
 - [Applied behavior analysis](https://github.com/AnselmoGPP/know_base/blob/master/topics/miscellany/applied_behavior_analysis.md)
 - [Literature](https://github.com/AnselmoGPP/know_base/blob/master/topics/miscellany/literature/literature.md)

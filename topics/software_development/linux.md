@@ -10,7 +10,7 @@
   + [Control flow](#control-flow)
   + [File descriptor](#file-descriptor)
   + [Permissions](#permissions)
-  + [Directories](#directories)
+  + [](#)
 
 
 ## Introduction
@@ -133,7 +133,7 @@ It defines the structure of file systems on Linux and other UNIX-like operating 
 
 - **`/` – root directory**
 
-Everything on your Linux system is located under the `/` directory. Linux doesn’t have drive letters. Another partition appear in another folder under `/`.
+Contains everything on your Linux system. Linux doesn’t have drive letters. Another partition appear in another folder under `/`.
 
 - **`/bin` – essential user binaries**
 
@@ -223,35 +223,49 @@ Popular distributions for __pentesting__ are **Parrot** and **Kali**.
 
 **Directories and file systems**: Everything is a file in Linux (directories, files, devices/nodes…). All files are organized in a tree, where the highest level one is the root directory (`/`). Below root there're various directories common to most GNU/Linux distributions:
 
-- **User:**
-  - `/home`: Personal directories for the different users.
-  - `/root`: Personal directory of the root user (superuser).
-  - `/usr` (user): Applications and files accessible for most users.
-    - `/usr/bin` (binaries): Applications for users.
-    - `/usr/lib32`, `/usr/lib64`: Functions libraries for the applications for the users.
-    - `/usr/share`: Shared data from the applications.
-  - `/opt` (optional): Place for installing optional applications (from 3rd parties).
-- **System:**
-  - `/usr` (user):
-    - `/usr/bin`: OS binaries (applications).
-    - `/usr/sbin`: System binaries.
-    - `/usr/lib`: OS functions libraries (others: `lib32`, `lib64`, `libx32`).
-  - `/etc`: System (and applications) configurations, boot scripts, etc.
-  - `/boot`: Files needed for bootting (including configuration files) and cores.
-  - `/dev` (device): Device files.
-  - `/media`: Partitions automatically mounted (loaded) on the hard drive and removable media (CDs, digital cameras…).
-  - `/mnt` (mounted): Files systems mounted manually on the hard drive.
-  - `/proc` (process): Special dynamic directory that keeps information about the system state, including processes currently in progress.
-  - `/srv` (server): It can contain files that are served to other systems.
-  - `/sys` (system): System files.
-  - `/tmp` (temporary): Temporary files.
-  - `/var` (variable): Variable files (registries files, databases…).
-  - `/cdrom`
-  - `/run`
-  - `/snap`
-- **Others** (not seen):
-  - `/initrd`: Used when a custom `initrd` boot process is created.
-  - `/lost+found`: "Lost+found" system for files under root directory (`/`).
+- **Homes**:
+  - **`/`** (root): Main directory that contains all others.
+  - **`/root`**: Personal directory of the root user (superuser) (like a `/home` for root). Variable not-shared directory.
+  - **`/home`**: Personal directories for the different users. Variable shared directory containing the personal files (docs, photos, videos…) of the users, except root user.
+
+- **Libraries**:  
+  - **`/lib`**: Static shared directory containing 32 bits shared libraries necessary for running the executables stored at `/bin` and `/sbin`.
+  - **`/lib64`**: Contains 64 bits libraries.
+  - **`/lib32`**: Contains 32 bits libraries.
+  - **`/libx32`**: Contains x32 ABI libraries. The x32 ABI is a special mode on x86_64 processors that uses 32-bit pointers (for efficiency) but still provides 64-bit registers.
+  
+- **System**:
+  - **`/bin`**: Static shared directory containing binaries necessary for the system to work and that any user can use.
+  - **`/sbin`**: Static not-shared directory containing binaries that can only be executed by root user.
+  - **`/boot`**: Files needed for bootting (including configuration files) and cores. Static not-shared directory containing all the files necessary for the system boot (kernel, boot manager Grub…), except configuration files.
+  - **`/etc`**: System (and applications) configurations, boot scripts, etc. Static directory containing the configuration files for the OS and for many programs.
+  - **`/tmp`** (temporary): Temporary files. Creates and contains temporal files and variables necessary for some programs.
+  - **`/proc`** (process): Special dynamic directory that keeps information about the system state, including processes currently in progress. Virtual files system that provides information about the processes and applications being processed.
+  - **`/sys`** (system): System files. Virtual files containing structured information about the kernel, partitions, file systems, drivers, etc.
+  - **`/initrd`**: Used when a custom `initrd` boot process is created.
+  - **`/run`**: Stores runtime data (temporary files) needed by processes since the system booted (PID files, sockets, lock files…). Resides in RAM (`tmpfs`), so it's cleared on reboot.
+  - **`/var`** (variable): Variable files (registries files, databases…). Contains variable and temporal files (system logs, programs' logs, spool files…). Used for detecting and solving problems. Recommendation: put this directory in its own partition (or at least, out of the root partition).
+  - **`/lost+found`**: "Lost+found" system for files under root directory (`/`). Contains files and directories recovered from an OS crash (if it happened). Created in the disc partitions with an `ext` file system after executing tools for restoring and recovering the OS (like `fsch`).
+  
+- **Applications**:
+  - **`/usr`** (User System Resources): Applications and files accessible for most users. Static shared directory containing most programs installed in our OS (including those from package managers). It's content is read-only and can be accessed by all users.
+  - **`/opt`** (optional): Place for installing optional applications (from 3rd parties). Static shared directory containing programs not included in the OS (Spotify, Google Earth, Google Chrome, TeamViewer…).
+  
+- **External**:
+  - **`/dev`** (device): Device files. Contains all files representing a hardware device. Example: `cdrom` (CD-ROM), `sda` (sata hard disc), `audio` (sound card), `psaux` (PS/2 port), `lpx` (printer), `fd0` (floppy drive), etc.
+  - **`/mnt`** (mounted): Files systems mounted manually on the hard drive. Contains the mounting points of the different storage devices (external HDD, external units' partitions…).
+  - **`/media`**: Partitions automatically mounted (loaded) on the hard drive and removable media (CDs, digital cameras…). Contains the mounting points of the removable storage devices (USB memory, CD-ROM player, floppy disks unit…).
+  - **`/srv`** (server): It can contain files that are served to other systems.
+
+In detail:
+
+**`/usr`**:
+- **`/usr/bin`** (binaries): Applications for users. OS binaries (applications).
+- **`/usr/sbin`**: System binaries.
+- **`/usr/lib`**: OS functions libraries (others: `lib32`, `lib64`, `libx32`).
+- **`/usr/lib32`**, **`/usr/lib64`**: Functions libraries for the applications for the users.
+- **`/usr/share`**: Shared data from the applications.
+- **`games  include  libexec  libx32  local  src`**
 
 #### Packages installation/uninstallation
 
@@ -473,10 +487,73 @@ Main commands:
 
 Each file and directory has permissions (read, write, execute) associated to different entites (owner user, group, anybody else). These entities and their permissions can only be changed by the owner and the superuser (`su`).
 
-- 
+- `touch file.txt`: Create file. Other options: `vi`, `nano`, etc.
+- `makedir`: Create directory.
+- `echo "hi there" > file.txt`: Write data to file (overwrite) (creates file if it doesn't exist).
+- `echo "hi there" >> file.txt`: Write data to file (append).
+- `rm`: Remove.
+  - `rm file.txt`: Remove file.
+  - `rm -r *`: Remove (recursively) everything inside current directory (including subdirectories).
+- `ls -l` → `.rw-r--r-- propUser userGroup 190 B Wed Aug 12:18:02 2022 file.txt`
+  - File type: Directory (`d`) or not (`.`).
+  - Permissions: Readable (`r`), Writeable (`w`), Executable/Traversable (`x`). Three entities involved: owner, group, others.
+  - Users: Owner/Creator (`propUser`), Groups (`userGroup`), Others.
+  - Date of creation: `Wed Aug 12:18:02 2022`
+- `rm: Delete regular file filename? (y/n)`: To prevent this type of questions from the system, attach flag `-f` to your command (`rm -rf dirname`).
+- Change user:
+  - `su newUserName`: Substitute user (change user). Password is required, unless you're root (most privileged user within the system). Use `exit` to logout from the new user.
+  - `su`: If you (user) are in the group sudo, you can be root with this command. Root user doesn't have to provide passwords.
+  - `sudo X`: Execute command X as root without changing user (a temporary privilege token recognizes you as root). Example: `sudo username` or `sudo su`.
+- Change mode (`chmod`), group (`chgrp`), and owner (`chown`). Available only for file owners.
+  - `chmod u-x, g+wr, o+rx filename`: Change permission over file "filename" of "user", "group" and "others".
+  - `chmod 675 filename`: Octal notation for changing permissions (pattern: `421`).
+  - `chmod otherOwner filename`: Change owner.
+  - `chgrp otherGroup filename`: Change group.
+  - `chown newOwner:newGroup filename`: Change owner and group at the same time.
+- User creation:
+  - Create home directory for the new user (`/home/john`).
+  - `useradd john -s /bin/bash -d /home/john`: Create new user (`john`) and specify his shel and home directory.
+  - `passwd john`: Assign password for user `john`.
+  - Change `/home/john` owner (`chown`) and group (`chgrp`) to `john`.
+  - `cat /etc/passwd | grep jhon`: Output `john:x:1001:1003::/home/john:bin/bash` (`username:x:userId::homeDir:shell`).
+  - `cat /etc/group | grep john`: Output: `john:x:1003:` (`username:x:groupId`).
+  - `groupadd family`: Create new group.
+  - `usermod -a -G family john`: Add user `john` to group `family`.
+  - `cat /etc/group | grep john`: Output: `family:x:1004:john`.
+  - `id`: Output: `uid=1001(john) gid=1003(john) groups=1003(john) 1004(family)`
+- Special permissions:
+  - __Precedence__: `folder1` (`rwxr--rw-`) contains `file1` (`rw-r--r--`). Despite `file1` doesn't provide `w` permission to others, others can delete this file because `folder1` provides so.
+  - __Sticky bit__ (`chmod +t folder1` or `chmod 1755 folder1`): Make only the creator able to delete or rename a file. Now, `file1` can no longer be deleted by others.
+  - __Immutable__ (`chattr +i filename`): Make file immutable so not even root can delete it. Undo ths with `chattr -i`. Check file attributes with `lsattr`.
+  - __SUID__: `chmod u+s filename` (or using `4`: `chmod 4755 filename`). This let the user use this file as the owner temporarily.
+    - `find / -type f -perm -4000 2>/dev/null`: Find from root (`/`) all files (`f`) with SUID (privilege `4000`). In order to don't see error messages (`2`) (we may have no permission for looking in certain directories) we send them to `/dev/null`.
+  - __SGID__: `chmod g+s filename` (or using `2`: `chmod 2755 filename`). This let the user use this file as the group temporarily.
+    - `find / -type f -perm -2000 2>/dev/null`
+  - __Digit modes__: `chmod X### file/directory` (`X=1`: sticky, `X=2`: SGID, `X=4`: SUID).
+  - __Capabilities__: Capability assigned to a file for executing certain privileged task. Show capabilities with `getcap`. Examples:
+    - `getcap -r / 2>/dev/null` (show all capabilities from root directory recursively and send error messages to null).
+    - `setcap cap_setuid+ep /usr/bin/python3.9` (give Python the capability of changing uid).
+	- `getcap !$` (get capabilities form the last argument of the previous command, i.e. Python).
+	- `setcap -r /usr/bin/python3.9` (remove capability from Python).
+  
+Links:
 
+- [Permissions and rights on Linux](https://blog.desdelinux.net/permisos-y-derechos-en-linux/)
+- [Basic permissions on Linux](https://www.profesionalreview.com/2017/01/28/permisos-basicos-linux-ubuntu-chmod/)
+- [Add, change, or remove permissions to folders and files on Linux](https://www.softzone.es/linux/tutoriales/permisos-archivos-directorios-linux/)
+- [How to change permissions and owners on Linux](https://www.hostinger.com/es/tutoriales/cambiar-permisos-y-propietarios-linux-linea-de-comandos)
+- [What is chmod?](https://www.ionos.es/digitalguide/servidores/know-how/asignacion-de-permisos-de-acceso-con-chmod/)
+- [Owners and permissions](https://atareao.es/tutorial/terminal/propietarios-y-permisos/)
+- [Permissions of the file system on GNU/Linux](https://blog.alcancelibre.org/staticpages/index.php/permisos-sistema-de-archivos)
+- [What is the Sticky Bit and how to configure it?](https://keepcoding.io/blog/que-es-el-sticky-bit-y-como-configurarlo/)
+- [The Sticky Bit](https://www.fpgenred.es/GNU-Linux/el_bit_sticky.html)
+- [Commands chattr and lsattr](https://programmerclick.com/article/5604675172/)
+- [chattr and lsattr: Control of file attributes on Linux](https://rm-rf.es/chattr-y-lsattr-visualizar-y-modificar-atributos-en-sistemas-de-ficheros-linux/#:~:text=El%20primer%20comando%2C%20lsattr%20permite,chmod%2C%20chown%2Csetfacl%E2%80%A6))
+- [SGID permission](https://deephacking.tech/permisos-sgid-suid-y-sticky-bit-linux/#:~:text=Permiso%20SGID,-El%20permiso%20SGID&text=Si%20se%20establece%20en%20un,perteneciente%2C%20el%20grupo%20del%20directorio.)
+- [Special permissions on Linux: Sticky Bit, SUID, and SGID](https://www.ochobitshacenunbyte.com/2019/06/17/permisos-especiales-en-linux-sticky-bit-suid-y-sgid/)
+- [The bits SUID, SGID, and Sticky](https://www.ibiblio.org/pub/linux/docs/LuCaS/Manuales-LuCAS/SEGUNIX/unixsec-2.1-html/node56.html)
+- [Capabilities - Linux manual page](https://man7.org/linux/man-pages/man7/capabilities.7.html)
 
-
-### Directories
+### 
 
 
