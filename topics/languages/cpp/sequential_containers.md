@@ -29,11 +29,11 @@
   - **`std::array`**: Fixed-size array. Size fixed at compile-time, like C-style arrays. Safer and easier-to-use alternative to built-in arrays.
     - Fast random access
     - Cannot add or remove elements
-    - Contiguous elements
-  - **`std::vector`**: Flexible-size array. 
+    - Contiguous elements in memory
+  - **`std::vector`**: Flexible-size array.
     - Fast random access
     - Fast insert/delete at the back
-    - Contiguous elements in memory
+    - Contiguous elements
   - **`std::deque`**: Double-ended queue.
     - Fast random access
     - Fast insert/delete at front or back
@@ -49,7 +49,7 @@
 - **Linked lists**: Dynamically allocated nodes linked together. Slow random access (O(n)). Fast insertion/deletion (O(1)).
 
   - **`std::list`**: Doubly-linked list.
-    - Fast insert/delete at any point in the list (`std::list`)
+    - Fast insert/delete at any point in the list.
     - No random access. Forward and reverse traversal.
     - More memory overhead than non-linked lists.
   - **`std::forward_list`**: Singly-linked list.
@@ -69,7 +69,7 @@
   - Use a **linked-list** for the input phase. After input, copy the list into a **vector**.
 - Random access + insert/delete elements in the middle: It depends on the relative cost of accessing the elements in a **linked-list** versus inserting/deleting elements in a **vector/deque**. Generally, the predominant operation of the application determines the choice of container type (in such case, performance testing the application using both containers may be necessary).
 
-If you’re not sure which container to use, write your code so that it uses only operations common to both std::vectors and std::lists: Use iterators, not subscripts, and avoid random access to elements. This way it will be easy to use either a vector or a list as necessary.
+If you’re not sure which container to use, write your code so that it uses only operations common to both `std::vector`s and `std::list`s: Use iterators, not subscripts, and avoid random access to elements. This way it will be easy to use either a vector or a list as necessary.
 
 **forward_list** doesn’t have size() operation. For other containers, size() is guaranteed to be a fast, constant-time operation.
 

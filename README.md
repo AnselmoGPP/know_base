@@ -56,6 +56,7 @@ Teach yourself Computer Science for free (equivalent to a Bachelor Degree in CS)
 - [Design patterns](https://github.com/AnselmoGPP/know_base/blob/master/topics/software_development/design_patterns.md)
 - [Clean code](https://github.com/AnselmoGPP/know_base/blob/master/topics/software_development/clean_code.md)
 - [Doxygen](https://github.com/AnselmoGPP/know_base/blob/master/topics/software_development/doxygen.md)
+- [Docker](https://github.com/AnselmoGPP/know_base/blob/master/topics/software_development/docker.md)
 
 
 ## Computer graphics
@@ -63,6 +64,7 @@ Teach yourself Computer Science for free (equivalent to a Bachelor Degree in CS)
 - [**Computer graphics**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_graphics/computer_graphics.md)
 - [**Vulkan API**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_graphics/vulkan_fundamentals.md)
 - [**Blender**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_graphics/blender.md)
+- [**Topology**](https://github.com/AnselmoGPP/know_base/blob/master/topics/computer_graphics/topology.md)
 
 
 ## Security

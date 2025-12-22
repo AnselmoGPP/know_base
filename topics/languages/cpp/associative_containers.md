@@ -22,9 +22,9 @@ Associative containers hold elements whose positions depend on a key associated 
 - **Unordered**: Elements stored in arbitrary order using hash tables for faster lookups. Lookup, insert, and delete operations take O(1) on average and O(n) on worst case (if many elements collide). The internal structure is a hash table with buckets + linked lists. A hash function converts the key into an index/bucket. Elements are stored in buckets. If 2 keys have same hash (collision), they are stored in a linked list (chaining) in the same bucket. Rehashing (doubling the number of buckets) prevents performance drops.
 
   - `std::unordered_set`: Similar to `std::set`, but unordered and uses hashing.
-  - `std::unordered_multiset`: Similar to `std::multiset`, but unordered.
-  - `std::unordered_map`: Similar to `std::map`, but unordered and uses hashing.
-  - `std::unordered_multimap`: Similar to `std::multimap`, but unordered.
+  - `std::unordered_multiset`: Similar to `std::multiset`, but unordered and uses hashing.
+  - `std::unordered_map`: Similar to `std::map`, but unordered and uses hashing and uses hashing.
+  - `std::unordered_multimap`: Similar to `std::multimap`, but unordered and uses hashing.
 
 
 

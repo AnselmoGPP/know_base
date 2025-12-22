@@ -126,7 +126,7 @@ Most often we only have to work with vertex and fragment shaders. We are require
 5. <Perspective divide> → **(NDC)** (automatic)
 6. <Viewport transform> → **(Screen)** (automatic)
 
-![Transformations](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_8.png)
+![Transformations](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_8.png)
 
 #### In the pipeline
 
@@ -151,7 +151,7 @@ Most often we only have to work with vertex and fragment shaders. We are require
 - **NDCs** (`x,y,z`): Values XY are within [-1, 1], and Z within [0, 1] in Vulkan. It's like a unit cube centered on the screen that contains all the visible scene.
 - **Pixel** (`x,y`, `z`): Real screen positions and depth. Depth is within [0, 1] by default.
 
-![coordinates](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_1.png)
+![coordinates](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_1.png)
 
 #### Transformation matrices
 
@@ -194,11 +194,21 @@ To draw the same object in different places we can draw it many times in the ren
 
 To send vertex data to the vertex shader you need to reserve some memory on the GPU for it, configure how the API should interpret the memory, and specify how to send the data. Vertex data can be sent all at once, there's no need to send it one vertex at a time. Sending data to GPU is relatively slow, so we should try to send as much data as possible at once. We can also send **indices** (they specify at which order to draw the vertices) to avoid repeating (overlapping) vertices.
 
-![vertex buffer](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_2.png)
+![vertex buffer](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_2.png)
 
 ### GLSL
 
-**Shader**: Little programs that rest on the GPU, and just transform inputs to outputs. Shaders are extremely pipelined; they cannot communicate with each other, except via input and output. If we need data from outside the shader, we have to pass data around via vertex attributes, uniforms, samplers, or get it from the built-in variables.
+**Shader**: Little programs that rest on the GPU, and just transform inputs to outputs. Shaders are extremely pipelined; they cannot communicate with each other, except via input and output. If we need data from outside the shader, we have to pass data around via vertex attributes, uniforms, samplers, or get it from the built-in variables. Shaders receive some input, operate on it, and produce an output. Most common shaders:
+
+- **Vertex shader**: Runs per vertex.
+  - Input: Vertex attributes, UBOs…
+  - Output:
+    - Clip-space coordinates
+	- Any output for the fragment shader
+
+- **Fragment shader**: Runs per fragment.
+  - Input: UBOs, textures, input from vertex shader…
+  - Output: One or more fragment colors (the render pipeline determines the number of outputs).
 
 **Shader program**: Final linked version of multiple shaders combined (links the outputs of each shader to the inputs of the next).
 
@@ -236,6 +246,7 @@ To send vertex data to the vertex shader you need to reserve some memory on the 
 #version 420 core
 out vec4 FragColor
 layout (depth_greater) out float gl_FragDepth;  // feature only available from OpenGL 4.2
+
 void main()
 {
   fragColor = vec4(1.0);
@@ -300,7 +311,7 @@ FA<sub>depth</sub> = (z - near) / (far - near)
 
 FA<sub>depth</sub> = ((1/z) - (1/near)) / ((1/far) - (1/near))
 
-![depth values graph](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_3.png)
+![depth values graph](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_3.png)
 
 Depth values are linear in view-space but, after applying the projection matrix, they're not linear in clip-space. The non-linear equation to transform z-values from view to clip space is embedded within the projection matrix.
 
@@ -337,7 +348,7 @@ void main()
 
 To map a texture to a triangle, each vertex should have a **texture coordinate** associated (range [0, 1]) that specifies what part of the texture image to sample from. We passes these coordinates to the vertex shader (as vertex attributes), which then passes them to the fragment shader, which interpolates the texture coordinates for each fragment (**fragment interpolation**).
 
-![depth values graph](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_4.png)
+![depth values graph](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_4.png)
 
 **Sampling**: Retrieving the texture color using texture coordinates. We've to tell the API how to sample our textures, that is, how to map a coordinate to a texture pixel (**texel**). Some options are:
 
@@ -404,7 +415,7 @@ unsigned char *imageData = stbi_load("container.jpg", &width, &height, &numChann
   - **Dot product (A · B = scalar)**: Multiplication of A's magnitude by the magnitude of the projection of B over the line defined by A (alternative: length_A · length_B · cosθ). If the vectors go in opposite directions, the result is negative. It's commutative (A·B = B·A). 
   - **Cross product (A x B = vector)**: Vector orthogonal to both according to the right-hand rule. It length is equal to the area of the parallelogram formed by the original 2 vectors. It's not commutative (AxB ≠ BxA).
   
-![Matrix addition and subtraction](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_5.png)
+![Matrix addition and subtraction](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_5.png)
 
 ### Matrices
 
@@ -426,7 +437,7 @@ The **`w` component** (homogenous coordinate) of a vector tells whether it denot
 
 **Combining matrices** can be done using matrix-matrix multiplication. This way we combine multiple transformation matrices in a single matrix. It's advised to first do scaling, then rotations, then translations (`translation · rotation · scaling`), which requires multiplying matrices in reverse order.
 
-![Transformation matrices](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_6.png)
+![Transformation matrices](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_6.png)
 
 ### GLM
 
@@ -499,7 +510,7 @@ glm::ortho(left, right, bottom, top, near, far);
 glm::perspective(fov, aspectRatio, near, far);   // aspectRatio = viewportWidth/viewportHeight
 ```
 
-![Projections](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_7.png)
+![Projections](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_7.png)
 
 
 ## Camera
@@ -513,7 +524,7 @@ A camera is simulated by moving all objects in the scene in reverse direction. T
 
 These 4 elements define a coordinate system with the camera at its center. With them you can create a matrix with those 3 axes and the translation vector, and transform any vector to that particular coordinate space by multiplying it with this matrix. This is what `glm::lookAt()` matrix does.
 
-![lookAt function](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_9.png)
+![lookAt function](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_9.png)
 
 Since we want to rotate and translate the world in the opposite direction of where we want the camera to move, the rotation (left matrix) is transposed, and the translation (right matrix) is inverted. Using this `glm::lookAt` matrix as our **view matrix** we can transform all world coords to view space.
 
@@ -521,7 +532,7 @@ Since we want to rotate and translate the world in the opposite direction of whe
 
 **Looking around**: Given some **Euler angles (pitch, roll, yaw)**, which represent any rotation in 3D, we can convert them into a new 3D direction vector.
 
-![Rotations](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_10.png)
+![Rotations](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_10.png)
 
 **Example**: Non-roll camera.
 
@@ -548,7 +559,7 @@ dir.z = sin(pitch);
 
 - Example: If we set `yaw = -90`, the camera will point to negative z.
 
-![Angles](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_11.png)
+![Angles](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_11.png)
 
 **Direction change**: The yaw and pitch values are obtained from mouse/controller/joystick movement: horizontal move affects yaw, vertical move affects pitch. We have to save last frame's mouse horizontal and vertical positions, and calculate how much they changed in the current frame (offset).
 
@@ -609,7 +620,7 @@ Normals are mainly used for lighting. Normal vectors (`vec3`) are passed from ve
 - If M performs **non-uniform scaling**, vertices would be changed in such a way that the normal vector is not perpendiular to the surface anymore (only normal's magnitude changes, not its directions). This distorts the lighting. This is fixed by using a different model matrix specifically tailored for normal vectors (**normal matrix**).
 - Normals usually require **normalization**, since they have been interpolated from the vertex shader (their magnitud changed), and M might have applied scaling.
 
-![Normal distortion](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_15.png)
+![Normal distortion](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_15.png)
 
 **Normal matrix (N)**: Transpose of the inverse of the upper-left 3x3 part of the module matrix ([link](http://www.lighthouse3d.com/tutorials/glsl-12-tutorial/the-normal-matrix/)). It's a 3x3 model matrix (or model-view) without translation that is modified in such a way that it keeps normal vectors facing the correct direction when non-uniform scaling is applied. It's recommended to compute N in the CPU and send it to the shader (inverting matrices is expensive for shaders).
 
@@ -627,7 +638,7 @@ This model consists of 3 lightings:
 
 After computing these lightings, we **combine** them (add up) and multiply with the object color: `vec3 result = (ambient + diffuse + specular) * objectColor`
 
-![Light components](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_12.png)
+![Light components](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_12.png)
 
 #### Ambient lighting
 
@@ -654,7 +665,7 @@ vec3 diffuse = lightDiffuse * diff * objectColor;
 
 If the angle between 2 vectors is > 90º, the dot product becomes negative. Since color cannot be negative, we use **max()** (GLSL function that returns the highest of 2 parameters) to avoid that.
 
-![Incidence angle](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_13.png)
+![Incidence angle](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_13.png)
 
 #### Specular lighting
 
@@ -671,7 +682,7 @@ Calculation steps:
 - Get **specularity intensity** (`pow(max(dot(viewDir, reflectDir), 0), roughness)`).
 - Result: `vec3 specular = material_specularity * specular_intensity * lightColor`
 
-![Angle](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_14.png)
+![Angle](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_14.png)
 
 ### Blinn-Phong lighting model
 
@@ -703,14 +714,14 @@ The properties of a **light** can be represented with a set of values in a struc
 
 The properties of a **material** can be represented with a set of values, or maps. Some of them are:
 
-- Diffuse
+- Albedo/Diffuse
 - Roughness / Shininess / Smoothness / Gloss
-- Specularity: Specifies what parts are shiny and its intensity.
+- Specularity / Metalness: Specifies what parts are shiny and its intensity.
 - Height / Displacement / Bump
 - Ambient occlusion
 - Normal
 
-Using some tools (Gimp, Photoshop…) it's easy to transform a diffuse texture to a specular image bu cutting out some parts, transforming it to black and white, and increasing brightness/contrast.
+Using some tools (Gimp, Photoshop…) it's easy to transform a diffuse texture to a specular image by cutting out some parts, transforming it to black and white, and increasing brightness/contrast.
 
 ### Light casters
 
@@ -740,7 +751,7 @@ Light source with a given position that illuminates in all directions, where lig
 
 The light will diminish mostly linearly until the distance becomes large enough for the quadratic term to surpass the linear term and the light intensity will decrease a lot faster.
 
-![Attenuation](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_16.png)
+![Attenuation](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_16.png)
 
 Choosing the right values for these 3 terms depend on many factors: environment, lighting distance, type of light, etc. Check usual values [here](http://wiki.ogre3d.org/tiki-index.php?page=-Point+Light+Attenuation).
 
@@ -756,7 +767,7 @@ specular *= attenuation;
 
 Light source that only shoots light rays in a specific direction. Represented by a **position**, a **direction**, and a **cutoff angle**. It also uses attenuation. For each fragment we check whether it's in the spotlight's cone and, if so, we lit the fragment accordingly.
 
-![Spot light](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_17.png)
+![Spot light](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_17.png)
 
 - `lightDir`: Direction from fragment to light source.
 - `spotDir`: Direction the spotlight is aiming at.
@@ -797,13 +808,13 @@ void main()
 
 Human eyes are more susceptible to changes in dark colors. Therefore, what we consider a linear range of brightnesses is not physically correct. Given brightness A, what we consider the double of A (perceived brightness) is different than what it really is (physical brightness).
 
-![Brightness scale](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_18.png)
+![Brightness scale](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_18.png)
 
 Since the top line looks correct for the human eye, monitors use a power relationship (~2.2, depending on the monitor) for displaying output colors so the linear brightness colors are mapped to the non-linear ones (`finalColor.rgb = pow(color.rgb, vec3(2.2))`).
 
 When rendering graphics, the color and brightness options we configure are based on what we perceive from the monitor. Thus, all options are actually non-linear brightness/color options. However, the monitor transforms our colors, distorting them.
 
-![Gamma table](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_19.png)
+![Gamma table](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_19.png)
 
 The dotted line represents color values in linear space. The solid line is how monitors display colors. The colors we render are darkened by the monitor (except 0 and 1). The dashed line is how we should correct our colors to compensate for the monitor's transformation.
 
@@ -874,7 +885,7 @@ If we express the unit axes of one coordinate system A in terms of another B and
 
 **TBN matrix**: It allows to transform normal vectors from tangent space to a different coordinate space (world or view coordinates) (or viceversa if we use its inverse), orienting them along the final mapped surface's direction. TBN matrix is made of 3 perpendicular vectors (Tangent, Bitangent, Normal) that are aligned along the normal map surface (right, up, forward). We already know the up vector (surface's normal). We can calculate tangents and bitangents from the triangle's vertices and its texture coords (since texture coords are in the same space as tangent vectors).
 
-![Tangent space](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/cg_20.png)
+![Tangent space](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/cg_20.png)
 
 For simple plain surfaces (wall, water…) we can get a single tangent space for the entire surface and use it for each vertex (see above). But for irregular surfaces (terrain, mountains…) we have to get the tangent space of each vertex. 
 
@@ -971,7 +982,7 @@ Where `handedness` is a `+1` or `-1` scalar stored in `tangent.w`. It's useful w
 float handedness = (glm::dot(glm::cross(normal, tangent), bitangent) < 0.f) ? -1.f : 1.f;
 ```
 
-
+<<<
 
 **Synthesis_**
 
@@ -1017,11 +1028,7 @@ More about normal mapping:
 
 -------------------------------------
 
-Descriptor: Pointer or reference to a resource. A uniform buffer descriptor points to a buffer. A sample descriptor points to an image and a sampler used to access it.
 
-Descriptor set: It’s a part of the resource management system that allows shaders to access external resources (buffers, textures, samplers…). It’s a collections of descriptors that tell the shader where these resources are and how to access them.
-
-Each descriptor describes the type of resource (buffer, texture, sampler…) and how the shader will use it (read-only, read-write…).
 
 
 
@@ -1030,7 +1037,7 @@ Face culling
 
 
 
-
+Model matrix for Normals: Normals are passed to fragment shader in world coordinates, so they have to be multiplied by the model matrix (MM) first (this MM should not include the translation part, so we just take the upper-left 3x3 part). However, non-uniform scaling can distort normals, so we have to create a specific MM especially tailored for normal vectors: mat3(transpose(inverse(model))) * aNormal.
 
 
 
@@ -1042,8 +1049,226 @@ Face culling
 
 ## Model loading
 
+### OBJ files
+
+Models are usually designed with **3D modeling tools** (Blender, 3DS Max, Maya…) and then exported to model files. We want to parse them and extract the data. Some **model formats** are:
+
+- **Wavefront.obj**: Model data + minor material information (color, diffuse/specular maps…). Easy to parse. Check Wavefront's wiki to see its structure.
+- **Collada file format**: XML-based. Extremely extensive (models + lights + materials + animation data + cameras + complete scene information + etc.).
+
+**Main elements** in an OBJ file:
+
+- **Vertices** (`v`): Vertex position (`v 1.0 2.0 -1.0`). It's 3D (`x y z`) or 4D (`x y z w`).
+- **Texture UVs** (`vt`): Texture coordinate (`vt 0.1 0.2`). It's 2D (`u v`) or 3D (`u v w`).
+- **Vertex normals** (`vn`): Normal vector (`vn 0.0 0.0 1.0`).
+- **Faces** (`f`): Triangle, quad, or polygon. Indices for `v`, `vt` and `vn`. Indices are 1-based (start form 1, not 0). Negative indices count from the end.
+- Structure: Faces can be separated into objects and groups.
+  - **Object** (`o`): Object name (`o ObjectName`).
+  - **Group** (`g`): Group name (`g GroupName`).
+- Materials:
+  - **Materials file** (`mtllib`): References an external material file (`mtllib file.mtl`) with shading information (colors, textures…).
+  - **Material used** (`usemtl`): Material used (`usemtl MaterialName`).
+
+Typical structure:
+
+```
+mtllib cube.mtl
+o Cube
+v -1.0 -1.0 1.0
+v  1.0 -1.0 1.0
+v  1.0  1.0 1.0
+v -1.0  1.0 1.0
+vn 0.0 0.0 1.0
+vt 0.0 0.0
+vt 1.0 0.0
+vt 1.0 1.0
+vt 0.0 1.0
+s 1
+usemtl white
+f 1/1/1 2/2/1 3/3/1 4/4/1
+```
+
+Note: `s 1`, `s 2`, etc. means "smoothing group X" is active. Faces share normals if they belong to the same smoothing group. Flat shading (no smoothing) is denoted by `s off`.
+
+### Assimp
+
+There're different libraries for importing model files such as:
+
+- **tiny_obj_loader** ([link](https://github.com/tinyobjloader/tinyobjloader)): Tiny library for loading wavefront.obj files.
+- **Assimp** (Open Asset Import Library): Library able to import and export dozens of model file formats. It loads all the model's data into its own generalized data structure (`aiScene`), from where we can retrieve the data, which abstracts us from the file format.
+
+Assimp **data structure**:
+
+- **Scene** (`aiScene`): All data from the imported object is loaded into this. It contains:
+  - All **meshes** (`aiMesh`). Each one contains: `mName`, `mVertices`,  `mNormals`, `mTextureCoords`, `mMaterialIndex`, `mColor`, `mTangent`, `mBitangent`…
+  - All **materials** (`mMaterials`). Each one contains textures and properties.
+  - **More** (`mName`, `mCameras`, `mLights`, `mTextures`, `mSkeletons`…).
+  - Root **node** of a tree (`aiNode`). Each node contains:
+    - Indices to meshes stored in the scene object
+    - Children nodes
+  
+![Assimp structure](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/computer_graphics/resources/assimp_structure.png)
+
+Each node represents an object or group, and contains one or more meshes (geometry chunks with a single material). Data can be read by traversing all nodes and reading the data they contain.
+
+
+
+
+
+
+
+
 ## Advanced topics
 
 ## Vulkan
 
 ## ECS architecture
+
+
+
+Instance rendering:
+
+To render multiple instances of the same mesh, you want to make a single draw call for the mesh, and then pass to the shader the data (like model matrix) for each instance. There are different ways of passing this instance data:
+
+- **Push constants**: Small, fast uniform blocks (≤ 128 bytes) updated per draw. Useful for very small per-object data.
+
+```
+layout(push_constant) uniform Push {
+    mat4 model;
+} pushData;
+```
+
+```
+vkCmdPushConstants(cmdBuffer, pipelineLayout, VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(PushData), &pushData);
+```
+
+- **Single UBO**: Binding containing one descriptor containing an array of structs with per-instance data. Useful for moderate scene sizes.
+
+```
+layout(std140, binding = 0) uniform ObjectUBO {
+    mat4 model[NUM_OBJECTS];
+} ubo;
+
+void main() {
+    gl_Position = projection * view * ubo.model[gl_InstanceIndex] * vec4(inPos, 1.0);
+}
+```
+
+- **Array of UBOs**: Binding containing multiple UBOs (descriptors). Not efficient or scalable (too descriptor overhead). Rarely used. There's a max number of descriptors per set (usually in the thousands).
+
+```
+layout(std140, binding = 0) uniform ubObj {
+    mat4 model;					// mat4
+    mat4 normalMatrix;			// mat3
+} ubo[0];
+
+void main() {
+	gl_Position = proj * view * ubo[i].model * vec4(pos, 1.0);
+}
+```
+
+- **SSBOs (Storage Buffer Objects)**: Large arrays of structs, accessible by index. Useful for many instances (hundreds or hundred of thousands) and GPU-driven rendering (compute shaders, indirect draws…). Shareable with other shaders. Most modern and flexible approach.
+
+```
+layout(std430, binding = 1) buffer ObjectBuffer {
+    mat4 model[];
+} objectData;
+
+void main() {
+    gl_Position = projection * view * objectData.model[gl_InstanceIndex] * vec4(inPos, 1.0);
+}
+```
+
+- **Instance buffer**: Buffer that stores per-instance data. Useful for a few thousand instances. Fastest possible access. Limited number of vertex attributes (typically 16-32 per stage).
+
+```
+layout(location = 0) in vec3 inPosition; // from vertex buffer
+layout(location = 1) in mat4 inModel;    // from instance buffer
+layout(location = 5) in vec4 inColor;    // from instance buffer (next attribute)
+
+void main() {
+    gl_Position = projection * view * inModel * vec4(inPosition, 1.0);
+}
+```
+
+```
+vkCmdBindVertexBuffers(cmdBuffer, 0, 2, vertexBuffers, offsets);
+```
+
+UBOs and SSBOs differences:
+
+- UBOs: Small, read-only, and fast. Applies `std140`. Limit: typically 16-64 KB per block (`maxUniformBufferRange`).
+- SSBOs: Large, flexible, and read/write. Applies `std430`. Limit: typically 1GB+ (`maxStorageBufferRange`).
+
+Many modern engines use either SSBOs or a hybrid strategy (SSBOs & Instance buffer).
+
+In the CPU, `alignas(16)` ensures proper alignment of structs for `std430` layout.
+
+```
+struct alignas(16) InstanceData {
+    glm::mat4 model;
+    glm::mat4 normalMatrix;
+};
+```
+
+
+
+
+Alignment:
+
+**Alignment**: A data type aligned to X-bytes means that the data starts at memory addresses that are multiples of X bytes.
+
+**Memory layout of shader interface blocks**: Defined by the API. It specifies the alignment requirements for each element. Some layouts are:
+
+- `std140` (for UBO)
+- `std430` (for SSBO)
+
+**`std140` memory layout**
+
+Buffers passed to the shader must be aligned to 16 bytes. Thus, apply `alignas(16)` to the entire struct or to its first member.
+
+Each member type also has specific alignment rules:
+
+- `float` → 4 bytes.
+- `vec2` → 8 bytes.
+- `vec3`/`vec4` → 16 bytes.
+- `mat4` → 16 bytes per column.
+- Struct → Aligned to largest member. Size multiple of 16.
+- Arrays → Each element aligned to 16 bytes.
+
+C++ code:
+
+```
+struct alignas(16) Example {   // not needed if 1st element is aligned
+    alignas(16) glm::mat4 model;   // not needed if the struct is aligned
+    alignas(16) glm::vec3 color;
+    alignas(4) float intensity;   // last element doesn't need to be aligned
+	alignas(8) glm::vec2 uv;
+	float pad[4];  // not needed, unless the struct is an element of an array
+};
+```
+
+GLSL code:
+
+```
+layout(set = 0, binding = 1) uniform Example {
+    mat4 model;
+    vec3 color;
+	float intensity;
+	vec2 uv;
+	float pad[4];
+} example;
+```
+
+Descriptor total size must be a multiple of 16 bytes. Otherwise, GPU might misread the following descriptors or elements in arrays.
+
+**`std430` memory layout**
+
+Data can be packed more tightly. Data must be aligned to the natural alignment of each type. No 16-bytes rounding rules, unless required by members or arrays.
+
+**Vulkan descriptor size**
+
+When creating the buffer, if it contains multiple descriptors (UBOs or SSBOs), their size (`VkBufferCreateInfo::size`) must satisfy the minimum alignment for that buffer type, except for the last one:
+
+- UBO → `VkPhysicalDeviceLimits::minUniformBufferOffsetAlignment`
+- SSBO → `VkPhysicalDeviceLimits::minStorageBufferOffsetAlignment`

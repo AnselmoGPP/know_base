@@ -428,6 +428,7 @@ int member;    //!< Description here
     <ul>
         <li>hello world</li>
         <li>hello doxygen</li>
+	</ul>
     @param name1 Description here
     @param name2 Description here
     @return name2 Description here

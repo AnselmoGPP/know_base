@@ -6,6 +6,7 @@
 + [Useful links](#useful-links)
 + [Computer systems](#computer-systems)
 + [Digital electronics and Computer architecture](#digital-electronics-and-computer-architecture)
++ [Operating systems 1](#operating-systems-1)
 
 ## Useful links
 
@@ -218,3 +219,105 @@ Chapters and sections:
   - WatElectronics. (2020, April 27). [_**What is a microprocessor: Architecture, Types and its Applications**_](https://www.watelectronics.com/what-is-a-microprocessor-architecture-types-its-applications/). WatElectronics.com. 
   - **Videos**:
     - Kanich, C. (2020, September 2). _**How do linkers resolve symbols? Systems Programming CS Lecture**_ [[Video](https://youtu.be/6XVUIeAaROU)]. YouTube.  
+
+## Operating systems 1
+
+Resources:
+
+- Hailperin, M. (2019, June 4). _**Operating systems and middleware: Supporting controlled interaction (Rev. ed. 1.3.1.)**_. Gustavus Adolphus College. Retrieved from [here](https://www.cs.utexas.edu/~ans/classes/cs439/osm-rev1.3.1.pdf).
+- Arpaci-Dusseau, R.H., & Arpaci-Dusseau, A. C. (2018) _**Operating systems: three easy pieces (1.01 ed.)**_. Arpaci-Dusseau Books. Retrieved from [here](https://pages.cs.wisc.edu/~remzi/OSTEP/).
+
+Chapters and sections:
+
+- **Introduction to Operating Systems**
+
+  - _Operating systems and middleware: Supporting controlled interaction_
+    1. Introduction (pp. 1-17)
+  - _Operating systems: three easy pieces (1.01 ed.)_
+    2. Introduction to Operating Systems (pp. 1-17)
+  - Gupta, C. P., & Goyal, K. K. (2020). _**Computer concepts and management information systems**_. Mercury Learning & Information.
+    1. Concepts and Computer fundamentals (pp. 1-32)
+	2. Software: An introduction (pp. 35-61)
+  - Videos:
+    - Harrison Crettol. (2020, August 22). _**History of OS (Operating Systems)**_. [Video](https://youtu.be/e-YI-fjI8Nc). YouTube.
+	- Learn Computer Science. (2023, February 20). _**Introduction To Operating System | OS Functions, Features And Types**_ [Video](https://youtu.be/dpnYzKATBKA). YouTube.
+	- D Sumathi. (2022, June 3). _**Operating System Structure-Operating Systems-Unit-1-Operating Systems Overview, System Structures**_ [Video](https://youtu.be/beARiqXjbUA). YouTube.
+	- Neso Academy. (2018, March 5). _**Operating System Services**_ [Video](https://youtu.be/TQWERtMoKbI). YouTube.
+
+- **Process management & CPU scheduling
+
+  - _**Operating systems and middleware: Supporting controlled interaction**_
+    2. Threads (pp. 21-39)
+	3. Scheduling (pp. 45-81)
+  - _**Operating systems: three easy pieces (1.01 ed.)**_
+    7. Scheduling; Introduction (pp. 59-68)
+  - Videos:
+    - Neso Academy. (2019, May 24). _**Introduction to threads**_ [Video](https://youtu.be/LOfGJcVnvAk). YouTube.
+	- Neso Academy. (2018, June 29). _**Process management (Processes and threads)**_ [Video](https://youtu.be/OrM7nZcxXZU). YouTube.
+	- About Technology. (2022, March 31). _**Difference between preemptive and Non-Preemptive scheduling**_ [Video](https://youtu.be/UlpgVptO5Gk). YouTube.
+	- iFocus Institute. (2019, September 14). _**When Context Switch occurs | Context Switching | Multitasking**_ [Video](https://youtu.be/8HuR0hz2ymo). YouTube.
+
+- **Concurrency**
+
+  - _**Operating systems and middleware: Supporting controlled interaction**_
+    4. Synchronization and Deadlocks (pp. 113-167)
+  - Videos:
+    - Neso Academy. (2021, July 4). _**The Critical-Section problem**_ [Video](https://youtu.be/UtEORPakw5Y).
+	- GSSK. (2021, March 6). _**Semaphore Animation | Operating System concept made simple**_ [Video](https://youtu.be/LIzTbA3cAWY).
+	- Operating Systems. (2020, Oct 16). _**Process synchronization**_ [Video](https://youtu.be/13J36bbXcj4).
+	- Education 4u. (2018, June 6). _**What is deadlock | Necessary Conditions | OS | Lec-63 | Bhanu Priya**_ [Video](https://youtu.be/FVmwvZNQgt0). YouTube.
+	- GeeksforGeeks. (2021, June 3). _**Deadlock in Operating System | GeeksforGeeks**_ [Video](https://youtu.be/onkWXaXAgbY).  
+
+- **Memory management**
+
+  - _**Operating systems and middleware: Supporting controlled interaction**_
+    6. Virtual memory (pp. 229-283)
+  - _**Operating systems: three easy pieces (1.01 ed.)**_
+    16. Segmentation (pp. 1-11)
+	18. Introduction (pp. 1-13)
+	19. Faster translations (TLBs) (pp. 1-14)
+	20. Smaller tables (pp. 1-14)
+  - Videos:
+    - DexTutor. (2020, June 16). _**Difference between contiguous memory allocation, paging and segmentation**_ [Video](https://youtu.be/d6nws0pMk-Y).
+	- Computer Science. (2019, March 12). _**Segmented, paged and virtual memory**_ [Video](https://youtu.be/p9yZNLeOj4s).
+	- Vaishali Tutorials. (2021, March 17). _**Demand paging in operating system**_ [Video](https://youtu.be/eWRnKH5IMNg).
+	- MIT OpenCourseWare. (2019, July 12). _**16.2.2 Basics of Virtual Memory**_ [Video](https://youtu.be/8yO2FBBfaB0).
+	
+
+- **Storage management and Shell scripting**
+
+  - _**Operating systems: three easy pieces (1.01 ed.)**_
+    37. Hard disk drives (pp. 439-452)
+  - Videos:
+    - Ekeeda. (2023, September 7). _**Directory and Disk Structure and Storage Structure**_ [Video](https://youtu.be/OHJz0wyxL_Q).
+	- Ramjith R P. (2020, March 27). _**Disk scheduling algorithms- SCAN, CSCAN, LOOK, CLOOK**_ [Video](https://youtu.be/cxwUdPpva2Y).
+	- Neso Academy. (2018, March 12). _**User Operating System Interface**_ [Video](https://youtu.be/psDpbWscPuE).
+	
+
+- **Input/Output management**
+
+  - _**Operating systems: three easy pieces (1.01 ed.)**_
+    36. I/O devices (pp. 425-435)
+  - Videos:
+    - Computer Science Learners. (2020, April 28). _**4.12 Application IO Interface in IO Management**_ [Video](https://youtu.be/nscsQmadOJo).
+	- Magic Spangle Studios. (2020, June 18). _**What is computer drivers? Animated E learning Explainer Video**_ [Video](https://youtu.be/AMoLbfwhldA).
+	- Neso Academy. (2017, August 24). _**Basics of OS (I/O structure)**_ [Video](https://youtu.be/F18RiREDkwE).
+
+- **Security and Protection**
+
+  - _**Operating systems and middleware: Supporting controlled interaction**_
+    11. Security (pp. 487-516)
+  - Videos:
+    - Make It Easy Education. (2022, March 16). _**Computer Security Threats || Virus, Worms, Adware, Spyware, Hacker || How Threats are Spread**_ [Video](https://youtu.be/W46HD9XkLLE).
+	- Neso Academy. (2021, April 9). _**Security mechanisms**_ [Video](https://youtu.be/H5ifNVeDXkg).
+	- Neso Academy. (2021, April 3). _**Security attacks**_ [Video](https://youtu.be/yIm0Ol9Dg4Y).
+	- Neso Academy. (2021, April 6). _**Security services**_ [Video](https://youtu.be/bRgL_Dry7uw).
+
+- **Advanced topics and Case studies**
+
+  - Huawei Technologies Co., Ltd. (2022). _**Cloud computing technology**_. Springer. Retrieved from [link1](https://link.springer.com/book/10.1007/978-981-19-3026-3), [link2](https://link.springer.com/content/pdf/10.1007/978-981-19-3026-3.pdf), [link3](https://www.researchgate.net/publication/366763617_Cloud_Computing_Technology).
+    1. Introduction to Cloud computing (pp. 1-55)
+  - Videos:
+    - sudoCODE. (2024, September 15). _**Intro to Distributed Systems | SudoCODE**_ [Video](https://youtu.be/RzAtVam9LqQ).
+	- IBM Technology. (2019, March 28). _**Virtualization explained**_ [Video](https://youtu.be/FZR0rG3HKIk).
+	- PowerCert Animated Videos. (2021, November 17). _**Cloud computing explained**_ [Video](https://youtu.be/_a6us8kaq0g).

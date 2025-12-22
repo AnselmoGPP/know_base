@@ -1,4 +1,4 @@
-# Mathematics
+# Introduction to Philosophy
 
 <br>![maths image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/maths.jpg)
 
