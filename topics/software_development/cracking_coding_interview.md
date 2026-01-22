@@ -5,7 +5,6 @@
 
 * [References](#references)
 * [Introduction](#introduction)
-
   * [Interview process](#interview-process)
   * [Behind the scenes](#behind-the-scenes)
   * [Special situations](#special-situations)
@@ -14,9 +13,7 @@
   * [Big O](#big-o)
   * [Technical questions](#technical-questions)
   * [The offer and beyond](#the-offer-and-beyond)
-
 * [Interview questions](#interview-questions)
-
   * [Arrays and Strings](#arrays-and-strings)
   * [Linked lists](#linked-lists)
   * [Stacks and Queues](#stacks-and-queues)
@@ -33,19 +30,18 @@
   * [Threads and Locks](#threads-and-locks)
   * [Moderate](#moderate)
   * [Hard](#hard)
-  
 * [Notes](#notes)
+* [Technical patterns](#technical-patterns)
   
 
 ## References
 
-- Gayle Laakmann McDowell (2015) ***Cracking the coding interview***, 6th ed. CareerCup.
+- Gayle Laakmann McDowell (2015) _**Cracking the coding interview**_, 6th ed. CareerCup.
 
 
 ## Introduction
 
-
-### Interview process
+## Interview process
 
 Algorithm and coding problems are problem-solving questions used for evaluating your ability to solve algorithmic problems you haven't seen before. Talk out loud throughout the problem and explain your thought process.
 
@@ -74,7 +70,7 @@ The interviewer **assess your performance** usually based on:
 * "Can I re-apply to a company after getting rejected?": Almost always, after waiting a bit (6 months to 1 year). The first bad interview usually won't affect you too much when re-interviewed.
 
 
-### Behind the scenes
+## Behind the scenes
 
 Once you are **selected** for an interview, you usually go through a **screening interview**, which often involves coding and algorithm questions. You typically do 1 or 2 screening interviews before being brought on-site. In an **on-site interview** round you usually have 3-6 in-person interviews. One of them is usually not technical, and the interviewer may not even submit feedback (you can discuss your interests and ask about the company culture). The other interviews will be mostly technical and will involve a combination of coding, algorithm, design/architecture, and behavioural/experience questions. After your interview, your interviewers will provide feedback. Depending on the company, the **final decision** is made by your interviewers, a hiring manager, or a hiring committee. Most companies get back after about a week with next steps (offer, rejection, further interviews, or update). If you waited more than a week, you should follow up with your recruiter. Not receiving an answer indicates nothing about your status. Delays can and do happen.
 
@@ -91,7 +87,7 @@ Once you are **selected** for an interview, you usually go through a **screening
 **Palantir:** It looks for brilliant engineers. It interviews for a specific team. Usually you get 2 technical phone interviews of 30-45 minutes covering prior experience and algorithms. You might get a HackerRank coding assessment. Then, you will interview on-campus with up to 5 people covering prior experience, domain knowledge, data structures and algorithms, and system design. After this, interviewers discuss with the hiring manager.
 
 
-### Special situations
+## Special situations
 
 **Experience candidates** usually receive the same algorithm-style questions as inexperienced candidates. However, they would be expected to give better responses for question about system design, architecture, and prior experience (resume).
 
@@ -152,7 +148,7 @@ Once you are **selected** for an interview, you usually go through a **screening
   - Proxy knowledge: Knowledge that is not specialist level, but that you expect a candidate at that level to know.
 
 
-### Before the interview
+## Before the interview
 
 Acing an interview starts well before the interview itself, years before. Process:
 
@@ -234,7 +230,7 @@ Acing an interview starts well before the interview itself, years before. Proces
     - If no offer, ask when you can re-apply. Don't give up hope.
 
 
-### Behavioural questions
+## Behavioural questions
 
 They're asked to know your personality, understand your resume deeper, and ease you into an interview. Some things you can prepare are:
 
@@ -293,9 +289,9 @@ They're asked to know your personality, understand your resume deeper, and ease 
   - Sprinkle in shows of successes. You can casually drop in some highlights of your background. Know what your pitch tells about aspects of your background.
 
 
-### Big O
+## Big O
 
-#### Time complexity
+### Time complexity
 
 **Big O time**, or **asymptotic runtime**, is the language and metric to describe the efficiency of algorithms. Most common runtimes are: O(1), O(n), O(log n), O(n log n), O(n), O(n<sup>2</sup>), and O(2<sup>n</sup>). Derive the runtime, don't guess it.
 
@@ -325,7 +321,7 @@ Worst case is not very useful, so it's rarely discussed. For most algorithms, th
 - Best/worst/expected cases describe big O time for particular inputs/scenarios.
 - Big O/Ω/Θ describe the upper/lower, tight bounds for the runtime.
 
-#### Space complexity
+### Space complexity
 
 Similar to time complexity, but with the space required. Creating an array of size n require O(n) space. Creating a 2D array of size nxn require O(n<sup>2</sup>) space. 
 
@@ -353,11 +349,11 @@ int pairSumSequence(int n)
 int pairSum(int a, int b) { return a + b; }
 ```
 
-#### Drop the constants
+### Drop the constants
 
 It's possible for O(n) code to run faster than O(1) for specific inputs. Big O just describes the rate of increase. Thus, we drop the constants in runtime. An algorithm described as O(2n) is actually O(n). Not doing this doesn't make you more precise. Big O express how runtime scales, which doesn't mean that O(n) is always better than O(n<sup>2</sup>).
 
-#### Drop non-dominant terms
+### Drop non-dominant terms
 
 Examples:
 
@@ -372,14 +368,14 @@ Rates of increase of common big O times:
 
 <br>![design patterns table](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/rates_of_increase.png)
 
-#### Multi-part algorithms: Add vs. Multiply
+### Multi-part algorithms: Add vs. Multiply
 
 If your algorithm has 2 steps, you have to add or multiply the runtimes.
 
 - Add (O(A+B)): Do A first and, when you are done, do B.
 - Multiply (O(A·B)): Do B for each time you do A.
 
-#### Amortized time
+### Amortized time
 
 A dynamically resizing array (`std::vector`) is an array whose capacity increases as you insert elements. When it hits capacity, it creates a new array with double the capacity and copy all elements over to the new array. Describing the runtime of insertion here is tricky. It usually takes O(1) time, but sometimes (when the array is full) it takes O(n).
 
@@ -391,7 +387,7 @@ In a dynamic array we double capacity when the array size is a power of 2. After
 
 Therefore, X insertions take O(2X) time. The amortized time for each insertion is O(1).
 
-#### Log n runtimes
+### Log n runtimes
 
 When the number of elements in the problem space gets halved each time, that will likely be O(log n) runtime.
 
@@ -403,7 +399,7 @@ Example: In a balanced binary search we look for x in an n-element sorted array.
 
 What is the base of the log? It doesn't matter for the purposes of big O because logs of different bases are only different by a constant factor.
 
-#### Recursive runtimes
+### Recursive runtimes
 
 ```
 int f(int n)
@@ -425,7 +421,7 @@ The base of the exponent matters because base differences are not different by a
 
 The space complexity of our algorithm is O(n) space because, though we have O(2<sup>n</sup>) nodes in total in the tree, only O(n) exist at any given time. 
 
-#### Examples
+### Examples
 
 ```
 void printPairs(int[] array)
@@ -613,9 +609,9 @@ int powersOf2(int n)
 - The number of calls to `powersOf2` increase by 1 if n doubles in size. Thus, the number of calls to `powersOf2` is the number of times you can double 1 until you get n, which is x in the equation 2<sup>x</sup> = n. And x = log n. Thus, runtime is O(log n).
 
 
-### Technical questions
+## Technical questions
 
-#### How to prepare
+### How to prepare
 
 Just reading problems and its solutions whon't help much. You've to practice solving problems. For each problem:
 
@@ -626,7 +622,7 @@ Just reading problems and its solutions whon't help much. You've to practice sol
 
 Try to do as many mock interviews as possible with. You and a friend can take turns giving each other interviews. He can walk you through a coding/algorithm problem, and you can learn a lot from experiencing what it's like to be an interviewer.
 
-#### What you need to know
+### What you need to know
 
 The data structure and algorithm interview questions are not knowledge test, but they assume a baseline of knowledge. Absolute essentials are:
 
@@ -666,7 +662,7 @@ Data structures, algorithms and conceps: You're expected to know the basics, not
 
 Example of table use: To quickly compute that a bit vector mapping every 32-bit integer to a boolean value could fit in memory of a typical machine. There're 2<sup>32</sup> such integers. Each integer takes 1 bit in this bit vector, so we need 2<sup>32</sup> bits (= 2<sup>32</sup> / 2<sup>3</sup> = 2<sup>29</sup> bytes) to store this mapping. That's about half GB, which is easily available on a typical machine.
  
-#### Problem walkthrough
+### Problem walkthrough
 
 Keep talking while working on a problem. The interviewer wants to know your thought process. Also, interviews are supposed to be difficult. It's ok if you don't get an answer immediately.
 
@@ -708,7 +704,7 @@ How to solve a problem: Listen > Example > Brute force > Optimize > Workthrough 
   - __Special cases__: Test code agains special cases (null or single element values, extreme cases…).
   - If you find bugs, fix them. Don't make the first correction you think of; instead, carfully analyze the cause of the bug and ensure your fix is the best one.
 
-#### Optimize & solve technique: BUD (Bottlenecks, Unnecessary work, Duplicated work)
+### Optimize & solve technique: BUD (Bottlenecks, Unnecessary work, Duplicated work)
 
 You can walk through you brute force looking for BUD (Bottlenecks, Unnecessary work, Duplicated work). If you find one of these things, get rid of it. Repeat this approach until your algorithm is optimal.
 
@@ -733,7 +729,7 @@ You can walk through you brute force looking for BUD (Bottlenecks, Unnecessary w
   - We can compute all values of all (c, d) pairs (c<sup>3</sup> + d<sup>3</sup>) and store them into a hash table that maps from the sum to the list of pairs that have that sum (`unsorted_map<int, vector<pair<int, int>>>`). Now, given a sum a<sup>3</sup> + b<sup>3</sup>, we can find quickly the corresponding (c, d) pairs.
   - Actually, having the map of all (c, d) pairs, we don't need to generate the (a, b) pairs. We can just traverse the map and get all the combinations of pairs for each pair. Runtime: O(n<sup>2</sup>).
 
-#### Optimize & solve technique: DIY (Do It Yourself)
+### Optimize & solve technique: DIY (Do It Yourself)
 
 Given an actual example, our intuition can give us a very nice algorithm (example: somebody that knows nothing about binary search still can use a dictionary book and lookup a word very quickly). Thus, when you get a question, try just working it through intuitively (manually) on a good example. Often a bigger example will be easier. Then, think about how you solved it and reverse engineer your approach. Be aware of any "optimizations" you intuitively or automatically made.
 
@@ -743,7 +739,7 @@ Example: Given a smaller string s and a bigger string b, find all permutations o
 - Most people would generate all permutations of s and then lok for each in b. This takes O(s! b) time (extraordinarily slow).
 - However, when trying to solve this manually, most people walk through b looking at sliding windows of `s.length` characters, checking it it's a permutation of s. This takes O(b s).
 
-#### Optimize & solve technique: Simplify and Generalize
+### Optimize & solve technique: Simplify and Generalize
 
 First, simplify/tweak some constraint (such as the data type); then, solve this new simplified problem; finally, try to adapt it for the more complex problem.
 
@@ -752,7 +748,7 @@ Example: Figure out if a certain message (string) can be formed from the words i
 - Simplification: Modify it so that we are taking characters out of the text instead of words. We can solve this by creating an array and counting the characters (we count the number of times a character appears both in the message and the text).
 - Generalization: We do a similar thing, but using a hash table that maps a word to its frequency.
 
-#### Optimize & solve technique: Base case and Build
+### Optimize & solve technique: Base case and Build
 
 First, solve the problem for a base case (like n=1); then, try to build up form there. We try to build more complex cases using prior solutions. Base case and Build algorithms often lead to natural recursive algorithms.
 
@@ -763,7 +759,7 @@ Example: Print all permutations of a string. For simplicity, assume all characte
 - Case "abc" → Insert "c" into all locations of all strings in case "ab" (i.e., "ab" and "ba").
 - Understanding the pattern we can develop a general recursive algorithm that iterates through all permutations of length n and, for each permutation, inserts the next character into all positions, creating all permutations of length n+1.
 
-#### Optimize & solve technique: Data structure brainstorm
+### Optimize & solve technique: Data structure brainstorm
 
 Run through a list of data structures and try to apply each one. Sometimes, using a certain data structure makes the problem trivial to solve.
 
@@ -774,7 +770,7 @@ Example: Numbers are randomly generated and stored into an expanding array. How 
 - Binary tree? It's possible. It's good ordering. If it's perfectly balanced, the top might be the median. But if there's an even number of elements, the median is the average of the middle two elements, and two elements cannot both be at the top.
 - Heap? It's good at basic ordering and keeping track of max and mins. Having two heaps you can keep track of the bigger half (in a min-heap, so its smaller element is at the root) and the smaller half (in a max-heap, so its biggest element is at the root) of the elements. The potential median elements are at the roots. If heap have no longer the same size, you can quickly rebalance them by popping an element off one heap and pushing it onto the other.
 
-#### Best Conceivable Runtime (BCR)
+### Best Conceivable Runtime (BCR)
 
 **BCR**: Best runtime you could conceive of a solution ot a problem having. You can easily prove that there's no way you could beat the BCR. The BCR is not necessarily achievable, it only says that you can't do better than it. The BCR is for a problem, it's a function of the inputs and outputs, and has no connection to a specific algorithm. Don't confuse BCR with **Best Case Runtime**, which is for a specific algorithm, and is a mostly useless value.
 
@@ -795,7 +791,7 @@ Example: Numbers are randomly generated and stored into an expanding array. How 
   - O(n) space is used. Maybe we can get O(1) space, which means that we have to drop the hash table. Probably, it can still take O(n) time. Let's use the fact that the arrays are sorted.
   - BUD → The bottleneck is the searching. It's not necessary to search all elements from A all over B. Each binary search should start where the last one left off. In fact, we can do a linear search instead, where the search in B picks up where the last one left off. This takes O(1) space and O(n) time. Big O time or space cannot be optimized.
 
-#### Handling incorrect answers
+### Handling incorrect answers
 
 It's not true that candidates need to get every question right. It's not about whether the question is correct or incorrect. Everybody make mistakes, even those that get offers.
 
@@ -803,11 +799,11 @@ It's not true that candidates need to get every question right. It's not about w
 - A candidate is evaluated in comparison to other candidates, so the difficulty of the questions doesn't matter.
 - Many/most questions are too difficult to expect even a strong candidate to immediately get the optimal algorithm.
 
-#### When you've heard a question before
+### When you've heard a question before
 
 If you've heard a question before, admit this to your interviewers. Otherwise, he won't be able to evaluate you and he may find it highly dishonest. Admitting it will allow him to evaluate your problem-solving skills and you will get big honesty points. 
 
-#### The "perfect" language for interviews
+### The "perfect" language for interviews
 
 Many companies aren't picky about programming languages, they just want to know how well you solve problems. Other companies want to see how well you can code in a particular language. If possible, you should probably pick whatever language you're most comfortable with. If you have several good languages, keep in mind:
 
@@ -817,7 +813,7 @@ Many companies aren't picky about programming languages, they just want to know 
 - __Verbosity__: Some languages are more verbose than others. Example: Java is more verbose than Python. However, verbosity can be reduced by abbreviating code, which most interviewers wouldn't mind as long as you explain the abbreviations.
 - __Ease of use__: Some operations are easier in some languages than others. Example: Python functions can return multiple values, but Java functions would require a new class. However, this can be mitigates by abbreviating code or presuming methods that you don't have.
 
-#### Good coding
+### Good coding
 
 Employers want to see you writing good, clean code. Good code properties are:
 
@@ -861,9 +857,9 @@ Some advices to get good code are:
   - Point out that you would write the checks. If they are complex, leave some space and indicate that you will fill them once finished with the rest of the code.
 
 
-### The offer and beyond
+## The offer and beyond
 
-#### Handling offers and rejection
+### Handling offers and rejection
 
 - **Offer deadline**: Offers almost always come with a deadline attached, usually of 1-4 weeks. You can ask for an extension if necessary.
 
@@ -871,7 +867,7 @@ Some advices to get good code are:
 
 - **Rejection**: It doesn't mean you're not a great engineer. These interviews are not perfect and many good engineers get rejected. That's why companies often accept to re-interview previously rejected candidates, some even reach out them or expedite their application. Build a bridge to re-apply: thank your recruiter, explain that you're disappointed but that you understand their position, and ask when you can re-apply. You can also ask for feedback, though not all companies offer it.
 
-#### Evaluating the offer
+### Evaluating the offer
 
 Once you get an offer, the recruiter will encourage you to accept it. While evaluating the offer, you should consider:
 
@@ -895,7 +891,7 @@ Once you get an offer, the recruiter will encourage you to accept it. While eval
   - __Hours__: How long is the typical work day? Does it meshes with your lifestyle? Remember that hours before major deadlines are  typically much longer.
   - Note that if you're given the opportunity to switch teams easily, you could find a team and product that matches you well.
 
-#### Negotiation
+### Negotiation
 
 The financial benefits of negotiating are usually worth it. The difference you can get from negociating is what you pay for not negociating. Tips for negociating:
 
@@ -907,7 +903,7 @@ The financial benefits of negotiating are usually worth it. The difference you c
 - __Use your best medium__: It's usually better to negociate over the phone. If you're not comfortable, do it via email.
 - Big companies often have "levels" for employees. Employees at a particular level are paid around the same amount. You can negociate within the salary range for your level, but going beyond requires to convince the recruiter and your future team that your experience matches a higher level (difficult, but feasible).
 
-#### On the job
+### On the job
 
 Once you join the company, think about your career path.
 
@@ -920,11 +916,11 @@ Once you join the company, think about your career path.
 ## Interview questions
 
 
-### Arrays and Strings
+## Arrays and Strings
 
 Array questions and strings questions are often interchangeable (questions that use an array may be asked using a string, and vice versa).
 
-#### Hash tables
+### Hash tables
 
 **Hash tables** (`std::unordered_map`): Data structure that maps keys to values for highly efficient lookup. This can be implemented in different ways.
 
@@ -944,7 +940,7 @@ If there's a high number of collisions, the lookup worst runtime is O(n) (n = nu
 
 Another implementation uses a balanced binary search tree. This gives O(log n) lookup time, but uses less space (no need to allocate a large array), and allows to iterate through keys in order.
 
-#### Dynamic arrays
+### Dynamic arrays
 
 **Arrays** have fixed size, defined at construction (some languages automatically resize arrays).
 
@@ -963,7 +959,7 @@ Another implementation uses a balanced binary search tree. This gives O(log n) l
   - Total number of copies = n/2 + n/4 + n/8 + … + 2 + 1 = less than n
   - Thus, inserting n elements takes O(n) total time. Each insertion is O(1) on average, even though some insertions take O(n) time in the worst case.
 
-#### Dynamic strings
+### Dynamic strings
 
 String concatenation (`myString += ...`) makes the string allocate a new buffer, copy the old content, and append the new part. For many iterations, this becomes very expensive, requiring O(n<sup>2</sup>) time. Example:
 
@@ -1021,7 +1017,7 @@ It's a good exercise to implement your own `DynamicArray` (`Vector`), `DynamicSt
 Read more: Hash table collision resolution, Rabin-Karp substring search.
 
 
-### Linked lists
+## Linked lists
 
 **Linked list:** Data structure representing a sequence of nodes. __Random access__ takes no constant time (unlike arrays) because it requires iterating. But __adding/removing__ elements from the extremes takes constant time.
 
@@ -1037,18 +1033,19 @@ __Delete node__: In singly linked lists, given node `n`, find `prev` and set `pr
   
 **"Runner" (or second pointer) technique:** Iteration through the linked list with 2 pointers simultaneously, one ahead of the other. The "fast" node might be ahead by a fixed amount, or might be hopping multiple nodes for each one node that the "slow" node iterates through.
 
-- Example: Given linked list a<sub>1</sub>→a<sub>2</sub>→…→a<sub>n</sub>→b<sub>1</sub>→b<sub>2</sub>→…→b<sub>n</sub>, rearrange it into a<sub>1</sub>→b<sub>1</sub>→a<sub>2</sub>→b<sub>2</sub>→…→a<sub>n</sub>→b<sub>n</sub>. The length of the linked list is unknown, by we know it's an even number.
-- Locate the middle: p1 (fast pointer) moves every 2 elements for every one move tha p2 makes. When p1 hits the end of the linked list, p2 will be at the midpoint.
-- Rearrange nodes: Move p1 back to the front and iterate again with both pointers. On each iteration, p2 selects an element and inserts it after p1.
+Example: Given linked list a<sub>1</sub>→a<sub>2</sub>→…→a<sub>n</sub>→b<sub>1</sub>→b<sub>2</sub>→…→b<sub>n</sub>, rearrange it into a<sub>1</sub>→b<sub>1</sub>→a<sub>2</sub>→b<sub>2</sub>→…→a<sub>n</sub>→b<sub>n</sub>. The length of the linked list is unknown, but we know it's an even number.
 
-**Recursive problems:** Some linked list problems rely on recursion. If have trouble solving a linked list problem, explore if a recursive approach works. Recursive algorithms take at least O(n) space (n = depth of the recursive call). All recursive algorithms can be implemented iteratively, although they may be much more complex. Recursive solutions are often cleaner but less optimal.
+1. Locate the middle: p1 (fast pointer) moves every 2 elements for every one move tha p2 makes. When p1 hits the end of the linked list, p2 will be at the midpoint.
+2. Rearrange nodes: Move p1 back to the front and iterate again with both pointers. On each iteration, p2 selects an element and inserts it after p1.
+
+**Recursive problems:** Some linked list problems rely on recursion. If you have trouble solving a linked list problem, explore if a recursive approach works. Recursive algorithms take at least O(n) space (n = depth of the recursive call). All recursive algorithms can be implemented iteratively, although they may be much more complex. Recursive solutions are often cleaner but less optimal.
 
 
-### Stacks and Queues
+## Stacks and Queues
 
 Stacks and Queues can be implemented as arrays or linked-lists.
 
-#### Stack
+### Stack
 
 A **stack** implements LIFO (Last-In First-Out) ordering. It doesn't offer constant-time access to the ith item, but allows constant-time addition and removal on top (no need of shifting elements around). Operations:
 
@@ -1062,7 +1059,7 @@ Stacks can be useful in certain recursive algorithms. Examples:
 - To push temporary data onto a stack as you recurse, and remove them as you backtrack (for example, because the recursive check failed).
 - To implement a recursive algorithm iteratively.
 
-#### Queues
+### Queues
 
 A **queue** implements FIFO (First-In First-Out) ordering. Operations:
 
@@ -1077,9 +1074,9 @@ Queues are often used in:
 - Implementing a cache.
 
 
-### Trees and Graphs
+## Trees and Graphs
 
-#### Trees
+### Trees
 
 Operations on trees are usually more complicated than in linear structures (arrays, linked lists…), and the worst case and average case time may vary wildly.
 
@@ -1108,8 +1105,8 @@ public:
   - **X-ary tree:** Nodes have up to X children (example: 10-ary tree).
   
 - **Nodes order:**
-  - **Binary search tree (BST):** Every node fits a specific ordering property (`all_left_descendents <= n < all_right_descendents`). This must be true for each node n. Depending on the definition used, it may or may not allow duplicate values, or store duplicates on the left, right, or either side.
-  - **Non binary search tree:** 
+  - **Binary search tree (BST):** Every node fits a specific ordering property (`all_left_descendants <= n < all_right_descendents`). This must be true for each node n. Depending on the definition used, it may or may not allow duplicate values, or store duplicates on the left, right, or either side.
+  - **Non binary search tree:** No ordering.
 
 - **Balancing:**
   - **Unbalanced:** Imbalanced tree.
@@ -1152,7 +1149,7 @@ void postOrderTraversal(TreeNode* node)
 }
 ```
 
-#### Binary heaps (min-heaps and max-heaps)
+### Binary heaps
 
 **Binary heap types:**
 
@@ -1160,20 +1157,247 @@ void postOrderTraversal(TreeNode* node)
 
 - **Max-heap**: Similar to min-heap, but elements are in descending order. Key operations: `insert` and `extract_max`.
 
-**Key operations:**
+**Key operations** for min-heap:
 
-- **`insert`:**
+- **`insert`** (O(log n)): Start inserting the element at the bottom, at the rightmost spot (to maintain the complete tree property). Then, swap it with its parent until the min-heap property is restored (where element > parent) (bubble up).
+- **`extract_min`** (O(log n)): The minimum element is at the top. We replace it with the last element (bottommost, rightmost element) and swap it with the smaller children until the min-heap property is restored (bubble down).
 
-- **`extract_min`:**
+Max-heap operations are similar, but maintaining max-heap properties.
+
+### Tries (Prefix trees)
+
+**Trie**: Variant of an n-ary tree in which characters are stored at each node. Each path down the tree may represent a word. A complete word can be indicated using a null node (implemented as a special type of child that inherits from `TrieNode`) or a `bool` flag in the "parent" node.
+
+If a null node is used, a node can have anywhere from 1 through ALPHABET_SIZE + 1 children, or 0 through ALPHABET_SIZE if a `bool` flag is used.
+
+![trie](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/coding_1.png)
+
+A trie is used to store an entire language for quick prefix lookups. It can check if a string is a valid prefix in O(K) time (K = length of string). Tries can optimize many problems involving lists of valid words.
+
+A hash table can quickly look up whether a string is a valid word, but it cannot tell if a string is a prefix of any valid word, unlike a trie. We often consider that hash tables take O(1) for lookup, but it actually takes O(K) because it has to read all characters in the input.
+
+### Graphs
+
+**Graph**: Collection of nodes with edges between (some of) them. It can be either directed (one-way street edges) or undirected (two-way street edges). It might consist of multiple isolated subgraphs. It can have cycles.
+
+- **Connected graph**: Graph where there is a path between every pair of vertices.
+- **Acyclic graph**: Graph without cycles.
+- **Tree**: Connected and acyclic graph. A tree is a type of graph, but not all graphs are trees. 
+
+![graph](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/coding_2.png)
+
+There're two common ways to represent a graph: __Adjacency list__ and __Adjacency matrices__.
+
+**Adjacency list** (AL): Most common representation. Every vertex (or node) stores a list of adjacent vertices.
+
+- Example: in an undirected graph, an edge like (a, b) would be stored twice (once in a's adjacent vertices and once in b's adjacent vertices.
+
+- Implementation 1: It could look essentially the same as a tree node. A `Graph` class is used because, unlike a tree, you can't necessarily reach all nodes from a single node.
+
+```
+class Graph {
+  public:
+  vector<Node*> allNodes;
+};
+
+class Node {
+  public:
+  string name;
+  vector<Node*> children;
+}
+```
+
+- Implementation 2: An array (or hash table) of lists (arrays, vectors, linked lists…) can store the adjacency list (example: `{ {1}, {2}, {0, 3}, {2}, {6}, {4}, {5} }`). This is more compact but isn't quite as clean, so we tend to use node classes.
+
+**Adjacency matrices** (AM): NxN boolean matrix (N = number of nodes). A `true` value at `matrix[i][j]` indicates an edge from node `i` to node `j`. In an undirected graph, an adjacency matrix will be symmetric. In a directed graph it won't (necessarilly) be.
+
+- The same graph algorithms used on ALs can be performed with AMs, but they may be somewhat less efficient. In ALs you can easily iterate through the neighbors of a node, but in AMs you need iterate through all nodes to identify a node's neighbors.
+
+![adjacency matrix](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/coding_3.png)
+
+**Graph search**: The two more common ways to search a graph are __depth-first search__ and __breadth-first search__.  We mark visited nodes as "visited" to avoid cycles.
+
+- **Depth-first search (DFS)**: Start at the root (or any other node) and explore each branch (neighbor) completely before moving on to the next branch. We go deep first before we go wide. Pre-order and other forms of tree traversal are a form of DFS, but for a graph we have to check if the node has been visited (otherwise, we can get stucked in an infinite loop). It often uses recursion.
+
+```
+void search(Node* root)
+{
+  if (root == nullptr) return;
+  visit(root);
+  root.visited = true;
+  for (Node* n : root.adjacent)
+    if (n.visited == false)
+	  search(n);
+}
+```
+
+- **Breath-first search (BFS)**: Start at the root (or any other node) and explore each neighbor before going on to any of their children (search level by level out from first node). We go wide before we go deep. An iterative solution (no recursion) involving a queue usually works best.
+
+```
+void search (Node* root)
+{
+  Queue queue = new Queue();
+  root->marked = true;
+  queue.enqueue(root);
+  
+  while (!queue.empty())
+  {
+    Node r = queue.dequeue();
+	visit(r);
+	for (Node* n : r.adjacent)
+	  if (n.marked == false)
+	  {
+	    n.marked = true;
+		queue.enqueue(n);
+	  }
+  }
+}
+```
+
+![graph search](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/coding_4.png)
+
+DFS and BFS tend to be used in different scenarios:
+
+- Visit every node in the graph: DFS is often preferred since it's a bit simpler.
+- Find shortest path (or any path) between two nodes: BFS is generally better. DFS may take a long time, and won't find the shortest path. BFS keeps you close to the first node for as long as possible, while DFS goes far away and back many times.
+
+**Bidirectional search**: Used to find the shortest path between two nodes. Two BFSs run simultaneously, one from each node. When their searches collide, we have found a path. This is faster than a single BFS because:
+
+- Consider a graph where every node has at most k adjacent nodes and the shortest path from node a to node b has lenght d.
+- BFS would search through d levels (k<sup>d</sup> nodes), which takes O(k<sup>d</sup>) time.
+- Bidirectional search has two searches where each one visits ~d/2 levels (~2·k<sup>d/2</sup> nodes in total) (the path's midpoint), which takes O(k<sup>d/2</sup>) time.
+- Bidirectional search is faster by a factor of k<sup>d/2</sup> (because (k<sup>d/2</sup>)·(k<sup>d/2</sup>) = k<sup>d</sup>).
+
+Additional reading: Topological sort, Dijkstra's algorithm, AVL trees, Red-black trees.
 
 
-### Bit manipulation
+## Bit manipulation
 
-### Math and Logic puzzles
+**Manual examples** (~=NOT, ^=XOR):
 
-### Object oriented design
+- `0110 + 0010` = `1000`
+- `0011 + 0010` = `0101`
+- `0110 - 0011` = `0011`
+- `1000 - 0110` = `0010`
+- `0011 * 0101` = `1111`
+- `0011 * 0011` = `1001`
+- `1101 >> 2` = `0011`
+- `1101 ^ 0101` = `1000`
+- `0110 + 0110` = `1100`   (this is equivalent to 0110 * 2, which is equivalent to shifting 0110 left by 1)
+- `0100 * 0011` = `1100`   (0100 equals 4, and multiplying by 4 is left shifting by 2)
+- `1101 ^ (~1101)` = `1111`   (think bit by bit. If you XOR a bit with its own negated value, you always get 1)
+- `1011 & (~0 << 2)` = `1000`   (~0 is a sequence of 1s, and ~0 << 2 is 1s followed by two 0s. ANDing this with another value clears the last two bits of the value)
 
-### Recursion and Dynamic programming
+**Bit facts and tricks**: These operations occur bit-by-bit. What happens in one bit never impacts the others. Thus, if these operations are true for a single bit, then they're true for a sequence of bits. A sequence of identical bits are represented as 1s or 0s.
+
+- x ^ 0s = x
+- x ^ 1s = ~x
+- x ^ x = 0
+- x & 0s = 0
+- x & 1s = x
+- x & x = x
+- x | 0s = x
+- x | 1s = 1s
+- x | x = x
+
+**Two's complement and Negative numbers**:
+
+Computers typically store integers in two's complement representation. A positive number is represented as itself, while a negative number as the two's complement of its absolute value (with a 1 in its sign bit to indicate the negative value). The two's complement of an N-bit number is the complement of the number with respect to 2<sup>N</sup> (N: number of bits used for the number, excluding the sign bit).
+
+- Example: Consider the 4-bit integer -3 (one bit for the sign, three for the value). It's represented as the two's complement of 3 with respect to 2<sup>3</sup>, which equals to 5 (`101`). Thus, -3 in binary as a 4-bit number is `1101`.
+
+- In other words: -K as an N-bit binary number is `concat(1, 2<sup>N-1</sup> - K)`.
+
+- Another view: Invert the bits in the positive representation and then add 1. Example: take 3 (`011`), flip the bits (`100`) and add 1 (`100`).
+
+Example of 4-bit integers: Observe that the values at each side are identical, and that the absolute values of both sum 2<sup>3</sup>.
+
+| Positives  | Negatives   |
+|:----------:|:-----------:|
+| 7: `0 111` | -1: `1 111` |
+| 6: `0 110` | -2: `1 110` |
+| 5: `0 101` | -3: `1 101` |
+| 4: `0 100` | -4: `1 100` |
+| 3: `0 011` | -5: `1 011` |
+| 2: `0 010` | -6: `1 010` |
+| 1: `0 001` | -7: `1 001` |
+| 0: `0 000` |             |
+
+**Right shift**: This operator can be:
+
+- __Logical__: Just shift all the bits. Example: `10110101` (-75) → `01011010` (90). The sign bit gets a 0. Shifting repeatedly results in a sequence of 0s (`00000000`).
+- __Arithmetic__: Roughly divides by 2. Example: `10110101` (-75) → `11011010` (-38). This preserves the sign bit, and shifts it to the most significant bit. Shifting repeatedly results in a sequence of 1s (`11111111`), which for a signed integer is -1.
+
+In C++, for signed integers, right shift is implementation-defined, not undefined. But in practice, all mainstream compilers on two’s-complement machines perform an arithmetic shift.
+
+```
+unsigned int x = 0b0100;   // 4
+unsigned int y = x >> 2;  // 0b0001 (1)
+```
+
+__Bit mask__: Value used in bitwise operations (select, set, clear, test) to operate on specific bits in another value. It works by applying operations (like `&`, `|`, or `^`) so that only the bits of interest are affected, while the others remain unchanged. Common types of masks are: single-bit (`00010000`), inverted (`11101111`), composite (`10010111`), field (`00111100`).
+
+  - Single-bit mask: `1 << steps`
+  - Inverted mask: `~(1 << steps)`
+
+**Common bit tasks**:
+
+- __Get bit__: Shift 1 over by `i` bits (single-bit mask). Performing an `AND` with `number`, we clear all bits other than the bit at position i.
+
+```
+bool getBit(int number, int i) {
+  return ((number & (1 << i)) != 0);
+}
+```
+
+- __Set bit__: Shift over by `i` bits (single-bit mask). Performing an `OR` with `number`, only the value at position i will change.
+
+```
+int setBit (int number, int i) {
+  return number | (1 << i);
+}
+```
+
+- __Clear bit__: Shift over by `i` bits (single-bit mask) and negate it (inverted mask). Performing an `AND` with `number`, only the ith bit will be cleared.
+
+```
+int clearBit(int number, int i) {
+  return num & (~(1 << i));
+}
+```
+
+  - __Clear all bits from the most significant bit through i (inclusive)__: Create a mask with a 1 at the ith bit (`1 << i`) (`00010000`), then subtract 1 from it (this gets a sequence of 0s followed by i 1s) (`00001111`). Performing `number AND mask` leaves just the last i bits.
+  
+```
+int clearBitsMSBthroughI(int number, int i) {
+  return number & ((1 << i) - 1);
+}
+```
+
+  - __Clear all bits from i through 0 (inclusive)__: Take a sequence of 1s (which is -1) and shift it left by i + 1 bits (`11110000`) (this gets a sequence of 1s followed by i 0 bits). Performing `number AND mask` leaves just the first i bits.
+
+```
+int clearBitsIthrough0(int number, int i) {
+  return number & (-1 << (i + 1));
+}
+```
+
+- __Update bit__ (set ith bit to a value v): Clear bit at position i using an inverted mask. Create a mask by shifting the intended value v left by i bits (creates number with bit i = v and all other bits = 0). Perform `number OR mask` to update the ith bit (only happens if v = 1).
+
+```
+int updateBit(int number, int i, bool bitIs1) {
+  int value = bitIs1 ? 1 : 0;
+  int mask = ~(1 << i);
+  return (num & mask) | (value << i);
+}
+```
+
+
+## Math and Logic puzzles
+
+## Object oriented design
+
+## Recursion and Dynamic programming
 
 Recursive solutions are often cleaner but less optimal.
 
@@ -1223,21 +1447,21 @@ bool isOdd (int n) { return  n && isEven(n - 1); }
 - Visualize the __call stack__: Every recursive call pauses the current function and pushes a new frame onto the stack. When the base case is hit, results bubble back up.
 
 
-### System design and Scalability
+## System design and Scalability
 
-### Sorting and Searching
+## Sorting and Searching
 
-### C and C++
+## C and C++
 
-### Java
+## Java
 
-### Databases
+## Databases
 
-### Threads and Locks
+## Threads and Locks
 
-### Moderate
+## Moderate
 
-### Hard
+## Hard
 
 
 ## Notes
@@ -1248,7 +1472,7 @@ bool isOdd (int n) { return  n && isEven(n - 1); }
 - Storing elements of a list in a stack gets the list reversed.
 - Passing elements from one stack to another inverts the order of the elements.
 
-### Technical patterns
+## Technical patterns
 
 These patterns can handle roughly ~90% of common technical interview questions. Most questions are variations or combinations of these patterns.
 
