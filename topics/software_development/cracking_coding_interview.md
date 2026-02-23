@@ -24,6 +24,7 @@
   * [Recursion and Dynamic programming](#recursion-and-dynamic-programming)
   * [System design and Scalability](#system-design-and-scalability)
   * [Sorting and Searching](#sorting-and-searching)
+  * [Testing](#testing)
   * [C and C++](#c-and-c++)
   * [Java](#java)
   * [Databases](#databases)
@@ -920,6 +921,15 @@ Once you join the company, think about your career path.
 
 Array questions and strings questions are often interchangeable (questions that use an array may be asked using a string, and vice versa).
 
+Main C++ string types:
+
+- **String literal** ("hi"): Type `const char[N]`. Static storage duration.
+- **Array of chars** (`char buf[64]`)
+- **C-style strings** (`char*`, `const char*`) (`const char* s = "hi"`): Pointer to a `\0`-terminated character array.
+- **std::array** (`std::array<char, 64>`)
+- **std::string** (`std::string s = "hi"`). There're variations (`std::wstring`, `std::u8string`, `std::u16string`, `std::u32string`). Efficient concatenation.
+- **std::ostringstream** (`oss << x << y`): Construction helper, not true string. Builds string via streaming. Inefficient for heavy concatenation (`std::string` preferred). Produces `std::string`.
+
 ### Hash tables
 
 **Hash tables** (`std::unordered_map`): Data structure that maps keys to values for highly efficient lookup. This can be implemented in different ways.
@@ -961,8 +971,6 @@ Another implementation uses a balanced binary search tree. This gives O(log n) l
 
 ### Dynamic strings
 
-String concatenation (`myString += ...`) makes the string allocate a new buffer, copy the old content, and append the new part. For many iterations, this becomes very expensive, requiring O(n<sup>2</sup>) time. Example:
-
 ```
 string joinWords(string words[])   // Concatenate a list of strings
 {
@@ -972,13 +980,13 @@ string joinWords(string words[])   // Concatenate a list of strings
 }
 ```
 
-On each concatenation, a new copy of the string is created, and it's copied over, character by character. The first iteration copies x characters, the second copies 2x, the third 3x, and so on.
+In **Java**, strings are immutable, so **string concatenation** (`myString += word`) makes the string allocate a new buffer, copy the old content, and append the new part. On each concatenation, a new copy of the string is created, and it's copied over, character by character. The first iteration copies x characters, the second copies 2x, the third 3x, and so on.
 
 - Total time  =  O(x + 2x + 3x + … + nx)  =  O(x (1 + 2 + 3 + … + n))
 - 1 + 2 + 3 + … + n  =  n (n + 1) / 2
 - Total time  =  O(x n<sup>2</sup>)
 
-In **Java**, this is solved using the **`StringBuilder`** class. It's a mutable, efficient string-building type that allows to build up a string piece-by-piece without repeatedly creating new string objects. Similar to a `std::vector`, but for strings. This avoids the concatenation problem by creating a resizable array of all the strings, copying them back to a string only when necessary. Runtime = O(n).
+This is solved using the **`StringBuilder`** class. It's a mutable, efficient string-building type that allows to build up a string piece-by-piece without repeatedly creating new string objects. Similar to a `std::vector`, but for strings. This avoids the concatenation problem by creating a resizable array of all the strings, copying them back to a string only when necessary. Runtime = O(n).
 
 ```
 String joinWords(string words[])
@@ -989,10 +997,15 @@ String joinWords(string words[])
 }
 ```
 
-In **C++**, there're two ways of solving this:
+In **C++** `std::string`s aren't immutable, so string concatenation can be performed efficiently, like a `std::vector` or `StringBuilder`. Reallocation (allocate new buffer, copy old content, and append the new part) is only done when the string capacity is not enough. Some C++ options:
 
-- Using **`std::ostringstream`**, the idiomatic C++ equivalent of `StringBuilder`. It buffers internally and is efficient for many small appends.
-- Using **`std::string::reserve()`** and **`append()`** to preallocate space, avoiding repeated memory allocations.
+- `myString = a + b + c`: Can be inefficient, potentially O(n<sup>2</sup>). It allocates temp for `a + b`, copy `a`, copy `b`, allocate temp for `(a + b) + c`, and copies again.
+- Efficient appends (O(n) at most): Appends in place when capacity is sufficient. No temps.
+  - `myString += word`
+  - `std::string::append()`
+  - `std::string::push_back()`
+- **`std::string::reserve()`** can be used to preallocate space, avoiding repeated memory allocations during appending.
+- **`std::ostringstream`**: It buffers internally and is efficient for many small appends.
 
 ```
 #include <sstream>
@@ -1096,7 +1109,7 @@ public:
 
 **Leaf node:** Node with no children.
 
-**Tree types:** There're different types, based on different trees' characteristics.
+**Tree types:** There're different types, based on different characteristics.
 
 - **Number of nodes:**
   - **Binary tree:** Nodes have up to 2 children. 
@@ -1151,10 +1164,9 @@ void postOrderTraversal(TreeNode* node)
 
 ### Binary heaps
 
-**Binary heap types:**
+**Binary heap**: Data structure that stores values and allow to retrieve the minimum (or maximum) value in just O(log n) time. Two types:
 
 - **Min-heap:** Complete binary tree where each node is smaller than its children (ascending order). Thus, the root is the minimum element in the tree. Key operations: `insert` and `extract_min`.
-
 - **Max-heap**: Similar to min-heap, but elements are in descending order. Key operations: `insert` and `extract_max`.
 
 **Key operations** for min-heap:
@@ -1174,7 +1186,7 @@ If a null node is used, a node can have anywhere from 1 through ALPHABET_SIZE + 
 
 A trie is used to store an entire language for quick prefix lookups. It can check if a string is a valid prefix in O(K) time (K = length of string). Tries can optimize many problems involving lists of valid words.
 
-A hash table can quickly look up whether a string is a valid word, but it cannot tell if a string is a prefix of any valid word, unlike a trie. We often consider that hash tables take O(1) for lookup, but it actually takes O(K) because it has to read all characters in the input.
+A hash table can quickly look up whether a string is a valid word, but it cannot tell if a string is a prefix of any valid word, unlike a trie. We often consider that hash tables take O(1) for lookup, but they actually take O(K) because it has to read all characters in the input.
 
 ### Graphs
 
@@ -1190,7 +1202,7 @@ There're two common ways to represent a graph: __Adjacency list__ and __Adjacenc
 
 **Adjacency list** (AL): Most common representation. Every vertex (or node) stores a list of adjacent vertices.
 
-- Example: in an undirected graph, an edge like (a, b) would be stored twice (once in a's adjacent vertices and once in b's adjacent vertices.
+- Example: In an undirected graph, an edge like (a, b) would be stored twice (once in a's adjacent vertices and once in b's adjacent vertices.
 
 - Implementation 1: It could look essentially the same as a tree node. A `Graph` class is used because, unlike a tree, you can't necessarily reach all nodes from a single node.
 
@@ -1236,7 +1248,7 @@ void search(Node* root)
 ```
 void search (Node* root)
 {
-  Queue queue = new Queue();
+  Queue<Node*> queue;
   root->marked = true;
   queue.enqueue(root);
   
@@ -1273,7 +1285,59 @@ Additional reading: Topological sort, Dijkstra's algorithm, AVL trees, Red-black
 
 ## Bit manipulation
 
-**Manual examples** (~=NOT, ^=XOR):
+### Basics
+
+**Addition** rules: Same as decimal additions, but 1 + 1 equals 0 and carries 1.
+
+- Examples:  1 + 1 = 10;  1 + 1 + 1 = 11
+
+```
+  1011
++ 1101
+------
+ 11000
+```
+
+**Subtraction** rules: Same as decimal subtractions, but 0 - 1 borrows from next bit and equals 1.
+
+```
+  1010
+- 0111
+------
+  0011
+```
+  
+**Multiplication** rules: Same as decimal multiplications.
+
+```
+   101
+x   11
+------
+   101
++ 101
+------
+  1111
+```
+
+**Division** rules: Same as decimal divisions (divide using subtraction, shift the divisor as needed, and bring down bits sequentially).
+
+```
+ 1101 / 11
+-11     100
+-----
+ 0001
+```
+
+**Shifting**: Given a number (`0101`), we can shift al digits left (`1010`) or right (`0010`). Left shifting (`<<`) N times is equivalent to multiplying by 2<sup>N</sup> times. Similarly, right shifting (`>>`) is equivalent to dividing.
+
+Operators:
+
+- `~` (NOT): Not true
+- `^` (XOR): Only one true
+- `&` (AND): Both true
+- `|` (OR): At least one true
+
+### Manual examples
 
 - `0110 + 0010` = `1000`
 - `0011 + 0010` = `0101`
@@ -1302,26 +1366,41 @@ Additional reading: Topological sort, Dijkstra's algorithm, AVL trees, Red-black
 
 **Two's complement and Negative numbers**:
 
-Computers typically store integers in two's complement representation. A positive number is represented as itself, while a negative number as the two's complement of its absolute value (with a 1 in its sign bit to indicate the negative value). The two's complement of an N-bit number is the complement of the number with respect to 2<sup>N</sup> (N: number of bits used for the number, excluding the sign bit).
+"Two's complement" has two meanings:
 
-- Example: Consider the 4-bit integer -3 (one bit for the sign, three for the value). It's represented as the two's complement of 3 with respect to 2<sup>3</sup>, which equals to 5 (`101`). Thus, -3 in binary as a 4-bit number is `1101`.
+- Binary representation system used to encode signed integers. 
+- Standard method used by modern computers to represent negative numbers. This allows efficient arithmetic operations using the same hardware as unsigned binary, simplifying circuit design.
 
-- In other words: -K as an N-bit binary number is `concat(1, 2<sup>N-1</sup> - K)`.
+Key features:
 
-- Another view: Invert the bits in the positive representation and then add 1. Example: take 3 (`011`), flip the bits (`100`) and add 1 (`100`).
+- The most significant bit (MSB) acts as **sign bit**: 1 (positive or zero), 0 (negative).
+- A positive number is represented as its standard binary form.
+- A negative number is represented as the **two's complement of its absolute value** (with sign bit = 1).
+
+Negative value representation (different views):
+
+- Two's complement of an N-bit number = Complement of the number with respect to 2<sup>N</sup> (N: number of bits used for the number, excluding the sign bit).
+
+  - Example: The 4-bit signed integer -3 is represented as the two's complement of 3 (`011`) with respect to 2<sup>3</sup>, which equals to 5 (`101`), with the signed bit (`1101`).
+
+- -K as an N-bit binary number = `concat(1, 2<sup>N-1</sup> - K)`.
+
+- Invert the bits in the positive representation and add 1.
+
+  - Example: Take 3 (`011`), flip the bits (`100`), add 1 (`101`), and prepend the sign bit (`1101`).
 
 Example of 4-bit integers: Observe that the values at each side are identical, and that the absolute values of both sum 2<sup>3</sup>.
 
-| Positives  | Negatives   |
+| Positives  |  Negatives  |
 |:----------:|:-----------:|
-| 7: `0 111` | -1: `1 111` |
-| 6: `0 110` | -2: `1 110` |
-| 5: `0 101` | -3: `1 101` |
-| 4: `0 100` | -4: `1 100` |
-| 3: `0 011` | -5: `1 011` |
-| 2: `0 010` | -6: `1 010` |
-| 1: `0 001` | -7: `1 001` |
 | 0: `0 000` |             |
+| 1: `0 001` | -7: `1 001` |
+| 2: `0 010` | -6: `1 010` |
+| 3: `0 011` | -5: `1 011` |
+| 4: `0 100` | -4: `1 100` |
+| 5: `0 101` | -3: `1 101` |
+| 6: `0 110` | -2: `1 110` |
+| 7: `0 111` | -1: `1 111` |
 
 **Right shift**: This operator can be:
 
@@ -1335,14 +1414,18 @@ unsigned int x = 0b0100;   // 4
 unsigned int y = x >> 2;  // 0b0001 (1)
 ```
 
-__Bit mask__: Value used in bitwise operations (select, set, clear, test) to operate on specific bits in another value. It works by applying operations (like `&`, `|`, or `^`) so that only the bits of interest are affected, while the others remain unchanged. Common types of masks are: single-bit (`00010000`), inverted (`11101111`), composite (`10010111`), field (`00111100`).
+__Bit mask__: Value used in bitwise operations (select, set, clear, test) to operate on specific bits in another value. It works by applying operations (like `&`, `|`, or `^`) so that only the bits of interest are affected, while the others remain unchanged. Common types of masks are:
 
-  - Single-bit mask: `1 << steps`
-  - Inverted mask: `~(1 << steps)`
+- Single-bit mask (`00010000`): Shift 1 over by `i` bits (`1 << i`).
+- Inverted mask (`11101111`): Shift 1 over by `i` bits and negate it (`~(1 << steps)`).
+- Composite (`10010111`)
+- Field (`00111100`)
+- 0s (`00000000`): Sequence of zeros (`0`).
+- 1s (`11111111`): Sequence of ones (`~0` or `-1`).
 
 **Common bit tasks**:
 
-- __Get bit__: Shift 1 over by `i` bits (single-bit mask). Performing an `AND` with `number`, we clear all bits other than the bit at position i.
+- __Get bit__: Get single-bit mask and perform `number AND mask`. This clears all bits other than the bit at position i.
 
 ```
 bool getBit(int number, int i) {
@@ -1350,7 +1433,7 @@ bool getBit(int number, int i) {
 }
 ```
 
-- __Set bit__: Shift over by `i` bits (single-bit mask). Performing an `OR` with `number`, only the value at position i will change.
+- __Set bit__: Get single-bit mask and perform `number OR mask`. Only the value at position i will change.
 
 ```
 int setBit (int number, int i) {
@@ -1358,7 +1441,7 @@ int setBit (int number, int i) {
 }
 ```
 
-- __Clear bit__: Shift over by `i` bits (single-bit mask) and negate it (inverted mask). Performing an `AND` with `number`, only the ith bit will be cleared.
+- __Clear bit__: Get inverted mask and perform `number AND mask`. Only the ith bit will be cleared.
 
 ```
 int clearBit(int number, int i) {
@@ -1366,7 +1449,7 @@ int clearBit(int number, int i) {
 }
 ```
 
-  - __Clear all bits from the most significant bit through i (inclusive)__: Create a mask with a 1 at the ith bit (`1 << i`) (`00010000`), then subtract 1 from it (this gets a sequence of 0s followed by i 1s) (`00001111`). Performing `number AND mask` leaves just the last i bits.
+  - __Clear all bits from the most significant bit through i (inclusive)__: Get single-bit mask (`00010000`), subtract 1 from it (this gets a sequence of 0s followed by i 1s) (`00001111`), and perform `number AND mask`. This leaves just the last i bits.
   
 ```
 int clearBitsMSBthroughI(int number, int i) {
@@ -1385,19 +1468,278 @@ int clearBitsIthrough0(int number, int i) {
 - __Update bit__ (set ith bit to a value v): Clear bit at position i using an inverted mask. Create a mask by shifting the intended value v left by i bits (creates number with bit i = v and all other bits = 0). Perform `number OR mask` to update the ith bit (only happens if v = 1).
 
 ```
-int updateBit(int number, int i, bool bitIs1) {
-  int value = bitIs1 ? 1 : 0;
+int updateBit(int number, int i, bool bitValue) {
+  int value = bitValue ? 1 : 0;
   int mask = ~(1 << i);
   return (num & mask) | (value << i);
 }
 ```
 
+In a few words:
+
+- __Get bit__: Single-bit mask + `AND`
+- __Set bit__: Single-bit mask + `OR`
+- __Clear bit__: Inverted mask + `AND`
+  - __Clear [N, i]__: Single-bit mask - 1 + `AND`
+  - __Clear [i, 0]__: 1s shifted left + `AND`
+- __Update bit__: Clear bit i. Single-bit mask with desired value + `OR`
+
+In many bit manipulation problems it's very easy to wind up with off-by-one errors, so test your code.
+
 
 ## Math and Logic puzzles
 
+Many companies don't like puzzles. However, they may ask a reasonable fair one (no wording tricks) that can almost always be logically deduced. Many puzzles have their foundations in mathematics or computer science. Interviewers want to see how you tackle a problem, so talk and show how you approach it.
+
+### Prime numbers
+
+**Fundamental theorem of Arithmetic (FTA):** Every positive integer greater than 1 can be un iquely expressed as a product of prime numbers.
+
+- Example: 84 = 2<sup>2</sup> * 3<sup>1</sup> * 5<sup>0</sup> * 7<sup>1</sup> * 11<sup>0</sup> * 13<sup>0</sup> * 17<sup>0</sup> * … (note that many of these primes have an exponent of zero)
+
+**Divisibility:** The FTA means that, in order for a number x to divide a number y (x\y, or mod(y,x)=0), all primes in x's prime factorization must be in y's prime factorization.
+
+- Example:
+  - x = 2<sup>j0</sup> * 3<sup>j1</sup> * 5<sup>j2</sup> * 7<sup>j3</sup> * 11<sup>j4</sup> * …
+  - y = 2<sup>k0</sup> * 3<sup>k1</sup> * 5<sup>k2</sup> * 7<sup>k3</sup> * 11<sup>k4</sup> * …
+  - If x\y, then for all i, ji <= ki
+- Greatest common divisor of x and y:
+  - gcd(x,y) = 2<sup>min(j0,k0)</sup> * 3<sup>min(j1,k1)</sup> * 5<sup>min(j2,k2)</sup> * …
+- Least common multiple of x and y:
+  - lcm(x,y) = 2<sup>max(j0,k0)</sup> * 3<sup>max(j1,k1)</sup> * 5<sup>max(j2,k2)</sup> * …
+- Fun exercise: gcd * lcm
+  - = 2<sup>min(j0,k0)</sup> * 2<sup>max(j0,k0)</sup> * 3<sup>min(j1,k1)</sup> * 3<sup>max(j1,k1)</sup> * …
+  - = 2<sup>min(j0,k0) + max(j0,k0)</sup> * 3<sup>min(j1,k1) + max(j1,k1)</sup> * …
+  - = 2<sup>j0 + k0</sup> * 3<sup>j1 + k1</sup> * …
+  - = 2<sup>j0</sup> * 2<sup>k0</sup> * 3<sup>j1</sup> * 3<sup>k1</sup> * …
+  - = x * y
+  
+**Checking for primality:**
+
+- Solution 1 (naive): Iterate form 2 through n-1, checking for divisibility on each iteration.
+
+```
+bool prime(int n)
+{
+  if (n < 2) return false;
+  
+  for (int i = 2; i < n; i++)
+    if (n % i == 0) return false;
+	
+  return true;
+}
+```
+
+- Solution 2 (improved): Iterate only up through √n.
+  - For every number a which divides n evenly, there's a complement b, where a * b = n.
+  - If a > √n, then b < √n (since (√n)<sup>2</sup> = n).
+  - Thus, we don't need a to check n's primality, since we would have already checked with b.
+
+```
+bool prime(int n)
+{
+  if (n < 2) return false;
+  
+  int sqrt = (int)std::sqrt(n);
+  
+  for (int i = 2; i <= sqrt; i++)
+    if (n % i == 0) return false;
+	
+  return true;
+}
+```
+
+- Solution 3 (best): Check only if n is divisible by a prime number.
+  - Sieve of Eratosthenes: Highly efficient way to generate a list of primes. All non-prime numbers are divisible by a prime number. Given a list of all numbers up through a value `max`. First, cross off all numbers divisible by 2. Then, look for the next prime (next non-crossed off number) and cross of all numbers divisble by it (2, 3, 5, 7, 11…). This way, we wind up with a list of prime numbers from 2 through `max`.
+
+```
+std::vector<bool> sieveOfEratosthenes(int max)
+{
+  std::vector<bool> flags(max + 1, true);
+  int count = 0;
+  int prime = 2;
+  
+  flags[0] = false;
+  flags[1] = false;
+  
+  while (prime <= std::sqrt(max))
+  {
+    crossOff(flags, prime);   // Cross off remaining multiples of prime
+	prime = getNextPrime(flags, prime);
+  }
+  return flags;
+}
+
+int getNextPrime(std::vector<int>& flags, int prime)   // Cross of remaining multiples of prime
+{
+  for (int i = prime * prime; i < flags.length(); i += prime)
+    flags[i] = false;
+}
+
+int getNextPrime(std::vector<bool>& flags, int prime)
+{
+  int next = prime + 1;
+  while (next < flags.length() && !flags[next])
+    next++;
+
+  return next;
+}
+```
+
+This code can be optimized. Example: Only use odd numbers in `flags`.
+
+### Probability
+
+Probabilities can be represented with a Venn diagram: Given 2 areas, A and B, representing the relative probability of 2 events, the overlapping area is the event `{A and B}` (A&xcap;B). 
+
+**Probability of A and B**: P(A and B) = P(B given A) P(A) = P(A given B) P(B)
+
+- P(B given A): Percent of A that is B. P(B) given P(A) = 1.
+- Example: Consider 10 unique numbers in range [1, 10]
+  - P(x is even) = 0.5
+  - P(x <= 5) = 0.5
+  - P(x is even and x <= 5)  =  P(x is even given x <= 5) P(x <= 5)  =  (2/5) * (1/2)  =  1/5
+- Bayes' Theorem: P(A given B) = P(B given A) P(A) / P(B)
+
+**Probability of A or B**: P(A or B) = P(A) + P(B) - P(A and B)
+
+- Example: Consider 10 unique numbers in range [1, 10]
+  - P(x is even or x <= 5)  =  P(x is even) + P(x <= 5) - P(x is even and x <= 5)  =  (1/2) + (1/2) - (1/5)  =  4/5
+
+**Independence**: Given A and B, one happening tells nothing about the other happening.
+
+- P(A and B) = P(A) P(B)
+- P(B given A) = P(B)
+
+**Mutual exclusivity**: Given A and B, if one happens, then the other cannot happen.
+
+- P(A and B) = 0
+- P(A or B)  =  P(A) + P(B) - 0  =  P(A) + P(B)
+
+Two events cannot be both independent and mutually exclusive, except when both have probability zero.
+
+### Develop rules and patterns
+
+You should write down "rules" or patterns that you discover while solving a problem. This helps remember them and make the problem easier.
+
+Example: Given 2 ropes that take each one hour to burn, how would you use them to time exactly 15 minutes? The ropes have uneven densities, so half the rope length-wise doesn't necessarily take half an hour to burn.
+
+- We have rope X that takes x minutes to burn, and rope Y that takes y minutes.
+- Rule 1: Given X and Y, we can time x+y minutes.
+- Rule 2: Given X, we can time x/2 minutes by lighting it at both ends.
+- Rule 3: We can turn rope Y into a rope that takes y-x minutes or y-(x/2) minutes.
+- Thus, we can turn one rope into a 30 minutes rope. If we thenlight it on the other end, it will be done after 15 minutes.
+- Steps: Light rope 1 at both ends, and rope 2 at one. When rope 1 is consumed (30 min), light rope 2 at the other end. In 15 minutes rope 2 will be consumed.
+
+### Worst case shifting
+
+Many puzzles are worst-case minimization problems (like minimizing an action, or doing something at most a specific number of times). A useful technique is trying to "balance" the worst case: if an early decision results in a skewing of the worst case, we can sometimes change the decision to balance the worst case.
+
+Example: You have 9 balls, where all weight the same except one that is heavier, and a balance that only tells which side (right or left) is heavier. Find the heavy ball in just two uses of the scale.
+
+- Dividing the balls in sets of 4 requires 3 weighings (one too many).
+  - Imbalance: The 9th ball takes 1 weighing to discover if it's heavy, whereas the others take 3.
+  - Worst case balancing: "Penalizing" the 9th ball by putting more balls off to the side lightens the load on the others.
+- Dividing the balls in sets of 3 requires 2 weighings.
+  - After one measure we know which set has the heavy ball. Repeating this step we find the heavy ball.
+
+### Algorithm approaches
+
+Puzzles are often algorithm questions without technical aspects. If you're stuck, consider applying one of the approaches for solving algorithm questions (see [optimize & solve techniques](#optimize-&-solve-technique-BUD-bottlenecks-unnecessary-work-duplicated-work)):
+
+- **BUD** (Bottlenecks, Unnecessary work, Duplicated work)
+- **DIY** (Do It Yourself)
+- **Simplify and Generalize**
+- **Base case and Build**
+- **Data structure brainstorm**
+
+Additional reading: [Useful math](#useful-math)
+
+
 ## Object oriented design
 
+OOD questions require sketching out the classes and methods to implement technical problems or real-life objects. This shows your coding style and how you create elegant, maintainable object-oriented code.
+
+### Approach
+
+This approach works well for many problems:
+
+- **Handle ambiguity**: OOD questions are often intentionally vague in order to test whether you'll make assumptions or ask clarifying questions. You should inquire Who and How is going to use it. Depending on the question, you may want to ask the "six Ws" (Who, What, Where, When, How, Why). When describing the OOD of a coffe maker, we need to know whether it's an industrial machine for a massive restaurant or a simple machine used by the elderly for just black coffee.
+
+- **Define the core objects**: For a `Restaurant`, they might be things like `Table`, `Guest`, `Party`, `Order`, `Meal`, `Employee`, `Server`, and `Host`.
+
+- **Analyze relationships** between the objects: Which objects are members of which other objects? Do any objects inherit from any others? Are relationships many-to-many or one-to-many? You can often make incorrect assumptions, so you should ask how general purpose your design should be.
+
+  - Example: `Party` should have an array of `Guests`. `Server` and `Host` inherit from `Employee`. Each `Table` has one `Party`, but each `Party` may have multiple `Tables`. There's one `Host` for the `Restaurant`.
+
+- **Investigate actions**: Consider the key actions that the objects will take and how they relate to each other. You may find that you forgot some objects, and you'll need to update your design.
+
+  - Example: A `Party` walks into the `Restaurant`, and a `Guest` requests a `Table` from the `Host`. The `Host` looks up the `Reservation` and, if it exists, assigns the `Party` to a `Table`. Otherwise, the `Party` is added to the end of the list. When a `Party` leaves, the `Table` is freed and assigned to a new `Party` in the list.
+  
+### Design patterns
+
+Interviewers often try to test your capabilities, not your knowledge. However, the **Singleton** and **Factory Method** design patterns are widely used in interviews. Study design patterns to improve your software engineering skills. You should create a design that works for the problem; sometimes it might be an established pattern, but in many other cases it's not.
+
+- **Singleton class**: It ensures that a class has only one instance and ensures access to the instance through the application. Useful for "global" objects with exactly one instance (we might want `Restaurant` to be a singleton). Many people dislike it (one reason is that it can interfere with unit testing).
+
+```
+class Restaurant
+{
+protected:
+  Restaurant() {...}
+  static Restaurant* _instance = nullptr;
+
+public:
+  Restaurant* getInstance()
+  {
+    if (!_instance)
+	  _instance = new Restaurant();
+	return _instance;
+  }
+}
+```
+
+- **Factory Method**: It offers an interface for creating an instance of a class, with its subclasses deciding which class to instantiate. Two possible implementations:
+
+  - Creator class is abstract and doesn't provide an implementation for the Factory Method.
+  - Creator class is concrete and provides an implementation of the Factory Method (which would take a parameter representing which class to instantiate).
+
+```
+class CardGame
+{
+public:
+  static CardGame* createCardGame(GameType type)
+  {
+    if (type == GameType::Poker)
+	  return new PokerGame();
+	else if (type == GameType::BlackJack)
+	  return new BlackJackGame();
+	
+	return nullptr;
+  }
+}
+```
+
+
 ## Recursion and Dynamic programming
+
+People typically have 50% accuracy in their "this sounds like a recursive problem" instinct. Many recursive problems follow a similar pattern. A good hint that a problem is recursive is that it can be built off of subproblems. Problems beginning with the following statements are often, but not always, good candidates for recursion:
+
+- Design and algorithm to compute the nth…
+- Write code to list the first n…
+- Implement a method to compute all…
+
+### Recursive approach
+
+Recursive solutions are built off of solutions to subproblems. The most common approaches to develop them are:
+
+- **Bottom-Up**: First, know how to solve the problem for a simple case (like a one-element list). Then figure out how to solve it for 2 elements, then for 3, and so on. Think about how to build the solution for one case off of the previous case (or cases).
+
+- **Top-Down**: Think about how to divide the problem for case N into subproblems. Be careful of overlap between the cases.
+
+- **Half-and-Half**: Divide the data set in half. Examples: binary search and Merge sort.
+
+**Additional notes:**
 
 Recursive solutions are often cleaner but less optimal.
 
@@ -1446,12 +1788,292 @@ bool isOdd (int n) { return  n && isEven(n - 1); }
 - __Recursive leap of faith__: Instead of unrolling the recursion step by step (messy), assume the recursive call works as intended, and focus on how your current step relates to it. Instead of considering recursion a function calling itself over and over, consider solving one step and delegating the rest to a smaller version of myself.	
 - Visualize the __call stack__: Every recursive call pauses the current function and pushes a new frame onto the stack. When the base case is hit, results bubble back up.
 
+### Recursion Vs. Iteration
+
+Recursive algorithms can be very space inefficient (each recursive call adds a new layer to the stack). It's often better to implement a recursive algorithm iteratively. All recursive algorithms can be implemented iteratively, although code complexity increases. Discuss tradeoffs.
+
+### Dynamic programming & Memoization
+
+**Dynamic programming problems**: Problems stated in terms of changing input data. Most general form: "Given a structure composed of objects, find efficient algorithms and data structures to answer certain queries about the structure, while also efficiently supporting update operations (such as insertion, deletion or modification of objects in the structure)".
+
+Complexity measures used: space, initialization time, insertion time, deletion time, query time, etc.
+
+**Approaches** to dynamic programming problems:
+
+- Take a recursive algorithm and find the overlapping subproblems (i.e., the repeated calls). Then, cache those results for future recursive calls (memoization).
+- Study the pattern of the recursive calls and implement something iterative. You still cache previous work.
+
+**Example**: Compute the nth Fibonacci number. Different approaches:
+
+- **Recursive** (top-down approach): Implement a normal recursive solution. No caching included.
+
+```
+int fibonacci(int i)
+{
+  if(n < 2) return n;
+  return fibonacci(i - 1) + fibonacci(i - 2);
+}
+```
+
+  - Drawing the number of recursive calls as a tree helps figure out the runtime of a recursive algorithm
+  - Runtime: O(2<sup>n</sup>) (number of recursive calls)
+  - Actually, runtime is closer to O(1.6<sup>n</sup>) since the right subtree of any node is always smaller than the left subtree. Either way, it's still exponential.
+
+- **Top-down dynamic programming (or Memoization)**: In the recursive approach, we can see identical nodes in the recursion tree. We can solve this inefficiency using memoization (cache results to use them later), making it run in O(n) time.
+
+```
+int fibonacci(int n)
+{
+  std::vector<int> memo(n + 1, 0);
+  return fibonacci(n, memo);
+}
+
+int fibonacci(int i, std::vector<int>& memo)
+{
+  if(n < 2) return n;
+  
+  if (!memo[i])
+    memo[i] = fibonacci(i - 1, memo) + fibonacci(i - 2, memo);
+	
+  return memo[i];
+}
+```
+
+  - The new tree has now depth ~n, and each of these node has one other child, resulting in ~2n children.
+  - Runtime: O(n)
+
+- **Bottom-up dynamic programming**: Doing the recursive memoized approach, but in reverse.
+
+```
+int fibonacci(int n)
+{
+  if(n < 2) return n;
+  
+  std::vector<int> memo(n, 0);
+  memo[1] = 1;
+  
+  for(int i = 2; i < n; i++)
+    memo[i] = memo[i-1] + memo[i-2];
+  
+  return memo[n-1] + memo[n-2];
+}
+```
+
+Additional reading: Proof by induction
+
 
 ## System design and Scalability
 
+Design an escalable system. Ask questions. Engage the interviewer. Discuss tradeoffs. There're good and bad solutions. There's no perfect solution, there're always tradeoffs. Two different designs for a system can be excellent, given different assumptions.
+
+Goal: Understand use cases, scope a problem, make reasonable assumptions, create a solid design based on those assumptions, and be open about the weaknesses of your design. Don't expect something perfect.
+
+### Handling the questions
+
+The questions are mostly about the process rather than the ultimate design.
+
+- **Communicate**: Show your ability to communicate. Engage the interviewer. Ask questions. Be open about issues of your system.
+- **Go broad first**: Don't focus too much on one part or dive straight into the algorithm part.
+- **Use the whiteboard**: It helps the interviewer follow your proposed design.
+- **Acknowledge interviewer concerns**: Validate his concerns, acknowledge the issues, and make changes accordingly.
+- **Be careful about assumptions**: Incorrect assumptions can dramatically change the problem.
+- **State your assumptions explicitly**: This lets the interviewer correct you if you're mistaken, and shows that you know what assumptions you're making.
+- **Estimate when necessary**: Sometimes you don't have the data you need.
+- **Drive**: Stay in the driver's seat. Drive through the questions. Ask and talk to the interviewer. Be open about tradeoffs. Go deeper. Make improvements.
+
+## Design
+
+Designing a system begins by doing a lot of questions.
+
+- **Scope the problem**: Ensure that you're building what the interviewer wants. Some questions must be answered before going further. List the major features or use cases.
+- **Make reasonable assumptions**: When necessary. Talk about your assumptions.
+- **Draw the major components**: Draw a diagram on the whiteboard. Walk through your system from end-to-end to provide a flow. It may help here to ignore major scalability challenges and just pretend that the simple, obvious approaches will be ok. You'll handle the big issues in the next step.
+- **Identify the key issues**: Once you have a basic design, focus on the key issues. What will be the bottlenecks or major challenges in the system? If the interviewer provides some guidance, use it.
+- **Redesign for the key issues**: Adjust your design for the key issues. It might be a minor tweaking or a major redesign. Update your diagrams on the whiteboard. Be open about any limitations in your design.
+
+### Algorithms that scale
+
+Sometimes you don't have to design an entire system, but a single feature or algorithm in an escalable way. Or maybe one algorithm part is the focus of a broader design question. Try this approach:
+
+1. **Ask questions**: Make sure you really understand the question. Some details might be left out (intentionally or not).
+2. **Make believe**: Pretend that the data can all fit on one machine and there's no memory limitations. How would you solve the problem? This is the general outline for your solution.
+3. **Get real**: Go back to the original problem. How much data can fit on one machine? What problems will occur when you split up the data?
+4. **Solve problems**: Think about how to solve the issues from step 2. Remove or mitigate each issue. Usually, you can continue using the outlined solution (with modifications), but occasionally you'll need to fundamentally alter it.
+
+An iterative approach is typically useful (after solving problems from step 3, new problems may emerge, and you must tackle them as well).
+
+Your goal is not to re-architect existing complex systems (expensive), but rather to demonstrate that you can analyze and solve problems. Poking holes in your solution is a great way to demonstrate this.
+
+### Key concepts
+
+- **Scaling types**: A system can be scaled one of two ways:
+  - **Vertical**: Increase resources of a specific node (like adding additional memory to a server). Easier, but limited.
+  - **Horizontal**: Increase number of nodes (like adding additional servers).
+
+- **Load balancer**: Distributes the load evenly so that one server doesn't crash and take down the whole system. This requires a network of cloned servers that all have essentially the same code and access to the same data. Typically, some frontend parts of a scalable website are thrown behind a load balancer.
+
+- **Database denormalization and NoSQL**: In a relational database (like SQL), information is often split into separate tables to avoid redundancy (normalization). A join operation "joins" two different tables together into a single result based on a related column (example: to see which customer placed which order, you "join" them using `customer_id`). This join can get very slow as the system grows bigger, so we generally want to avoid them. Two options:
+  - **Denormalization**: Adding redundant information into a database to speed up reads. Example: Consider a database describing projects and tasks. We might need to get the project name and the task information. Rather than doing a join across these tables, we can store the project name within the task table (in addition to the project table).
+  - **NoSQL** database: It doesn't support joins and might structure data in a different way. It's designed to scale better.
+
+- **Database partitioning (Sharding)**: Split the data across multiple machines while ensuring there's a way to figure out which data is on which machine. There're different ways of partitioning (many architectures end up using multiple partitioning schemes):
+  - **Vertical**: Partition by feature. In a social network, we might have one partition for tables relating profiles, another for messages, and so on. Drawback: If one table gets very large you might need to repartition that database (possibly using a different partitioning scheme).
+  - **Key-based (or hash-based)**: Some part of the data (like an ID) is used to partition it. This can be done by allocating N servers and putting the data on `mod(key, n)`. Drawback: adding new servers requires allocating all the data (expensive).
+  - **Directory-based**: Maintain a lookup table for where the data can be found. This makes it easy to add additional servers. Drawbacks: the lookup table is a single point of failure, and constantly accessing this table impacts performance.
+  
+- **Caching**: In-memory cache is a key-value pairing used for delivering rapid results. An application requesting a piece of information first tries the cache. It the cache doesn't contain the key, it looks up the data in the data store. When you cache, you might cache a query and its results directly; or, alternatively, the specific object (like a rendered version of part of the website, or a list of most recent blog posts).
+
+- **Asynchronous processing & Queues**: Slow operations should ideally be done asynchronously, so users don't get stuck waiting for a process to complete. Some options:
+  - **Pre-process**: Do it in advance. Example: a queue of jobs can update part of the website. In a forum, one job might re-render a page that lists the most popular posts and the number of comments, even if it's slightly out of date.
+  - **Wait**: Tell the user to wait and notify when the process is done.
+
+- **Networking metrics**: Important metrics around networking include:
+  - **Bandwidth**: Maximum amount of data that can be transferred per unit of time (like bits/s or GB/s).
+  - **Throughput**: Actual amount of data that is transferred per unit of time.
+  - **Latency**: How long it takes data to go from one end to the other. Delay between the sender sending information and the receiver receiving it. Complicated to improve. Important for online games.
+  - Example: Consider a conveyor belt for transferring items across a factory.
+    - Fatter conveyor → Same latency. Higher throughput and bandwidth.
+	- Shorter conveyor → Lower latency. Same throughput and bandwidth.
+	- Faster conveyor → Lower latency, throughput and bandwidth.
+
+- **MapReduce**: Typically used to process large amounts of data by parallelizing it. This makes processing more scalable. Two steps:
+  1. `Map`: Takes in some data and emits a `<key, value>` pair
+  2. `Reduce`: Takes a key and a set of associates values and "reduces" them in some way, emitting a new key and value. The result of this might be fed back into the `Reduce` program for more reducing.
+  
+### Considerations
+
+Issues when designing a system:
+
+- **Failures**: Any part of a system can fail. Plan for many or all failures.
+- **Availability**: Function of the percentage of time the system is operational.
+- **Reliability**: Function of the probability that the system is operational per unit of time.
+- **Read-heavy vs. Write-heady**: Whether the application does a lot of reads or writes impacts the design. If it's write-heavy, consider queueing up the writes. If it's read-heavy, consider caching. Other designs decisions can change as well.
+- **Security**: Consider the threats and issues the system might face and design around those.
+- There're more potential issues. Be open about the tradeoffs.
+
+### Example problem
+
+**Problem**: Given a list of millions of documents, how would you find all documents that contain a list of words? The words can appear in any order, but must be complete words (`book` doesn't match `bookkeeper`).
+
+1. **Ask questions**: `findWords` is a one time operation or is it called repeatedly? We will assume it's used many times for the same set of documents, and therefore we can accept the burden of pre-processing.
+
+2. **Make believe**: Pretend we just have a few dozen documents. How would we implement `findWords` in this case? We could pre-process each document and create a hash-table index that maps from a word to a list of documents containing that word. Searching for a set of words requires just doing an intersection on the values for those words.
+
+3. **Get real**: Go back to the original problem. What problems arise with millions of documents? We may need to divide up the documents across many machines. And may not be able to fit the full hash table on one machine. This introduce key concerns such as:
+  1. How to divide up our hash table? By keyword (one machine has the full document list for a given word) or by document (one machine has the keyword mapping for a subset of the documents).
+  2. How to process a document on one machine and push the results off to other machines? (not necessary if we divide the hash table by document).
+  3. How to know which machine holds a piece of data? What does this lookup table looks like, and where is it stored?
+
+4. **Solve problems**: Find solutions to each of the previous issues. Proposed solution:
+  1. Divide up the words alphabetically by keyword, such that each machine controls a range of words.
+  2. Iterate through the keywords alphabetically, storing as much data as possible on one machine. When it's full, move to the next machine.
+    - Advantage: the lookup table is small and simple (it only specifies a range of values), and each machine can store a copy of the lookup table.
+    - Disadvantage: Adding new documents or words require performing an expensive shift of keywords.
+  3. To find all the documents that match a list of strings, we sort the list and send each machine a lookup request for the strings that the machine owns. Each machine looks up the document lists containing the requested strings and performs an intersection on them. Then, the initial machine does an intersections on the results from all machines.
+
+
 ## Sorting and Searching
 
+Many sorting and searching problems are tweaks of well-known algorithms.
+
+### Sorting
+
+Common sorting algorithms:
+
+- **Bubble sort**: O(n<sup>2</sup>) runtime (average & worst case). O(1) memory.
+
+Swap the first two elements of the array if the first is greater than the second. Then, go to the next pair, and so on, continuously making sweeps of the array until it's sorted. Smaller items slowly "bubble" up to the beginning of the list. Every traversal moves the biggest element to the right.
+
+- **Selection sort**: O(<sup>2</sup>) runtime (average & worst case). O(1) memory.
+
+Find the smallest element using a linear scan and move it to the front (swapping it with the front element). Repeat with the second smallest element. Continue until all elements are in place. Simple, but inefficient.
+
+- **Merge sort**: O(n log n) runtime (average & worst case). O(n) memory.
+
+Divide the array in half, sort each halve, and merge them back together. Merge sort is applied to each halve. Eventually, you're merging just two single element arrays. The `merge` part does all the heavy lifting: it copies all elements from the target array segment into `helper` array, keeping track of where the start of the left and right halves should be (`helperLeft` and `helperRight`). We then itereate through `helper`, copying the smaller element from each half into the array.
+
+At the end, we copy any remaining elements (from the left half of `helper`) into the target array. The right half doesn't need to be copied becasue it's already there. Example: Consider halves `1, 4, 5` and `2, 8, 9`. Prior to merging the two halves, both the helper array and target array segment will end with `8, 9`, so there's no need to copy them over.
+
+- **Quick sort**: O(n log n) (average case) or O(n<sup>2</sup>) (worst case) runtime. O(log n) memory.
+
+Pick a random element and partition the array, such that all numbers that are less than the partitioning element come before all elements that are greater than it. Partitioning is done efficiently through a series of swaps. If we repeatedly partition the array (and its sub-arrays) around an element, the array will eventually become sorted. However, the partitioned element is not guaranteed to be the median (or near), so the algorithm could be very slow in the worst case.
+
+- **Radix sort**: O(kn) runtime (n: number of elements. k: number of passes of the sorting algorithm).
+
+Sorting algorithm for integers (and some other data types) that takes advantage of the fact that integers have a finite number of bits. Iterate through each digit of the number, grouping numbers by each digit. Example: Given an array of integers, we sort by the first digit, then each group is sorted by the next digit, and so on, until finally the whole array is sorted.
+
+Unlike comparison algorithms, which cannot perform better than O(n log n) in the average case, Radix sort has O(kn) runtime. 
+
+### Searching
+
+The most common searching algorithm is Binary search, but there're more options. You might, for example, search for a node by leveraging a binary tree, or by using a hash table.
+
+In **binary search**, we look for an element x in a sorted array by first comparing x to the midpoint of the array. If x is less than the midpoint, search the left half. If x is greater, search the right half. Repeat this until you find x or the subarray has size 0. This can be done iteratively or recursively.
+
+
+## Testing
+
+### Purpose
+
+**The interviewer looks for:**
+
+- **Test cases**: Coming up with a reasonable list of test cases.
+- **Understand the big picture**: Understand what is the software really about and prioritize test cases properly. Example: in an e-commerce, it's good that product images appear correctly, but it's more important that payments work reliably.
+- **Know how the pieces fit together**: Understand how software works, and how it might fit in a greater ecosystem. Example: For Google Spreadsheets we need to test its integration with Gmail, with plug-ins, and with other components.
+- **Organization**: Approach the problem in a structured manner. Break the problem into categories to do a more thorough job creating test cases. Example: Testing a camera can be broken down into Taking photos, Image management, Setting, etc.
+- **Practicality**: Create reasonable testing plans. Testing plans need to be feasible and realistic for a company to implement.
+
+### Testing problems
+
+In testing problems, don't expect nice input/users, but expect abuse and plan for it.
+
+Typical **types of testing problems**:
+
+- **Test a real world object** (like testing a pen or a paperclip)
+- **Test a piece of software**
+- **Write test code for a function**
+- **Troubleshoot an existing issue**
+
+### Testing a real world object**:
+
+- **Who will use it? And why?** Answering this will shape how you handle the remaining questions.
+  - Example: teachers, to hold papers together; or artists, to bend into the shape of an animal.
+- **What are the use cases?**
+  - Example: a product needs to be able to send and receive content, or write and erase.
+- **What are the bound of use?**
+  - Example: holding up to 30 sheets of paper in a single usage without permanent damage (bending), and 30-50 sheets with minimal permanent bending; or working during very warm temperatures (90-110º), or extreme cold.
+- **What are the stress/failure conditions?** Discuss when it's acceptable, or even necessary, for the product to fail, and what failure should mean.
+  - Example: a laundry machine should be able to handle at least 30 shirts/pants. Loading 30-45 pieces may cause minor failure (inadequate cleaning). For more than 45 pieces, extreme failure (machine never turning on the water) might be acceptable.
+- **How would you perform the testing?**
+  - Example: to test whether a chair can withstand normal usage for five years, you'd need to define what "normal" usage is (how many sits per year? what about the armrest?). Additionally, we may want a machine to automate some of the usage.
+
+### Test a piece of software
+
+Similar to testing a real world object, but placing greater emphasis on the details of performing testing.
+
+**Core aspects**:
+
+- **Manual vs. Automated** testing: We want to automate everything, but this is rarely feasible. Some things are much better with manual testing because some features are too qualitative for a computer to effectively examine (like identifying pornography). Additionally, human observation may reveal new issues that haven't been specifically examined.
+
+- **Black box vs. White box** testing: Degree of access we have into the software. We may receive the software as-is (black box) to test it, or have programmatic access to test individual functions (white box). Automating black box testing is much harder.
+
+**Approach**:
+
+- **Are we doing Black or White box testing (or both)?** 
+- **Who will use it? And why?** Features are designed with the target user/s in mind. For a parental control on a web browser, the target users are parents (implement blocking), children (get blocked), and guests (neither block, nor get blocked).
+- **What are the use cases?** This is not your decision, so discuss this with the interviewer. The parental control use cases for parents include installing the software, updating controls, removing controls, and their own personal internet usage. For children include accessing legal and "illegal" content.
+- **What are the bounds of use?** Define what is a blocked website. Specify what is blocked (just the "illegal" page or the entire website). Specify if the application learns what is bad content or if it's based on a white or black list. If it learns, specify the acceptable degree of false positives and false negatives.
+- **What are the stress conditions/failure conditions?** What should failure look like? A failure shouldn't crash the computer. 
+
+
+### Write test code for a function
+### Troubleshoot an existing issue
+
+
+
 ## C and C++
+
+Symbols: ≤, ≥, ≠, ≈, √, ∑, →, ↔, ∨, ∧, ~, ¬, ∀, ∃, ⌊⌋, ⌈⌉, <sub>i</sub>, <sup>i</sup>, α, β, ∞, Ω, Θ, θ, ϕ, γ, ├─, │, └─, …
 
 ## Java
 
@@ -1708,4 +2330,4 @@ I can map each pattern to 2–3 canonical problems so you’d have a training se
 
 
 
-Symbols: ≤, ≥, ≠, ≈, √, ∑, →, ↔, ∨, ∧, ~, ¬, ∀, ∃, ⌊⌋, ⌈⌉, <sub>i</sub>, <sup>i</sup>, ∞, Ω, Θ, θ, ϕ, γ, ├─, │, └─, …
+

@@ -3,14 +3,26 @@
 
 ## Table of contents
 
++ [References](#references)
 + [Introduction](#introduction)
+  + [Unix](#unix)
+  + [Linux](#linux)
 + [Installation](#installation)
+  + [WSL (Windows Subsystem for Linux)](#wsl-windows-subsystem-for-linux)
+  + [Installing Linux from USB flash drive](#installing-linux-from-usb-flash-drive)
+  + [Installing Linux (Ubuntu) in a Virtual machine (VMware WP)](#installing-linux-ubuntu-in-a-virtual-machine-vmware-wp)
+  + [Errors you may encounter](#errors-you-may-encounter)
 + [Command line](#command-line)
   + [Basic commands](#basic-commands)
   + [Control flow](#control-flow)
   + [File descriptor](#file-descriptor)
   + [Permissions](#permissions)
-  + [](#)
+  + [Compilation](#compilation)
+
+
+## References
+
+- [Intro to Linux (Hack4u)](https://hack4u.io/cursos/introduccion-a-linux/)
 
 
 ## Introduction
@@ -310,10 +322,25 @@ Whether or not you need to create physical installation media depends on how you
 
 ### WSL (Windows Subsystem for Linux)
 
-WSL is a Linux OS (only command line) in your Windows OS ([installation](https://learn.microsoft.com/es-es/windows/wsl/install)). Through the folder `/mnt` you have access to Windows. The programs execute directly on the machine hardware, not in a virtual machine. It enables direct calls between Linux and Windows systems (through the `/mnt` folder), removing the need for SSL transport.
+WSL is a Linux OS (only command line) in your Windows OS ([installation](https://learn.microsoft.com/es-es/windows/wsl/install)). The programs execute directly on the machine hardware, not in a virtual machine. 
 
 - WSL 1: Interface that simulates a Linux kernel.
 - WSL 2 (default): It has a real Linux kernel.
+
+Basic commands:
+
+- `wsl --install`: Enable features to run WSL and install Linux (by default, Ubuntu). 
+- `wsl --list --online`: List of Linux versions available online.
+- `wsl`: Run WSL
+
+Through the folder `/mnt` you have access to Windows (example: the C: drive is accessible at `/mnt/c`). This enables direct calls between Linux and Windows systems, removing the need for SSL transport.
+
+- `cp /mnt/c/Users/username/file.txt ./file.txt`: Copy file from Windows to WSL.
+- `cp ./file.txt /mnt/c/Users/username/file.txt`: Copy file from WSL to Windows.
+
+The utility `wslpath` converts Windows paths to WSL paths:
+
+- `"$(wslpath "C:\\Users\\username\\file.txt")"` = `/mnt/c/Users/username/file.txt`
 
 ### Installing Linux from USB flash drive
 
@@ -554,6 +581,47 @@ Links:
 - [The bits SUID, SGID, and Sticky](https://www.ibiblio.org/pub/linux/docs/LuCaS/Manuales-LuCAS/SEGUNIX/unixsec-2.1-html/node56.html)
 - [Capabilities - Linux manual page](https://man7.org/linux/man-pages/man7/capabilities.7.html)
 
+### Compilation
+
+- **Install necessary tools:**
+  - `sudo apt update`
+  - `sudo apt install build-essential`
+  
+- **Compile:**
+  - Source files: `g++ main.cpp file1.cpp file2.cpp -o myprogram` (header files are automatically included).
+  - Source files + Include directory: `g++ -I/path/to/headers main.cpp file1.cpp -o myprogram` (if header files are in a different directory).
+  - Recommended flags: `g++ -std=c++17 -Wall -Wextra -O2 -o program file1.cpp file2.cpp`
+    - `-std=c++20`: C++ standard
+	- `-Wall -Wextra`: Enables common warnings
+	- `-O2`: Enable optimization
+  
+- **Run program:**
+  - `./myprogram`: The `./` prefix is required because the current directory is not in your `$PATH` by default.
+
+For larger projects, consider using `make` or `CMake` to automate compilation and avoid repetitive commands.
+
+**C++ example:**
+
+- `main.cpp` file
+
+```
+#include <iostream>
+int main(int argc, char* argv[])
+{
+  if (argc < 2)
+  {
+    std::cerr << "Usage: " << argv[0] << " <value>" << std::endl;
+    return 1;
+  }
+  std::cout << "Hello, " << argv[1] << "!" << std::endl;
+  return 0;
+}
+```
+
+- Compile: `g++ main.cpp -o program`
+- Run: `./program Alice`
+- Output: `Hello, Alice!`
+
+Arguments are passed as strings. Convert them to numbers if needed using `std::stoi`, `std::stringstream`, etc. The value of `argv[0]` is the name of the program, including the path used to execute it (in this case, `./program`).
+
 ### 
-
-

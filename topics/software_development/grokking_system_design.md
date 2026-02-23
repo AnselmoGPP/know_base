@@ -28,6 +28,7 @@
   + [Checksum](#checksum)  
 + [Tradeoffs](#tradeoffs)
 + [Problems](#problems)
++ [Synthesis](#synthesis)
 
 
 ## References
@@ -90,7 +91,7 @@
 
 - **Breakdown and aggregation**: Breaking down a problem into smaller components and estimating each separately can make it easier to derive an overall estimate. This involves identifying the system's key components, estimating their individual requirements, and aggregating these estimates to determine the total system requirements. Example: estimating the storage needs for user data, multimedia content, and metadata separately can help in determining the overall storage requirements.
 
-- **Sanity check**: Quick evaluation of an estimate to ensure its plausibility and reasonableness. This helps identify potentia errors or oversights in the estimation process and can lead to more accurate and reliable results. Example: comparing the estimated storage requirements for a messaging service with the actual storage used by a similar existing service can help validate the estimate.
+- **Sanity check**: Quick evaluation of an estimate to ensure its plausibility and reasonableness. This helps identify potential errors or oversights in the estimation process and can lead to more accurate and reliable results. Example: comparing the estimated storage requirements for a messaging service with the actual storage used by a similar existing service can help validate the estimate.
 
 **Types of estimations** in system design:
 
@@ -146,7 +147,7 @@
 
 A system design interview is not just about getting the right answer, but about demonstrating your problem-solving approach, ability to adapt, and communication and collaboration skills.
 
-- **Don't ignore the Requirements**
+- **Don't ignore the requirements**
   - Ask questions and clarify requirements to avoid wrong designs.
   - Don't oversimplify the problem or ignore the complexities involved.
 - **Don't dive into details too soon**
@@ -212,11 +213,11 @@ Percentage of time a system/service/machine remains operational to perform its r
 
 - __Example__: An aircraft with high availability can fly for many hours a month without much downtime. Availability takes into account maintainability, repair time, spares availability, and other logistics considerations. When it's down for maintenance, it's not available during that time.
 - __Reliability__ is availability over time considering the full range of possible real-world conditions that can occur. An aircraft that can fly safely through any weather is more reliable than one with vulnerabilities to some conditions.
-- A __reliable__ system is __available__ (high reliability contributes to high availability). But being available doesn't necessarily mean it's reliable. We can achieve high availability with an unreliable product by minimizing repair time and ensuring spares are always available when needed. Example: an online retail store has full availability for the first 2 years after launch, but the systems was launched with no information security testing so, though customers are happy, the system isn't very reliable since it has serious vulnerabilities. The 3rd year the system experiences some information security incidents that cause extremely low availability for extended periods of time, resulting in reputational and financial damage to the customers.
+- A __reliable__ system is __available__ (high reliability contributes to high availability). But being available doesn't necessarily mean it's reliable. We can achieve high availability with an unreliable product by minimizing repair time and ensuring spares are always available when needed. Example: an online retail store has full availability for the first 2 years after launch, but the system was launched with no information security testing so, though customers are happy, the system isn't very reliable since it has serious vulnerabilities. The 3rd year the system experiences some information security incidents that cause extremely low availability for extended periods of time, resulting in reputational and financial damage to the customers.
 
 #### Efficiency
 
-Assume we have an operation that runs in a distributed manner and delivers a set of items as a result. Two standard measures of its efficiency are:
+Ability of producing desired results with little resources (time or materials). Assume we have an operation that runs in a distributed manner and delivers a set of items as a result. Two standard measures of its efficiency are:
 
 - Response time (or latency): Delay to obtain the first item.
 - Throughput (or bandwidth): Number of items delivered in a given time unit (second).
@@ -226,7 +227,7 @@ These correspond to two unit costs:
 - Number of messages globally sent by the nodes of the system regardless of the message size.
 - Size of messages representing the volume of data exchanges.
 
-The complexityof operations supported by distributed data structures (like searching for a specific key in a distributed index) can be characterized as a function of one of these cost units. In general, analysing a distributed structure based on the number of messages is over-simplistic because it ignores the impact of many aspects (network topology, network load, its variation, heterogeneity of software and hardware components…). Since it's quite difficult to develop a precise cost model that accurately takes into account all these performance factors, we have to live with rough but robust estimates of the system behavior.
+The complexity of operations supported by distributed data structures (like searching for a specific key in a distributed index) can be characterized as a function of one of these cost units. In general, analysing a distributed structure based on the number of messages is over-simplistic because it ignores the impact of many aspects (network topology, network load, its variation, heterogeneity of software and hardware components…). Since it's quite difficult to develop a precise cost model that accurately takes into account all these performance factors, we have to live with rough but robust estimates of the system behavior.
 
 #### Manageability or Serviceability
 
@@ -234,9 +235,13 @@ How easy it is to operate and maintain the system. Simplicity and speed with whi
 
 ### Load balancing
 
-**Load balancer (LB):** Important component of distributed systems. It helps spread traffic across a cluster of servers to improve responsiveness and availability of applications, websites or databases, and keeps track of the status of all resources while distributing requests. If a server is not available, or not responding, or has high error rate, LB will stop sending traffic to it. LB typically sits between client and server, accepting incoming network and application traffic and distributing traffic across multiple backend servers using various algorithms. By balancing application requrest across multiple servers, LB reduces individual server load and prevents any one application server from becoming a single point of failure, thus improving overall application availability and responsiveness.
+#### Load balancer (LB)
+
+It helps spread traffic across a cluster of servers to improve responsiveness and availability of applications, websites or databases, and keeps track of the status of all resources while distributing requests. If a server is not available, or not responding, or has high error rate, LB will stop sending traffic to it. LB typically sits between client and server, accepting incoming network and application traffic and distributing traffic across multiple backend servers using various algorithms. By balancing application requests across multiple servers, LB reduces individual server load and prevents any one application server from becoming a single point of failure, thus improving overall application availability and responsiveness.
 
 ![Load balancer](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_2.png)
+
+Before forwarding a request to a backend server, a LB first ensures that the server they choose is actually responding appropriately to requests, and then use a pre-configured algorithm to select one from the set of healthy servers. Servers health is monitored through **health checks**: regular attempts to connect to servers to ensure that they are listening. A server that fails a health check is automatically removed from the pool, and traffic will not be forwarded to it until it responds to health checks again.
 
 For full scalability and redundancy, we can try to balance load at each system's layer. We can add LBs at 3 places:
 
@@ -249,33 +254,187 @@ For full scalability and redundancy, we can try to balance load at each system's
 **Benefits of load balancing:**
 
 - Users experience faster, uninterrupted service. No need to wait for a single struggling server to finish its previous task, since requests are immediately passed on to a more readily available resource.
-- Service providers experience less downtime and higher throughput. Even a full server failure won't affect the end user expereince as the LB will route around it to a healthy server.
+- Service providers experience less downtime and higher throughput. Even a full server failure won't affect the end user experience as the LB will route around it to a healthy server.
 - Load balancing makes it easier for system administrators to handle incoming requests while decreasing wait time for users.
 - Smart LBs provide benefits like predictive analytics that determine traffic bottlenecks before they happen. It gives an organization actionable insights, which are key to automation and can help drive business decisions.
 - System administrators experience fewer failed or stressed components. Load balancing has several devices performing a little bit of work, instead of a single device performing a lot of work.
 
-**Load balancing algorithms:**
-
-Before forwarding a request to a backend server, a LB first ensures that the server they choose is actually responding appropriately to requests, and then use a pre-configured algorithm to select one from the set of healthy servers. Servers health is monitored through **health checks**: regular attempts to connect to servers to ensure that they are listening. A server that fails a health check is automatically removed from the pool, and traffic will not be forwardedto it until it responds to health checks again.
-
-There're different load balancing algorithms for different needs:
-
-- __Least connection method__: Directs trafic to the server with the fewest active connections. Useful when there're a large number of persisten client connections which are unevenly distributed between servers.
-- __Least response time method__: Directs traffic to the server with the fewest active connections and the lowest average response time.
-- __Least bandwidth method__: Selects the server that is currently serving the least amount of traffic measured in Mbps (megabits per second).
-- __Round robin method__: Cycles through a list of servers and sends each new request to the next server. If the end of the list is reached, it starts over at the beginning. Useful when servers have equal specification and there're not many persistent connections.
-- __Weighted round robin method__: Each server is assigned a weight (integer value indicating processing capacity). Servers with higher weights receive new connections before those with less weights, and servers with higher weights get more connections that those with less weights. This is designed to better handle servers with different processing capacities.
-- __IP Hash__: A hash of the IP address of the client is calculated to redirect the request to a server.
-
-**Redundant load balancers:** The LB can be a single point of failure. To overcome this, a second LB can be connected to the first to form a cluster. Each LB monitors the health of the other and, if the main LB fails, the second LB takes over.
+**Redundant load balancers:** The LB can be a single point of failure. To overcome this, a second LB can be connected to the first to form a cluster (one is active and the other is passive). Each LB monitors the health of the other and, if the main LB fails, the second LB takes over.
 
 ![Redundant load balancers](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_4.png)
 
-More about LBs:
+#### Load balancing algorithms
 
-- [What is load balancing](https://avinetworks.com/what-is-load-balancing/)
-- [Introduction to architecting systems](https://lethain.com/introduction-to-architecting-systems-for-scale/)
-- [Load balancing](https://en.wikipedia.org/wiki/Load_balancing_(computing))
+The LB uses them to distribute incomming traffic and requests among multiple servers or resources. Advantages:
+
+- Ensure efficient use of resources
+- Improve performance
+- Maintain high availability and reliability
+- Prevent any server/resource from becoming overwhelmed
+- Optimize response time, maximize throughput, and enhance user experience
+
+Most famous load balancing algorithms:
+
+- Round Robin (weighted or not)
+- Least Connections (weighted or not)
+- IP Hash
+- Least Response Time
+- Random
+- Least Bandwidth
+- Custom Load
+
+#### Round Robin
+
+Distributes incoming requests to servers in a cyclic order. After reaching the last server, it starts again at the first.
+
+- **Pros**:
+  - Equal distribution of requests among servers
+  - Easy to understand and implement
+  - Useful for servers with similar capacities
+- **Cons**:
+  - No load awareness: All servers are treated equally regardless of their load or capacity.
+  - No session affinity: Subsequent requests from the same client may be directed to different servers, which can be problematic for stateful applications.
+  - Performance issues when servers have different capacities or varying workloads.
+  - Predictable distribution pattern: This can be exploited by attackers that find a vulnerability in a server.
+- **Use cases**:
+  - Homogeneous environments: All servers have similar capacity and performance.
+  - Stateless applications: Each request can be handled independently.
+
+#### Least connections
+
+Assigns incoming requests to the server with the fewest active connections at the time of the request.
+
+- **Pros**:
+  - Load awareness: Takes into account the current load on each server.
+  - Dynamic distribution: Adapts to changing traffic patterns and server loads. No single server becomes a bottleneck.
+  - Efficieny when servers have varying capacities and workloads.
+- **Cons**:
+  - Higher complexity: Requires real-time monitoring of active connections.
+  - State maintenance: Requires maintaining the state of active connections, increasing overhead.
+  - Potential connection spikes: When connection durations are short, serves can experience rapid spikes in connection counts, leading to frequent rebalancing.
+- **Use cases**:
+  - Heterogeneous environments: Servers with different capacities and workloads.
+  - Variable traffic patterns: No single server is overwhelmed.
+  - Stateful applications: Active sessions are distributed more evenly.
+
+#### Weighted Round Robin (WRR)
+
+Assigns weights to each server based on their capacity or performance, distributing incoming requests proportionally according to these weights.
+
+- **Pros**:
+  - Load distribution according to capacity: Higher capacity servers handle more requests.
+  - Flexibility: Easily adjustable to accommodate changes in server capacities or addition of new servers.
+  - Improved performance: Prevents overloading less powerfull servers.
+- **Cons**:
+  - Complexity: Determining weights can be challenging and requires accurate performance metrics.
+  - Increased overhead: Managing and updating weights introduce overhead.
+  - Not ideal for highly variable loads: WRR may not provide optimal load balancing as it doesn't consider real-time server load.
+- **Use cases**: 
+  - Heterogeneous server environments: Servers with different processing capabilities.
+  - Scalable web application: Servers with varying performance characteristics.
+  - Database clusters: Nodes with different processing power.
+  
+#### Weighted Least Connections
+
+Takes into account both the current load (active connections) and relative capacity (weight) of each server.
+
+- **Pros**:
+  - Dynamic load balancing: Adjusts to the real-time load on each server.
+  - Capacity awareness: Takes into account each server's capacity.
+  - Flexibility: Useful with heterogeneous servers and variable load patterns.
+- **Cons**:
+  - Complexity: More complex to implement.
+  - State maintenance: Keeps track of both active connections and server weights, increasing overhead.
+  - Weight assignment: Determining weights can be challenging and requires accurate performance metrics.
+- **Use cases**:
+  - Heterogeneous server environments: Servers with different processing capacities and workloads.
+  - High traffic web applications: Variable traffic patterns. Ensures no single server becomes a bottleneck.
+  - Database clusters: Nodes with varying performance capabilities and query loads.
+
+#### IP Hash
+
+Assigns client requests to servers based on the client's IP address. Converts client's IP address into a hash value (using a hash function) and uses it to determine which server should handle his request. The request is handled to the server number `hash_value % num_servers`.
+
+- **Pros**:
+  - Session persistence: Requests from the same IP address are routed to the same server (good for stateful applications).
+  - Simplicity: Easy to implement. No need to maintain state of connections.
+  - Deterministic: Predictable and consistent routing based on IP address.
+- **Cons**:
+  - Uneven distribution: Not evenly distributed IP addresses may lead to uneven loaded.
+  - Dynamic changes: Adding/removing server can disrupt the hash mapping, rerouting some clients to different servers.
+  - Limited flexibility: Doesn't take into account current load or capacity of servers.
+- **Use cases**: 
+  - Stateful applications: Useful when session persistence is important (online shopping carts or user sessions).
+  - Geographical distributed clients: Useful when clients are distributed across different regions but consistent routing is required.
+
+#### Least Response Time
+
+Assigns incoming requests to the server with the lowest average response time. The LB continuously monitors response times of servers (typically, time between request sent and response received).
+
+- **Pros**:
+  - Optimized performance: Requests are handled by the fastest available server.
+  - Dynamic load balancing: Continuously adjusts to changing server performance.
+  - Effective resource utilization: Good use of server resources by directing traffic to those that respond quickly.
+- **Cons**:
+  - Complexity: Complex to implement since it requires continuous monitoring of server performance.
+  - Overhead: Due to monitoring response times and dynamically adjusting the load.
+  - Short-term variability: Response times can vary in the short term due to network fluctuations or transient server issues, potentially causing frequent rebalancing.
+- **Use cases**:
+  - Real-time applications: Where low latency and fast response times are critical (online gaming, video streaming, financial trading platforms).
+  - Web services and APIs: Those needing quick responses to user requests.
+  - Dynamic environments: Fluctuating loads and varying server performance.
+
+#### Random
+
+Distributes incoming requests to servers randomly.
+
+- **Pros**:
+  - Simplicity: Easy to implement and understand. Minimal configuration.
+  - No state maintenance: No need to track state or performance of servers, reducing overhead.
+  - Uniform distribution over time: For uniform random selection, the load will be evenly distributed across servers over time.
+- **Cons**:
+  - No load awareness: Doesn't consider current load or capacity of servers.
+  - Potential for imbalance: In the short term, possible uneven distribution of requests.
+  - No session affinity: Subsequent requests from the same client may be directed to different servers, which can be problematic for stateful applications.
+  - Reduced visibility of attack patterns: Systems that detect anomalies (like DDoS attacks) might find it slightly more difficult to identify malicious patterns.
+- **Use cases**:
+  - Homogeneous environments: Servers with similar capacity and performance.
+  - Stateless applications: Each request can be handled independently.
+  - Simple deployments: Where using more complex algorithms is not justified.
+
+#### Least Bandwidth
+
+Distributes incoming requests to servers based on the current bandwidth usage. Each new request is routed to the server that is consuming the least amount of bandwidth at the time.
+
+- **Pros**:
+  - Dynamic load balancing: Continuously adjusts to the current network load.
+  - Prevents overloading: Helps prevent any single server from being overwhelmed with too much data traffic.
+  - Efficient resource utilization: Servers are used more effectively by balancing the bandwidth usage.
+- **Cons**:
+  - Complexity: Requires continuous monitoring of bandwidth usage.
+  - Overhead: Due to monitoring bandwidth and dynamically adjusting the load.
+  - Short-term variability: In the short term, bandwidth usage can fluctuate, causing frequent rebalancing.
+- **Use cases**:
+  - High bandwidth applications: Applications with high bandwidth usage (video streaming, file downloads, large data transfers).
+  - Content Delivery Networks (CDNs): They need to balance traffic efficiently to deliver content quickly.
+  - Real-time applications: Where low latency is critical.
+
+#### Custom load
+
+You define the metrics and rules for distributing incoming traffic across a pool of servers. Determine the metrics that best represent the load or performance characteristics relevant to you application (like CPU usage, memory usage, disk I/O, application-specific metrics, or a combination of metrics) and establish rules and algorithms that use these metrics to make load balancing decisions. Monitor the metrics on each server (this may involve monitoring tools or custom scripts to collect and report the data) and use your rules to dynamically adjust the distribution of incoming requests.
+
+- **Pros**:
+  - Flexibility: Highly customizable for specific needs and performance characteristics of you application.
+  - Optimized resource utilization: More efficient use of server resources.
+  - Adaptability: Easily adaptable to changing conditions and requirements.
+- **Cons**:
+  - Complexity: More complex to implement and configure.
+  - Monitoring overhead: Requires continuous monitoring of multiple metrics.
+  - potential for misconfiguration: Incorrectly defined metrics or rules can affect balancing and performance.
+- **Use cases**:
+  - Complex applications: With complex performance characteristics and varying resource requirements.
+  - Highly dynamic environments: Where workloads and server performance can change rapidly and unpredictably.
+  - Custom requirements: Useful when standard load balancing algorithms don't meet the specific needs of the application.
 
 ### Caching
 
@@ -387,3 +546,215 @@ Load balancing helps you scale horizontally across an ever-increasing number of 
 
 
 ## Problems
+
+
+
+
+## Synthesis
+
+### Purpose of system design interviews
+
+- Assessing problem-solving skills
+- Evaluating technical knowledge
+- Tradeoff analysis and decision-making
+- Communication and collaboration
+
+### Requirements
+
+**Types:**
+
+- **Functional:** What a system is supposed to do. Functions it must perform.
+- **Non-functional:**: How the system performs a task. They're related to the quality attributes of the system (scalability, performance, availability, security…).
+
+**Integrating both requirements**: Identify both functional and non-functional requirements. Balance both and design a system that meets its functional goals while performing effectively, securely, and reliably. How to handle requirements:
+
+- Clarify requirements: Ask questions.
+- Prioritize: Identify critical requirements
+- Discuss tradeoffs: Related to different architectural decisions (especially concerning functional requirements).
+- Use real-world examples
+- Balance: Don't focus too much on one type of requirement.
+
+### Back-of-the-envelope estimations
+
+**Back-of-the-envelope estimations:** Technique for quickly approximating values and making rough calculations using simple arithmetic and basic assumptions. They're not detailed or exact, but are useful for making informed decisions and tradeoffs. They help to:
+
+- Indicate system scalability
+- Validate proposed solutions
+- Identify bottlenecks
+- Demonstrate you thought process
+- Communicate effectively design choices and their implications
+- Quick decision making
+
+**Techniques:**
+
+- **Rules of thumb**: General guidelines/principles for making quick and reasonably accurate estimations. Based on experience and observations. Useful in the absence of detailed information.
+- **Approximation**: Simplifying complex calculations by rounding numbers or using easier-to-compute values.
+- **Breakdown and aggregation**: Break down a problem into smaller components, estimate each separately, and derive an overall estimate.
+- **Sanity check**: Quick evaluation of an estimate to ensure its plausibility and reasonableness. This helps identify errors/oversights in the estimation process.
+
+**Types:**
+
+- __Load__: Requests/second, data volume, user traffic.
+- __Storage__: Storage required for the generated data.
+- __Bandwidth__: Network bandwidth needed to support traffic and data transfer.
+- __Latency__: Response time and latency.
+- __Resource__: Number of servers, CPUs, or memory required to handle the load and maintain desired performance.
+
+**Process**:
+
+- __Understand the scope__: Clarify the scale of the problem (how many users, how much data, …).
+- __Use simple math__: Basic arithmetic.
+- __Round numbers for simplicity__.
+- __Be logical and reasonable__: Ensure your estimations make sense.
+
+**Tips:**
+
+- __Break down the problem__: Identify key components, estimate their requirements separately, and aggregate them.
+- __Use reasonable assumptions__: Useful if you don't have all the necessary information.
+- __Leverage your experience__: Use specific knowledge to inform your estimations. 
+- __Be prepared to adjust your estimations__: The interviewer may provide additional information or challenge your assumptions.
+- __Ask clarifying questions__: Ask questions if you're unsure about a requirement or assumption.
+- __Communicate your thoughts__: Explain how you got your estimation and the assumptions you made.
+
+### Things to avoid
+
+- **Don't ignore the requirements:** Ask questions. Clarify requirements. Don't oversimplify or ignore complexities.
+- **Don't dive into details too soon:** Establish high-level design first (architecture and components interactions).
+- **Don't stick rigidly to one idea:** Consider alternatives. Don't ignore hints/feedback from the interviewer.
+- **Don't overlook tradeoffs:** Discuss tradeoffs. Justify decisions.
+- **Don't neglect non-functional requirements:** Don't focus solely on functional aspects. Consider real-world constraints.
+- **Don't under-communicate:** Show your understanding and approach. Engage with interviewer, ask questions, listen to feedback.
+- **Don't be overconfident/arrogant:** Don't dismiss feedback or overlook key aspects of the problem. Be open about what you're unsure.
+
+### System design basics
+
+When designing a large system, consider:
+
+- What are the different architectural pieces that can be used?
+- How do these pieces work with each other?
+- How can we best utilize these pieces? What are the right tradeoffs?
+
+Investing in scaling before it's needed is generally not a smart business proposition. However, some forethought into the design can save valuable time and resources in the future.
+
+### Key characteristics of Distributed systems
+
+Some of them are: Scalability, Reliability, Availability, Efficiency, Manageability.
+
+- **Scalability:** Capacity to grow and manage increased demand. It can evolve to support a growing amount of work. We would like scalability without performance loss. Performance declines with the system size due to management or environment cost. Try to balance the load on all the participating nodes evenly. Scaling types: Horizontal (adding more servers into your resources pool) and Vertical (scaling by adding more power to a server).
+
+- **Reliability:** Ability to continue operating correctly and effectively in the presence of faults/errors/failures. Adding redundancy can help, but has a cost. Focused on end-to-end correctness and consistency of the entire system's operation over time. User-centric (the system consistently meets the user's expectations over time). Measures: _uptime_, _error rates_, _mean time between failures_ (MTBF).
+  - __Fault tolerance__: Ability to continue operating, maybe at a reduced level, even when some components fail, allowing to absorb/recover from faults without total breakdown. Focused on the system's ability to continue operating when some components fail. System-centric (how the system handles internal failures or component breakdowns). Measures: how quickly and effective the system detects, isolates and recovers from failures.
+
+- **Availability:** Percentage of time a system remains operational to perform its required function in a specific period, under normal conditions.
+  - __Reliability__: Availability over time considering the full range of possible real-world conditions that can occur. Reliability contributes to availability. But availability doesn't necessarily implies reliability.
+
+- **Efficiency:** Ability of producing desired results with little resources. Analysing a distributed structure is complex (many performance factors involved), so we use these measures: Latency (response time, delay), bandwidth (throughput, items delivered per second).
+
+- **Manageability (or Serviceability):** Simplicity and speed with which a system can be repaired, maintained, or operated. Early detection of faults can decrease/avoid system downtime.
+
+### Load balancing
+
+**Load balancer (LB):** It spreads traffic across a cluster of servers (improving responsiveness and availability), and keeps track of the status of all resources while distributing requests. LB stops sending traffic to servers with issues (not available, not responding, or high error rate). LB typically sits between client and server (accepts incoming network and application traffic and distributes it across multiple backend servers). LB improves availability and responsiveness.
+
+For full scalability and redundancy, we can try to balance load at each system's layer (3 places):
+
+- Between user and web server.
+- Between web servers and internal platform layer (like application servers or cache servers).
+- Between internal platform layer and database.
+
+**Benefits of load balancing:**
+
+- Users get faster, uninterrupted service.
+- Service providers get less downtime and higher throughput.
+- System administrators can easily handle incoming requests while decreasing wait time for users.
+- System administrators experience fewer failed or stressed components.
+- Some LBs provide predictive analytics that determine traffic bottlenecks before they happen.
+
+**Load balancing algorithms:**
+
+Servers health is monitored through **health checks** (regular attempts to connect to servers to ensure that they are listening). A server that fails a health check is automatically removed from the pool, and traffic will not be forwarded to it until it responds to health checks. A load balancing algorithm is used to select which server to send traffic to:
+
+- __Least connection method__: To the server with fewest active connections. Useful for many persisten connections.
+- __Least response time method__: To the server with fewest active connections and lowest average response time.
+- __Least bandwidth method__: To the server currently serving the least amount of traffic measured in Mbps (megabits per second).
+- __Round robin method__: Cycles through a list of servers and sends each new request to the next server. Useful for servers with equal specifications and not many persistent connections.
+- __Weighted round robin method__: Each server has a weight (integer value indicating processing capacity). New connections are assigned to higher weight servers. The higher weight, the more connections it gets. Useful for servers with different processing capacities.
+- __IP Hash__: A hash of the IP address of the client is calculated to redirect the request to a server.
+
+**Redundant load balancers:** To prevent the LB from being a single point of failure, a second LB (passive) can be connected to the first (active) to form a cluster. Each LB monitors the health of the other and, if the main LB fails, the second LB takes over.
+
+### Caching
+
+**Locality of reference principle:** Recently requested data is likely to be requested again. Caches take advantage of this principle.
+
+**Cache:** High-speed storage layer that sits between the applications and the original source of the data (database, file system, remote web service…). When the application requests data, it's first checked in the cache. If the data is found in the cache, it's returned to the application; otherwise, it's retrieved from its original source, stored in the cache for future use, and returned to the application. It's used in almost every computing layer (hardware, OSs, web browsers, web applications…), with various types of data (web pages, database queries, API responses, images, videos…). Caching's goal is to reduce the number of times data needs to be fetched from its original source, resulting in faster processing and reduced latency.
+
+Load balancing helps you scale horizontally across an ever-increasing number of servers. Caching enables you to make vastly better use of the resources you already have and makes otherwise unattainable product requirements feasible.
+
+**Concepts:**
+
+- __Cache__: Temporary storage location for data or computation results, typically designed for fast access and retrieval.
+- __Cache hit__: When a requested data item or computation result is found in the cache.
+- __Cache miss__: When a requested data item or computation result is not found in the cache and needs to be fetched form the original data source or recalculated.
+- __Cache eviction__: Process of removing data from the cache, typically to make room for new data or based on a predefined cache eviction policy.
+- __Cache staleness__: When data in the cache is outdated compared to the original data source.
+
+**Types of caching:** Caching can be implemented in various ways, depending on the use case and type of data. Some common types are:
+
+- **In-memory caching:** Stores data in the main memory of the computer, which is faster to access than disk storage. Useful for frequently accessed data that fits into memory. Commonly used for caching API responses, session data, and web page fragments. Some implementation techniques are including custom caching logic within the application code, and using a cache library (Memcached, Redis…).
+
+- **Disk caching:** Stores data on the hard disk, which is slower than main memory but faster than retireving data from a remote source. Useful for data too large to fit in memory or for data that needs to persist between application restarts. Commonly used for caching database queries and file system data.
+
+- **Database caching:** Stores data in the database itself, reducing the need to access external storage. Useful for data stored in a database and frequently accessed by multiple users. Some implementation techniques are database query caching and result set caching.
+
+- **Client-side caching:** Stores frequently accessed data (images, CSS, JavaScript files…) to reduce the need of repeated requests to the server. It occurs on the client device (web browser, mobile app…). Examples: browser caching, local storage, etc.
+
+- **Server-side caching:**: Used to store frequently accessed data, precomputed results, or intermediate processing results to improve the performance of the server. It occurs on the server (typically, web applications or other backend systems). Examples: full page caching, fragment caching, object caching, etc.
+
+- **CDN caching:** Stores data on a distributed network of servers, reducing the latency of accessing data from remote locations. useful for data accessed from multiple locations around the world (like images, videos, and other static assets). Commonly used for content delivery networks and large-scale web applications.
+
+- **DNS caching:** Cache used in the DNS (Domain Name System) to store results of DNS queries for a period of time. The computer (user) trying to access a website sends a DNS query to a DNS server to resolve the website's domain name to an IP address. The DNS server responds with the IP address, which the computer uses to access the website. When a DNS server receives a request for a domain name, it checks its local cache to see if it has the corresponding IP address. This reduces response time for DNS queries (no need to query other servers) and improves the overall performance of the system (reduced number of queries).
+
+![Cache types](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_5.png)
+
+**Cache invalidation:** We must ensure that the data in the cache is still correct. Otherwise, we serve out-of-date (stale) information.
+
+- __Ensure data freshness__: When the underlying data changes (prices, names…), mark or remove the old cached data (cache invalidation). Otherwise, caches will serve outdated data and lead to inconsistencies across your application.
+- __Maintain system consistency__: Large systems often have multiple caching laryers. If any layer serves old data while others serve new data, user can get conflicting information. Properly invalidating caches at each layer helps maintain a consistent view of your system's state.
+- __Balance performance and accuracy__: Cache invalidation strategies (time-to-live/TTL, manual triggers, even-based invalidation…) are designed to minimize the performance cost of continuously refreshing the cache. The goal is to keep data as accurate as possible while still still getting high-speed data retrieval.
+- __Reduce errors and mismatched states__: When caches go stale, you risk presenting users wrong or invalid information. Strategically invalidating caches when data changes reduces these odds.
+
+**Cache invalidation schemes**: There are 3 main schemes that are used:
+
+- __Write-through cache__: Data is simultaneouly written into the cache and the corresponding database (permanent storage). This allows for fast retrieval, keeps consistency between cache and storage, and ensures no data is lost during a system disruption (crash, power failure…). However, since every write operation is done twice before returning success to the client, it causes higher latency for write operations.
+- __Write-around cache__: Similar to write-through cache, but data is written directly to permanent storage, bypassing the cache. This reduce the cache being flooded with write operations that will not subsequently be re-read. However, a read request for recently written data will create a "cache miss" and must be read from slower back-end storage, causing higher latency.
+- __Write-back cache__: Data is written to cache alone. Writting to permanent storage is done after specified intervals or under certain conditions. This results in low-latency and high-throughput for write-intensive applications. However, since the only copy of the written data is in the cache, there's risk of data loss during a system disruption.
+
+![Cache types](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_6.png)
+
+**Cache invalidation methods:** Most famous ones are:
+
+- **Purge:** Remove cached content for a specific object, URL, or set of URLs. When a purge request is received, the cached content is immediately removed. Typically used when there's an update or change to the content and the cached version is no longer valid.
+- **Refresh:** Update cached content with the latest version. When a refresh request is received, the cached content is updated with the latest version from the origin server.
+- **Ban:** Invalidate cached content based on specific criteria (URL pattern, header…). When a ban request is received, any cached content matching the specified criteria is immediately removed.
+- **TTL (Time-to-live) expiration:** Set a time-to-live value ofr cached content, after which the content is considered stale and must be refreshed. When a request for a content is received, the cache checks the TTL value and serves the cached content if it hasn't expired. Otherwise, it fetches the latest version from the origin server and caches it.
+- **Stale-while-revalidate (SWI):** Serve stale content from cache while content is updated in the background. When a request for content is received, the cached version is immediately served, and an asynchronous request is made to the origin server to fetch the latest version of the content to update the cached version. This ensures content is served quickly, even if it's slightly outdated. Used in browsers and CDNs.
+
+![Cache types](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_7.png)
+
+**Cache read strategies:** Two famous ones are:
+
+- **Read through cache:** The cache is responsible for retrieving the data from the underlying data store when a cache miss occurs. After a cache miss, cache retrieves data from the data store, updates cache, and returns data to the application. The application requests data from the cache instead of the data store directly. It maintains consistency between cache and data store, and simplifies code. Useful when data retrieval from data store is expensive, and cache misses are relatively infrequent.
+
+- **Read aside cache (or cache-aside, or lazy loading):** The application is responsible for retrieving data from the underlying data store when a cache miss occurs. The application first checks the cache for the requested data. If not found (cache miss), the application retrieves it from data store, updates cache, and uses the data. This provides better control over the caching process, but adds complexity to the application code. Useful when you need to ensure that a cache failure won't take down your whole system, or when you want to optimize cache usage based on specific data access patterns.
+
+![Cache types](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_8.png)
+
+**Cache eviction policies:** Most common ones are:
+
+- **FIFO (First In First Out)**: The cache evicts the first block accessed first without any regard to how often or how many times it was accessed before.
+- **LIFO (Last In First Out)**: Similar to FIFO, but it evicts the block accessed most recently first.
+- **LRU (Least Recently Used)**: Discard the least recently used items first.
+- **MRU (Most Recently Used)**: Discards the most recently used items first.
+- **LFU (Least Frequently Used)**: Discards the least often used items first.
+- **RR (Random Replacement)**: Randomly selects an item and discards it to make space when necessary.
