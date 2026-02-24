@@ -1164,7 +1164,7 @@ void postOrderTraversal(TreeNode* node)
 
 ### Binary heaps
 
-**Binary heap**: Data structure that stores values and allow to retrieve the minimum (or maximum) value in just O(log n) time. Two types:
+**Binary heap**: Data structure that stores values and allow to retrieve the minimum (or maximum) value in just O(log n) time. Implemented as an array (to make it easy to find the bottom rightmost spot. Two types:
 
 - **Min-heap:** Complete binary tree where each node is smaller than its children (ascending order). Thus, the root is the minimum element in the tree. Key operations: `insert` and `extract_min`.
 - **Max-heap**: Similar to min-heap, but elements are in descending order. Key operations: `insert` and `extract_max`.
@@ -2031,10 +2031,10 @@ Typical **types of testing problems**:
 
 - **Test a real world object** (like testing a pen or a paperclip)
 - **Test a piece of software**
-- **Write test code for a function**
+- **Test a function**
 - **Troubleshoot an existing issue**
 
-### Testing a real world object**:
+### Test a real world object**:
 
 - **Who will use it? And why?** Answering this will shape how you handle the remaining questions.
   - Example: teachers, to hold papers together; or artists, to bend into the shape of an animal.
@@ -2059,27 +2059,805 @@ Similar to testing a real world object, but placing greater emphasis on the deta
 
 **Approach**:
 
-- **Are we doing Black or White box testing (or both)?** 
-- **Who will use it? And why?** Features are designed with the target user/s in mind. For a parental control on a web browser, the target users are parents (implement blocking), children (get blocked), and guests (neither block, nor get blocked).
-- **What are the use cases?** This is not your decision, so discuss this with the interviewer. The parental control use cases for parents include installing the software, updating controls, removing controls, and their own personal internet usage. For children include accessing legal and "illegal" content.
-- **What are the bounds of use?** Define what is a blocked website. Specify what is blocked (just the "illegal" page or the entire website). Specify if the application learns what is bad content or if it's based on a white or black list. If it learns, specify the acceptable degree of false positives and false negatives.
-- **What are the stress conditions/failure conditions?** What should failure look like? A failure shouldn't crash the computer. 
+1. **Are we doing Black or White box testing (or both)?** 
+2. **Who will use it? And why?** Features are designed with the target user/s in mind. For a parental control on a web browser, the target users are parents (implement blocking), children (get blocked), and guests (neither block, nor get blocked).
+3. **What are the use cases?** This is not your decision, so discuss this with the interviewer. The parental control use cases for parents include installing the software, updating controls, removing controls, and their own personal internet usage. For children include accessing legal and "illegal" content.
+4. **What are the bounds of use?** Define what is a blocked website. Specify what is blocked (just the "illegal" page or the entire website). Specify if the application learns what is bad content or if it's based on a white or black list. If it learns, specify the acceptable degree of false positives and false negatives.
+5. **What are the stress conditions/failure conditions?** What should failure look like? A failure shouldn't crash the computer. Instead, maybe the software should just permit a blocked site, or ban an allowable site.
+6. **What are the test cases? How would you perform the testing?** It depends on whether it's manual or automatic testing, and black box or white box testing. Step 3 and 4 should have roughly defined the use cases. Now we further define them and discuss how to perform the testing. What exact situations are you testing? Which steps can be automated? Which require human intervention. 
 
+Going through that list just by including every scenario you can think of is disorganized and makes you miss major categories. Approach it in a structured manner. Break down your testing into the main components, and go from there. This will give you a more complete list of test cases, and shows that you're a structured, methodical person.
 
-### Write test code for a function
+### Test a function
+
+It's the easiest type of testing. Testing is usually limited to validating input and output. Discuss any assumptions, particularly with respect to how to handle specific situations. Example: Test `sort(int* array[])` (sorts an array of integers).
+
+- **Define test cases**: This requires knowledge of the function. If constraints are unclear, ask for clarification. Types of test cases:
+  - **Normal case**: Does it generate the correct output for typical inputs? Think about potential issues here. Example: Sorting often requires partitioning, so the algorithm could fail on arrays with an odd number of elements, since they cannot be evenly partitioned.
+  - **The extremes**: Like passing an empty array, a very small (one element) one, or a very large one.
+  - **Nulls and "illegal" input**: How the code should behave when given illegal input? Like passing a negative input to `getNthFiboNumber(int n)`.
+  - **Strange input**: What if you pass an already sorted array? Or one sorted in reverse order?
+- **Define the expected result**: The expected result is often the right output. In some cases, you might want to validate additional aspects. Example: if `sort()` returns a new sorted copy of the array, maybe you should validate that the original array was not touched.
+- **Write test code**: Once you have the test cases and results defined, write code to implement the test cases. Example:
+
+```
+void testAddThreeSorted()
+{
+  MyList list;
+  list.addThreeSorted(3, 1, 2);   // Adds 3 items in sorted order
+  
+  assert(list.getElement(0) == 1);
+  assert(list.getElement(1) == 2);
+  assert(list.getElement(2) == 3);
+}
+```
+
 ### Troubleshoot an existing issue
 
+Explain how to debug or troubleshoot an existing issue. Approach this in a structured manner. 
+
+Example problem: The Google Chrome team receives a bug report: "Chrome crashes on launch". What would you do? Don't give unrealistic answers like "reinstall the software" (it might solve this user's problem, but wouldn't help the other users experiencing this problem). Your goal is to understand what's really happening, so that the developers can fix it.
+
+- **Understand the scenario**: Ask questions. 
+  - How long has the user been experiencing this issue?
+  - What browser version is it? What OS?
+  - Does the issue happen consistently, or how often does it happen? When does it happen?
+  - Is there an error report that launches?
+- **Break down the problem**: Break the problem into testable units. Situation flow example:
+  1. Go to Windows Start menu > Click on Chrome icon
+  2. Browser instance starts
+  3. Browser loads settings
+  4. Browser issues HTTP request for homepage
+  5. Browser gets HTTP response
+  6. Browser parses webpage
+  7. Browser displays content  
+  - At some point in this process, something fails and causes the browser crash. Iterate through the elements of this scenario to diagnose the problem.
+- **Create specific, manageable tests**: Each of the above components should have realistic instructions (things that you can ask the user to do, or that you can do yourself to replicate steps on your machine).
 
 
 ## C and C++
 
-Symbols: ≤, ≥, ≠, ≈, √, ∑, →, ↔, ∨, ∧, ~, ¬, ∀, ∃, ⌊⌋, ⌈⌉, <sub>i</sub>, <sup>i</sup>, α, β, ∞, Ω, Θ, θ, ϕ, γ, ├─, │, └─, …
+Good interviewers will let you code in a language you know. Most interviewers won't care if you don't remember all the APIs. However, it's recommended to study up on basic C++ syntax.
+
+### Classes and Inheritance
+
+The code below implements a basic class with inheritance. All data members and methods are private by default. This can be modified by introducing the keyword `public`.
+
+```
+#include <iostream>
+using namespace std;
+
+#define NAME_SIZE 50   // defines a macro
+
+class Person
+{
+  int id;
+  char name[NAME_SIZE];
+  
+public:
+  void aboutMe() { cout << "I'm a person."; }
+};
+
+class Student : public Person
+{
+public:
+  void aboutMe() { cout << "I'm a student."; }
+};
+
+int main()
+{
+  Student* p = new Student();
+  p->aboutMe();   // prints "I'm a student."
+  delete p;   // delete allocated memory
+  return 0;
+}
+```
+
+### Constructors and Destructors
+
+The **constructor** of a class is automatically called upon an object's creation. We can define our own constructors. Otherwise, the compiler automatically generates one (Default Constructor). Two options:
+
+- **Simple way**:
+
+```
+Person(int a) { id = a; }
+```
+
+- **Member initializer list**: This initializes `id` before the actual object is created and before the remainder of the constructor code is called. This is necessary when the fields are constant or class types.
+
+```
+Person(int a) : id(a) { ... }
+```
+
+The **destructor** cleans up upon object deletion and is automatically called when an object is destroyed. It cannot take an argument as we don't explicitly call a destructor.
+
+```
+~Person() { delete obj; }
+```
+
+### Virtual functions
+
+We can assign a `Student*` object (child) to a `Person*` object (parent). Here, `p->aboutMe()` prints `I'm a person` because the function is resolved at compile-time (static binding).
+
+```
+Person* p = new Student();
+p->aboutMe();   // prints "I'm a person."
+```
+
+We can ensure that `Student::aboutMe` is called by defining `Person::aboutMe` to be a **virtual function**.
+
+```
+class Person
+{
+  ...
+  virtual void aboutMe() { cout << "I'm a person."; }
+};
+
+class Student : public Person
+{
+public:
+  void aboutMe() { cout << "I'm a student."; }
+};
+```
+
+Virtual functions are also useful when we can't, or don't want to, implement a method for the parent class. Defining`Person::addCourse` to be a **pure virtual function** makes `Person` an abstract class and we cannot instantiate it.
+
+```
+class Person
+{
+  ...
+  virtual bool addCourse(string s) = 0;
+};
+
+class Student : public Person
+{
+  ...
+  bool addCourse(string s)
+  {
+    cout << "Added course: " << s << endl;
+	return true;
+  }
+};
+
+int main()
+{
+  Person* p = new Student();
+  p->aboutMe();   // prints "I'm a student."
+  p->addCourse("History");
+  delete p;
+}
+```
+
+### Virtual destructor
+
+If we include normal destructors in `Person` and `Student`:
+
+```
+class Person
+{
+  ...
+  ~Person() { cout << "Deleting a person." << endl; }
+};
+
+class Student : public Person
+{
+  ...
+  ~Student() { cout << "Deleting a student." << endl; }
+};
+
+int main()
+{
+  Person* p = new Student();
+  delete p;   // prints "Deleting a person"
+}
+```
+
+Here, only the `Person` destructor is called. This is problematic because the memory of `Student` may not be cleaned up. This is fixed by defining the destructor of `Person` to be virtual.
+
+```
+class Person
+{
+  ...
+  virtual ~Person() { cout << "Deleting a person." << endl; }
+};
+```
+
+This will output the following:
+
+```
+Deleting a student.
+Deleting a person.
+```
+
+### Default values
+
+Functions can specify default values. All default parameters must be on the right side of the function declaration.
+
+```
+int func(int a, int b = 3) { return a + b; }
+
+x = func(4);   // == 4 + 3
+y = func(4, 5);   // == 4 + 5
+```
+
+### Operator overloading
+
+Operator overloading enables us to apply operators (like `+`) to objects that would otherwise not support these operations.
+
+```
+BookShelf BookShelf::operator+(BookShelf &other) {...}
+```
+
+### Pointers and References
+
+A **pointer** holds the address of a variable and can be used to perform any operation that could be directly done on the variable, such as accessing and modifying it.
+
+If two pointers equal each other, changing one's value also changes the other's value, since both point to the same address.
+
+```
+int *a = new int;
+*a = 7;
+int *b = a;
+*a = 8;
+cout << *b;   // prints 8
+```
+
+The size of a pointer depends on the architecture: 32 bits on a 32-bit machine, and 64 bits on a 64-bit machine. This knowledge is valuable when calculating how much space a data structure takes up.
+
+A **reference** is another name (alias) for a pre-existing object and it doesn't have memory of its own.
+
+```
+int a = 5;
+int &b = a;   // b is a reference to a
+b = 7;
+cout << a;   // print 7
+```
+
+A reference cannot be created without specifying where in memory it refers to. However, we can create a free-standing reference(`const int &b = 12` → allocates memory for `12` and makes `b` a reference to this memory).
+
+Unlike pointers, references cannot be `null` and cannot be reassigned to another piece of memory.
+
+**Pointer arithmetic**: Performing addition (`++`) on a pointer will skip ahead as many bytes as the size of the pointed data structure.
+
+```
+int *p = new int[2];
+p[0] = 0;
+p[1] = 1;
+p++;   // skips ahead by sizeof(int) bytes
+cout << *p;   // outputs 1
+```
+
+### Templates
+
+Templates are a way of reusing code to apply the same class to different data types. The code below implements a data structure:
+
+```
+template <class T>
+class ShiftedList
+{
+  T* array;
+  int offset, size;
+public:
+  ShiftedList(int sz) : offset(0), size(sz) { array = new T[size]; }
+  ~ShiftedList() { delete[] array; }
+  void shiftBy(int n) { offset = (offset + n) % size; }
+  T getAt(int i) { return array[convertIndex(i)]; }
+  void setAt(T item, int i) { array[convertIndex(i)] = item; }
+  
+private:
+  int convertIndex(int i)
+  {
+    int index = (i  offset) % size;
+	while (index < 0) index += size;
+	return index;
+  }
+};
+```
+
 
 ## Java
 
+Language and syntax questions are more unusual at bigger companies, which prefer testing aptitude rather than knowledge (and which have time and resources for training candidates in a particular language). In other companies, these questions can be quite common.
+
+### Approach
+
+The best options to master these questions is to learn Java inside and out. But, if you get stumped, try this approach (this helps to derive an answer):
+
+1. Create an example of the scenario, and ask yourself how things should play out.
+2. Ask yourself how other languages would handle this scenario.
+3. Consider how you would design this situation if you were the language designer. What would the implications of each choice be?
+
+### Overloading vs. Overriding
+
+**Overloading**: Describes when two methods have the same name but differ in the type or number of arguments.
+
+```
+public double computeArea(Circle c) { ... }
+public double computeArea(Square s) { ... }
+```
+
+**Overriding**: Describes when a method shares the same name and function signature as another method in its super class.
+
+```
+public abstract class Shape
+{
+  public void printMe() { System.out.println("I'm a shape"); }
+  public abstract double computeArea();
+}
+
+public class Circle extends Shape
+{
+  private double rad = 5;
+  public void printMe() { System.out.println("I'm a circle"); }
+  public double computeArea() { return rad * rad * 3.15; }
+}
+
+public class Ambiguous extends Shape
+{
+  private double area = 10;
+  public double computeArea() { return area; }
+}
+
+public class IntroductionOverriding
+{
+  public static void main(String[] args)
+  {
+    Shape[] shapes = new Shape[2];
+	Circle circle = new Circle();
+	Ambiguous ambiguous = new Ambiguous();
+	
+	shapes[0] = circle;
+	shapes[1] = ambiguous;
+	
+	for (Shape s : shapes)
+	{
+	  s.printMe();
+	  System.out.println(s.computeArea());
+	}
+  }
+}
+```
+
+Output:
+
+```
+I'm a circle
+78.75
+I'm a shape
+10.0
+```
+
+`Circle` overrode `printMe()`, whereas `Ambiguous` just left this method as-is.
+
+### Collection Framework
+
+Java's collection framework is highly useful. Most useful items are:
+
+- **`ArrayList`** (`std::vector`): Dynamically resizing array, which grows as you insert elements.
+
+```
+ArrayList<String> myArr = new ArrayList<String>();
+myArr.add("one");
+myArr.add("two");
+System.out.println(myArr.get(0));   /* prints <one> */
+```
+
+- **`Vector`**: Similar to `ArrayList`, except that it's synchronized. It's syntax is almost identical.
+
+```
+Vector<String> myVec = new Vector<String>();
+myVec.add("one");
+myVec.add("two");
+System.out.println(myVec.get(0));
+```
+
+- **`LinkedList`** (`std::list`): Java's built-in linked list. Rarely used. It demonstrates some of the syntax for an iterator.
+
+```
+LinkedList<String> myLinkedList = new LinkedList<String>();
+myLinkedList.add("two");
+myLinkedList.addFirst("one");
+Iterator<String> iter = myLinkedList.iterator();
+System.out.println(myLinkedList.get(0));
+while (iter.hasNext())
+  System.out.println(iter.next());
+```
+
+- **`HashMap`**: Java's built in hash-map. Widely used.
+
+```
+HashMap<String, String> map = new HashMap<String, String>();
+map.put("one", "uno");
+map.put("two", "dos");
+System.out.println(map.get("one"));
+```
+
+
 ## Databases
 
+There're different flavors of SQL. You might have worked with a slightly different one, so don't be surprised by minor syntax variations.
+
+### SQL syntax and variations
+
+The following implicit and explicit joins are equivalent. Any of them is valid.
+
+- **Explicit join** (our choice):
+
+```
+SELECT CourseName, TeacherName
+FROM Courses INNER JOIN Teachers
+ON Courses. TeacherID = Teachers.TeacherID
+```
+
+- **Implicit join**:
+
+```
+SELECT CourseName, TeacherName
+FROM Courses, Teachers
+WHERE Courses.TeacherID = Teachers.TeacherID
+```
+
+### Denormalized vs. Normalized databases
+
+**Normalized** databases are designed to minimize redundancy. One type of information is only stored once in the database, but many common queries will require expensive joins. Example: `Courses` table might contain a column called `TeacherID`, which is a foreign key to `Teacher` table.
+  
+**Denormalized** databases are designed to optimize read time by storing redundant data. Useful for creating highly scalable systems. Example: If we repeat this query often, we can store the teacher's name in `Courses` table.
+
+### SQL statements
+
+Consider this structure (`*` indicates a primary key):
+
+```
+Courses: CourseID*, CourseName, TeacherID
+Teachers: TeacherID*, TeacherName
+Students: StudentID*, StudentName
+StudentCourses: CourseID*, StudentID*
+```
+
+**Query 1: Student enrollment**: Get a list of all students and how many courses each student is enrolled in.
+
+- Incorrect solution:
+
+```
+/* Incorrect code */
+SELECT Students.StudentName, count(*)
+FROM Students INNER JOIN StudentCourses
+ON Students.StudentID = StudentCourses.StudentID
+GROUP BY Students.StudentID
+```
+
+  - Problems:
+    - We exclude students who are not enrolled in any courses (`StudentCourses` only includes enrolled students). We need to change this to a `LEFT JOIN`.
+    - Even changing it to `LEFT JOIN`, the query is still not quite right. Doing `count(*)` returns how many items there're in a given group of `StudentIDs`. Students enrolled in zero courses would still have one item in their group. We need to change this to count the number of `CourseIDs` in each group: `count(StudentCourses.CourseID)`
+    - We've grouped by `Students.StudentID`, but there're still multiple `StudentNames` in each group. The database doesn't know which `StudentName` to return, even though they may all have the same value. We need to apply an *aggregate* function like `first(Students.StudentName)`.
+
+- Solution 1: Wrap with another query (fixes previous problems)
+
+```
+SELECT StudentName, Students.StudentID, Cnt
+FROM (
+  SELECT Students.StudentID, count(StudentCourses.CourseID) as [Cnt]
+  FROM Students LEFT JOIN StudentCourses
+  ON Students.StudentID = StudentCourses.StudentID
+  GROUP BY Students.StudentID
+) TINNER JOIN Students on T.studentID = Students.StudentID 
+```
+
+  - Why we don't just select the student name on line 2 to avoid having to wrap lines 2 through 5 with another query? We can't do that. We can only select values that are in an aggregate function or in the `GROUP BY` clause.
+  
+```
+/* Incorrect code */
+SELECT StudentName, Students.StudentID, count(StudentCourses.CourseID) as [Cnt]
+FROM Students LEFT JOIN StudentCourses
+ON Students.StudentID = StudentCourses.StudentID
+GROUP BY Students.StudentID
+```
+
+- Solution 2: Add `StudentName` to `GROUP BY` clause.
+
+```
+SELECT StudentName, Students.StudentID, count(StudentCourses.CourseID) as [Cnt]
+FROM Students LEFT JOIN StudentCourses
+ON Students.StudentID = StudentCourses.StudentID
+GROUP BY Students.StudentID, Students.StudentName
+```
+
+- Solution 3: Wrap with aggregate function.
+
+```
+SELECT max(StudentName) as [StudentName], Students.StudentID, count(StudentCourses.CourseID) as [Count]
+FROM Students LEFT JOIN StudentCourses
+ON Students.StudentID = StudentCourses.StudentID
+GROUP BY Students.StudentID
+```
+
+**Query 2: Teacher class size**: Get a list of all teachers and how many students they each teach. If the teacher teaches the same student in two courses, you should double count the student. Sort the list in descending order of the number of students a techer teaches.
+
+```
+SELECT TeacherName, isnull(StudentSize.Number, 0)
+FROM Teachers LEFT JOIN
+  (SELECT TeacherID, count(StudentCourses.CourseID) AS [Number]
+  FROM Courses INNER JOIN StudentCourses
+  ON Courses.CourseID = StudentCourses.CourseID
+  GROUP BY Courses.TeacherID) StudentSize
+ON Teachers.TeacherID = StudentSize.TeacherID
+ORDER BY StudentSize.Number DESC
+```
+
+- We construct this query step by step. First, get a list of `TeacherIDs` and how many students are associated with each `TeacherID` (lines 3-6).
+- The `INNER JOIN` won't select teachers who aren't teaching classes. That's handled in the below query when we join it with the list of all teachers.
+- Note how we handled the `NULL` values in the `SELECT` statement to convert the `NULL` values to zeros.
+
+### Small database design
+
+The approach for designing your own database is similar to the approach for object-oriented design.
+
+1. **Handle ambiguity**: Understand exactly what you need to design. Database questions often have some ambiguity (intentionally or unintentionally).
+
+  - Example: Design a system to represent an apartment rental agency.
+    - How many locations has this agency?
+	- How general should this system be? For example, it's extremely rare for a person to rent 2 apartments in the same building, but shouldn't you be able to handle that? Maybe, maybe not. Some very rare conditions might be best handled through a work around (like duplicating the person's contact information in the database).
+	
+2. **Define core objects**: Each core object typically translates into a table.
+
+  - Example: `Property`, `Building`, `Apartment`, `Tenant`, `Manager`.
+
+3. **Analyze relationships**: What the tables should be? How do them relate to each other? Are they many-to-many or one-to-many?
+
+  - If `Buildings` has one-to-many relationship with `Apartments` (one `Building` has many `Apartments`), then we might represent this as follows (note that `Apartments` links back to `Buildings` with a `BuildingID` column):
+
+```
+Apartments
+  ApartmentID (int)
+  ApartmentAddress (varchar(100))
+  BuildingID (int)
+
+Buildings
+  BuildingID (int)
+  BuildingName (varchar(100))
+  BuildingAddress (varchar(500))
+```
+
+  - To allow for the possibility that one person rents more than one apartment, we might want to implement a many-to-many relationship as follows (`TenantApartments` stores a relationship between `Tenants` and `Apartments`):
+
+```
+TenantApartments
+  TenantID (int)
+  ApartmentID (int)
+  
+Apartments
+  ApartmentID (int)
+  ApartmentAddress (varchar(500))
+  BuildingID (int)
+
+Tenants
+  TenantID (int)
+  TenantName (varchar(100))
+  TenantAddress (varchar(500))
+```
+
+4. **Investigate actions**: Walk through the common actions that will be taken and understand how to store and retrieve the relevant data. Each action requires new tables and columns.
+
+  - We need to handle lease terms, moving out, rent payments, etc.
+
+### Large database design
+
+When designing a large, scalable database, joins (required in the above examples) are generally very slow. Thus, you must **denormalize** your data. Think carefully about how data will be used (probably, you will need to duplicate data in multiple tables).
+
+
 ## Threads and Locks
+
+C++ treats a thread as a resource (like memory or a file handle). When a standalone application is run, a user thread is automatically created to execute the `main()` method. We use the `<thread>` header and the `std::thread` class to create new threads. If a `std::thread` object is destroyed (goes out of scope) before calling `.join()` (wait for it) or `.detach()` (let it run in the background), the program crashes (`std::terminate()` is called). It uses shared memory, managed by you (high risk of "race conditions").
+
+You can pass almost anything "callable" (function pointer, lambda, or functor) directly to the `std::thread` constructor.
+
+- **Passing a function**:
+
+```
+#include <iostream>
+#include <thread>
+#include <chrono> // For milliseconds
+#include <atomic> // For thread-safe flags
+
+std::atomic<bool> should_stop(false);
+
+void task()
+{
+    std::cout << "Thread starting\n";
+
+    int count = 0;
+    while (count < 5)
+	{
+        if (should_stop)
+		{
+            std::cout << "Thread interrupted\n";
+            break; 
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        count++;
+    }
+
+    std::cout << "Thread terminating\n";
+}
+
+int main()
+{
+    std::thread t1(task);
+    std::this_thread::sleep_for(std::chrono::milliseconds(1200));
+    should_stop = true; 
+    t1.join();
+    return 0;
+}
+```
+
+Why not use `bool should_stop`? Because it's unrealiable:
+
+  - CPU caching: 
+
+
+- **Passing a function (C++20)**: `std::jthread` (Joining Thread) automatically joins when it goes out of scope. It includes a built-in `stop_token` that replaces `should_stop`. It still allows using `.join()` and `.detach()`.
+
+```
+void task(std::stop_token stoken)
+{
+    std::cout << "Thread starting\n";
+
+    int count = 0;
+    while (count < 5)
+	{
+        if (stoken.stop_requested())
+		{
+            std::cout << "Thread interrupted\n";
+            return; 
+        }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+        count++;
+    }
+}
+
+int main()
+{
+    std::jthread jt(task);
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    jt.request_stop();   // this is also called by jt's destructor
+	jt.join();   // optional
+    return 0;
+}
+```
+
+- **Passing a functor**:
+
+```
+
+```
+
+
+
+
+
+
+
+
+
+
+void task()
+{
+    std::cout << "Thread starting" << std::endl;
+		
+	try
+	{
+	  int count = 0;
+	  while (count < 5)
+	  {
+	    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+		count++;
+	  }
+	}
+	catch (InterruptedException exc) {
+	  std::cout << "Thread interrupted" << std::endl;
+	}
+	
+	std::cout << "Thread terminating" << std::endl;
+}
+
+int main()
+{
+    std::thread t1(task);
+    t1.join();
+    return 0;
+}
+```
+
+- **Passing a functor**:
+
+```
+class MyTask
+{
+public:
+    void operator()() { std::cout << "Thread running from a class" << std::endl; }
+};
+
+// Usage
+MyTask taskObj;
+std::thread t2(taskObj); 
+t2.join();
+```
+
+
+
+
+
+
+Every thread in Java is created and controlled by a unique object of the java. lang. Thread class. When a standalone application is run, a user thread is automatically created to execute the main () method. This thread is called the main thread. In Java, we can implement threads in one of two ways:
+
+- By implementing the java. lang. Runnable interface 
+- By extending the java. lang. Thread class 
+
+We will cover both of these below. 
+
+**Implementing the Runnable Interface**:
+
+The Runnable interface has the following very simple structure. 
+
+```
+public interface Runnable
+{ 
+  void run(); 
+}
+```
+
+To create and use a thread using this interface, we do the following: 
+
+1. Create a class which implements the Runnable interface. An object of this class is a Runnable object.
+2. Create an object of type Thread by passing a Runnable object as argument to the Thread constructor.
+The Thread object now has a Runnable object that implements the run () method.
+3. The start() method is invoked on the Thread object created in the previous step.
+For example: 
+
+public class RunnableThreadExample implements Runnable
+{ 
+  public int count = 0; 
+  
+  public void run()
+  { 
+    System.out.println("RunnableThread starting.");
+    try { 
+      while (count< 5)
+	  { 
+        Thread. sleep(500); 
+        count++; 
+      } 
+    } catch (InterruptedException exc) { 
+      System.out.println("RunnableThread interrupted."); 
+      } 
+    system.out.println("RunnableThread terminating."); 
+  } 
+}
+
+public static void main(String[] args)
+{ 
+  RunnableThreadExample instance = new RunnableThreadExample(); 
+  Thread thread= new Thread(instance); 
+  thread.start(); 
+ 
+  while (instance.count != 5)   // waits until above thread counts to 5 (slowly)
+  { 
+    try { 
+      Thread.sleep(250); 
+    } catch (InterruptedException exc) { 
+      exc.printStackTrace(); 
+    } 
+  } 
+} 
+In the above code, observe that all we really needed to do is have our class implement the run () method (line 4). Another method can then pass an instance of the class to new Th read (obj) (lines 19 - 20) and call start() on the thread (line 21 ). 
+
+In the above code, observe that all we really needed to do is have our class implement the run () method (line 4). Another method can then pass an instance of the class to new Th read (obj) (lines 19 - 20) and call start() on the thread (line 21 ).
+
+
+
+
+Symbols: ≤, ≥, ≠, ≈, √, ∑, →, ↔, ∨, ∧, ~, ¬, ∀, ∃, ⌊⌋, ⌈⌉, <sub>i</sub>, <sup>i</sup>, α, β, ∞, Ω, Θ, θ, ϕ, γ, ├─, │, └─, …
 
 ## Moderate
 

@@ -18,6 +18,7 @@
 + [Admiral Aokiji](#admiral-aokiji)
 + [Water 7](#water-7)
 + [Enies Lobby](#enies-lobby)
++ [](#)
 
 ## Introduction
 
@@ -25,7 +26,7 @@ In the world there are many island and only one continent, the **Red Line**, whi
 
 <br>![map_1](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/miscellany/resources/one_piece_2.png)
 
-The **Devil's fruit** is a rare type of fruit that gives powers to those who eat it, but take away their ability to swim. There're many types of them. The **Kairouseki** is a crystallized form of the sea that temporarilly suppresses the powers of people that have eaten a devil's fruit.
+The **Devil's fruit** (Akuma no mi) is a rare type of fruit that gives powers to those who eat it, but take away their ability to swim. There're many types of them. The **Kairouseki** (seastone) is a crystallized form of the sea that temporarilly suppresses the powers of people that have eaten a devil's fruit.
 
 **Gold D. Roger**, the King of Pirates, got arrested and executed by the **World Government**. Before dying, he revealed that he left his **One Piece** treasure (“everything this world has to offer”) at the Grand Line. Many pirates started looking for this treasure, initiating the **Great Pirate Era**.
 
@@ -35,7 +36,7 @@ The World Government is an alliance of 170 countries. Its highest authority is t
 
 (chapters 1-17)
 
-**Monkey D. Luffy** was a boy that wanted to find the One Piece and become the King of Pirates. When he was a kid (7 yo) living at **Foosha village**, in **Dawn island**, he met pirate **Shanks**, leader of the **Red Hair pirates**. They were carrying a Devil’s fruit (gum fruit), but Luffy ate it by mistake and became a very strong rubber person. Both became friends and Shanks gave Luffy his straw hat before going back to the sea.
+**Monkey D. Luffy** was a boy that wanted to find the One Piece and become the King of Pirates. When he was a 7 yo kid living at **Foosha village**, in **Dawn island**, he met pirate **Shanks**, leader of the **Red Hair pirates**. They were carrying a Devil’s fruit (gum fruit), but Luffy ate it by mistake and became a very strong rubber person. Both became friends and Shanks gave Luffy his straw hat before going back to the sea.
 
 Luffy (7 yo) befriended a kid called **Ace** (10 yo), son of Gold Roger, and both became sworn brothers. When Ace was 17 yo he left the island to become a pirate, and 3 years later (20 years after the beginning of the Great Pirate Era) Luffy tried to do the same. He got a ship but it was destroyed by a whirlpool and he was rescued by some passenger ship.
 
@@ -260,7 +261,7 @@ CP9 visited Franky and took him prisioner, together with Usopp. To save her frie
 
 ## Enies Lobby
 
-(chapters 264-)
+(chapters 264-312)
 
 Enies Lobby is a World Government stronghold located on the **Never-Night island** (it always has daylight). It's a judicial island surrounded by a huge waterfall, and populated by marines, agents, and the CP9 members. The key buildings are: two consecutive main gates, the courtyard, the courthouse, the CP9's headquarters (Tower of Justice), and the Bridge of Hesitation. The courtyard and the Tower of Justice are connected by a drawbridge over the waterfall. The Tower of Justice and the Bridge of Hesitation are separated by a big piece of sea. Right in front of the bridge are the **Gates of Justice**, which take to **Impel Down** (submarine prison) and **Marineford** (Marine's headquarters).
 
@@ -306,14 +307,31 @@ Onami, Sanji, and Sensei Blue Nose (Doctor Chopper) were carrying the mochis to 
 
 Once a year, in Spring, takes place the Hana-Mi festival (picnic under the cherry trees), where people of the town gather under a thousand-year-old cherry tree (the Sennen-Zakura). Nami's and Sanji's restaurant sold many bentou (food in a box). However, the Zakura disappeared misterously during the night. Robin discovered that the tree was stolen by pirates and hidden on a ship behind an island. The Clown family had stolen the tree for **Silver Fox** (Foxy), who wanted to sell it elsewhere. Luffy, Sanji, and Usopp attacked the pirates to recover the tree. Zoro, who was sleeping on the tree, joined the fight. The thieves were defeated, and Luffy expelled Foxy and Buggy.
 
-## xxx
+## New World
+
+(chapters 313-)
 
 Soon, viceadmiral **Monkey D. Garp**, Luffy's grandfather, arrived to Water 7. He revealed interesting information:
 
-- Pirate Shanks (Luffy's old friend) was one of the 4 emperors that rule the second part of the Grand Line, all of them on par with Whitebeard. The only people capable to face them are the Marine and the Sichibukai.
+- Pirate Shanks (Luffy's old friend) and Whitebeard are two of the 4 emperors that rule the second part of the Grand Line. The only people capable to face them are the Marine and the Sichibukai.
 - The man called Dragon that saved Luffy's life at Loguetown was actually Luffy's father, the revolutionary **Monkey D. Dragon**, who leads the Revolutionary Army, a group that opposes the government. The government named him the worst criminal in the world. Luffy didn't know who his father was.
 
-Under Garp's command was Sergeant Major Coby (Luffy's old friend) and Sergeant Helmeppo (Zoro's and Luffy's old enemy).
+Under Garp's command was Sergeant Major Coby (Luffy's old friend) and Sergeant Helmeppo (Zoro's and Luffy's old enemy). Coby revealed information:
+
+- The Marine's ships can navigate through the Calm Belt while avoiding sea monsters because their ships are covered with seastone, which emits sea-like energy, making them undetectable.
+- Dr. Vegapunk, the most important scientist of the Marine, is studying how Devil's fruit powers are transferred, and developed a method for making inanimate objects eat a Devil's fruit.
+- The second part of the Grand Line (on the other side of the Red Line) is called the **New World**.
+
+After visiting Luffy, Garp and the marines left Water 7.
+
+A World Government's fleet sent to the New World was defeated. Shanks met Whitebeard to talk.
+
+Shanks and Buggy (the Clown) used to work for Gold D. Roger. After Roger's death, both crewmates got separated.
+
+Shanks Whitebeard
+
+
+
 
 
 
