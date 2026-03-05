@@ -18,7 +18,10 @@
 + [Admiral Aokiji](#admiral-aokiji)
 + [Water 7](#water-7)
 + [Enies Lobby](#enies-lobby)
-+ [](#)
++ [Towards the New World](#towards-the-new-world)
+
++ [Alternative sagas](#alternative-arcs)
+  
 
 ## Introduction
 
@@ -48,7 +51,7 @@ Luffy (7 yo) befriended a kid called **Ace** (10 yo), son of Gold Roger, and bot
 
 Luffy and Zoro left the island in a small boat and arrived to a town that was being pillaged by **Buggy the Clown**, a pirate who had eaten a Devil’s fruit (chop fruit), which allowed him to be cut into pieces and put together again. Both fought Buggy and his crew, and defeated them, and Luffy threw Buggy far away. Nami, who was trying to steal from Buggy, joined them. From Buggy they took a chart of the Grand Line (Buggy stole it from the Navy base island) and a treasure (~5 million berries) and they left the island with their small boat and Buggy’s boat. 
 
-Then, they arrived to a village in an island where they met **Usopp**, the son of Yasopp (one of Shanks men). Soon, the **Black Cat pirates** arrived, leaded by Captain **Kuro**, a very fast man. His plan was to take the fortune from the richest person in the town: a young girl called **Kaya**. Luffy, Zoro, Nami, and Usopp joined forces to stop them before they could reach the town, and defeated them. As a thank you, Kaya gave them a ship called **Going Merry**. Usopp joined Luffy’s crew as their cannon sniper.
+Then, they arrived to a village in an island where they met **Usopp**, the son of Yasopp (one of Shanks men). Soon, the **Black Cat pirates** arrived, leaded by Captain **Kuro**, a very fast man. His plan was to take the fortune from the richest person in the town: a young girl called **Kaya**. Luffy, Zoro, Nami, and Usopp joined forces to stop them before they could reach the town, and defeated them. As a thank you, Kaya gave them a caravel called **Going Merry**. Usopp joined Luffy’s crew as their cannon sniper.
 
 ## The Straw Hat pirates
 
@@ -106,7 +109,7 @@ Meanwhile, Coby and his friend **Helmeppo** (son of the former captain Morgan), 
 
 Straw Hat pirates arrived to **Little Garden**. They became friends of the only two people living in the island: **Broggy** and **Dorry**, two giants from the country of **Elbaf** that had been living in the island for 100 years. Soon, some members of Baroque Works arrived: **Mr. 3** (Wax fruit), **Miss Golden Week** (hipnotizing powers), Mr. 5, and Miss Valentine. They tried to kill Straw Hat pirates and capture the giants (there was an old bounty of 100 million berries on each one because they were leaders of the **Giant Warriors pirates**). Their next step was to attack Arabasta kingdom. However, they were defeated, and Sanji could steal from them an **Eternal log** (type of log pose that permanently points to a specific island and needs no time to recharge magnetism), which pointed to Arabasta kingdom.
 
-Straw hat pirates continued their journey. Nami got sick and had a fever. They were attacked by **Wapol** (Munch fruit) and his pirates, but they defeated him easily. Then, they arrived to **Big Horn village**, in the snowy **Drum island**, where **Dalton** (Ox fruit), the captain of the security squad of the island, kindly offered his house to them. Dalton explained that the island was a country called **Drum kingdom**, governed by king Wapol, until a few months ago a small group of 5 powerful pirates leaded by **Blackbeard** arrived to the island and destroyed the country. Wapol escaped to the sea (where Straw Hat pirates met him). There was only one doctor in the island, **Dr. Kureha** (139 years old), which was living at the top of 5 kms height mountain, in Wapol’s castle, so Luffy and Sanji took Nami there. In their way, they had to fight some dangerous rabbits (**Lapins**) and escaped from an avalanche caused by them. Kureha cured Nami. She was ill because a bacteria (**Kestia**) infected her at Little Garden.
+Straw hat pirates continued their journey. Nami got sick and had a fever. They were attacked by **Wapol** (Munch fruit) and his pirates, but they defeated him easily. Then, they arrived to **Big Horn village**, in the snowy **Drum island**, where **Dalton** (Ox fruit), the captain of the security squad of the island, kindly offered his house to them. Dalton explained that the island was a country called **Drum kingdom**, governed by king Wapol, until a few months ago a small group of 5 powerful pirates leaded by **Blackbeard** (Marshall D. Teach) arrived to the island and destroyed the country. Wapol escaped to the sea (where Straw Hat pirates met him). There was only one doctor in the island, **Dr. Kureha** (139 years old), which was living at the top of 5 kms height mountain, in Wapol’s castle, so Luffy and Sanji took Nami there. In their way, they had to fight some dangerous rabbits (**Lapins**) and escaped from an avalanche caused by them. Kureha cured Nami. She was ill because a bacteria (**Kestia**) infected her at Little Garden.
 
 Kureha was living with **Chopper**, a reindeer with human abilities (speak and become human-like) since he ate the Human fruit. Soon, Wapol and his army arrived to the island. He was an awful king, so Dalton and Big Horn’s people tried to stop him without success, and Dalton almost die. Then, Wapol arrived to his former castle and Luffy and Chopper fought and defeated him. Chopper joined them, and the Straw Hat pirates continued their journey.
 
@@ -253,11 +256,11 @@ The study and deciphering of ponyglyphs is forbidden by the World Government bec
 
 The government has 8 secret services (CP1 to CP8) located at different places arount the world. CP9 is similar, but with more privileges, like licence to kill. The governemnt sent CP9 to steal from Iceburg the blueprints of an ancient weapon called **Pluton** (a powerful warship built long ago at Water 7). The government planed to revive the Ancient Weapons in order to end the Pirate Era. The four masked attackers were very strong governemnt agents who infiltrated Water 7 five years ago and became subordinates of Iceburg: **Rucchi** (shipwright, Leopard fruit), **Kaku** (shipwright), **Califa** (secretary), and **Blueno** (bartender, Door fruit). CP9 asked Robin for help, and she joined them to protect the Straw Hat pirates from CP9 making the **Buster Call** (call for a powerful force of 5 viceadmirals and 10 warships).
 
-Iceburg and Franky were apprentices of **Tom**, president of Tom's Workers, world's best shipwright, and inventor of Umi Ressha. Tom taught them the trade and gave Iceburg the blueprints. CP5, leaded by commander Spandam, tried to get the blueprints from Tom, but failed. The government accused Tom of building the **Gold Jackson**, Gold D. Roger's ship, and sent him to Enies Lobby.
+Iceburg and Franky were apprentices of **Tom**, world's best shipwright, president of Tom's Workers, and inventor of Umi Ressha. Tom taught them the trade and gave Iceburg the blueprints. CP5, leaded by commander Spandam, tried to get the blueprints from Tom, but failed. The government accused Tom of building the **Gold Jackson**, Gold D. Roger's ship, and sent him to Enies Lobby.
 
 CP9 interrogated Iceburg in his bedroom and discovered that he didn't have the blueprints because long ago he gave them to Franky. Suddenly, the Straw Hat pirates together with shipwright **Pauly** attacked them. However, they were defeated, and CP9 set the building on fire. Fortunately, Chopper saved them from the fire.
 
-CP9 visited Franky and took him prisioner, together with Usopp. To save her friends from the Buster Call, Robin agreed to be taken prisioner too, since the government wanted her to revive the Ancient Weapons. After this, the CP9, the prisioners, and many government agents and marines took the Puffing Tom towards Enies Lobby. The train departed, but Sanji, who was close by, jumped on the train. The Straw Hat pirates, three shipwrights (including Pauly), and the Franky Family departed towards Enies Lobby using a Umi Ressha prototype (Rocket Man). Sanji was only able to extract Usopp, and both were rescued by the Rocket Man.
+CP9 visited Franky and took him prisioner, together with Usopp. To save her friends from the Buster Call, Robin agreed to be taken prisioner too, since the government wanted her to revive the Ancient Weapons. After this, the CP9, the prisioners, and many government agents and marines took the Puffing Tom towards Enies Lobby. The train departed, but Sanji, who was close by, jumped on the train. The Straw Hat pirates, three shipwrights (Pauly, Tilestone, Lulu), and the Franky Family departed towards Enies Lobby using a Umi Ressha prototype (Rocket Man). Sanji was only able to extract Usopp, and both were rescued by the Rocket Man.
 
 ## Enies Lobby
 
@@ -281,7 +284,85 @@ Robin background:
 
 The **Empty Century** is a century whose history is not known. It's history is written in the poneglyphs, but the government forbade investigating them to prevent anybody from reviving the Ancient Weapons. Robin used to live in the **O'hara** island, where she became an archeologist. The island had the biggest library in the world. In the island there was a group of scholars, including Robin's mother, that secretely studied the poneglyphs. According to their research, they considered that in the past there was a great kingdom, which somehow disappeared during the Empty Century, replaced by the World Government. They think that the World Government attacked them, so they left the poneglyphs (unbreakable stones with a message) so people from the future could know the truth. The scholars were discovered by the government, so they made the Buster Call and destroyed the whole island with its population. The only survivor was Robin. Vice-admiral Kuzen took pity on her and secretely let her escape in a boat. Since Robin knew how to read the poneglyphs, the government put a bounty on her (79 million).
 
-## Jipangu
+## Towards the New World
+
+(chapters 313-335)
+
+Soon, viceadmiral **Monkey D. Garp**, Luffy's grandfather, arrived to Water 7. He revealed interesting information:
+
+- Pirate Shanks (Luffy's old friend) and Whitebeard are two of the 4 emperors that rule the second part of the Grand Line. The only people capable to face them are the Marine and the Sichibukai.
+- The man called Dragon that saved Luffy's life at Loguetown was actually Luffy's father, the revolutionary **Monkey D. Dragon**, who leads the Revolutionary Army, a group that opposes the government. The government named him the worst criminal in the world. Luffy didn't know who his father was.
+
+Under Garp's command was Sergeant Major Coby (Luffy's old friend) and Sergeant Helmeppo (Zoro's and Luffy's old enemy). Coby revealed information:
+
+- The Marine's ships can navigate through the Calm Belt while avoiding sea monsters because their ships are covered with seastone, which emits sea-like energy, making them undetectable.
+- Dr. Vegapunk, the most important scientist of the Marine, is studying how Devil's fruit powers are transferred, and developed a method for making inanimate objects eat a Devil's fruit.
+- The second part of the Grand Line (on the other side of the Red Line) is called the **New World**.
+
+After visiting Luffy, Garp decided not to try to capture the pirates, and the marines left Water 7.
+
+A World Government's fleet sent to the New World was defeated. Shanks met Whitebeard to talk.
+
+Shanks and Buggy (the Clown) used to work for Gold D. Roger. After Roger's death, both crewmates got separated.
+
+The World Governemnt updated bounties: Luffy (300 mill.), Zoro (120 mill.), Robin (80 mill.), Sanji (77 mill.), Franky (44 mill.), Nami (16 mill.), Chopper (50). After Enies Lobby's incident, the Straw Hat pirates became famous around the world.
+
+The pirates stayed at Water 7 for a while. Meanwhile, Iceburg designed a new brigantine, and built it together with Franky, Pauly, Tilestone, and Lulu. It was made of **Adam wood** (strongest and highest-quality wood). It was called the **Thousand Sunny**, and was given to the Straw Hat pirates. It was much bigger than the Going Merry.
+
+After a Luffy's invitation, Franky joined the pirates as shipwright. Ussop was accepted back onto the crew after he apologized. The pirates left Water 7. On the sea, Garp attacked them. The General Admiral Sengoku got angry because Garp didn't capture the pirates before, so Garp was sent again to capture them. However, the pirates escaped using a propulsion system of the ship that uses soda to jump 1 km away.
+
+Meanwhile, Ace found Blackbeard (darkness fruit) at **Banaro island**, which he was attacking with his 4 pirates. After Blackbeard destroyed the town, both fought.
+
+Blackbeard used to work for Whitebeard, but his purpose was to get the darkness fruit. When Whitebeard's 4th division commander, Sacchi, found the fruit, he killed him, took the fruit, and left Whitebeard's pirates. Ace, the 2nd division commander, was sent to find and kill Blackbeard.
+
+The Phoenix pirates, leaded by captain **Puzzle Phoenix** (bounty: 100 mill.), got into the New World, but they soon realized that pirates there were too strong for them, so they fled back from there. However, they were captured by the **Accino family**, a bounty-hunting clan, and forced to help them capture pirates. The Accino family had 7 members and some employees: Family hunters and Domo penguins, and now the Phoenix pirates too. Their leader is **Don Accino** (hot fruit). Their domain is **Kyokaido**, an island covered with ice and surrounded with icebergs. Their base is **Lovely Land**, deep within Kyokaido.
+
+The Straw Hat pirates found a drifting ship, so they decided to help its crew. However, they were the Phoenix pirates in disguise. They tried to poison and capture de SH pirates, but failed. The SHPs entered **Kyokaido**, where the Acchino family tried to capture them. They stole the SHPs' flag and captured Usopp, Sanji, Nami, Zoro, and Franky, who were taken to Lovely Land. Robin helped them escape, the SHPs joined the Phoenix pirates, and both attacked Lovely Land to recover their stolen flags.
+
+The Accino family was defeated and the flags recovered. The fight between Don Accino and Luffy activated the volcano under the island and it destroyed the whole island.
+
+## Into the New World
+
+(chapters 337-)
+
+The pirates continued their journey and entered into the **Florian Triangle**, a dark sea covered with mist and full of storms. There, they found a ship and befriended its single crew member: a living skeleton called **Brook** (rebirth fruit). He was a pirate that died decades ago when other pirates attacked his ship and killed the crew. However, the Rebirth fruit took effect and, after some time, he came back to life as a skeleton.
+
+The SHPs found **Thriller Bark**, a ghost island that moves around the sea.
+
+
+Dr. Hogback
+
+
+340
+
+Shanks Whitebeard
+
+Kaza-Guruma
+
+Gorousei
+
+
+
+**Lieutenant Drake**.
+
+fruit type: paramecia (), logia (), zoan (physical strength)
+
+Alvida
+Buggy the Clown
+
+Blackbeard (Marshall D. Teach)
+
+
+
+
+## Alternative sagas
+
+There're a number of alternative stories inserted here and there in the main anime series:
+
+- **Grand Jipangu**: Story set in a feudal japan-inspired country.
+- **Chopper man**: Story about the antagonism between a hero (Chopper man) and a villain (Dr. Usodabada).
+
+## Grand Jipangu
 
 Story set in an alternate reality, in a feudal japan-inspired country called **Grand Jipangu**. Main characters:
 
@@ -307,48 +388,22 @@ Onami, Sanji, and Sensei Blue Nose (Doctor Chopper) were carrying the mochis to 
 
 Once a year, in Spring, takes place the Hana-Mi festival (picnic under the cherry trees), where people of the town gather under a thousand-year-old cherry tree (the Sennen-Zakura). Nami's and Sanji's restaurant sold many bentou (food in a box). However, the Zakura disappeared misterously during the night. Robin discovered that the tree was stolen by pirates and hidden on a ship behind an island. The Clown family had stolen the tree for **Silver Fox** (Foxy), who wanted to sell it elsewhere. Luffy, Sanji, and Usopp attacked the pirates to recover the tree. Zoro, who was sleeping on the tree, joined the fight. The thieves were defeated, and Luffy expelled Foxy and Buggy.
 
-## New World
+## Chopper Man
 
-(chapters 313-)
+Story set in an alternate and more animated reality. Main characters:
 
-Soon, viceadmiral **Monkey D. Garp**, Luffy's grandfather, arrived to Water 7. He revealed interesting information:
+- **Chopper Man** (Chopper): Super hero that can fly.
+- **Dr. Usodabada** (Usopp): Villain that wants to conquer the world.
+- **Sanjirops** (Sanji): Monster subordinate of Usodabada.
+- **Zorokiller** (Zoro): Swordman subordinate of Usodabada.
+- **Namifia** (Nami): Secretary of Chopper Man.
+- **Giant Luffy Bomber** (Luffy): Giant robot of Chopper.
+- **Frandasher** (Franky): Giant robot of Usodabada.
 
-- Pirate Shanks (Luffy's old friend) and Whitebeard are two of the 4 emperors that rule the second part of the Grand Line. The only people capable to face them are the Marine and the Sichibukai.
-- The man called Dragon that saved Luffy's life at Loguetown was actually Luffy's father, the revolutionary **Monkey D. Dragon**, who leads the Revolutionary Army, a group that opposes the government. The government named him the worst criminal in the world. Luffy didn't know who his father was.
+(chapters 336)
 
-Under Garp's command was Sergeant Major Coby (Luffy's old friend) and Sergeant Helmeppo (Zoro's and Luffy's old enemy). Coby revealed information:
+Trying to increase the size of his organization, Usodabada occupied the television station to announce that he was hiring new personnel. To attract more attention, he organized a fight between him and Chopper. He made some tricks to win, but he was finally defeated. Usodabada called Frankdasher, his giant robot, to avenge him, but he was defeated by Chopper's giant robot, the Giant Luffy Bomber.
 
-- The Marine's ships can navigate through the Calm Belt while avoiding sea monsters because their ships are covered with seastone, which emits sea-like energy, making them undetectable.
-- Dr. Vegapunk, the most important scientist of the Marine, is studying how Devil's fruit powers are transferred, and developed a method for making inanimate objects eat a Devil's fruit.
-- The second part of the Grand Line (on the other side of the Red Line) is called the **New World**.
-
-After visiting Luffy, Garp and the marines left Water 7.
-
-A World Government's fleet sent to the New World was defeated. Shanks met Whitebeard to talk.
-
-Shanks and Buggy (the Clown) used to work for Gold D. Roger. After Roger's death, both crewmates got separated.
-
-Shanks Whitebeard
-
-
-
-
-
-
-Kaza-Guruma
-
-Gorousei
-
-
-
-**Lieutenant Drake**.
-
-fruit type: paramecia (), logia (), zoan (physical strength)
-
-Alvida
-Buggy the Clown
-
-Blackbeard (Marshall D. Teach)
 
 
 

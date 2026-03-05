@@ -28,9 +28,8 @@
   * [C and C++](#c-and-c++)
   * [Java](#java)
   * [Databases](#databases)
-  * [Threads and Locks](#threads-and-locks)
-  * [Moderate](#moderate)
-  * [Hard](#hard)
+  * [Threads and Synchronization](#threads-and-synchronization)
+  * [Advanced topics](#advanced topics)
 * [Notes](#notes)
 * [Technical patterns](#technical-patterns)
   
@@ -2645,223 +2644,341 @@ Tenants
 When designing a large, scalable database, joins (required in the above examples) are generally very slow. Thus, you must **denormalize** your data. Think carefully about how data will be used (probably, you will need to duplicate data in multiple tables).
 
 
-## Threads and Locks
+## Threads and Synchronization
 
-C++ treats a thread as a resource (like memory or a file handle). When a standalone application is run, a user thread is automatically created to execute the `main()` method. We use the `<thread>` header and the `std::thread` class to create new threads. If a `std::thread` object is destroyed (goes out of scope) before calling `.join()` (wait for it) or `.detach()` (let it run in the background), the program crashes (`std::terminate()` is called). It uses shared memory, managed by you (high risk of "race conditions").
+### Threads
 
-You can pass almost anything "callable" (function pointer, lambda, or functor) directly to the `std::thread` constructor.
+C++ treats a thread as a resource (like memory or a file handle). When a standalone application is run, a user thread is automatically created to execute the `main()` method.
 
-- **Passing a function**:
+- **`std::thread`** (`<thread>`): Class used to create new threads. If a `std::thread` object is destroyed (goes out of scope) before calling `.join()` (wait for it) or `.detach()` (let it run in the background), the program crashes (`std::terminate()` is called). It uses shared memory, managed by you (high risk of "race conditions").
+
+- **`std::jthread`** (C++20) (Joining Thread): Smart version of `std::jthread`. It automatically joins (RAII) when it goes out of scope (destructor calls `.join`). Methods `.join()` and `.detach()` are still available. It includes a built-in `stop_token` that saves us from maintaining a stop-thread flag.
+ 
+Relevant headers: `<thread>` (for `std::thread` and `std::jthread`), `<chrono>` (for sleeps), `<atomic>` (for atomic variables).
+
+You can pass almost anything "callable" (function pointer, functor, or lambda) directly to the `std::thread`/`std::jthread` constructor.
+
+- **Passing a function**: Tradicional C-style approach.
+
+  - **Using `std::thread`**:
 
 ```
-#include <iostream>
-#include <thread>
-#include <chrono> // For milliseconds
-#include <atomic> // For thread-safe flags
-
 std::atomic<bool> should_stop(false);
 
-void task()
-{
-    std::cout << "Thread starting\n";
-
-    int count = 0;
-    while (count < 5)
-	{
-        if (should_stop)
-		{
-            std::cout << "Thread interrupted\n";
-            break; 
-        }
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        count++;
-    }
-
-    std::cout << "Thread terminating\n";
-}
+void task() { while (!should_stop) { /*...*/ } }
 
 int main()
 {
-    std::thread t1(task);
-    std::this_thread::sleep_for(std::chrono::milliseconds(1200));
-    should_stop = true; 
-    t1.join();
-    return 0;
+  std::thread t(task);
+  std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+  should_stop = true; 
+  t.join();
 }
 ```
 
-Why not use `bool should_stop`? Because it's unrealiable:
-
-  - CPU caching: 
-
-
-- **Passing a function (C++20)**: `std::jthread` (Joining Thread) automatically joins when it goes out of scope. It includes a built-in `stop_token` that replaces `should_stop`. It still allows using `.join()` and `.detach()`.
+  - **Using `std::jthread`**:
 
 ```
-void task(std::stop_token stoken)
-{
-    std::cout << "Thread starting\n";
-
-    int count = 0;
-    while (count < 5)
-	{
-        if (stoken.stop_requested())
-		{
-            std::cout << "Thread interrupted\n";
-            return; 
-        }
-
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        count++;
-    }
-}
+void task(std::stop_token stoken) { while (!stoken.stop_requested) { /*...*/ } }
 
 int main()
 {
-    std::jthread jt(task);
-    std::this_thread::sleep_for(std::chrono::seconds(2));
-    jt.request_stop();   // this is also called by jt's destructor
-	jt.join();   // optional
-    return 0;
+  std::jthread jt(task);
+  std::this_thread::sleep_for(std::chrono::seconds(1));
+  jt.request_stop();   // optional: automatically called by jt's destructor
+  jt.join();   // optional: automatically joins at destruction
 }
 ```
 
-- **Passing a functor**:
+- **Passing a functor**: Class/Struct that overloads `operator()`.
 
-```
-
-```
-
-
-
-
-
-
-
-
-
-
-void task()
-{
-    std::cout << "Thread starting" << std::endl;
-		
-	try
-	{
-	  int count = 0;
-	  while (count < 5)
-	  {
-	    std::this_thread::sleep_for(std::chrono::milliseconds(500));
-		count++;
-	  }
-	}
-	catch (InterruptedException exc) {
-	  std::cout << "Thread interrupted" << std::endl;
-	}
-	
-	std::cout << "Thread terminating" << std::endl;
-}
-
-int main()
-{
-    std::thread t1(task);
-    t1.join();
-    return 0;
-}
-```
-
-- **Passing a functor**:
+  - **Using `std::thread`**:
 
 ```
 class MyTask
 {
 public:
-    void operator()() { std::cout << "Thread running from a class" << std::endl; }
+  MyTask() : should_stop(false) { }
+  std::atomic<bool> should_stop;
+  void operator()() { while (!should_stop) { /*...*/ } }
 };
 
-// Usage
-MyTask taskObj;
-std::thread t2(taskObj); 
-t2.join();
-```
-
-
-
-
-
-
-Every thread in Java is created and controlled by a unique object of the java. lang. Thread class. When a standalone application is run, a user thread is automatically created to execute the main () method. This thread is called the main thread. In Java, we can implement threads in one of two ways:
-
-- By implementing the java. lang. Runnable interface 
-- By extending the java. lang. Thread class 
-
-We will cover both of these below. 
-
-**Implementing the Runnable Interface**:
-
-The Runnable interface has the following very simple structure. 
-
-```
-public interface Runnable
-{ 
-  void run(); 
+int main()
+{
+  MyTask task;
+  std::thread t(task);
+  std::this_thread::sleep_for(std::chrono::seconds(1));
+  task.should_stop = true;
+  t.join();
 }
 ```
 
-To create and use a thread using this interface, we do the following: 
+  - **Using `std::jthread`**:
 
-1. Create a class which implements the Runnable interface. An object of this class is a Runnable object.
-2. Create an object of type Thread by passing a Runnable object as argument to the Thread constructor.
-The Thread object now has a Runnable object that implements the run () method.
-3. The start() method is invoked on the Thread object created in the previous step.
-For example: 
+```
+class MyTask
+{
+public:
+    void operator()(std::stop_token st) { while (!st.stop_requested()) {/*...*/} }
+};
 
-public class RunnableThreadExample implements Runnable
-{ 
-  public int count = 0; 
+int main()
+{
+    MyTask task;
+    std::jthread jt(task);
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    jt.request_stop();   // optional
+	jt.join();   // optional
+}
+```
+
+- **Passing a lambda**: Modern standard.
+
+  - **Passing local variable** (using capture clause `[]`): This allows the thread to see variables in teh current scope without explicitly passing them as arguments. Very flexible.
+
+```
+  std::atomic<bool> should_stop(false);
+
+  std::thread t([&should_stop]() { while (!should_stop) { /*...*/ } });
+  std::this_thread::sleep_for(std::chrono::seconds(1));
+  should_stop = true;
+  t.join();
+```
+
+  - **Passing argument**: 
+
+```
+  std::atomic<bool> should_stop(false);
   
-  public void run()
-  { 
-    System.out.println("RunnableThread starting.");
-    try { 
-      while (count< 5)
-	  { 
-        Thread. sleep(500); 
-        count++; 
-      } 
-    } catch (InterruptedException exc) { 
-      System.out.println("RunnableThread interrupted."); 
-      } 
-    system.out.println("RunnableThread terminating."); 
-  } 
+  std::thread t([](const std::atomic<bool>& stop) { while (!stop) { /*...*/ } }, should_stop);
+  std::this_thread::sleep_for(std::chrono::seconds(1));
+  should_stop = false;
+  t.join();
+```
+
+  - **Using `std::jthread`**:
+
+```
+std::jthread jt([](std::stop_token stoken) { while (!stoken.stop_requested()) {/*...*/} });
+std::this_thread::sleep_for(std::chrono::seconds(1));
+jt.request_stop();
+t.join();
+```
+
+**Comparison**:
+
+- Passing **function**: Useful if the task is a generic utility used by many different parts of the code.
+- Passing **functor**: Useful for large tasks that need to maintain their own complex state and methods. Better organization.
+- Passing **lambda**: Useful for small tasks. Very concise. Keeps thread logic next to the thread creation. More readable and maintainable.
+
+**Why using `std::atomic<bool>`** instead of `bool` in the `std::thread` case? The `bool` flag is unrealiable due to:
+
+- CPU caching: Each CPU core has its own local `Cache(L1, L2)`. If thread A (main) updates `bool` to `true`, that change might stay in A's local cache for a while. Meanwhile, thread B (worker) is looking at its own cache or the main RAM, which say it's `false`, so B keeps running. Using `std::atomic` forces CPU to "synchronize" the value across all cores.
+- Compiler optimization: If compiler sees `should_stop` is not changed inside `while(!should_stop) {...}`, it may decide to just check it once at the beginning and then run the loop forever to save time. It assumes your code is single-threaded (hoisting). Using `std::atomic` tells: "This value can change anytime from outside, don't optimize away the checks".
+- Tearing: `should_stop` could be a larger data type. On some hardware, a regular 64-bit write isn't "atomic". Tread A could be halfway through writing the bits when B reads it. Using `std::atomic` prevents this.
+
+### Synchronization
+
+Threads within a given process share the same memory space. It enables threads to share data, but this may cause issues if two threads modify the same resource at the same time. C++ provides synchronization tools in order to control access to shared resources.
+
+**Examples of bad code**:
+
+```
+// Bad code (data race): Two threads modify the same resource (shared_counter) without synchronizing.
+int shared_counter = 0;
+
+void work()
+{
+    for (int i = 0; i < 10000; ++i)
+        shared_counter++;
 }
 
-public static void main(String[] args)
-{ 
-  RunnableThreadExample instance = new RunnableThreadExample(); 
-  Thread thread= new Thread(instance); 
-  thread.start(); 
- 
-  while (instance.count != 5)   // waits until above thread counts to 5 (slowly)
-  { 
-    try { 
-      Thread.sleep(250); 
-    } catch (InterruptedException exc) { 
-      exc.printStackTrace(); 
-    } 
-  } 
-} 
-In the above code, observe that all we really needed to do is have our class implement the run () method (line 4). Another method can then pass an instance of the class to new Th read (obj) (lines 19 - 20) and call start() on the thread (line 21 ). 
+void test()
+{
+    std::thread t1(work);
+    std::thread t2(work);
 
-In the above code, observe that all we really needed to do is have our class implement the run () method (line 4). Another method can then pass an instance of the class to new Th read (obj) (lines 19 - 20) and call start() on the thread (line 21 ).
+    t1.join(); t2.join();
+}
+```
+
+**Mutex** (mutual exclusion objects): Basic objects used for synchronization. Common methods: `.lock`, `.unlock`, `.try_lock` (tries to lock but returns `false` immediately if it's already locked, rather than waiting).
+
+- **`std::mutex`**: Only one thread at a time can call `.lock` and `.unlock`. It's not exception-safe (). It can only be unlocked by the same thread that locked it. If locked, other threads wait for it to be unlocked. If a thread tries to lock `std::mutex` twice in a row, it will wait for itself forever. Methods:
+  - `.lock`, `.unlock`, `.try_lock`
+- **`std::recursive_mutex`**: Allows the same thread to acquire the lock multiple times (keeps an internal counter) without deadlocking itself. Methods:
+  - `.lock`, `.unlock`, `.try_lock`
+- **`std::shared_mutex`** (C++17): Multiple threads can read simultaneously (`.lock_shared`), but only one can write (`.lock`). To read, wait until nobody writes (`.lock_shared`). To write, wait until nobody reads or writes (`.lock`). Methods: `.lock()` (blocks until no one else is reading or writing), `.unlock` (releases exclusive access), `.lock_shared` (blocks only if a writer has the lock. Multiple readers can enter), `.unlock_shared` (decrements reader count. Releases when count is 0). Methods:
+  - `.lock`, `.unlock`, `.try_lock`
+  - `.lock_shared`, `.unlock_shared`, `.try_lock_shared`
+- **`std::timed_mutex`**: Allows a thread to give up after a certain amount of time if it cannot acquire the lock (timeout). It can wait for a specific duration (`try_lock_for`) or wait until a specific point in time (`try_lock_until`). Methods:
+  - `.lock`, `.unlock`, `.try_lock`
+  - `.try_lock_for`, `.try_lock_until`
+- **`std::recursive_timed_mutex`**: `timed_mutex` that allows the same thread acquire the lock multiple times. Methods:
+  - `.lock`, `.unlock`, `.try_lock`
+  - `.try_lock_for`, `.try_lock_until`
+- **`std::shared_timed_mutex`**: `timed_mutex` that allows many readers and only one writer. Methods:
+  - `.lock`, `.unlock`, `.try_lock`
+  - `.try_lock_for`, `.try_lock_until`
+  - `.lock_shared`, `.unlock_shared`, `.try_lock_shared`
+  - `.try_lock_shared_for`, `.try_lock_shared_until`
+
+**Locks** (RAII wrappers): Calling `.lock()` and `.unlock()` manually is dangerous (if an exception occurs, the mutex stays locked forever), so using RAII wrappers is preferred.
+
+- **`std::lock_guard`**: Object that locks the mutex in its constructor and automatically unlocks it in its destructor (when going out of scope). This prevents deadlocks if an exception is thrown or in early returns. Cannot be moved to another function.
+- **`std::unique_lock`**: More flexible. It allows to manually `unlock()` and `lock()` many times within the same scope. Required for use with condition variables. Can be moved to another function. Methods:
+  - `lock`, `unlock`, `try_lock`
+  - `try_lock_for`, `try_lock_until`
+  - `swap`, `release`
+  - `mutex`, `owns_lock`, `operator bool`
+- **`shared_lock`**: Allows many readers, while blocking any writer. Designed specifically to work with a `std::shared_mutex`. Methods:
+  - `lock`, `unlock`, `try_lock`
+  - `try_lock_for`, `try_lock_until`
+  - `swap`, `release`
+  - `mutex`, `owns_lock`, `operator bool`
+- **`std::scoped_lock`** (C++17): It can lock multiple mutexes at once without the risk of deadlocks. If you manually lock 2 mutexes in a different order in two different threads, the thread may get deadlocked. `scoped_lock` ensures that multiple mutexes are always acquired safely, regardless of the order.
+
+**Signaling and coordination**: Allow threads to wait for specific events or communicate with each other.
+
+- **`std::condition_variable`**: Make a thread "sleep" until another thread notifies it that a condition has changed. Requires a `std::unique_lock`. Elements:
+  - `std::condition_variable cv`: Condition variable.
+  - `std::unique_lock<std::mutex> lock(mtx)`: Unique lock.
+  - `cv.wait(lock, condition)`: If `condition == false`, `cv` unlocks `lock` and sleeps. Otherwise, it does nothing.
+  - `cv.notify_one()`: Wake up the `cv.wait()`.
+- **`std::promise`** & **`std::future`** (single use): Return a value from a background thread (B) to a calling thread (A). We can make A wait until the value is returned or B ends (`std::future::get()`). The `promise` is passed to B, while `future` stays in A and waits for `promise` to get a value, or B to end.
+  - `std::promise` (single use): `get_future`, `set_value`, `set_exception`, `set_value_at_thread_exit`, `set_exception_at_thread_exit`.
+  - `std::future` (single use): `get` (wait & get value), `valid`, `wait`, `wait_for`, `wait_until`.
+- **`std::barrier`** & **`std::latch`** (C++20): Make a group of threads wait until all of them have reached a certain point in the code.
+- **``std::latch``** (C++20) (single use): Keeps a counter that threads can decrement (`.count_down`). Threads can wait for the counter to reach zero (`.wait`). Once it hits zero, it stays open forever. Methods:
+  - `count_down`, `wait`, `try_wait`, `arrive_and_wait`
+- **``std::barrier``** (C++20) (reusable): All threads must arrive at the barrier before any of them can continue. Once they arrive, it resets its counter, so it can be reused later. Methods:
+  - `arrive` (decrement counter), `wait` (just wait), `arrive_and_wait` (decrement counter & wait), `arrive_and_drop` (decrement counter permanently).
+
+**Lightweight synchronization**: Useful for simple data types.
+
+- **`std::atomic<T>`**: Ensures that operations on a variable (like incrementing a counter) are completed entirely without interruption. It's neither copyable nor movable. Main methods:
+  - `store` (atomic set), `load` (atomic get), `exchange` (set & return prev. value).
+- **`Fence`** (`std::atomic_thread_fence`): Memory barrier. CPUs and compilers often reorder instructions to improve performance. Fences prevent this reordering. Code before the fence is made visible before the code after the fence. The fence's strength depends on the provided `std::memory_order`:
+  - `release`: Store fence. Previous writes don't move below the fence (everything written before is ready for public viewing).
+  - `acquire`: Load fence. Subsequent reads don't move above the fence (before reading anything new, ensure that I have the latest updates from the public view).
+  - `acq_rel`: Combined.
+  - `seq_cst`: Total global ordering.
+  - `relaxed`: No effects.
+
+### Deadlocks
+
+**Deadlock**: Situation where thread A waits for an object lock that another thread B holds, and B waits for an object lock held by A (or an equivalent situation with several threads). Since each thread is waiting for the other to release a lock, both remain waiting forever. The threads are deadlocked. The most common deadlock happens when two threads acquire the same deadlocks in different order. A deadlock occurs only when these all 4 conditions meet:
+
+1. **Mutual exclusion**: There's limited access to a resource (like when only one process can access a resource at a given time).
+2. **Hold and wait**: Processes already holding a resource can request additional resources, without releasing their current resources.
+3. **No preemption**: One process cannot forcibly remove another process' resource.
+4. **Circular wait**: Two or more processes form a circular chain where each process is waiting on another resource in a chain.
+
+**Prevention**: Deadlock prevention entails removing any of the above conditions. Most conditions might be difficult to remove. Most deadlock prevention algorithms focus on avoiding condition 4 (circular wait).
+
+**Deadlock examples**:
+
+- **Lock-order inversion deadlock**: Thread tA locks mutex mX and thread tB locks mutex mY. Then, tA waits for mY, and tB waits for mX.
+
+```
+std::mutex m1;
+std::mutex m2;
+
+void threadA()
+{
+  std::lock_guard<std::mutex> lock1(m1);
+  std::this_thread::sleep_for(std::chrono::milliseconds(100)); // simulate work
+  std::lock_guard<std::mutex> lock2(m2);
+}
+
+void threadB()
+{
+  std::lock_guard<std::mutex> lock1(m2);
+  std::this_thread::sleep_for(std::chrono::milliseconds(100)); // simulate work
+  std::lock_guard<std::mutex> lock2(m1);
+}
+
+int main()
+{
+  std::thread t1(threadA);
+  std::thread t2(threadB);
+  
+  t1.join();
+  t2.join();
+}
+```
+
+- **`std::mutex` is not-exception safe**: After locking a mutex, if an early return or an exception takes place, the thread leaves the function/block without unlocking the mutex, which leaves the mutex locked forever (deadlock).
+
+```
+int shared_counter = 0;   // Protect this
+std::mutex mtx;
+
+void work()
+{
+  for (int i = 0; i < 10000; ++i)
+  {
+    mtx.lock();
+    shared_counter++;
+    if (some_error_happens_1) return;   // Early return
+    if (some_error_happens_2) throw std::exception("Error");
+    mtx.unlock();
+  }
+}
+
+void test()
+{
+  std::thread t1(work);
+  std::thread t2(work);
+  
+  t1.join(); t2.join();
+}
+```
+
+## Advanced topics
+
+### Introduction
+
+The following topics are rarely asked. Asking them tests knowledge of algorithms, not ability to solve problems.
+
+- Useful math
+- Topological sort
+- Dijkstra's algorithm
+- Hash table collision resolution
+- Rabin-Karp substring search
+- AVL trees
+- Red-black trees
+- MapReduce
+- Additional studying
+
+### Useful math
+
+**Sum of integers 1 through N** (1 + 2 + … + n)
 
 
 
 
 Symbols: ≤, ≥, ≠, ≈, √, ∑, →, ↔, ∨, ∧, ~, ¬, ∀, ∃, ⌊⌋, ⌈⌉, <sub>i</sub>, <sup>i</sup>, α, β, ∞, Ω, Θ, θ, ϕ, γ, ├─, │, └─, …
 
-## Moderate
+### Topological sort
 
-## Hard
+### Dijkstra's algorithm
+
+### Hash table collision resolution
+
+### Rabin-Karp substring search
+
+### AVL trees
+
+### Red-black trees
+
+### MapReduce
+
+### Additional studying
+
+
+
+
 
 
 ## Notes

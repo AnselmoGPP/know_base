@@ -42,7 +42,7 @@
 **SQL**:
 
 - **SQL** (Structured Query Language): Programming language designed to manipulate and manage data stored in relational databases.
--**SQLite**: The most used SQL database engine in the world. Here, we use SQLite Relational Database Management System (RDMS).
+- **SQLite**: The most used SQL database engine in the world. Here, we use SQLite Relational Database Management System (RDMS).
 
 **Database**:
 
@@ -437,7 +437,7 @@ So, we have a number of customers, a number of possible subscriptions, and a num
 
 **Primary key**: Column in a table that uniquely identifies each row. Requirements:
 
-- None value can be NULL.
+- None value can be `NULL`.
 - Each value must be unique.
 - A table cannot have more than one primary key column.
 

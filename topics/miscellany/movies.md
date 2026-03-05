@@ -3,32 +3,40 @@
 ## Table of Contents
 + [Champions](#champions)
 + [Second place](#second-place)
-+ [Entertaining](#entertaining)
++ [Good enough](#entertaining)
 
 ## Champions
 
 - The Lord of the Rings (trilogy)
-- Saving private Ryan
-- Gladiator
-- Black Hawk down
-- Braveheart
 - The last samurai
+- Braveheart
+- Gladiator
 - The patriot
-- The Matrix
+- Saving private Ryan
+- Black Hawk down
 - Inception
+- The Matrix
 
 ## Second place
 
 - Star Wars (saga)
-- Apocalipto
-- The Passion of the Christ
 - Interstellar
 - The dark knight (trilogy)
+- Kingdom of Heaven
+- Forrest Gump
+- War of the Worlds
+- The green mile
+- The Shawshank Redemption
+- Jurassic Park
+- Troy
 
 ## Third place
 
 - Fight club
 - Master and Commander
 - Avatar
-- Troy
-- Titanic
+- Pulp fiction
+- Edge of tomorrow
+- Shutter island
+- Apocalipto
+- The Passion of the Christ

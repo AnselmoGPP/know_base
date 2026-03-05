@@ -2,7 +2,6 @@
 
 <br>![flow image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/flow.jpg)
 
-
 ## Table of Contents
 
 + [Cpp](#cpp)
@@ -13,7 +12,6 @@
 + [Linux](#linux)
 + [CMake](#cmake)
 + [Others](#others)
-
 
 ## Cpp
 
@@ -38,7 +36,6 @@
   - D. Gennaro (2011) _**Advanced C++ metaprogramming**_. Createspace.
   - John Lakos (2019) _**Large-scale C++. Volume 1**_ Addison-Wesley.
 
-
 ## Good coding
 
   - Clean code
@@ -48,16 +45,20 @@
   - Code complete
   - Programming pearls
   - Cracking the coding interview
+  - Elements of programming interviews
 
+## System design
 
-## Design patterns
-
-  - Design patterns: Elements of reusable object-oriented software (the gang of three)
-  - Head first design patterns
-  - Design patterns for dummies
-  - [sourcemaking/design_patterns](https://sourcemaking.com/design_patterns)
-
-
+  - Design patterns
+    - Design patterns: Elements of reusable object-oriented software (the gang of three)
+    - Head first design patterns
+    - Design patterns for dummies
+    - [sourcemaking/design_patterns](https://sourcemaking.com/design_patterns)
+  - System design
+    - Grooking the system design interview
+    - Grooking the system design interview, Volume 2
+    - Grooking the advanced system design interview
+  
 ## Software engineering
 
   - The software craftsman
@@ -66,7 +67,6 @@
   - The complete software developer’s career guide
   - [uml-diagrams.org](https://www.uml-diagrams.org/)
 
-
 ## Computer graphics
 
   - Mathematics for 3D game programming and computer graphics
@@ -74,13 +74,11 @@
   - Game engine architecture (Jason Gregory)
   - Vulkan Programming Guide : The Official Guide to Learning Vulkan
 
-
 ## Linux
 
   - The Linux Programming Interface-Michael Kerrisk
   - Linux Dummies 9th
   - Linux from scratch
-
 
 ## CMake
 

@@ -36,4 +36,4 @@
 
 ## References
 
-- Jonathan Katz (2020) _**Cryptography**_. Coursera. University of Maryland, College Park.
+- Jonathan Katz (2020) [_**Cryptography**_](https://www.coursera.org/learn/cryptography). Coursera. University of Maryland, College Park.
