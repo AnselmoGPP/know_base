@@ -39,31 +39,22 @@ A **pattern** describes a problem that happens very often in our environment, an
 
 <br>![design patterns table](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/design_patterns_table.png)
 
+**Scope**: Specifies whether the pattern applies primarily to classes or objects
+
+- **Class patterns**: Deals with relationships between classes and their sub-classes (inheritance). They are static-fixed at compile-time.
+- **Object patterns**: Deals with object relationships, which can be changed at run-time.
+
 **Purpose**: What a pattern does.
 
 - **Creational**: Relative to object creation.
+  - **class patterns** defer some part of object creation to subclasses.
+  - **object patterns** defer it to another object.
 - **Structural**: Deals with the composition of classes or objects.
+  - **class patterns** use inheritance to compose classes.
+  - **object patterns** describe ways to assemble objects.
 - **Behavioral**: Characterizes the ways in which classes or objects interact and distribute responsibility.
-
-**Scope**: Specifies whether the pattern applies primarily to classes or objects
-
-- **Class**: Deals with relationships between classes and their sub-classes (inheritance). They are static-fixed at compile-time.
-- **Object**: Deals with object relationships, which can be changed at run-time.
-
-**Creational**…
-
-- **class patterns** defer some part of object creation to subclasses.
-- **object patterns** defer it to another object.
-
-**Structural**…
-
-- **class patterns** use inheritance to compose classes.
-- **object patterns** describe ways to assemble objects.
-
-**Behavioral**…
-
-- **class patterns** use inheritance to describe algorithms and flow of control.
-- **object patterns** describe how a group of objects cooperate to perform a task that no single object can carry out alone.
+  - **class patterns** use inheritance to describe algorithms and flow of control.
+  - **object patterns** describe how a group of objects cooperate to perform a task that no single object can carry out alone.
 
 **Creational patterns**:
 
@@ -484,6 +475,6 @@ We want Lexi to be portable across hardware and software platforms. We should ma
 
 
 
-64/378
+68/378
 
 <br>![glyph structure](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/glyph.png)

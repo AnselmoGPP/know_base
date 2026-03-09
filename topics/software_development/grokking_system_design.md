@@ -514,14 +514,56 @@ Load balancing helps you scale horizontally across an ever-increasing number of 
 
 ### Data partitioning
 
-**Data partitioning:** Process of dividing a large database (DB) into smaller, more manageable parts called **partitions** or **shards**. Each partition is independent and contains a subset of the overall data.
+**Data partitioning:** Process of dividing a large database (DB) into smaller, more manageable parts called **partitions** or **shards**. Each partition is independent and contains a subset of the overall data. Each partition is assigned to a separate processing node, which performs operations on its data subset independently of others. Datasets are partitioned based on a certain criterion. Advantages:
 
+- Data partitioning can improve performance and scalabitily of large-scale data processing applications, as it allows processing to be distributed across multiple nodes, minimizing data transfrer and reducing processing time.
+- Distributing data across multiple nodes/servers, the workload can be balanced, and the system can handle more requests and process data more efficiently.
 
+Most popular **partitioning schemes** for large-scale applications are:
 
+- **Horizontal partitioning** (Sharding): Divides a database into multiple partitions (shards), with each one containing a subset of rows. Each shard is typically assigned to a different database server, allowing for parallel processing and faster query execution times. However, this can lead to unbalanced servers if the value whose range is used for partitioning isn't chosen carefully.
+  - Example: Social media platform that stores user data in a database table. The user table might be partitioned horizontally based on the geographic location of users, so that users in different countries are stored in different shards. This way, when a user logs in and his data needs to be accessed, the query can be directed to the appropriate shard, minimizing the amount of data that needs to be scanned.
 
+- **Vertical partitioning**: Splits a database table into multiple partitions (shards), with each one containing a subset of columns. This can optimize performance by reducing the amount of data to scan, especially when certain columns are accessed more frequently than others.
+  - Example: E-commerce website that stores customer data in a database table. The customer table might be partitioned vertically based on the type of data (personal information in one shard, order history and payment information in another). This way, when a customer logs in and their order history needs to be accessed, the query is directed to the appropriate shard, minimizing the data to scan.
+
+- **Hybrid partitioning**: Combines horizontal and vertical partitioning. It helps optimize performance by distributing data evenly across multiple servers, while minimizing the data to scan.
+  - Example: Large e-commerce website that stores customer data in a database table. The customer table might be partitioned horizontally based on customer's geographic location, and then each shard partitioned vertically based on data type. This way, when a customer logs in and his data needs to be accessed, the query can be directed to the appropriate shard, minimizing the data to scan; and each shard can be stored on a different database server, allowing for parallel processing and faster query execution times.
+
+![Partition schemes](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/system_design_9.png)
+
+**Partitioning criteria**: Factors or characteristics of data that can be used to divide a large dataset into smaller partitions. Most common criteria are:
+
+- **Key or Hash-based partitioning**: Apply a hash function to some key attributes of the entity we are storing (this yields the partition number).
+  - Example: We have 100 DB servers and our ID is a number that gets incremented by one each time a new record is inserted. Here, the hash function could be `ID % 100`, which gives us the server number where we can store/read that record. This ensures uniform allocation of data among servers. However, this fixes the total number of DB servers, so adding new servers requires changing the hash function, redistributing data, and downtime for the service. A workaround for this problem is using [**consistent hashing**](#consistent-hashing).
+
+- **List partitioning**: Each partition is assigned a list of values. Whenever we want to insert a new record, we see which partition contains our key and then store it there.
+  - Example: All users living in Iceland, Norway, Sweden, Finland, or Denmark are stored in a partition fo the Nordic countries.
+
+- **Round-robin partitioning**: With n partitions, the i tuple is assigned to partition i % n. Simple strategy that ensures uniform data distribution.
+
+- **Composite partitioning**: Combine any of the above partitioning schemes to devise a new scheme.
+  - Example: First apply a list partitioning scheme and then a hash-based one. Consistent hashing could be considered a composite of hash and list partitioning where the hash reduces the key-space to a size that can be listed.
+
+**Common problems of data partitioning**: Operations across multiple tables/rows in the same table doesn't run on the same server. This causes extra constraints on the operations that can be performed.
+
+- **Joins and Denormalization**: Performing joins on a database running on one server is straightforward. However, it's often not feasible to perform joins that span database partitions (cross-partition queries on a partitioned database are not feasible). They're not efficient (data has to be compiled from multiple servers). Common workaround: denormalize the database so that queries that previously required joins can be performed from a single table, though this requires to deal with denormalization's perils (like data inconsistency).
+
+- **Referencial integrity**: Enforcing data integrity constraints (like foreign keys) in a partitioned database can be extremely difficult. Most RDBMS don't support foreign keys constraints across databases on different servers, so applications requiring referencial integrity on partitioned databases often have to enforce it in application code (this often requires applications to regularly run SQL jobs to clea up dangling references.
+
+- **Rebalancing**: There're many reasons for changing our partition scheme:
+  1. Data distribution is not uniform (example: there're a many places for a ZIP code that cannot fit into one database partition).
+  2. There's a lot of load on a partition (example: too may requests are handled by the DB partition dedicated to user photos.
+  - In such cases, either we have to create more DB partitions or have to rebalance existing partitions, which means the partitioning scheme changed and all existing data moved to new locations. It's extremely difficult to do this without incurring downtime. Using a scheme like directory-based partitioning does make rebalancing more palatable, but increases the complexity of the system and creates a new single point of failure (the lookup service/database).
 
 
 ### Indexes
+
+
+
+
+
+
 ### Proxies
 ### Redundancy and Replication
 ### SQL vs. NoSQL

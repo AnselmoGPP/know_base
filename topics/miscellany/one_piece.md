@@ -33,7 +33,7 @@ The **Devil's fruit** (Akuma no mi) is a rare type of fruit that gives powers to
 
 **Gold D. Roger**, the King of Pirates, got arrested and executed by the **World Government**. Before dying, he revealed that he left his **One Piece** treasure (“everything this world has to offer”) at the Grand Line. Many pirates started looking for this treasure, initiating the **Great Pirate Era**.
 
-The World Government is an alliance of 170 countries. Its highest authority is the **Gorousei** (The five elderly stars), a counsel of 5 elders, in **Mariejoa**, in the Sacred island. They control the **3 great powers**, which reign over the Grand Line, making it deadly for pirates. One of such powers are the **Sichibukai**, the 7 Warlords of the sea. This is a group of government-authorized pirates, since they pay a cut of the loot they get. Some of them are: Hawk-eye, Jimbei, Crocodile, Don Quixote Doflamingo, Bartholomew Kuma.
+The World Government is an alliance of 170 countries. Its highest authority is the **Gorousei** (The five elderly stars), a counsel of 5 elders, in **Mariejoa**, in the Sacred island. They control the **3 great powers**, which reign over the Grand Line, making it deadly for pirates. One of such powers are the **Sichibukai**, the 7 Warlords of the sea. This is a group of government-authorized pirates, since they pay a cut of the loot they get. Some of them are: Hawk-eye, Jimbei, Crocodile, Don Quixote Doflamingo, Bartholomew Kuma, Gecko Moria.
 
 ## New friends
 
@@ -327,13 +327,21 @@ The Accino family was defeated and the flags recovered. The fight between Don Ac
 
 The pirates continued their journey and entered into the **Florian Triangle**, a dark sea covered with mist and full of storms. There, they found a ship and befriended its single crew member: a living skeleton called **Brook** (rebirth fruit). He was a pirate that died decades ago when other pirates attacked his ship and killed the crew. However, the Rebirth fruit took effect and, after some time, he came back to life as a skeleton.
 
-The SHPs found **Thriller Bark**, a ghost island that moves around the sea.
+The SHPs and Brook were found by **Thriller Bark**, a ghost island that moves around the sea using huge sails. While exploring the island, they were attacked by zombies. Some of them were zombie generals, which were especially strong zombies.
+
+In the island was living the sichibukai **Gecko Moria** (shadow fruit). He has the power to take the shadow (related to the soul) of an individual, and introduce it into a dead body, reviving it as a zombie. Such zombies have the skills and personality of the original shadow's owner. **Dr. Hogback** helped Moria get dead bodies, and even create new types of zombies by combining human and animal bodies. Moria is always trying to capture pirates to increase his army of zombies.
+
+Sanji, Zoro, and Luffy were captured, and Moria used their shadows to revive three zombies that were used later to attack the pirates. Franky and Robin were attacked by a giant spider, but Brook easily killed it. Brook had been in the island more than 5 years ago, where he got his shadow stolen.
 
 
-Dr. Hogback
 
 
-340
+
+
+invisible man
+ghosts
+Perona
+
 
 Shanks Whitebeard
 
