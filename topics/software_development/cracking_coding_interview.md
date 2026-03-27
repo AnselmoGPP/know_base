@@ -29,7 +29,7 @@
   * [Java](#java)
   * [Databases](#databases)
   * [Threads and Synchronization](#threads-and-synchronization)
-  * [Advanced topics](#advanced topics)
+  * [Advanced topics](#advanced-topics)
 * [Notes](#notes)
 * [Technical patterns](#technical-patterns)
   
@@ -238,7 +238,7 @@ They're asked to know your personality, understand your resume deeper, and ease 
   - You can fill an **interview grid**, a table with common questions (Y axis) and projects/jobs/activities (x axis). Study this grid before your interview. Common questions can be:
 
 | Common questions                      | Project 1 | Project 2 | Project 3 |
-|:--------------------------------------|:---------:|:---------:|:---------:|
+|:-------------------------------------:|:---------:|:---------:|:---------:|
 | Challenges                            |           |           |           |
 | Mistakes/failures                     |           |           |           |
 | Enjoyed                               |           |           |           |
@@ -935,7 +935,7 @@ Main C++ string types:
 
 One common implementation is:
 
-- This requires an __array of linked list__ and a __hash code function__.
+- This requires an __array of linked lists__ and a __hash code function__.
 - Insert a key-value pair:
   - Compute hash code from the key. Hash code is usually `int` or `long`. Two different keys could have same hash code (there's a finite number of ints, but an almost infinite number of keys).
   - Map the hash code to an index in the array (`hash(key) % array_length`. Two different hash codes could map to same index.
@@ -948,6 +948,8 @@ One common implementation is:
 If there's a high number of collisions, the lookup worst runtime is O(n) (n = number of keys). We generally assume a good implementation that keeps collisions to a minimum, so it's O(1).
 
 Another implementation uses a balanced binary search tree. This gives O(log n) lookup time, but uses less space (no need to allocate a large array), and allows to iterate through keys in order.
+
+Hash maps are useful for keeping track of how frequently a certain element occurs (like in Ransom note problem).
 
 ### Dynamic arrays
 
@@ -1007,6 +1009,13 @@ In **C++** `std::string`s aren't immutable, so string concatenation can be perfo
 - **`std::ostringstream`**: It buffers internally and is efficient for many small appends.
 
 ```
+std::string sb;
+sb.reserve(1000);
+for(int i = 0; i < 1000; ++i)
+sb.append(std::to_string(i));
+```
+
+```
 #include <sstream>
 
 std::ostringstream sb;
@@ -1015,13 +1024,6 @@ sb << 123;
 sb << "def";
 std::string result = sb.str();
 size_t size = result.tellp();
-```
-
-```
-std::string sb;
-sb.reserve(1000);
-for(int i = 0; i < 1000; ++i)
-sb.append(std::to_string(i));
 ```
 
 It's a good exercise to implement your own `DynamicArray` (`Vector`), `DynamicString`, and `HashTable`.
@@ -1047,7 +1049,7 @@ __Delete node__: In singly linked lists, given node `n`, find `prev` and set `pr
 
 Example: Given linked list a<sub>1</sub>→a<sub>2</sub>→…→a<sub>n</sub>→b<sub>1</sub>→b<sub>2</sub>→…→b<sub>n</sub>, rearrange it into a<sub>1</sub>→b<sub>1</sub>→a<sub>2</sub>→b<sub>2</sub>→…→a<sub>n</sub>→b<sub>n</sub>. The length of the linked list is unknown, but we know it's an even number.
 
-1. Locate the middle: p1 (fast pointer) moves every 2 elements for every one move tha p2 makes. When p1 hits the end of the linked list, p2 will be at the midpoint.
+1. Locate the middle: p1 (fast pointer) moves every 2 elements for every one move the p2 makes. When p1 hits the end of the linked list, p2 will be at the midpoint.
 2. Rearrange nodes: Move p1 back to the front and iterate again with both pointers. On each iteration, p2 selects an element and inserts it after p1.
 
 **Recursive problems:** Some linked list problems rely on recursion. If you have trouble solving a linked list problem, explore if a recursive approach works. Recursive algorithms take at least O(n) space (n = depth of the recursive call). All recursive algorithms can be implemented iteratively, although they may be much more complex. Recursive solutions are often cleaner but less optimal.
@@ -1117,8 +1119,8 @@ public:
   - **X-ary tree:** Nodes have up to X children (example: 10-ary tree).
   
 - **Nodes order:**
-  - **Binary search tree (BST):** Every node fits a specific ordering property (`all_left_descendants <= n < all_right_descendents`). This must be true for each node n. Depending on the definition used, it may or may not allow duplicate values, or store duplicates on the left, right, or either side.
   - **Non binary search tree:** No ordering.
+  - **Binary search tree (BST):** Every node fits a specific ordering property (`all_left_descendants <= n < all_right_descendents`). This must be true for each node n. Depending on the definition used, it may or may not allow duplicate values, or store duplicates on the left, right, or either side.
 
 - **Balancing:**
   - **Unbalanced:** Imbalanced tree.
@@ -1163,7 +1165,7 @@ void postOrderTraversal(TreeNode* node)
 
 ### Binary heaps
 
-**Binary heap**: Data structure that stores values and allow to retrieve the minimum (or maximum) value in just O(log n) time. Implemented as an array (to make it easy to find the bottom rightmost spot. Two types:
+**Binary heap**: Data structure (complete binary tree) that stores values and allow to retrieve the minimum (or maximum) value in just O(log n) time. Implemented as an array (to make it easy to find the bottom rightmost spot). Two types:
 
 - **Min-heap:** Complete binary tree where each node is smaller than its children (ascending order). Thus, the root is the minimum element in the tree. Key operations: `insert` and `extract_min`.
 - **Max-heap**: Similar to min-heap, but elements are in descending order. Key operations: `insert` and `extract_max`.
@@ -1286,6 +1288,13 @@ Additional reading: Topological sort, Dijkstra's algorithm, AVL trees, Red-black
 
 ### Basics
 
+Get integer value of a binary number: Each bit represents 2<sup>i</sup> integer units (i: bit position index).
+
+- Binary = `1011`
+- Integer = 1·8 + 0·4 + 1·2 + 1·1 = 11
+
+Note that the least significant bit has odd value (1), while the other bits have even value (2, 4, 8…). Thus, the least significant bit tells us whether the value is odd (bit == `1`) or even (bit == `0`).
+
 **Addition** rules: Same as decimal additions, but 1 + 1 equals 0 and carries 1.
 
 - Examples:  1 + 1 = 10;  1 + 1 + 1 = 11
@@ -1331,10 +1340,10 @@ x   11
 
 Operators:
 
-- `~` (NOT): Not true
-- `^` (XOR): Only one true
 - `&` (AND): Both true
 - `|` (OR): At least one true
+- `~` (NOT): Not true
+- `^` (XOR): Only one true
 
 ### Manual examples
 
@@ -2113,6 +2122,29 @@ Example problem: The Google Chrome team receives a bug report: "Chrome crashes o
   - At some point in this process, something fails and causes the browser crash. Iterate through the elements of this scenario to diagnose the problem.
 - **Create specific, manageable tests**: Each of the above components should have realistic instructions (things that you can ask the user to do, or that you can do yourself to replicate steps on your machine).
 
+#### Common test types
+
+Software tests are typically categorized by their scope (how much of the system they're checking at once). The Testing Piramid suggests that you should have many small, fast tests and fewer large, slow ones.
+
+- **Unit tests** (code logic): They test the smallest possible "unit" of code (usually a single function or class) in isolation. It verifies that a specific logic path works. If the function calls a database or a network, you "mock" those parts so the test only checks the logic. Extremely fast (milliseconds).
+  - Example: Test `Stack::pop()` function to ensure it returns the correct value and handles and empty stack.
+
+- **Integration tests** (communication): They check how different modules/pieces of your system work together. It ensures that component A can sucessfully talk to component B. Slower than unit tests.
+  - Example: Test that your `Database` class can actually save a `User` object and retrieve it later. It tests the interaction between your code and the real database.
+
+- **Functional tests** (requirements): They focus on the business requirements rather than the technical implementation. They verify that the software does what the user expects. Larger than integration tests, often covering a whole "feature".
+  - Example: Test that the user can successfully add an item to the cart.
+
+- **End-to-End (E2E) tests** (user experience): They test the entire software stack from start to finish, mimiking a real user's behavior. It ensures the system works as a whole in a production-like environment. Very slow and often "brittle" (they break easily in the UI changes).
+  - Example: A script that opens a browser, logs in, navigates to a profile, and changes a password.
+
+- **Regression tests** (purpose): Any test (unit, integration…) that you run to ensure that a new change didn't break existing functionality. It's not a "technical" type of test, but rather a purpose.
+  - Example: After fixing a bug, you should write a test that specifically covers that bug. That test becomes a "regression test" to ensure that specific bug never comes back.
+
+- **Performance & Stress tests** (stability): They check for stability, not correctness.
+  - Performance test: How fast does it run under normal load?
+  - Stress test: At what point does the system crash? (example: What happens if 10.000 users click `Buy` at the exact same second?)
+
 
 ## C and C++
 
@@ -2325,6 +2357,16 @@ p[1] = 1;
 p++;   // skips ahead by sizeof(int) bytes
 cout << *p;   // outputs 1
 ```
+
+### Smart pointers
+
+**Smart pointers**: Wrapper classes that automate the `delete` process, ensuring that memory is freed as soon as it is no longer needed. This eliminates most memory leaks. Never use `new` or `delete` in modern C++, but smart pointers (safer and more efficient).
+
+- **`std::unique_ptr`** (exclusive ownership): Only one `unique_ptr` can point to a specific resource at a time. You cannot copy it. You can only move it (transfer ownership) using `std::move()`. Create it with `std::make_unique`. It has zero overhead compared to a raw pointer. Useful for local variables, class members where only one instance owns the data, and for passing ownership into functions.
+
+- **`std::shared_ptr`** (shared ownership): It maintains an atomic reference counter that increases every time a new `shared_ptr` points to the same object, and decreases when a `shared_ptr` is destroyed. The object is deleted only when the counter reaches 0. Create it with `std::make_shared`. It has slightly more overhead due to the counter. Useful when multiple parts of a program need to share access to the same object (like in complex data structures like graphs or shared caches).
+
+- **`std::weak_ptr`** (observer): It points to an object owned by a `shared_ptr` but doesn't increment the counter. It prevents circular dependencies (where 2 objects point to each other and never die). It cannot be used directly; you must call `.lock()` to check if the object still exists and get a temporary `shared_ptr`. Useful for breaking cycles or for "peeking" at an object without keeping it alive.
 
 ### Templates
 
@@ -2975,252 +3017,6 @@ Symbols: ≤, ≥, ≠, ≈, √, ∑, →, ↔, ∨, ∧, ~, ¬, ∀, ∃, ⌊�
 ### MapReduce
 
 ### Additional studying
-
-
-
-
-
-
-## Notes
-
-- A list of size n have indices in range [0, n-1].
-- `n / 2` = Element in the middle ([0][1]**[2]**[3][4]) or right after the middle ([0][1]**[2]**[3]).
-- `n - 1 - i` = Opposing index ([0]**[1]**[2]**[3]**[4]).
-- Storing elements of a list in a stack gets the list reversed.
-- Passing elements from one stack to another inverts the order of the elements.
-
-## Technical patterns
-
-These patterns can handle roughly ~90% of common technical interview questions. Most questions are variations or combinations of these patterns.
-
-- **Nested loop traversal** (O(n<sup>2</sup>)): One loop inside another loop.
-  - When:
-  - Sub-patterns:
-  - Examples:
-    - Palindromic substrings (O(n<sup>2</sup>))
-	- All subarrays
-	- All substrings
-
-- **Pairwise comparison / All-pairs iteration** (O(n<sup>2</sup>)): Nested loop traversal where the outer loop iterates through each element, and the inner loop iterates over the elements after the current one. Brute-force all combinations.
-  - When: Check for duplicates, find pairs with some property, compare all possible combinations.
-  - Examples:
-    - Closest pair of points
-	- 2-sum brute force
-	- Check duplicates in array
-  
-- **Two pointers / Runner technique**: Use two indices moving through a list to avoid nested loops.
-  - When: Sorted arrays, find pairs with a sum, reverse strings in-place, remove duplicates.
-  - Sub-patterns: Opposite ends, same-direction pointers, fast/slow pointers.
-  - Examples:
-    - Sorted array two-sum → Find if two numbers sum to a target.
-	- Container with most water → Maximize area between two lines.
-    - Remove duplicates from sorted array → In-place removal using read/write pointers.
-	- Container with most water.
-	- 3-sum problem.
-	- Linked list cycle detection (Floyd's algorithm).
-	
-- **Sliding window**: Maintain a contiguous range (window) over data and slide it to track sums, counts, or max/min.
-  - When: Substring/array problems involving a length or sum constraint.
-  - Sub-patterns: Fixed-size window, dynamic-size window, string window problems.
-  - Examples:
-    - Longest substring without repeating characters → Variable-length window.
-    - Minimum window substring → Dynamic shrinking and expanding window.
-    - Longest repeating character replacement → Fixed-size window with char counts.
-	- Maximum sum subarray of size k.
-  
-- **Fast & slow pointers** (or **Tortoise and hare**): Two pointers moving at different speeds to detect cycles or middle elements.
-  - When: Linked-lists, circular arrays.
-  - Sub-patterns: Cycle detection, middle finding, length of cycle.
-  - Examples:
-    - Linked list cycle detection → Floyd’s Tortoise and Hare.
-    - Happy number → Detect loop in digit-sum transformation.
-    - Find middle of linked list → Move one pointer twice as fast.
-	- Reorder linked-list.
-  
-- **Hashing/Hash-map lookup**: Store visited elements or counts for O(1) lookups.
-  - When: Detect duplicates, frequency counts, prefix sums.
-  - Sub-patterns: Frequency maps, hash sets, rolling hash.
-  - Examples:
-    - Two sum
-	- Group anagrams
-	- Longest consecutive sequence
-	
-- **Binary search**: 
-  - When:
-  - Sub-patterns: Iterative, recursive, binary search on answer space.
-  - Examples:
-    - Search in Rotated Sorted Array
-    - Find Minimum in Rotated Sorted Array
-    - Median of Two Sorted Arrays  
-	
-- **BST (Binary Search Tree)**:
-  - When:
-  - Sub-patterns: In-order traversal, insertion/deletion, lowest common ancestor.
-  - Examples:
-    - Validate BST
-    - Lowest Common Ancestor of BST
-    - Convert Sorted Array to BST
-  
-- **Sorting + Binary search**: Sort data to apply binary search or fimplify constraints.
-  - When: Search problems, interval merging, deduplication.
-  
-- **Graph traversal**: Explore data structures (graphs, grids, trees) systematically.
-  - When: Connectivity, shortest path, tree processing.
-  - Sub-patterns: BFS, DFS, Union-Find, Dijkstra's, Bellman-Ford.
-  - Examples:
-    - Number of connected components (islands) → Flood fill BFS/DFS.
-    - Clone graph → BFS/DFS with visited map.
-    - Word ladder → BFS shortest path on word graph.
-	- Minimum spanning tree (Kruskal / Prim)
-	
-- **BFS (Breadth-First Search)**:
-  - When:
-  - Sub-patterns: Level-order traversal, shortest path in unweighted graphs.
-  - Examples:
-    - Binary tree level order traversal
-	- Minimum depth of binary tree
-	- Word ladder
-	
-- **DFS (Depth-First Search)**:
-  - When:
-  - Sub-patterns: Preorder/inorder/postorder, recursive vs. iterative.
-  - Examples:
-    - Binary tree path sum
-	- Number of islands
-	- Word search
-  
-- **Backtracking**: Try all possible choices, backtrack when a choice fails.
-  - When: Combinatorics, permutations, constraint satisfaction.
-  - Sub-patterns: DFS + decision-making, constraint-based recursion.
-  - Examples:
-    - N-Queens
-	- Word search
-	- Permutations/Combinations
-  
-- **Dynamic programming (DP)**: Break problems into overlapping subproblems and reuse results.
-  - When: Optimization problems, sequences, combinatorics.
-  - Sub-patterns: 1D DP (Fibonacci, Coin change), 2D DP (Knapsack, Grid paths), Interval DP (Palindromic substrings).
-  - Examples:
-    - Climbing stairs → Fibonacci DP.
-    - Coin change → Min coins to reach amount.
-    - Longest common subsequence → Classic DP table.
-	- Longest common subsequence
-	- House robber
-	- Edit distance
-  
-- **Greedy algorithms**: Always take the locally optimal choice.
-  - When: Interval scheduling, coin change (specific denominations), Huffman coding.
-  - Sub-patterns: Interval scheduling, coin change (when greedy works), Huffma coding.
-  - Examples:
-    - Activity selection
-	- Jump game
-	- Huffman encoding
-  
-- **Union-Find / Disjoint set**: Keep track of connected components efficiently. Kruskal's algorithm.
-  - When: Graph connectivity, Kruskal's algorithm.
-  - Examples:
-    - Redundant connection
-	- Number of connected components
-	- Accounts merge
-  
-- **Heap / Priority queue**: Always fetch min/max element efficiently.
-  - When: Kth largest element, merging sorted lists.
-  - Sub-patterns: Min-heap, max-heap, k-way merge.
-  - Examples:
-    - Kth largest element
-	- Merge k sorted lists
-	- Top K frequent elements.
-  
-- **Matrix traversal patterns**: Row/column scanning (row-by-row, column-by-column), spiral order, diagonal, boundary first, DFS/BFS on grids.
-  - When: Board games, image processing.
-  - Sub-patterns:
-  - Examples:
-    - Spiral matrix
-	- Rotate image
-	- Word search
-  
-- **Pairwise comparison / Nested loops**: Compare each element with the rest. Brute-force all combinations.
-  - When: Closest points, brute-force matching.
-  - Sub-patterns:
-  - Examples:
-    - Closest pair of points
-	- 2-sum brute force
-	- Check duplicates in array
-  
-- **Bit manipulation**: Use bitwise ops for compact storage or fast computation.
-  - When: Flags, subsets, parity checks.
-  - Sub-patterns: Masking, XOR tricks, bit DP.
-  - Examples:
-    - Single number → XOR to find unique element.
-    - Find missing number → XOR all indices and elements.
-    - Two single numbers → Partition by set bit.
-	- Subsets using bitmask
-	- Reverse bits
-  
-- **Prefix sum / Cumulative sum**: Precompute running sums to answer range queries fast.
-  - When: Range sum queries, subarray sums.
-  - Sub-patterns: 1D prefix sum, 2D prefix sum, difference array.
-  - Example:
-    - Subarray sum equals K
-	- Range sum query (immutable)
-	- 2D matrix sum region query
-  
-- **Merge intervals**: 
-  - When:
-  - Sub-patterns: Sorting by start time, merging, interval insertion.
-  - Examples:
-    - Merge intervals.
-	- Insert interval.
-	- Employee free time.
-	
-- **Cyclic sort**: 
-  - When:
-  - Sub-patterns: In-place index placement, missing number detection.
-  - Examples:
-    - Find all missing numbers.
-	- First missing positive.
-	- Find duplicate number.
-	
-- **Linked list reversal**: 
-  - When:
-  - Sub-patterns: Reverse entire list, reverse sublist, reverse k-group.
-  - Examples:
-    - Reverse linked list.
-	- Reverse nodes in k-group.
-	- Palindrome linked list.
-	
-- **Topological sort**:
-  - When:
-  - Sub-patterns: kahn's algorithm, DFS-based topo sort.
-  - Examples:
-    - Course schedule
-	- Alien dictionary
-	- Minimum height trees
-	
-- **Mathematical patterns**:
-  - When:
-  - Sub-patterns: GCD/LCM, modular arithmetic, combinatorics.
-  - Examples:
-    - Greatest common divisor
-	- Modular exponentiation
-	- Pascal's triangle
-	
-- **Recursion**:
-  - When:
-  - Sub-patterns:
-  - Examples:
-    - Divide & conquer (binary search, merge sort)
-	- Tree recursion (traversing binary trees)
-	- Backtracking (generating permutations, solving mazes)
-	- Dynamic programming (top-down) (recursion + memoization)
-
-The other ~10% are often:
-
-- Math-heavy problems (number theory, probability)
-- Specialized algorithms (suffix arrays, KMP)
-- Domain-specific (low-level systems, graphics programming…)
-
-I can map each pattern to 2–3 canonical problems so you’d have a training set that hits all the main scenarios. That’s how you get from “knowing patterns” to “recognizing them instantly.”
 
 
 

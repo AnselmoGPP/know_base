@@ -33,6 +33,14 @@
 
 **Use cases**:
 
+- Keep versions and apps updated
+- Quickly onboard new devs
+- No dependencies
+- No kernel virtualization (lightweight, better performance)
+- Choose platform
+
+Examples:
+
 A dev team use different tools (compiler, OS, dependencies...). However, usually not all of them have the same versions or installations of their tools. Furthermore, a new dev can take a long time to install everything as expected. **Containers** automate these installations (usually with a single command), making the process easier, faster, and reliable.
 
 Once devs finish a development, they give the code and instructions for updating dependencies (may include configuration files) to the Ops team so it can deploy the application (like update servers, set up new servers...). This process is prone to errors (missing instructions, communication issues...). Only after deployment we realize if everything was fine or not. If not, we execute a rollback (return to a previous working version). **Containers** can help here: Devs and Ops build an image. The only dependency it requires to be executed is the __Docker runtime__. This process can be automated using Pipelines, which are provided by version control service providers (GitHub, GitLab, BitBucket...).

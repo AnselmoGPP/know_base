@@ -55,9 +55,11 @@
     - Design patterns for dummies
     - [sourcemaking/design_patterns](https://sourcemaking.com/design_patterns)
   - System design
-    - Grooking the system design interview
-    - Grooking the system design interview, Volume 2
-    - Grooking the advanced system design interview
+	- [Grokking the system design interview](https://www.designgurus.io/course/grokking-the-system-design-interview?aff=84Y9hP)
+    - [Grokking the system design interview, Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)
+    - [Grooking the advanced system design interview](https://www.designgurus.io/course/grokking-the-advanced-system-design-interview)
+    - [Grokking the modern system design interview](https://www.educative.io/courses/grokking-the-system-design-interview)
+    - [System design interview guide](https://www.designgurus.io/system-design-interview#basics)
   
 ## Software engineering
 

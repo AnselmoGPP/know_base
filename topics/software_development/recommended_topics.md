@@ -29,7 +29,7 @@
 - Adnan Aziz, Tsung-Hsien Lee, Amit Prakash (2012) _**Elements of programming interviews C++**_. 2nd ed. CreateSpace Independent Publishing Platform.
 - Adnan Aziz, Tsung-Hsien Lee, Amit Prakash (2016) _**Elements of programming interviews Python**_. CreateSpace Independent Publishing Platform.
 - [Grokking the system design interview](https://www.designgurus.io/course/grokking-the-system-design-interview?aff=84Y9hP)
-- [Grokking the modern system design interview](https://www.educative.io/courses/grokking-the-system-design-interview)
+- [Grokking the system design interview. Volume II](https://www.designgurus.io/course/grokking-system-design-interview-ii)
 - Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides (1994) _**Design patterns. Elements of object-oriented software**_. Addison-Wesley.
 - STAR method: Check [this](https://capd.mit.edu/resources/the-star-method-for-behavioral-interviews/) and [this](https://www.vawizard.org/wiz-pdf/STAR_Method_Interviews.pdf).
 

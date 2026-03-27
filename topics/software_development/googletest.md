@@ -14,10 +14,11 @@
 
 ## References
 
-- [GoogleTest primer](https://google.github.io/googletest/primer.html)
-- [User's guide](https://google.github.io/googletest/)
-- [Generic build instructions](https://github.com/google/googletest/blob/main/googletest/README.md)
 - [Repository](https://github.com/google/googletest)
+- [User's guide](https://google.github.io/googletest/)
+  - [GoogleTest primer](https://google.github.io/googletest/primer.html)
+  - [Mocking for dummies](https://google.github.io/googletest/gmock_for_dummies.html)
+- [Generic build instructions](https://github.com/google/googletest/blob/main/googletest/README.md)
 
 
 ## Introduction

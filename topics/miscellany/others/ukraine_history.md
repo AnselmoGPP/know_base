@@ -1,12 +1,21 @@
 # Ukraine history
 
 ## Table of Contents
+
++ [References](#references)
 + [Early history](#early-history)
 + [Kievan Rus state](#kievan-rus-state)
 + [Foreign domination](#foreign-domination)
 + [Cossack Hetmanate](#cossack-hetmanate)
 + [19th and early 20th century](#19th-and-early-20th-century)
 + [Inter-war period](#inter-war-period)
+
+
+## References
+
+- [Ukraine](https://en.wikipedia.org/wiki/Ukraine#19th_and_early_20th_century)
+- [Ukraine war of independence](https://en.wikipedia.org/wiki/Ukrainian_War_of_Independence)
+- [Ukraine, an older different kingdom](https://www.reddit.com/r/ukraine/comments/yc92dn/ukraine_is_an_older_different_kingdom_compared_to/)
 
 
 ## Early history
@@ -78,4 +87,11 @@ Mid-13th to late-15th century: The Republic of Genoa founds numerous colonies on
 - 1922: Creation of the Soviet Union.
 
 ## Inter-war period
+
+
+
+
+
+
+
 

@@ -1,4 +1,4 @@
-# One Piece
+# One Piece (anime)
 
 <br>![one_piece_logo](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/miscellany/resources/one_piece_1.png)
 
@@ -18,28 +18,46 @@
 + [Admiral Aokiji](#admiral-aokiji)
 + [Water 7](#water-7)
 + [Enies Lobby](#enies-lobby)
-+ [Towards the New World](#towards-the-new-world)
++ [Thousand Sunny](#thousand-sunny)
++ [Kyokaido](#kyokaido)
++ [Thriller Bark](#thriller-bark)
++ [Sabaody archipelago](#sabaody-archipelago)
++ [Amazon Lily](#amazon-lily)
++ [Impel Down](#impel-down)
 
-+ [Alternative sagas](#alternative-arcs)
-  
++ [Filler arcs](#filler-arcs)
+  + [Grand Jipangu](#grand-jipangu)
+  + [Chopper Man](#chopper-man)
 
 ## Introduction
 
-In the world there are many island and only one continent, the **Red Line**, which circles the planet from north to south. The **Grand Line** is an oceanic current that goes along the ecuator. The Red Line and the Grand Line surround the **4 seas**: North Blue, South Blue, West Blue, East blue (where this story begins). The **All blue** is a mythical sea somewhere. The Grand Line is surrounded by two parallel belts where there is no wind and no current (**Calm Belt**), home of huge sea monsters (**Sea Kings**). In the Red Line there's the **Reverse mountain**, which has 5 channels that connect the Grand Line and the 4 seas at the top, and serve as a point of access to any of these regions.
+**Geography**:
+
+In the world there are many island and only one continent, the **Red Line**, a high mountain range with huge cliffs that circles the planet from north to south. The **Grand Line** is an oceanic current that goes along the ecuator. The Red Line and the Grand Line surround the **4 seas**: North Blue, South Blue, West Blue, East blue (where this story begins). The **All blue** is a mythical sea somewhere. The Grand Line is surrounded by two parallel belts where there is no wind and no current (**Calm Belt**), home of huge sea monsters (**Sea Kings**). In the Red Line there's the **Reverse mountain**, which has 5 channels that connect the Grand Line and the 4 seas at the top, and serve as a point of access to any of these regions.
 
 <br>![map_1](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/miscellany/resources/one_piece_2.png)
 
-The **Devil's fruit** (Akuma no mi) is a rare type of fruit that gives powers to those who eat it, but take away their ability to swim. There're many types of them. The **Kairouseki** (seastone) is a crystallized form of the sea that temporarilly suppresses the powers of people that have eaten a devil's fruit.
+**History**:
 
-**Gold D. Roger**, the King of Pirates, got arrested and executed by the **World Government**. Before dying, he revealed that he left his **One Piece** treasure (“everything this world has to offer”) at the Grand Line. Many pirates started looking for this treasure, initiating the **Great Pirate Era**.
+**Gold D. Roger**, the King of Pirates, got arrested and executed by the **World Government**. Before dying, he revealed that he left his **One Piece** treasure (“_everything this world has to offer_”) at the Grand Line. Many pirates started looking for this treasure, initiating the **Great Pirate Era**.
 
-The World Government is an alliance of 170 countries. Its highest authority is the **Gorousei** (The five elderly stars), a counsel of 5 elders, in **Mariejoa**, in the Sacred island. They control the **3 great powers**, which reign over the Grand Line, making it deadly for pirates. One of such powers are the **Sichibukai**, the 7 Warlords of the sea. This is a group of government-authorized pirates, since they pay a cut of the loot they get. Some of them are: Hawk-eye, Jimbei, Crocodile, Don Quixote Doflamingo, Bartholomew Kuma, Gecko Moria.
+**Government**:
+
+The World Government is an alliance of 170 countries. It was founded 800 years ago by 20 kings. Its highest authority is the **Gorousei** (The five elderly stars), a counsel of 5 elders, in **Mariejoa**, in the Sacred island. They control the **3 great powers**, which reign over the Grand Line, making it deadly for pirates. These powers are:
+
+- The **Sichibukai**, the 7 Warlords of the sea. This is a group of government-authorized pirates, since they pay a cut of the loot they get. They are: Hawk-eye, Jimbei, Crocodile, Don Quixote Doflamingo, Bartholomew Kuma, Gecko Moria, Boa Hancock.
+- X
+- X
+
+**Devil's fruit**:
+
+The **Devil's fruit** (Akuma no mi) is a rare type of fruit that gives powers to those who eat it, but takes away their ability to swim. There're many types of them, but only one of each type. The **Kairouseki** (seastone) is a crystallized form of the sea that temporarilly suppresses the powers of people that have eaten a devil's fruit.
 
 ## New friends
 
 (chapters 1-17)
 
-**Monkey D. Luffy** was a boy that wanted to find the One Piece and become the King of Pirates. When he was a 7 yo kid living at **Foosha village**, in **Dawn island**, he met pirate **Shanks**, leader of the **Red Hair pirates**. They were carrying a Devil’s fruit (gum fruit), but Luffy ate it by mistake and became a very strong rubber person. Both became friends and Shanks gave Luffy his straw hat before going back to the sea.
+**Monkey D. Luffy** was a boy that wanted to find the One Piece and become the King of Pirates. When he was a 7 yo kid living at **Foosha village**, in **Dawn island**, he met pirate **Shanks**, leader of the **Red Hair pirates**. They were carrying a Devil’s fruit (gum fruit), but Luffy ate it by mistake and became a very strong rubber person. When a bandit threw Luffy into the sea, Shanks saved him, but lost an arm to a Sea King. Both became friends and Shanks gave Luffy his straw hat before going back to the sea.
 
 Luffy (7 yo) befriended a kid called **Ace** (10 yo), son of Gold Roger, and both became sworn brothers. When Ace was 17 yo he left the island to become a pirate, and 3 years later (20 years after the beginning of the Great Pirate Era) Luffy tried to do the same. He got a ship but it was destroyed by a whirlpool and he was rescued by some passenger ship.
 
@@ -73,12 +91,18 @@ Now Nami had gathered 93 million berries, which hid underground close to his hou
 
 Luffy’s actions so far had been noticed by the Navy, and it put a bounty on him (30 million Berries). He was starting to be famous.
 
-Characters description:
+| Character | Skills                          | Weakness                 | Dream                                        |
+|:---------:|:-------------------------------:|:------------------------:|:--------------------------------------------:|
+| Luffy     | Strong rubber fighter           | Childiss                 | Become King of the pirates                   |
+| Zoro      | Strong skilfull swordman        | Poor sense of direction  | Become best world swordman                   |
+| Nami      | Great navigator                 | Money                    | Draw a complete world map                    |
+| Usopp     | Great sniper                    | Liar, pessimist, fearful | Become a great warrior of the sea            |
+| Sanji     | Strong skilfull kicker and cook | Women                    | Get to the All Blue (fishes from all oceans) |
 
 - Luffy: Strong and skillful fighter. Childish. Wants to become the King of Pirates.
 - Zoro: Strong and skillful swordman. He has poor sense of direction. Wants to become the best swordman in the world.
 - Nami: Great navigator. Money is her weakness. Wants to draw the a complete map of the World.
-- Usopp: Great sniper/shooter. He's a liar. Wants to become a great warrior of the sea.
+- Usopp: Great sniper. He's a liar and a pessimist. Wants to become a great warrior of the sea.
 - Sanji: Strong and skillful kicker, and a great cook. Women are his weakness. Wants to get to the All Blue (it has all fishes from all oceans).
 
 ## Near the Grand Line
@@ -97,7 +121,7 @@ Apis decided to stay in Lost island, and the Straw Hat pirates continued their t
 
 <br>![map_2](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/miscellany/resources/one_piece_3.png)
 
-At the entrance to the Grand Line they found a lighthouse, and became friends of the lighthouse keeper and his giant whale (biggest whale of the world). The islands at the Grand Line have magnetic minerals that prevent compasses from working. The keeper gave them a **log pose**, a special compass that points a way through some islands along the Grand Line (compasses doesn't work in the Grand Line due to the magnetism between islands). At the end of this path of islands lies **Raftel island**, only confirmed by Gold Roger, and where it’s thought his treasure lies, although nobody has reached it. To be able to follow the path of islands, the log pose has to stay some time in each island in order to get enough magnetism to point to the next island in the route.
+At the entrance to the Grand Line (**Twin Capes**) they found a lighthouse, and became friends of **Crocus**, the lighthouse keeper, and **Laboon**, his giant whale (biggest whale of the world). The islands at the Grand Line have magnetic minerals that prevent compasses from working. The keeper gave them a **log pose**, a special compass that points a way through some islands along the Grand Line (compasses doesn't work in the Grand Line due to the magnetism between islands). At the end of this path of islands lies **Raftel island**, only confirmed by Gold Roger, and where it’s thought his treasure lies, although nobody has reached it. To be able to follow the path of islands, the log pose has to stay some time in each island in order to get enough magnetism to point to the next island in the route.
 
 ## Into the Grand Line
 
@@ -113,9 +137,9 @@ Straw hat pirates continued their journey. Nami got sick and had a fever. They w
 
 Kureha was living with **Chopper**, a reindeer with human abilities (speak and become human-like) since he ate the Human fruit. Soon, Wapol and his army arrived to the island. He was an awful king, so Dalton and Big Horn’s people tried to stop him without success, and Dalton almost die. Then, Wapol arrived to his former castle and Luffy and Chopper fought and defeated him. Chopper joined them, and the Straw Hat pirates continued their journey.
 
-Characters description:
-
-- Chopper: Great doctor. Compliments are his weakness. Wants to become a doctor that can cure any disease in the World.
+| Character | Skills       | Weakness              | Dream                                     |
+|:---------:|:------------:|:---------------------:|:-----------------------------------------:|
+| Chopper   | Great doctor | Compliments. Fearful. | Become a doctor that can cure any disease |
 
 ## Arabasta kingdom
 
@@ -135,17 +159,17 @@ Sanji rescued the prisioners while Chopper was performing a distraction. The pir
 
 Luffy was defeated, but survived. In Alubarna, the pirates and Vivi tried to stop the clash, but failed, and the battle started in the city. Crocodile arrive to Alubarna, planning to kill both armies by bombarding the city. Kohza discovered Crocodile's plan and that he was who provoked Arabasta ruin. He tried to stop the battle, but Baroque Works had members infiltrated in both sides that prevented it by causing confusion and fear.
 
-Luffy arrived to Alubarna and fought Crocodile. Luffy used water to counter Crocodile's sand powers, but was defeated again. Crocodile was secretely looking for Pluton, the "most feared military power of the world", which was hidden somewhere in Arabasta. The Marines joined the fight to help the pirates save the city. Vivi and the pirates found Crocodile's bomb an **Pell**, an officer of the king with the ability to fly, sacrificed himself by taking it to the sky right before it exploded, saving the city. However, Pell survived.
+Luffy arrived to Alubarna and fought Crocodile. Luffy used water to counter Crocodile's sand powers, but was defeated again. Crocodile was secretely looking for Pluton, the "most feared military power of the world", which was hidden somewhere in Arabasta. The Marines joined the fight to help the pirates save the city. Zoro defeated **Mr. 1** (Daz Bonez) (Blade fruit) after a complicated fight. Vivi and the pirates found Crocodile's bomb, and **Pell**, an officer of the king with the ability to fly, sacrificed himself by taking it to the sky right before it exploded, saving the city. Fortunately, Pell survived.
 
-Luffy fights Crocodile again, defeating him this time. The rain returns to Arabasta. The battle stopped and everybody realized that Crocodile was the real enemy. The marines captured Crocodile and their men (Baroque Works) and took them to their headquarters. Peace returns to the kingdom.
+Luffy fights Crocodile again, defeating him this time. The rain returns to Arabasta. The battle stopped and everybody realized that Crocodile was the real enemy. The marines captured Crocodile and their men (Baroque Works) and took them to their headquarters. Peace returned to the kingdom.
 
 A bounty is put on Zoro (60 million), and Luffy's bounty increases (100 million). The pirates leave the island but the marines, leaded by captain **Hina** (cage fruit), try to capture them in the sea. They escape with the help of **Mr. 2**, or **Bon Clay** (copy fruit), an ex-Baroque Works member that became their friend.
 
-**Nico Robin** (flower fruit), an ex-Baroque Works member that saved Luffy twice from dying when fighting Crocodile, joins the pirates. She's an archeologist looking for the **River Poneglyph** (true text of history). In Arabasta she found a Poneglyph (unbreakable stone with an old language text) detailing where Pluton was, but she didn't tell Crocodile about this.
+**Nico Robin** (flower fruit), an ex-Baroque Works member that saved Luffy twice from dying when fighting Crocodile, joins the pirates. She's an archeologist that wants to uncover the true history of the world, specifically the Void Century, by deciphering the **River Poneglyph**. In Arabasta she found a Poneglyph (unbreakable stone with an old language text) detailing where Pluton was, but she didn't tell Crocodile about this.
 
-Characters description:
-
-- Robin (flower fruit): Archeologist and good fighter. No clear weakness. Wants to uncover the true history of the world, specifically the Void Century, by deciphering the River Poneglyph.
+| Character | Skills                     | Weakness                       | Dream                                 |
+|:---------:|:--------------------------:|:------------------------------:|:-------------------------------------:|
+| Robin     | Archeologist. Good fighter | Energy drain when using powers | Uncover the true history of the world |
 
 ## The Rainbow mist
 
@@ -284,9 +308,9 @@ Robin background:
 
 The **Empty Century** is a century whose history is not known. It's history is written in the poneglyphs, but the government forbade investigating them to prevent anybody from reviving the Ancient Weapons. Robin used to live in the **O'hara** island, where she became an archeologist. The island had the biggest library in the world. In the island there was a group of scholars, including Robin's mother, that secretely studied the poneglyphs. According to their research, they considered that in the past there was a great kingdom, which somehow disappeared during the Empty Century, replaced by the World Government. They think that the World Government attacked them, so they left the poneglyphs (unbreakable stones with a message) so people from the future could know the truth. The scholars were discovered by the government, so they made the Buster Call and destroyed the whole island with its population. The only survivor was Robin. Vice-admiral Kuzen took pity on her and secretely let her escape in a boat. Since Robin knew how to read the poneglyphs, the government put a bounty on her (79 million).
 
-## Towards the New World
+## Thousand Sunny
 
-(chapters 313-335)
+(chapters 313-325)
 
 Soon, viceadmiral **Monkey D. Garp**, Luffy's grandfather, arrived to Water 7. He revealed interesting information:
 
@@ -301,19 +325,25 @@ Under Garp's command was Sergeant Major Coby (Luffy's old friend) and Sergeant H
 
 After visiting Luffy, Garp decided not to try to capture the pirates, and the marines left Water 7.
 
-A World Government's fleet sent to the New World was defeated. Shanks met Whitebeard to talk.
-
-Shanks and Buggy (the Clown) used to work for Gold D. Roger. After Roger's death, both crewmates got separated.
-
 The World Governemnt updated bounties: Luffy (300 mill.), Zoro (120 mill.), Robin (80 mill.), Sanji (77 mill.), Franky (44 mill.), Nami (16 mill.), Chopper (50). After Enies Lobby's incident, the Straw Hat pirates became famous around the world.
 
 The pirates stayed at Water 7 for a while. Meanwhile, Iceburg designed a new brigantine, and built it together with Franky, Pauly, Tilestone, and Lulu. It was made of **Adam wood** (strongest and highest-quality wood). It was called the **Thousand Sunny**, and was given to the Straw Hat pirates. It was much bigger than the Going Merry.
 
 After a Luffy's invitation, Franky joined the pirates as shipwright. Ussop was accepted back onto the crew after he apologized. The pirates left Water 7. On the sea, Garp attacked them. The General Admiral Sengoku got angry because Garp didn't capture the pirates before, so Garp was sent again to capture them. However, the pirates escaped using a propulsion system of the ship that uses soda to jump 1 km away.
 
-Meanwhile, Ace found Blackbeard (darkness fruit) at **Banaro island**, which he was attacking with his 4 pirates. After Blackbeard destroyed the town, both fought.
+Meanwhile, Ace found Blackbeard (Darkness fruit) at **Banaro island**, which he was attacking with his 4 pirates. After Blackbeard destroyed the town, both fought. However, Blackbeard had become too strong after eating the Devil's fruit.
 
 Blackbeard used to work for Whitebeard, but his purpose was to get the darkness fruit. When Whitebeard's 4th division commander, Sacchi, found the fruit, he killed him, took the fruit, and left Whitebeard's pirates. Ace, the 2nd division commander, was sent to find and kill Blackbeard.
+
+Characters description:
+
+| Character | Skills                              | Weakness  | Dream               |
+|:---------:|:-----------------------------------:|:---------:|:-------------------:|
+| Franky    | Builder. Shipwright. Strong fighter | Sensitive | Build the best ship |
+
+## Kyokaido
+
+(chapters 326-335)
 
 The Phoenix pirates, leaded by captain **Puzzle Phoenix** (bounty: 100 mill.), got into the New World, but they soon realized that pirates there were too strong for them, so they fled back from there. However, they were captured by the **Accino family**, a bounty-hunting clan, and forced to help them capture pirates. The Accino family had 7 members and some employees: Family hunters and Domo penguins, and now the Phoenix pirates too. Their leader is **Don Accino** (hot fruit). Their domain is **Kyokaido**, an island covered with ice and surrounded with icebergs. Their base is **Lovely Land**, deep within Kyokaido.
 
@@ -321,31 +351,166 @@ The Straw Hat pirates found a drifting ship, so they decided to help its crew. H
 
 The Accino family was defeated and the flags recovered. The fight between Don Accino and Luffy activated the volcano under the island and it destroyed the whole island.
 
-## Into the New World
+## Thriller Bark
 
-(chapters 337-)
+(chapters 337-381)
 
-The pirates continued their journey and entered into the **Florian Triangle**, a dark sea covered with mist and full of storms. There, they found a ship and befriended its single crew member: a living skeleton called **Brook** (rebirth fruit). He was a pirate that died decades ago when other pirates attacked his ship and killed the crew. However, the Rebirth fruit took effect and, after some time, he came back to life as a skeleton.
+The pirates continued their journey and entered into the **Florian Triangle**, a cloudy dark misty sea full of storms. There, they found a ship and befriended its single crew member: a living skeleton called **Brook** (rebirth fruit). He was a pirate that died decades ago when other pirates attacked his ship and killed the crew. However, the Rebirth fruit took effect and, after some time, he came back to life as a skeleton.
 
 The SHPs and Brook were found by **Thriller Bark**, a ghost island that moves around the sea using huge sails. While exploring the island, they were attacked by zombies. Some of them were zombie generals, which were especially strong zombies.
 
-In the island was living the sichibukai **Gecko Moria** (shadow fruit). He has the power to take the shadow (related to the soul) of an individual, and introduce it into a dead body, reviving it as a zombie. Such zombies have the skills and personality of the original shadow's owner. **Dr. Hogback** helped Moria get dead bodies, and even create new types of zombies by combining human and animal bodies. Moria is always trying to capture pirates to increase his army of zombies.
+In the island was living the sichibukai **Gecko Moria** (shadow fruit). He has the power to take the shadow of an individual, and introduce it into a dead body, reviving it as a obedient zombie. Such zombies have the skills and personality of the original shadow's owner. Moria is always trying to capture pirates to increase his army of zombies, which in principle cannot be killed. Under Moria's commands were **Dr. Hogback**, **Absalom** (transparent fruit, the invisible man), **Perona** (empty fruit, the Ghost Princess) and an army of zombies. Hogback helped Moria get dead bodies, and even created new types of zombies by combining human and animal bodies.
 
-Sanji, Zoro, and Luffy were captured, and Moria used their shadows to revive three zombies that were used later to attack the pirates. Franky and Robin were attacked by a giant spider, but Brook easily killed it. Brook had been in the island more than 5 years ago, where he got his shadow stolen.
+People without shadow die in sunlight. If they die, their shadow also dies, and the zombies using their shadows become dead again. Thus, after stealing shadows from people, Moria returns them to their ships so the can leave the island alive.
+
+Sanji, Zoro, and Luffy were captured, and Moria used their shadows to revive three zombies that were used later to attack the pirates. Then, the three pirates were returned unconsciouss to the Thousand Sunny. Franky and Robin were attacked by a giant zombie spider (**Tararan**), but Brook, who is a skillful swordman, killed it easily using sea salt. Brook had been in the island more than 5 years ago, where he got his shadow stolen. He later returned to try to recover it, but failed, and escaped. He explained that zombies can be killed by introducing sea salt through their mouth, which makes their shadow leave their bodies and fly back to their original owners.
+
+Luffy's shadow was used to revive the strongest zombie: **Oars**, a giant that Hogback found in the **Land of Ice**. It lived 500 years ago and was the leader of a country of criminals. At first, Luffy's zombie when rogue and Absalom sent the zombie generals to stop him, but they were easily defeated. But, after a while, he became obedient to Moria, like all zombies do. Luffy, Zoro, and Sanji were returned unconciouss to the Sunny.
+
+Nami was captured by Absalom, who wanted to marry her. Usopp and Chopper were captured by zombies, but they were rescued by Franky and Robin. Meanwhile, Brook found the zombie with his shadow and they had a fight, but Brook was defeated.
+
+The pirates gathered at the Sunny, woke up the three unconciouss members, and decided to go back to the island to rescue Brook and Nami. They advanced through the island defeating zombies, but got separated in two groups after an encounter with Luffy's zombie. 
+
+Zoro, Franky, Ussop and Sanji found Perona. Usopp stayed to fight her while the others continued. Sanji went to look for Nami while Zoro and Franky went for Brook. Sanji found Absalon and fought him. Usopp defeated Perona. Zoro and Franky found Brook, Zoro fought and defeated Brook's zombie, and Brook recovered his shadow.
+
+Meanwhile, Luffy, Chopper and Robin continued advancing. Luffy went for Moria and fought him. Chopper and Robin found Hogback, but he was with Zoro's and Sanji's zombies, and **Cindry** (a zombie of an actress that Hogback admired). They defeated the zombies and captured Hogback, but then Oars arrived to hunt all the pirates, so they escaped. Brook and all the pirates gathered together, except Luffy (was fighting Moria) and Nami (captured by Absalom), to fight Oars. Meanwhile, Nami escaped from Absalom. 
+
+The sichibukai **Bartholomew Kuma** (claw fruit) arrived to the island to warn Moria about the Straw Hat pirates, and to inform him that Blackbeard had been appointed sichibukai as replacement for Crocodile. He also made Perona disappear, who was trying to escape from the island on the Sunny.
+
+Luffy, who was tricked by Moria, ended up lost in a forest. Meanwhile, Moria joined Oars, and both fought the pirates. Nami joined the pirates. Luffy met the Rolling pirates, who had been living hidden in the forest since their shadows were stolen 3 years ago. They had captured 100 shadows from zombies. They wanted Luffy to defeat Moria, so they introduced all shadows into him to make him stronger. However, shadows introduced into a body with an existing soul only last 10 minutes before flying away from the body.
+
+Luffy joined the fight and the SHPs defeated Oars. Then Moria absorbed all the shadows in the island (1000), but Luffy hit him so hard that all of them escaped from his body and returned to their owners, and Moria was defeated. Hogback and Absalom survived.
+
+Luffy ended the battle unconciouss. Immediately after Moria's defeat, the government ordered Kuma to eliminate everybody in the island in order to leave no witnesses. Kuma revealed he was a cyborg of the government created by Dr. Vegapunk. Kuma asked for Luffy's head in exchange for everyone else's lives, but the SHPs showed unbreakable loyalty to his captain. Kuma decided to leave the island out of respect for the SHPs. Brook joined the SHPs. The SHPs got the treasure of Thriller Bark (about 200 mill.).
+
+Brook's story: He was a swordman and musician, and member of the Rumbar pirates. While sailing towards the Grand Line, they met a little whale that they called Laboon. He became a close companion of the pirates and followed them to the Grand Line. To protect Laboon from the dangers of the Grand Line, they decided to leave him behind. The pirates promised they would come back someday. However, they all died in the Grand Line, from illness or from a pirate attack. Brook died, but came back to life years later as a skeleton thanks to the Rebirth fruit. At some point, he fell into Thriller Bark, where his shadow was stolen. He returned to recover it, but failed. Then he met the SHPs and fell into Thriller Bark with them, but this time he recovered his shadow. Then, he joined the SHPs. His dream is to see Laboon again.
+
+New sichibukai: Blackbeard
+
+| Character | Skills              | Weakness         | Dream            |
+|:---------:|:--------------- ---:|:----------------:|:----------------:|
+| Brook     | Swordman. Musician. | Making bad jokes | See Laboon again |
+
+## Sabaody archipelago
+
+(chapters 382-404)
+
+After leaving the Florian Triangle, the SHPs relaxed for a while in the **Spa island**, a resort platform in the sea. The SHPs befriended two little sisters (**Lina** and **Sayo**) that were trying to complete their father's research for creating jewels. However, the owner of the island (**Doran**) and the Foxy pirates allied with each other to capture the girls in order to get their invention, but the pirates completely destroyed the platform and rescued the girls. Finally, they completed their research and developed a way to create jewels.
+
+The pirates continued their journey until they finally reached the Red Line, which looks like a giant cliff. The log pose pointed downwards, but they couldn't find anything underwater. Then, they met a mermaid (**Camie**) and his friend, a talking starfish (**Pappaku**), after Luffy saved them from be eaten by a sea king. A friend of Camie, **Hatchan** (an old acquaintance of the SHPs, a fishman and ex-officer of Arlong, now a Takoyaki chef), was captured by the **Macro** pirates (leaded by Macro) and taken to the base of the **Flying Fish Riders** (a band of kidnappers leaded by **Duval**), a small settlement built on the sea. They planned to capture Camie because mermaids are very valuable slaves (slavery and human trafficking is widespread in this region). The SHPs went to the Riders' base to rescue Hatchan. There, they were attacked by the Riders, who were riding flying fishes, but the SHPs defeated them. Duval hated Sanji because, since he had a face similar to him, he is wanted by the marines. Sanji changed Duval's face with a bunch of kicks, making him attractive, for which he was grateful. Hatchan was finally rescued and the SHP were invited to eat his takoyakis.
+
+Camie and Pappaku explained that there're 2 ways of crossing the Red Line:
+
+- Safe way: Climb the cliff, cross the **Sacred Land of Mary Geoise** (homeland of the World Government and the Marine), and buy a ship on the other side.
+- Dangerous way: Go with the ship through a submarine hole (-10.000 m), under Mary Geoise, to the other side. There're sea monsters. Most people trying this way don't survive.
+
+Since the World Government wants to capture the SHPs, they chose the dangerous way, which requires coating the ship with a particular tree resin. To coat the ship, Camie took them to the **Sabaody archipelago**, which is made entirely of huge mangrove trees (79 in total), and is the last land before the Red Line. Each tree is like an island, and people live on the roots. The trees are connected with bridges. Marines, pirates, and kidnappers have a big presence in Sabaody, and slavery is common. The SHPs were attacked by bounty hunters, but they defeated them.
+
+They also saw **World Nobles** (or Celestial Dragons), which are descendants of the founders of the World Government (founded 800 years ago by 20 kings). They make use of slaves (like former pirates). They are highly feared since attacking one of them makes an Admiral and a fleet go after the attacker.
+
+The SHPs also learned about other strong pirates that had arrived to Sabaody planning to cross the Red Line:
+
+- **Urouge** (108 mill.)
+- **Capone "Gang Bege"** (138 mill.)
+- **Jewelry Bonney** (140 mill.)
+- **Killer** (162 mill.)
+- **Scratchmen Apoo** (198 mill.)
+- **Trafalgar Law** (200 mill.)
+- **X-Drake** (historic shadow fruit) (222 mill.)
+- **Basil Hawkins** (249 mill.)
+- **Eustass "Captain Kid"** (315 mill.)
+
+When Camie was alone, somebody kidnapped her to be sold as slave. With the help of the Flying Fish Riders, they discovered that she was prisioner in an auction house. Slaves are fitted with an iron collar that explode if they try to get rid of it, and Camie was put in one of them. The SHPs tried to win the auction for Camie using their Thriller Bark treasure (200 mill.), but a noble bought her for 500 mill. berries. Luffy tried to save her by force, and the rest of the SHPs joined him. During the action, three nobles and armored guards were attacked. In the auction house were present some pirates (Kid, Law, and Killer) and **Silvers Rayleigh**, the boat coater that the SHPs were looking for (he was there to steal money). Rayleight joined the fight, defeated many guards, and removed Camie's collar. Many other slaves, including one giant, were liberated. Many marines surrounded the auction house, but Luffy, Kid, Law, Killer, and their pirates easily defeated them.
+
+Rayleigh revealed interesting information:
+
+- He was the first officer of Gold D. Roger.
+- Hatchan saved Rayleigh from an octopus 20 years ago, and they became friends.
+- Roger contracted an incurable illness. He visited **Crocus**, doctor and lightkeeper at Twin Capes, and he joined his crew. Crocus wanted to look for the Rumbar pirates, who Laboon was waiting for. For 3 years Crocus kept him alive until he conquered the Grand Line. After this, people called him the King of Pirates.
+- Eventually, knowing that he was going to die from his illnes, he disbanded his pirates and, one year later, he turned himself in to the Marine (but Marine wants people to believe that they captured him). 
+- Shanks and Buggy (the Clown) were apprentices at Roger's ship. Rayleigh found Shanks 10 years ago at Sabaody (without his arm and straw hat). After Roger's death, both crewmates got separated.
+
+Rayleigh started coating the Sunny, which would take 3 days to complete. Admiral **Kizaru** (Glint fruit), leading many marines, and Captain **Sentomaru**, leading a group of **Pacifistas** (cyborg weapons similar to Kuma) arrived to Sabaody
+
+- One Pacifista attacked Kid, Law, and Killer. They defeated him, but then another one came.
+- Kizaru and one Pacifista attacked Urouge, Drake, Hawkins, and Apoo. The pirates were defeated.
+- One Pacifista attacked the SHPs, but they defeated him. Then, Kizaru, Sentomaru, a Pacifista and Kuma arrived. Rayleigh joined the fight and engaged Kizaru. However, Kuma defeated all the SHPs by making them disappear one by one.
+
+## Amazon Lily
+
+(chapters 407-421)
+
+Kuma threw all the SHPs far away. They flew for 3 days.
+
+- Luffy fell into the **Amazon Lily** island, in the Calm Belt, inhabited by the tribe of **Kuja**, consisting entirely of warrior women (amazonas).
+- Nami fell into **Weatheria**, an island in the sky, where people study weather phenomena.
+- Franky fell into the **Mecha island**.
+- Chopper fell into **Torino Kingdom**, an island with a massive tree, giant birds, and some wild people.
+- Sanji fell into **Momoiro island** inhabited by cross-dressing men.
+- Robin fell into **Tequila Wolf**, a massive stone bridge. There was a forced-labor camp where slaves and criminals were forced by the World Government to work on the construction of the bridge. The bridge has been under construction for 700 years, and it's expected to connect different islands. Robin was rescued by a worker girl and hidden, but the guards discovered her and forced her to work.
+- Usopp fell into **Greenstone**, a forest with many carnivorous plants on the **Boin Archipelago**.
+- Zoro fell into the dark and foggy **Kuraigana island**, like Perona. She wanted him to be her servant.
+- Brook fell into **Harahettania** (Land of Poverty), in **Namakura island**, where its inhabitants mistook him for a demon.
+
+In Amazon Lily, men have been forbidden for centuries. From time to time, some women leave the island and then come back and misteriously give birth only to girls. The hichibukai **Boa Hancock** (Love fruit) is the empress of Amazon Lily, and captain of the **Kuja pirates**, who sail in a ship carried by two big poisonous marine snakes. She has 2 sisters: **Marigold** (Snake King Cobra fruit) and **Sandersonia** (Snake Anaconda fruit). Hancock has an agreement with the World Government under which the government doesnt't get closer than 3 kms from Amazon Lily.
+
+The Kuja captured Luffy and tried to kill him, but he escaped. Later, he was captured again and forced to fight Marigold and Sandersonia, but he defeated them. They realized he was a good man after he tried to save three Kaju girls from Hancock's punishment (one of them saved Luffy from drowning). He also discovered that the three sisters had a secret mark in their backs. Hancock revealed him that those are marks of slaves of World Nobles. They were captured when they were young. One day, **Fisher Tiger**, a fishman, infiltrated Mary Geoise and liberated all the fishmen and slaves. This way, the sisters escaped. The fishmen, who also carried marks, joined Tiger and his pirated. When he died, his crew got separated into different factions.
+
+From a newspaper, Luffy learned that Ace, who was captured by Blackbeard, was in Impel Down, and was going to be executed in 6 days in **Marineford**, the Marine's headquarters. Expecting Whitebeard to come to his rescue, the government planned to gather there the admirals and the hichibukai.
+
+The government had asked Hancock to join the hichibukais at Marineford. After Luffy asked her for help, she decided to join them in order to infiltrate Luffy into the Marine's ship (led by viceadmiral **Momonga**) carrying her to Marineford. She asked to make a stop at Impel Down to see Ace, though it was really to allow Luffy to infiltrate and rescue Ace.
+
+## Impel Down
+
+Impel Down, Marineford, and Enies Lobby are the vertices of a triangle that contains currents that connect these locations and allow for rapid travel between them. Each location has a huge door (Gates of Justice) that controls the access to these currents and are the only safe entry and exit points to the current.
+
+Impel Down is a submarine prison where only the top of the facilities is above sea level. It was surrounded by many warships expecting Whitebeard's attack. Hancock arrived with Luffy hidden in her clothes. Then, Luffy infiltrated the prison to rescue Ace, who was in a deep level. Hancock was put seastone handcuffs to neutralize her powers and registered before going to visit Ace scorted by Momonga, **Hannyabal** (vice-alcaide) and a guard. They went to level 4 to visit Alcaide **Magellan** (Poison fruit), and then visited Ace. She revealed him that Luffy had infiltrated Impel Down. Then she left Impel Down with Momonga towards Marineford.
+
+Impel Down was mostly guarded by normal guards, **Blugoris** (Blue Gorillas, elite guards leaded by commander **Saldeath**), and the 5 Jailer Beasts (leaded by chief guard **Sadi**).
+
+- Level 1 (Crimson Hell): Luffy found many spiked traps, and found **Buggy** the Clown, who was trying to escape. Many Blugoris were running after him, but Luffy defeated them. Buggy agreed to help him get to level 4 in exchange for a bracelet of Luffy. They reached a forest where branches and grass were blades, and prisioners stay there persecuted by poisonous spiders and guards. They jumped into a hole that gets to level 2.
+
+- Level 2 (Wild Beast Hell): They faced different big beasts (hippopotamus, mantis, basilisk) that Luffy defeated. Luffy was identified by the guard. Luffy liberated many prisoners. One of them was **Mr. 3**, who joined Luffy and Buggy. While escaping from a group of manticoras and scorpions, they met a sphinx. While trying to scape the sphinx, it destroyed the floor and they fell into level 3. Meanwhile, a riot broke out, and many blugoris were sent to quell it.
+
+- Level 3 (Starvation Hell): This place was hot and dry. They were attacked by Saldeath, blugoris, guards, and the sphinx. Mr. 3 and Buggy liberated **Bon Clay** (Mr. 2), who joined the group. Clay guided Luffy to level 4.
+
+- Level 4 (Blazing Hell): This is above a pit of boiling blood. Sadi sent one of her beasts: a minotaur Jailer Beast. However, it was defeated by Luffy's group, who then defeated many guard. Then Magellan attacked and Luffy fought him, but was defeated, severely poisoned, and carried to level 5. The others tried to escaped to level 3, but Hannyabal was guarding the gates with many guards. Bon defeated them, disguised himself as Hannyabal, and escaped with Buggy and Mr. 3, who posed as prisioners. However, then Bon decided to go to level 5 to save Luffy.
+
+- Level 5 (Freezing Hell): This level is very cold and patrolled by **Army Wolves**. Bon, Buggy, and Mr. 3 were attacked by wolves, but they escaped. Bon got to Luffy's cell and freed him; but Luffy was very weak. Bon tried to look for prisoner **Emporio Ivankov** (Hormone fruit), the queen of the cross-dressing men, who had the power to heal Luffy. However, during an attack of wolves, Luffy launched a misterious attack that knocked the wolves and Bon unconsciouss. Meanwhile, Buggy and Mr. 3 escaped to level 4.
+
+- Level 5.5 (Newkama Land): Luffy and Bon were rescued and taken to a hidden underground hideout between level 5 and 6, where various prisoners lived in hidding. Ivankov, who was living there, treated Luffy and he was healed. Ivankov revealed that he was a revolutionary follower of Dragon (Luffy's father). Ivankov and **Inazuma** (Cut fruit) (another revolutionary) joined Luffy and the three run to level 6 to rescue Ace. Meanwhile, Buggy and Mr. 3 reached level 3, but they had to escape from the sphinx.
+
+- Level 6 (Eternal Hell): They reached Ace's jail, but he was not there. Shortly before, Ace was taken to the surface to be sent by the marine to Marineford for his execution. The exits of level 6 were blocked, and the three got trapped inside. They liberated the ichibukais **Jimbei** (250 mill.) (he opossed capturing Ace) and **Crocodile**. Crocodile made a hole in the ceiling and they escaped to level 5. Crocodile liberated **Mr. 1**.
+
+Ivankov gathered everybody from Newkama Land and they joined Luffy to escape Impel Down. Along the way, they liberated many prisoners to cause problems to the guards. Soon, they reached level 4, where they defeated many guards and blugoris, and 3 jailer beasts (koala, rhinoceros, zebra).
+
+Meanwhile, Buggy and Mr. 3 reached level 2 and, after hidding from manticoras, they liberated many prisoners and a riot started, but Magellan soon put down that rebellion and block the exits.
+
+Meanwhile, Blackbeard and his crew (4 members) arrived at Impel Down after stealing a ship from Marineford. To stop them, Magellan liberated **Shiryu**, ex-chief guard imprisoned for his cruelty. While Shiryo faced them at level 1, Magellan descended to level 4. 
+
+At level 4, Ivankov defeated Sadi. Hannyabal with 100 guards defended the gates to level 3. However, Blackbeard arrived to level 4 and defeated Hannyabal and his men. 
 
 
 
 
+Mr. 1 (Daz Bonez)
 
+Nobody had escaped Impel Down, except the **Golden Lion**, 20 years ago.
 
-invisible man
-ghosts
-Perona
+Alvida
 
+Siriu de la lluvia, jailer's chief
+Jimbei (250 mill.) and Crocodile were prisioners there. 
+**Sadi**, jailers' chief
+beasts: minokoala, minorhinoceros, minozebra
 
-Shanks Whitebeard
+Vivre card (or Life paper)
 
-Kaza-Guruma
+**Haki**
+
+Kuina (Zoro's rival)
+
+Shanks, Whitebeard
 
 Gorousei
 
@@ -355,32 +520,30 @@ Gorousei
 
 fruit type: paramecia (), logia (), zoan (physical strength)
 
-Alvida
-Buggy the Clown
-
-Blackbeard (Marshall D. Teach)
 
 
 
 
-## Alternative sagas
 
-There're a number of alternative stories inserted here and there in the main anime series:
+## Filler arcs
 
-- **Grand Jipangu**: Story set in a feudal japan-inspired country.
-- **Chopper man**: Story about the antagonism between a hero (Chopper man) and a villain (Dr. Usodabada).
+There're a number of additional stories inserted here and there in the main anime series:
+
+- **Grand Jipangu**: Alternative story set in a feudal japan-inspired country.
+- **Chopper man**: Alternative story about the antagonism between a hero (Chopper man) and a villain (Dr. Usodabada).
+- **Amigo pirates**: Prelude to "One Piece film: Strong World".
 
 ## Grand Jipangu
 
-Story set in an alternate reality, in a feudal japan-inspired country called **Grand Jipangu**. Main characters:
+Story set in an alternate reality, in a feudal japan-inspired town called **Grand Jipangu**. Main characters:
 
-- **Luffy** (also, **Straw Hat**): Okkapiki (secret police from Edo period, detective) in the town of Kazaguruma.
-- **Sanji** and **Onami** (Nami) run a restaurant
+- **Luffy** (also, **Straw Hat**): Okkapiki (secret police from Edo period, detective) in the town. People often call him Oyabun (chief).
+- **Sanji** and **Onami** (Nami) run the restaurant **Kazaguruma**.
 - **Usopp**: Subordinate of Luffy
 - Sensei (doctor) **Blue Nose** (Chopper)
-- **Bou** (priest) (Zoro)
-- **Princess** (Vivi): Shogun's daughter.
-- **Tono** (lord) (Nefertari Cobra): Shogun.
+- **Bou** (wandering monk, priest) (Zoro)
+- **Princess** (Vivi): Shogun's daughter
+- **Tono** (lord) (Nefertari Cobra): Shogun
 
 (chapter 291)
 
@@ -396,6 +559,16 @@ Onami, Sanji, and Sensei Blue Nose (Doctor Chopper) were carrying the mochis to 
 
 Once a year, in Spring, takes place the Hana-Mi festival (picnic under the cherry trees), where people of the town gather under a thousand-year-old cherry tree (the Sennen-Zakura). Nami's and Sanji's restaurant sold many bentou (food in a box). However, the Zakura disappeared misterously during the night. Robin discovered that the tree was stolen by pirates and hidden on a ship behind an island. The Clown family had stolen the tree for **Silver Fox** (Foxy), who wanted to sell it elsewhere. Luffy, Sanji, and Usopp attacked the pirates to recover the tree. Zoro, who was sleeping on the tree, joined the fight. The thieves were defeated, and Luffy expelled Foxy and Buggy.
 
+(chapter 406-407)
+
+Once a century, the race of mikoshis (portable Shinto shrines) is celebrated. The reward is one million ryou berries and the right to ask for one wish to the sacred treasure of the Great Temple. Luffy and his friends (Onami, Usopp, Chopper) wanted to participate, so they asked a carpenter (**Franky**) to build their shrine. Different companies joined the race, such as Kazaguruma (Luffy and his friends), Flying Riders, Rolling Express, and Thriller. However, Thriller company (Hogback, Absalom, Perona, Tararan, and zombies) destroyed the shrines of each participating company one by one, leaving Thriller as the only participant.
+
+A new waitress was hired at Kazaguruma restaurant: **Omoi**.
+
+While fishing in the river, Usopp caught a living eskeleton (**Brook**). He was a member of Thriller company that decided to leave the company after witnessing its dirty plays. However, he was sent to the bottom of the river for his betrayal. He became friend of Luffy and his friends. He was later captured by Thriller, but Luffy saved him with the help of Zoro and Robin (a girl that walks around).
+
+That night, Luffy and his friends, with some help from the Flying Riders and the Rolling Express, rebuilt their shrine. The next day, the race took place with only 2 participants: Thriller and Kazaguruma. During the race, Thriller tried to eliminate Kazaguruma playing dirty, but they avoided their traps, and Luffy threw them far away from the town. Kazaguruma won the race.
+
 ## Chopper Man
 
 Story set in an alternate and more animated reality. Main characters:
@@ -408,9 +581,20 @@ Story set in an alternate and more animated reality. Main characters:
 - **Giant Luffy Bomber** (Luffy): Giant robot of Chopper.
 - **Frandasher** (Franky): Giant robot of Usodabada.
 
-(chapters 336)
+(chapter 336)
 
 Trying to increase the size of his organization, Usodabada occupied the television station to announce that he was hiring new personnel. To attract more attention, he organized a fight between him and Chopper. He made some tricks to win, but he was finally defeated. Usodabada called Frankdasher, his giant robot, to avenge him, but he was defeated by Chopper's giant robot, the Giant Luffy Bomber.
+
+## Amigo pirates
+
+(chapters 426-429)
+
+The SHPs arrived to the **Kansorn** island (or Little East Blue), inhabited by people from the East Blue. There was a giant beetle (**Boss**), friend of the inhabitants, especially **Yoko**, a little girl.
+
+**Shiki** leads a group of 14 pirates. The **Amigo pirates**, leaded by captain Aniki (**Largo**) (Net fruit), and vice-captain Colt (**Corto**) want to join Shiki. They are allowed to join on the condition that they capture a giant beetle at Kansorn island that belonged to Shiki. They attacked the island and the town, and asked the people to hand over the beetle. The SHPs fought them, but they were defeated and captured. However, the beetle, who was hidden in the forest, liberated them. The SHPs attacked again, this time helped by the people and the beetle, and defeated the pirates.
+
+
+
 
 
 
