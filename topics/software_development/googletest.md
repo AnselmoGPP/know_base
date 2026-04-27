@@ -4,7 +4,8 @@
 ## Table of Contents
 
 + [References](#references)
-+ [Introduction](#introduction)
++ [Test automation techniques](#test-automation-techniques)
++ [Introduction to GoogleTest](#introduction)
 + [Assertions](#assertions)
 + [Simple tests](#simple-tests)
 + [Test fixtures](#test-fixtures)
@@ -21,7 +22,34 @@
 - [Generic build instructions](https://github.com/google/googletest/blob/main/googletest/README.md)
 
 
-## Introduction
+## Test automation techniques
+
+Rather thatn just writing code to test code, these techniques focus on making those tests **maintainable**, **scalable**, and **reliable**.
+
+- **Scripting techniques**: These define **how** the actual test logic is structured.
+
+  - **Linear scripting (Record & Playback)**: Simplest form. Record user's actions and play them back. Fast to set, but brittle (if one button moves, the whole script breaks).
+  - **Data-Driven Testing (DDT)**: Separates the test logic from the test data. Write a script and feed it a table containing a large amount of input data.
+  - **Keyword-Driven Testing (KDT)**: Uses action words (`Click`, `Type`, `Verify`…) in a spreadsheet. This allows non-programmers to write automated tests by simply assembling keywords.
+
+- **Architectural techniques**: These focus on **how** the code interacts with the application.
+
+  - **Page Object Model (POM)**: Standard for web automation. You create a class for every page in your app (like `LoginPage`). If the `Login` button changes its ID, you only have to fix it in one place (the Page Object) rather than in 50 different tests.
+  - **Mocking and Stubbing**: Replacing complex dependencies (like a real DB or a 3rd party Payment API) with fake versions. This ensures tests are fast and don't fail because the internet went down.
+
+- **Methodology techniques**: These define **when** you write your tests. 
+
+  - **TDD (Test-Driven Development)**: Write test before writing the actual code. The goal is to make the test fail, then write just enough code to make it pass.
+  - **BDD (Behavior-Driven Development)**: Uses natural language (given, when, then…) to describe how a feature should behave. It bridges the gap between developers, testers, and business owners.
+
+- **Advanced techniques**:
+
+  - **Continuous testing**: Integrating tests into your CI/CD pipeline (like GitHub Actions or Jenkins) so that every single time a developer saves code, the tests run automatically.
+  - **Visual Regression Testing**: Using AI or pixel-comparison to check if the UI looks correct.
+  - **Self-Healing Tests**: Modern AI-based tools that can detect if a button's ID changed and automatically update the test script to find the new one.
+
+
+## Introduction to GoogleTest
 
 **GoogleTest**: Testing framework for C++ that supports any kind of tests (not just unit tests) and many platforms (Linux, Windows, Mac). Developed by Google. Based on the xUnit architecture. Some properties of its tests are:
 

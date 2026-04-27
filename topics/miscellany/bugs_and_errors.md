@@ -3,12 +3,15 @@
 
 ## Table of Contents
 
++ [References](#references)
 + [Introduction](#introduction)
 + [Prevention](#prevention)
 + [Debugging](#debugging)
 + [Examples](#examples)
-+ [References](#references)
 
+## References
+
+- IEEE Computer Society (2025) _**Guide to the software engineering body of knowledge (SWEBOK) v4.0a**_. IEEE. Retrieved from [here](https://www.computer.org/education/bodies-of-knowledge#swebok).
 
 ## Introduction
 
@@ -79,9 +82,9 @@ It’s good practice to correct errors in the sequence they are reported. If not
 - **Look for location**: Use prints/breakpoints to find where the program stops working.
 - **Look by omission**: Don’t execute parts of your program until the bug happens. This will show which part of the program causes the bug.
 - **Check new additions**: Before implementing X, there were no problems. After X, there are problems. Thus, analyze X.
-- While testing for finding a bug origin, a certain `if(condition)` crashed the application when it had some content in his body, but didn’t when it hadn’t. Reason? Compiler optimized code by deleting empty conditional blocks that will never execute.
-- Some bugs make no sense (they happen at random points in execution with an unpredictable behavior, with no clear patterns). Probably, you overwrote some part of memory belonging to other variables, which may have consequences at some point. Look out for dynamic memory allocations and de-allocations. Example cases: Using garbage memory as if there was an allocated object, or using memory belonging to an existing object as if it belonged to another
-- Use macros to activate/deactivate debugging messages in certain parts or topics. Alternatively, use logs.
+- **Compiler optimizations**: While testing for finding a bug origin, a certain `if(condition)` crashed the application when it had some content in his body, but didn’t when it hadn’t. Reason? Compiler optimized code by deleting empty conditional blocks that will never execute.
+- **Non-sensical bugs**: Some bugs make no sense (they happen at random points in execution with an unpredictable behavior, with no clear patterns). Probably, you overwrote some part of memory belonging to other variables, which may have consequences at some point. Look out for dynamic memory allocations and de-allocations. Example cases: Using garbage memory as if there was an allocated object, or using memory belonging to an existing object as if it belonged to another
+- **Macros**: Use macros to activate/deactivate debugging messages in certain parts or topics. Alternatively, use logs.
 
 Absurd error messages could be solved by removing new code recently added until things work properly.
 
@@ -122,9 +125,10 @@ When rendering, sometimes what I want to render doesn’t appear on screen, and 
 
 I was using Vulkan for rendering some objects. At some point, I wanted object A to disappear and be replaced with object B. However, what actually happened was that, after object A disappeared, object B was not rendered in his place, but it was in the next frame (i.e., object B was missing during one frame). I elaborated a few theories about why this could be happening:
 
-Object B construction was wrong: After some checks, the construction was ok and it made no sense that the bug were originated here. It was correctly loaded into GPU. The command buffer was update properly. The UBOs were updated.
-Some Vulkan synchronization issue: Maybe, while creating object B, there was some operation that happenned asynchronously and it was not ready yet when I tried to render B. I studied Vulkan synchronization in order to find the problem, but I found no problem.
-Some problem with UBOs update: The fact that the object was missing makes think that it was using garbage values for the UBO. However, correct values were stored in the UBO.
+- Object B construction was wrong: After some checks, the construction was ok and it made no sense that the bug were originated here. It was correctly loaded into GPU. The command buffer was update properly. The UBOs were updated.
+- Some Vulkan synchronization issue: Maybe, while creating object B, there was some operation that happenned asynchronously and it was not ready yet when I tried to render B. I studied Vulkan synchronization in order to find the problem, but I found no problem.
+- Some problem with UBOs update: The fact that the object was missing makes think that it was using garbage values for the UBO. However, correct values were stored in the UBO.
+
 All of these possible bug sources were checked and no problem was found. However, I strongly felt that the source was most likely caused somehow by an UBO update issue (it had happened before and was an easy source of problems).
 
 I made a couple of simplified functions that tried to replicate the bug. One of them didn’t replicate the bug. Interestingly, such function was the only one rendering an object that didn’t required UBOs (no transformation matrices were required because it was being rendered directly in Normalized Device Coordinates).
@@ -137,7 +141,7 @@ Originally, I followed these steps each frame: construct object and update UBO (
 
 - **Parallel simple task**
 
-One thread got stuck while the other was running. The running thread contained a loop with a simple task (example: a loop that did a very simple and fast task), so it looked like no time for rest was given to that thread. This meant that there was no opportunity for the OS to change execution from this thread to the other, so execution remained in one thread.
+One thread got stuck while the other was running. The running thread contained a tight loop with a simple task (example: a loop that did a very simple and fast task), so it looked like no time for rest was given to that thread (**Thread starvation**, or **CPU hogging**). This meant that there was no opportunity for the OS to change execution from this thread to the other, so execution remained in one thread.
 
 - **Non-destructible object**
 
@@ -196,8 +200,3 @@ This might be the result of another syntax error that is not detected by the IDE
 
 - In a constructor method, an argument is assigned to a member variable but they have different type.
 - Missing includes and/or forward declarations.
-
-
-## References
-
-- IEEE Computer Society (2025) _**Guide to the software engineering body of knowledge (SWEBOK) v4.0a**_. IEEE. Retrieved from [here](https://www.computer.org/education/bodies-of-knowledge#swebok).

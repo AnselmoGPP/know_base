@@ -47,18 +47,18 @@ Algorithm and coding problems are problem-solving questions used for evaluating 
 
 The interviewer **assess your performance** usually based on:
 
-* Analytical skills
-* Coding skills
-* Technical knowledge / Computer Science fundamentals
-* Experience
-* Culture fit / Communication skills
+- Analytical skills
+- Coding skills
+- Technical knowledge / Computer Science fundamentals
+- Experience
+- Culture fit / Communication skills
 
 **Reasons** for this process:
 
-* False negatives are acceptable: Some good candidates may be rejected. Companies are more concerned on avoiding false positives.
-* Problem-solving skills are valuable: They look for smart people.
-* Basic data structure and algorithm knowledge is useful: Computer science knowledge might be useful, or at least it's a good "proxy". Also, it's hard to ask problem-solving questions that don't involve data structures and algorithms.
-* Whiteboards let you focus on what matters: It allows you to focus on the big picture, and candidates  tend to speak more and explain their thought process.
+- False negatives are acceptable: Some good candidates may be rejected. Companies are more concerned on avoiding false positives.
+- Problem-solving skills are valuable: They look for smart people.
+- Basic data structure and algorithm knowledge is useful: Computer science knowledge might be useful, or at least it's a good "proxy". Also, it's hard to ask problem-solving questions that don't involve data structures and algorithms.
+- Whiteboards let you focus on what matters: It allows you to focus on the big picture, and candidates  tend to speak more and explain their thought process.
 
 **Selection of questions:** There are no lists of questions to ask. Each interviewer select its own questions. However, similar companies ask similar questions.
 
@@ -66,8 +66,8 @@ The interviewer **assess your performance** usually based on:
 
 **Candidate questions:**
 
-* "I didn't hear back immediately after my interview. Am I rejected?": No. The company's decision might be delayed for different reasons (like one interviewer hasn't provided feedback yet). Very few companies don't respond to candidates they reject. If you haven't heard back from a company within 3-5 business days after the interview, check-in with your recruiter.
-* "Can I re-apply to a company after getting rejected?": Almost always, after waiting a bit (6 months to 1 year). The first bad interview usually won't affect you too much when re-interviewed.
+- "I didn't hear back immediately after my interview. Am I rejected?": No. The company's decision might be delayed for different reasons (like one interviewer hasn't provided feedback yet). Very few companies don't respond to candidates they reject. If you haven't heard back from a company within 3-5 business days after the interview, check-in with your recruiter.
+- "Can I re-apply to a company after getting rejected?": Almost always, after waiting a bit (6 months to 1 year). The first bad interview usually won't affect you too much when re-interviewed.
 
 
 ## Behind the scenes
@@ -95,26 +95,26 @@ Once you are **selected** for an interview, you usually go through a **screening
 
 **Product (and program) management** (PM) roles vary wildly. Some have customer-facing roles (bordering marketing) while others spend much of their day coding. Interviewers look for PMs with skills in:
 
-* Handling ambiguity: Don't get overwhelmed or stall. Tackle the problem head on (seek for information, prioritize important parts, and solve problems in a structured way).
-* Customer focus (attitude): Customer-focused attitude. Try to understand how customers want to use the product. Ask who the customer is and how they use the product.
-* Customer focus (technical skills): Strong understanding of the product.
-* Multi-level communication: Ability to communicate with people at all levels in the company.
-* Passion for technology: Happy employees are productive employees. Companies wants you to enjoy the job and be excited about your work.
-* Teamwork / Leadership: Ability to work well with other people. Companies want you to handle conflicts well, take initiative, understand people, and that people like working with you.
+- Handling ambiguity: Don't get overwhelmed or stall. Tackle the problem head on (seek for information, prioritize important parts, and solve problems in a structured way).
+- Customer focus (attitude): Customer-focused attitude. Try to understand how customers want to use the product. Ask who the customer is and how they use the product.
+- Customer focus (technical skills): Strong understanding of the product.
+- Multi-level communication: Ability to communicate with people at all levels in the company.
+- Passion for technology: Happy employees are productive employees. Companies wants you to enjoy the job and be excited about your work.
+- Teamwork / Leadership: Ability to work well with other people. Companies want you to handle conflicts well, take initiative, understand people, and that people like working with you.
 
 **Dev lead and Managers** require strong coding skills. Additionally, get prepared in:
 
-* Teamwork / Leadership: Ability to both lead and work with people.
-* Prioritization: Ability to prioritize a project appropriately, cutting the less important aspects. This requires asking the right questions to understand what is critical and what can reasonably expected to be accomplished.
-* Communication: Ability to communicate at many levels, with people above and below you, and potentially with customers and other much less technical people.
-* Getting things done: Striking the right balance between preparing for a project and actually implementing it. Understand how to structure a project and motivate people to accomplish the team's goals.
+- Teamwork / Leadership: Ability to both lead and work with people.
+- Prioritization: Ability to prioritize a project appropriately, cutting the less important aspects. This requires asking the right questions to understand what is critical and what can reasonably expected to be accomplished.
+- Communication: Ability to communicate at many levels, with people above and below you, and potentially with customers and other much less technical people.
+- Getting things done: Striking the right balance between preparing for a project and actually implementing it. Understand how to structure a project and motivate people to accomplish the team's goals.
 
 **Startups:** Their application and interview processes is highly variable. General points are:
 
-* Application process: Many post job listings, but personal referral is preferred for the hottest startups. Often by reaching out and expressing interest, someone can pick up your resume.
-* Visas and Work authorization: Many smaller startups in U.S. cannot sponsor work visas. You can focus on bigger startups or reach a professional recruiter who knows startups that work with visa issues.
-* Resume selection factors: They smart engineers who can code, that have initiative (good for working in an entrepreneurial environment), and that already know the language of the company.
-* Interview process: They often look closely at your personality fit, skill set, and prior experience. Coding and algorithms is also common.
+- Application process: Many post job listings, but personal referral is preferred for the hottest startups. Often by reaching out and expressing interest, someone can pick up your resume.
+- Visas and Work authorization: Many smaller startups in U.S. cannot sponsor work visas. You can focus on bigger startups or reach a professional recruiter who knows startups that work with visa issues.
+- Resume selection factors: They smart engineers who can code, that have initiative (good for working in an entrepreneurial environment), and that already know the language of the company.
+- Interview process: They often look closely at your personality fit, skill set, and prior experience. Coding and algorithms is also common.
 
 **Acquisitions and Acquihires:** Before a company acquires a startup, the acquirer often interviews most or all of the startup's employees. Their employees have to go through this process to get hired. They held to the same standards as typical candidates, although there's a bit more leeway.
 
@@ -3000,7 +3000,7 @@ The following topics are rarely asked. Asking them tests knowledge of algorithms
 
 
 
-Symbols: ≤, ≥, ≠, ≈, √, ∑, →, ↔, ∨, ∧, ~, ¬, ∀, ∃, ⌊⌋, ⌈⌉, <sub>i</sub>, <sup>i</sup>, α, β, ∞, Ω, Θ, θ, ϕ, γ, ├─, │, └─, …
+Symbols: ≤, ≥, ≠, ≈, √, ∑, →, ↔, ∨, ∧, ~, ¬, ∀, ∃, ⌊⌋, ⌈⌉, <sub>i</sub>, <sup>i</sup>, α, β, µ, ∞, Ω, Θ, θ, ϕ, γ, ├─, │, └─, …
 
 ### Topological sort
 

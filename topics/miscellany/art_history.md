@@ -55,7 +55,7 @@ Glass, R. (n.d.). [Introduction to art historical analysis](https://www.khanacad
 
 **Introduction**
 
-- Ancient Greek and Roman art [Video]. (n.d.). Khan Academy. https://www.khanacademy.org/humanities/approaches-to-art-history/very-beginner/ancient-medieval-art/v/greek-and-roman-art
+- [Ancient Greek and Roman art](https://www.khanacademy.org/humanities/approaches-to-art-history/very-beginner/ancient-medieval-art/v/greek-and-roman-art) [Video]. (n.d.). Khan Academy.
 
 **Greek Art and Architecture**
 

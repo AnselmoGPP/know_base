@@ -4,7 +4,8 @@
 ## Table of Contents
 
 * [References](#references)
-* [Basics](#basics)
+* [Data structures and Algorithms](#data-structures-and-algorithms)
+* [Basic patterns](#basic-patterns)
 * [Technical patterns](#technical-patterns)
 
 ## References
@@ -12,7 +13,105 @@
 - Gayle Laakmann McDowell (2015) _**Cracking the coding interview**_, 6th ed. CareerCup.
 
 
-## Basics
+## Data structures and algorithms
+
+Common Data Structures (DSs):
+
+Linear DSs
+
+
+
+- Lists:
+  - Array
+  - Linked list (singly, doubly)
+
+
+
+
+Basic operations:
+
+- Insert: Add element at any position.
+- Delete: Delete element at any position
+- Random access: Access any element.
+- Lookup/Search: Look for an element.
+
+
+
+### Array
+
+Main operations:
+
+- Insert: O(n) (last node is O(1))
+- Delete: O(n) (last node is O(1))
+- Random access: O(1)
+- Search/Lookup: O(n)
+
+**Traversal**:
+
+- **Linear** (O(n)): Go through each element one by one.
+- **Binary search** (O(log n)): Requires sorted elements.
+
+**Techniques**:
+
+- **Two-pointers**: Traverse a DS using 2 pointers. There're different variations, depending on the directions (same, opposite) and width (fixed, variable). Use case examples:
+
+  - Same direction, variable width: Remove duplicates from a sorted array.
+  - Same direction, fixed width: 
+  - Opposite direction, variable width: 
+  - Opposite direction, fixed width: 
+
+- **Circular array**: The two ends of the array are connected.
+
+### Linked-list
+
+**Types**:
+
+- Singly linked list (SLL): Has link to `next` node.
+- Doubly linked list (DLL): Has links to `next` and `prev` nodes.
+
+**Operations** (SLL):
+
+- Insert: O(1) (provided you have reference to `prev`)
+- Delete: O(n) (requires `prev` node) (first node is O(1))
+- Random access: O(n)
+- Search/Lookup: O(n)
+
+**Techniques** (SLL):
+
+- **Two pointers**: Same direction for SLLs. 
+  - Different speed: Determine if a LL has a cycle. Determine the middle of a LL.
+  - Same speed: Determine where 2 LLs intersect. Remove the nth node from the end of the LL.
+  - Use both: Determine where the cycle begins.
+
+- **Two pointers: Double fast**: A `slow` pointer goes one step at a time. A `fast` pointer goes two steps at a time. The following code moves `slow` pointer to the middle element (or one past the middle if size is odd).
+
+```
+ListNode *slow = head, *fast = head;
+while (fast && fast->next)
+{
+  fast = fast->next->next;
+  slow = slow->next;
+}
+```
+
+Advices:
+- Instead of copying elements to a temporal DS to process them (O(n) space), we can move the elements around and use them directly (O(1) space).
+- When working with a LL, we can process it in a single LL or in different LLs.
+- (SLL) In many cases, you need to track the previous node of the current node.
+
+**Operations** (DLL):
+
+- Insert: O(1) (provided you have reference to `prev` or `next`)
+- Delete: O(1)
+- Random access: O(n)
+- Search/Lookup: O(n)
+
+
+
+
+## Basic patterns
+
+- **In-place operations**: Operations applied on the target DS (instead of on a copy of it). They're not always possible (e.g., when we need the original array values again later). This can reduce space complexity from O(n) to O(1).
 
 - A list of size n have indices in range [0, n-1].
 - `n / 2` = Element in the middle ([0][1]**[2]**[3][4]) or right after the middle ([0][1]**[2]**[3]).
@@ -21,6 +120,38 @@
 - Passing elements from one stack to another inverts the order of the elements.
 
 - Sometimes it's easier to traverse a DSs from the end (or both sides if we use double pointer). 
+
+Check parity of a value:
+
+- Is odd: `val % 2`
+- Is even: `!(val % 2)`
+
+
+Random access
+Lookup
+Insert
+Remove
+
+
+Size of a DS:
+  - Range = `[0, n-1]`, or `[0, n)`
+  - `size/2`:
+    - size is odd → central element
+	- size is even → center right element
+
+
+For-loop header (like `for(int i = 0; i < n; ++n)`) contains:
+- Control variable creation and initialization
+- Finish condition
+- Advance action (increment, decrement…)
+
+While-loop header (like `while(i < n)`) contains:
+- Finish condition
+
+Range-for header (like `for(auto& item : arr)` contains:
+- Single element
+
+Thus, for-loops can keep code more compact. While-loops usually require the control variable and the advance action to be elsewhere. Range-fors just provides the elements.
 
 
 

@@ -22,7 +22,9 @@
 - [Intellisense](https://github.com/neoclide/coc.nvim)
 - [Working with multiple files](https://stackoverflow.com/questions/53664/how-to-effectively-work-with-multiple-files-in-vim)
 - [Edit multiple files](https://www.ostechnix.com/how-to-edit-multiple-files-using-vim-editor/)
-
+- Cheat sheets:
+  - [Rtorr](https://vim.rtorr.com/)
+  - [Things Fit Together](https://thingsfittogether.com/)
 
 ## Basics
 

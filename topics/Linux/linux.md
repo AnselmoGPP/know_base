@@ -23,6 +23,10 @@
 ## References
 
 - [Intro to Linux (Hack4u)](https://hack4u.io/cursos/introduccion-a-linux/)
+- Cheat sheets:
+  - [Tower](https://www.git-tower.com/blog/command-line-cheat-sheet)
+  - [GeeksForGeeks](https://www.geeksforgeeks.org/linux-unix/linux-commands-cheat-sheet/)
+  - [LabEx](https://linux-commands.labex.io/)
 
 
 ## Introduction
