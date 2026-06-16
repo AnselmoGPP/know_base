@@ -10,6 +10,7 @@
 ## References
 
 - [AI course 2026](https://www.youtube.com/watch?v=2aN_-m1uU4k)
+- [OpenCode](https://www.youtube.com/watch?v=2gO8WyctqMk)
 
 ### LLM
 
@@ -44,4 +45,30 @@ The [OpenAI platform](https://platform.openai.com/chat) provides a set of tools:
 If we develop an API that uses AI, we can limit its behavior for safety using the "system message". However, it is still vulnerable to a prompt injection that could override our "system message".
 
 **Token**: LLMs don't process text, but tokens. It can be a word, a piece of word, a special character, etc. You pay for the tokens you use, not for the words or letters. Also, each model has its own types of tokens. Token-efficiency depends on the model and the language used.
+
+
+
+
+
+
+
+
+
+
+
+
+
+## OpenCode
+
+**Commands:**
+
+- **Open OpenCode** (in the Command Prompt): `opencode`
+- **Select language model**: `opencode auth login` or `/models`
+- **Zoom**: Ctrl + (zoom in), Ctrl - (zoom out)
+- **Commands**: Ctrl P
+
+**Text:**
+
+- **Ctrl arrow**: Move from word to word
+- **Ctrl w**: Erase word
 

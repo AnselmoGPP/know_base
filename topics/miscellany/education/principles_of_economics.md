@@ -2,9 +2,9 @@
 
 <br>![miscellaneous image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/economics.jpg)
 
-## Table of Contents
-+ [Principles of economics](#principles-of-economics)
+## Table of contents
 
++ [Principles of economics](#principles-of-economics)
 
 ## Principles of economics
 

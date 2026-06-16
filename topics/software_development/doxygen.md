@@ -80,25 +80,17 @@ TAGNAME = VALUE1
 TAGNAME = VALUE1 VALUE2 …
 ```
 
-You can probably leave the values of most tags with its default values. You can edit it with a text editor, or use *doxywizard*, which lets you create, read and write doxygen configuration files, and set configuration options.
+You can probably leave the values of most tags with its default values. You can edit it with a text editor, or use *doxywizard*, which lets you create, read and write doxygen configuration files, and set configuration options. Some tags you may consider are:
 
-If you leave `INPUT` tag empty, doxygen will search for sources in the current directory. Or you can assign the root directory/directories to it, and add one or more file patterns to the `FILE_PATTERNS` tag (*.cpp, *.h…) (if omitted, a list of typical patterns is used).
-
-`RECURSIVE` set to `YES`: recursive parsing a source tree
-
-`EXCLUDE` and `EXCLUDE_PATTERNS` tags can be used.
-
-```
-EXCLUDE_PATTERNS = */test/*       <- omit all test directories from a source tree
-```
-
-Doxygen looks at the file’s extension (.cpp, .h, .txt, …) to determine how to parse a file. To include wildcard extensions, add them to ``FILE_PATTERNS` and set the appropriate `EXTENSION_MAPPING`.
-
-`EXTRACT_ALL` set to `YES`: doxygen will pretend everything in your sources is documented (won’t generate warnings about undocumented member).
-
-`SOURCE_BROWSER` set to `YES`: doxygen will generate cross-reference a (documented) entity with its definition in the source files.
-
-`INLINE_SOURCES` set to `YES`: Include the sources directly into the documentation.
+- `INPUT`: Tell what directories to look. If you leave this tag empty, doxygen will search for sources in the current directory.
+- `FILE_PATERNS`: Add one or more file patterns to the to this tag (*.cpp, *.h…). If omitted, a list of typical patterns is used.
+  - Doxygen looks at the file’s extension (.cpp, .h, .txt, …) to determine how to parse a file. To include wildcard extensions, add them to `FILE_PATTERNS` and set the appropriate `EXTENSION_MAPPING`.
+- `RECURSIVE` set to `YES`: recursive parsing a source tree
+- `EXCLUDE`
+- `EXCLUDE_PATTERNS` is used to omit directories from a source tree. Example: `EXCLUDE_PATTERNS = */test/*` (omit all test directories from a source tree).
+- `EXTRACT_ALL` set to `YES`: doxygen will pretend everything in your sources is documented (won’t generate warnings about undocumented member).
+- `SOURCE_BROWSER` set to `YES`: doxygen will generate cross-reference a (documented) entity with its definition in the source files.
+- `INLINE_SOURCES` set to `YES`: Include the sources directly into the documentation.
 
 **My favorite options**:
 

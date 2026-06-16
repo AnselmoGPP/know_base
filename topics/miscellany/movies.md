@@ -1,9 +1,10 @@
 # Great movies
 
-## Table of Contents
+## Table of contents
+
 + [Champions](#champions)
 + [Second place](#second-place)
-+ [Good enough](#entertaining)
++ [Entertaining](#entertaining)
 
 ## Champions
 
@@ -40,3 +41,6 @@
 - Shutter island
 - Apocalipto
 - The Passion of the Christ
+- Egipt gods
+- Titans fury
+- Pacific rim

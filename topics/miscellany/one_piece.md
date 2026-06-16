@@ -690,7 +690,7 @@ Underwater, the SHPs were attacked by Karibu, Koribu, and their pirates. However
 
 The Flying Dutchman is a legendary ship sunk centuries ago. It's controlled by the **Flying pirates**, leaded by **Vander Decken** (Target fruit).
 
-At 10.000 meters beneath sea level, the SHPs saw the Fishman island, which was within a giant bubble. However, the **New Fishman pirates** (pirates riding sea kings) attacked them. They managed to escape and reached the Fishman island. The entry into the bubble was too fast, and the pirates were scattered. There they met Pappaku, and Camie and her friends. 
+At 10.000 meters beneath sea level, the SHPs saw the Fishman island, which was within a giant bubble. However, the **New Fishman pirates** (pirates riding sea kings) attacked them. They managed to escape and reached the Fishman island. The entry into the bubble was too fast, the pirates were scattered, and the ship fell into the **Marine forest**. The SHPs met Pappaku, Camie, and her friends. 
 
 Karibu was accidentally freed by 3 mermaids, and he started capturing mermaids to sell them as slaves.
 
@@ -698,9 +698,7 @@ The island is ruled by **King Neptune**, who has 4 children: **Fukaboshi**, **Ry
 
 King Neptune invited the SHPs to his palace to thank them for saving shark **Megalo**, the princess' pet, from the Kraken. However, **Madam Shyarly** (owner of the Mermaid coffee), who has the ability to see the future, saw Luffy destroying the Fishman island, and warned the people about this. For this reason, the king and his guards tried to capture the SHPs, but Zoro defeated them all.
 
-Luffy, who had become friend of princess **Shirahoshi**, escaped from the palace with her and Megalo to the visit the town and the **Marine forest**.
-
-To the Marine forest went also Franky (to get the Sunny, which had fallen into that place during the entry) and Robin (in search of a poneglyph). With the help of **Den**, Tom's brother, Franky found the Sunny.
+Luffy, who had become friend of princess **Shirahoshi**, escaped from the palace with her and Megalo to the visit the the Marine forest. Franky met Tom's brother, **Den**, and both found the Sunny at the Marine forest. Robin went to the Marine forest in search of a poneglyph.
 
 Decken was obsessed with Shirahoshi and wanted to marry her. Decken and **Hody Jones** (leader of New Fishman pirates) made an alliance to defeat King Neptune and conquer Fishman island. They invaded the palace
 

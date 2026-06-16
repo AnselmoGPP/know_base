@@ -44,7 +44,7 @@ Main operations:
 - Insert: O(n) (last node is O(1))
 - Delete: O(n) (last node is O(1))
 - Random access: O(1)
-- Search/Lookup: O(n)
+- Search/Lookup: O(n) (if not sorted)
 
 **Traversal**:
 
@@ -68,15 +68,18 @@ Main operations:
 
 - Singly linked list (SLL): Has link to `next` node.
 - Doubly linked list (DLL): Has links to `next` and `prev` nodes.
+- Multilevel SLL/DLL: Like a SLL or DLL, but its nodes have an additiona pointer (`child`) to another list.
 
-**Operations** (SLL):
+#### SLL
 
-- Insert: O(1) (provided you have reference to `prev`)
+**Operations**:
+
+- Insert: O(1) (provided you have `prev`)
 - Delete: O(n) (requires `prev` node) (first node is O(1))
 - Random access: O(n)
 - Search/Lookup: O(n)
 
-**Techniques** (SLL):
+**Techniques**:
 
 - **Two pointers**: Same direction for SLLs. 
   - Different speed: Determine if a LL has a cycle. Determine the middle of a LL.
@@ -98,13 +101,21 @@ Advices:
 - Instead of copying elements to a temporal DS to process them (O(n) space), we can move the elements around and use them directly (O(1) space).
 - When working with a LL, we can process it in a single LL or in different LLs.
 - (SLL) In many cases, you need to track the previous node of the current node.
+- Simplify computations using a sentinel node: header node (one-before-the-first node).
 
-**Operations** (DLL):
+#### DLL
 
-- Insert: O(1) (provided you have reference to `prev` or `next`)
-- Delete: O(1)
+**Operations**:
+
+- Insert: O(1) (provided you have `prev` or `next`)
+- Delete: O(1) (provided you have `node` to delete)
 - Random access: O(n)
 - Search/Lookup: O(n)
+
+Advices:
+- Simplify computations using sentinel nodes: header node and a tailer node (one-past-the-last node).
+
+
 
 
 

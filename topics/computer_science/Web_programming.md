@@ -2,26 +2,39 @@
 
 <br>![web image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/web.jpg)
 
-## Table of Contents
-+ [The Internet](#the-internet)
-  + [History of the Web](#history-of-the-web)
-  + [How the web works](#how-the-web-works)
-  + [The web standards model (HTML, CSS, JavaScript)](#the-web-standards-model-(html,-css,-javascript))
-  + [Internet and the World Wide Web](#internet-and-the-world-wide-web)
-  + [Validation](#validation)
-  + [Web accessibility and W3C standards](#web-accessibility-and-w3c-standards)
-+ [Introduction to HTML](#introduction-to-html)
-+ [Advanced HTML](#advanced-html)
-+ [CSS: Cascading Styling Sheets](#css:-cascading-styling-sheets)
-+ [JavaScript](#javascript)
-+ [XML](#xml)
-+ [Server side programming with PHP](#server-side-programming-with-php)
-+ [Introduction to Mobile Web](#introduction-to-mobile-web)
+## Table of contents
 
++ [Web programming 1](#web-programming-1)
+  + [The Internet](#the-internet)
+  + [Introduction to HTML](#introduction-to-html)
+  + [Advanced HTML](#advanced-html)
+  + [CSS: Cascading Styling Sheets](#css:-cascading-styling-sheets)
+  + [JavaScript](#javascript)
+  + [XML](#xml)
+  + [Server side programming with PHP](#server-side-programming-with-php)
+  + [Introduction to Mobile Web](#introduction-to-mobile-web)
++ [Web programming 2](#web-programming-2)
+  + [Introduction to server-side web development](#introduction-to-server-side-web-development)
+  + [Basics of PHP](#basics-of-php)
+  + [Functions, arrays, and string manipulation in PHP](#functions-arrays-and-string-manipulation-in-php)
+  + [Working with forms and sessions in PHP](#working-with-forms-and-sessions-in-php)
+  + [Object-oriented concepts in PHP](#object-oriented-concepts-in-php)
+  + [Connecting to databases and error handling in PHP](#connecting-to-databases-and-error-handling-in-php)
+  + [Advanced topics in server-side programming and frameworks](#advanced-topics-in-server-side-programming-and-frameworks)
+  + [Security features in server-side programming](#security-features-in-server-side-programming)
++ [Synthesis](#synthesis)
+  + [Synthesis: The Internet](#synthesis-the-internet)
+    + [History of the Web](#history-of-the-web)
+    + [How the web works](#how-the-web-works)
+    + [The web standards model (HTML, CSS, JavaScript)](#the-web-standards-model-(html,-css,-javascript))
+    + [Internet and the World Wide Web](#internet-and-the-world-wide-web)
+    + [Validation](#validation)
+    + [Web accessibility and W3C standards](#web-accessibility-and-w3c-standards)
+  + [Synthesis: Introduction to HTML](#sythesis-introduction-to-html)
+
+## Web programming 1
 
 ## The Internet
-
-**References:**
 
 - Francis, M.N. (2012, March 4). **_History of the Web_**. Retrieved from [here](https://www.w3.org/wiki/The_history_of_the_Web).
 - MDM Developers. (2019, May 18). **_How the Web Works_**. Retrieved from [here](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works).
@@ -31,6 +44,181 @@
 - W3C. (n.d.). **_Web Validation Service_**. Retrieved from [here](https://validator.w3.org/).
 - W3C Web Accessibility Initiative (WAI) (2017, December 4). **_Introduction to web accessibility and W3C standards_** [Video]. YouTube. Retrieved from [here](https://www.youtube.com/watch?v=20SHvU2PKsM).
 - Khan Academy Computing. (2014, December 9). **_HTML validation | Computer programming | Khan Academy**_ [Video]. YouTube. Retrieved from [here](https://www.youtube.com/watch?v=qrU3ghYJjEw).
+
+## Introduction to HTML
+
+- MDN Contributors (2020, February 13). _**Information Architecture—Planning a simple website**_. Retrieved from [here](http://www.w3.org/community/webed/wiki/Information_Architecture_-_planning_out_a_web_site).
+- W3C (2017, November 11). _**What does a good web page need?**_. Retrieved from [here](http://www.w3.org/community/webed/wiki/What_does_a_good_web_page_need).
+- Raggett, D. (2005, May 25). _**Getting Started with HTML**_. Retrieved from [here](http://www.w3.org/MarkUp/Guide/).
+- _**Getting Started**_. (n.d.) Retrieved from [here](http://www.htmldog.com/guides/html/beginner/gettingstarted/).
+- _**Lesson 3: Elements and tags**_. (n.d.). Retrieved from [here](http://html.net/tutorials/html/lesson3.php).
+- Krossing, D. (2017, June 22). _**1: How to get started with HTML & CSS | HTML tutorial for beginners | Learn HTML and CSS | mmtuts**_. [Video]. YouTube. Retrieved from [here](https://youtu.be/pm5OVxpul48).
+- Wright, J. (2010, November 10). _**Learn HTML in 12 minutes**_. [Video]. YouTube. Retrieved from [here](https://youtu.be/bWPMSSsVdPk).
+- Web Dev Simplified. (2018, August 22). _**Learn CSS in 20 minutes**_ [Video]. YouTube. Retrieved from [here](https://youtu.be/1PnVor36_40).
+- Locke, M. (2010, January 22). _**Website Design Tips: The Standard Website Layout**_ [Video]. Retrieved from [here](https://youtu.be/3meSOXY9uGA).
+- Locke, M. (2010, February 5). Color Selection and Web Design [Video]. Retrieved from [here](https://youtu.be/Ukl9yecLxIQ).
+
+## Advanced HTML
+
+- w3schools. (n.d.). _**HTML Tutorial**_. Retrieved from [here](https://www.w3schools.com/html/default.asp).
+- Morris, J. (2018, July 30). HTML tags, attributes and elements [Video]. YouTube. Retrieved from [here](https://youtu.be/vNOyRZIkC7o).
+- LearnCode.academy. (2013, October 21). Web development tutorial for beginners (#1) - How to build webpages with HTML, CSS, Javascript. YouTube. Retrieved from [here](https://youtu.be/3JluqTojuME).
+
+## CSS: Cascading Styling Sheets
+
+- MDN Contributors. (2019, December 4). _**CSS basics**_. Retrieved from [here](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics).
+- MDN Contributors. (2020. January 9). _**Inheritance and Cascade**_. Retrieved from [here](https://developer.mozilla.org/en-US/docs/Learn/CSS).
+- MDN Contributors. (2021, April 23). _**Fundamental text and font styling**_. Retrieved from [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals).
+- MDN Contributors. (2020, February 20). _**CSS Building Blocks**_. Retrieved from [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks).
+- Khan Academy. (2014, November 25). _**CSS inheritance | Intro to HTML/CSS: Making webpages | Computer Programming | Khan Academy**_ [Video]. YouTube. Retrieved from [here](https://youtu.be/PhyF-HdbV8M).
+- Codeacademy. _**Learn HTML**_. Retrieved from [here](https://www.codecademy.com/learn/learn-html).
+- Codeacademy. _**Learn CSS**_. Retrieved from [here](https://www.codecademy.com/learn/learn-css).
+
+## JavaScript
+
+- MDN Contributors. (2024, February 4). Learn web development, Retrieved from [here](https://developer.mozilla.org/en-US/docs/Learn).
+- MDN Contributors. (2024, January 24). What is JavaScript? Retrieved from [here](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript).
+- Hack Reactor. (2016, March 11). Say what? Introduction to Javascript [Video]. YouTube. Retrieved from [here](https://youtu.be/Osrjn8FGKMM).
+- Codeacademy. _**Learn JavaScript: Introduction**_. Retrieved from [here](https://www.codecademy.com/learn/introduction-to-javascript).
+- Codeacademy. _**Learn JavaScript: Functions**_. Retrieved from [here](https://www.codecademy.com/learn/introduction-to-javascript).
+- w3schools. _**JavaScript functions**_. Retrieved from [here](https://www.w3schools.com/js/js_functions.asp).
+
+## XML
+
+- w3schools. (n.d.). _**XML tutorial**_. Retrieved from [here](http://www.w3schools.com/xml/default.asp).
+- Banas, D. (2010, May 9). _**Learn XML tutorial**_ [Video]. Retrieved from [here](https://youtu.be/qgZVAznwX38).
+
+## Server side programming with PHP
+
+- Achour, M., Betz, F., et. al. (2020, February 2). _**PHP Manuel: Getting started - Introduction**_. Retrieved from [here](http://php.net/manual/en/introduction.php).
+- W3Schools. (n.d.). _**PHP introduction**_. Retrieved from [here](http://www.w3schools.com/php/php_intro.asp) (complete the introductory tutorial on PHP).
+- LinkedIn Learning. (2014, July 29). _**Web technology tutorial: Server-side scripting | lynda.com**_ [Video]. YouTube. Retrieved from [here](https://youtu.be/JnCLmLO9LhA).
+- W3Schools. (n.d.) _**PHP tutorial**. Retrieved from [here](https://www.w3schools.com/php/) (complete the PHP tutorial).
+
+## Introduction to Mobile Web
+
+- W3C. (2016). _**Mobile Web**_. Retrieved from [here](http://www.w3.org/standards/webdesign/mobilweb).
+- Smashing Magazine (2012, July 2). _**Guidelines For Mobile Web development**_. Retrieved from [here](https://www.smashingmagazine.com/2012/07/guidelines-for-mobile-web-development/).
+- W3Schools. (n.d.). _**JQuery tutorial**_. Retrieved from [here](http://www.w3schools.com/jquerymobile/default.asp).
+- Digital Garage. (2019, January 14). _**Understanding mobile web and mobile apps**_ [Video]. YouTube. Retrieved from [here](https://youtu.be/w4_iBMnFKk4).
+
+## Web programming 2
+
+## Introduction to server-side web development
+
+- McGrath, M. (2021). **PHP in easy steps (4th ed.): Updated for PHP 8**. In Easy Steps Limited.
+  1. Getting started (section 1.1.)
+- MDN Web Docs. (2024, December 19). [**Client-server overview**](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview). Licensed under Creative Commons 4.0.
+- MDN Web Docs. (2024, December 19). [**Introduction to the server side**](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Introduction). Licensed under Creative Commons 4.0.
+- MDN Web Docs. (2024, December 23). **What is a web server?** Licensed under Creative Commons 4.0. https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_web_server
+- Brimi Tech. (2021, October 8). **What is a server? How does a server work? Types of servers. Explain everything** [Video](https://youtu.be/V9K1l3OL-Iw). YouTube.
+- Keen, M. (2023, March 6). **Apache vs NGINX** [Video](https://youtu.be/9nyiY-psbMs). YouTube.
+
+## Basics of PHP
+
+- McGrath, M. (2021). **PHP in easy steps (4th ed.): Updated for PHP 8**. In Easy Steps Limited.
+  2. Storing values (sections 1, 2, 6, 7)
+  3. Performing operations (sections 1-7)
+  4. Testing conditions (sections 1-7)
+- PHP Group. (2025a). [**Language reference**](https://www.php.net/manual/en/langref.php). PHP Manual. Licensed Under Creative Commons Attribution 3.0.
+- PHP Group. (2025b). [**PHP operators**](https://www.php.net/manual/en/language.operators.php). PHP Manual. Licensed Under Creative Commons Attribution 3.0.
+- Bro Code. (2024a, May 20). **PHP for loops explained** [Video](https://youtu.be/HAs7YXPduZI). YouTube.
+- Bro Code. (2024b, May 20). **PHP if statements explained** [Video](https://youtu.be/Kp35Sa2Qay0). YouTube.
+- Bro Code. (2024c, May 20). **PHP useful math functions you should know** [Video](https://youtu.be/nT5f5brN4xI). YouTube.
+- Bro Code. (2024d, May 20). **PHP variables and datatypes** [Video](https://youtu.be/przRGJtl0HY). YouTube.
+
+## Functions, arrays, and string manipulation in PHP
+
+- McGrath, M. (2021). **PHP in easy steps (4th ed.): Updated for PHP 8**. In Easy Steps Limited.
+  2. Storing values (3, 4, 5, 8)
+  5. Employing functions (1-8)
+  6. Manipulating strings (1-7)
+- PHP Group. (2025). [**Array operators**](https://www.php.net/manual/en/language.operators.array.php). PHP Manual. Licensed Under Creative Commons Attribution 3.0.
+- PHP Group. (2025). [**String Operators**](https://www.php.net/manual/en/language.operators.string.php). PHP Manual. Licensed Under Creative Commons Attribution 3.0.
+- Bro Code. (2024, May 20). [**PHP arrays explained**] [Video](https://youtu.be/CuOZ8d7gWeU). YouTube.
+- Bro Code. (2024, May 20). [**PHP associative arrays explained**] [Video](https://youtu.be/1Rh61mwOMrA). YouTube.
+- Bro Code. (2024, May 20). [**PHP string functions are awesome**] [Video](https://youtu.be/B-neQLCsORM). YouTube.
+
+## Working with forms and sessions in PHP
+
+- McGrath, M. (2021). **PHP in easy steps (4th ed.): Updated for PHP 8**. In Easy Steps Limited.
+  9. Producing forms (1-10)
+  10. Preserving data (1-8)
+- PHP Group. (2025). [**Cookies**](https://www.php.net/manual/en/features.cookies.php). PHP Manual. Licensed Under Creative Commons Attribution 3.0.
+- PHP Group. (2025). [**Dealing with Forms**](https://www.php.net/manual/en/tutorial.forms.php). PHP Manual. Licensed Under Creative Commons Attribution 3.0.
+- PHP Group. (2025). [**Session Handling**](https://www.php.net/manual/en/book.session.php). PHP Manual. Licensed Under Creative Commons Attribution 3.0.
+- W3Schools. (n.d.). [**PHP form handling**](https://www.w3schools.com/php/php_forms.asp). Licensed under fair use for educational purposes.
+- Bro Code. (2024, May 20). **PHP $_COOKIE explained** [Video](https://youtu.be/EgDQ7Z13FQc). YouTube.
+- Bro Code. (2024, May 20). **PHP $_SESSION explained** [Video](https://youtu.be/JXKQmIpjRTk). YouTube.
+- Simplilearn. (2021, March 29). **PHP Form Validation Tutorial** [Video](https://youtu.be/xqI2hdDn47k). YouTube.
+
+## Object-oriented concepts in PHP
+
+- McGrath, M. (2021). **PHP in easy steps (4th ed.): Updated for PHP 8**. In Easy Steps Limited.
+  7. Building classes (1-8)
+- Martinez, J., et al. (2019). **The PHP workshop: Learn to build interactive applications and kickstart your career as a web developer**. Packt Publishing, Limited.
+  5. Object-oriented programming (1-5)
+- PHP Group. (2025). [**Classes and Objects**](https://www.php.net/manual/en/language.oop5.php). PHP Manual. Licensed Under Creative Commons Attribution 3.0.
+- W3Schools. (n.d.). [**PHP OOP - Classes and Objects**](https://www.w3schools.com/php/php_oop_classes_objects.asp). Licensed under fair use for educational purposes.
+- Simplilearn. (2021, March 19). [**Object Oriented Programming In PHP**] [Video](https://youtu.be/JSX0HMYgtvc). YouTube.
+- Danni Krossing. (2023, July 30). [**Learn Object Oriented PHP for Beginners | With Examples to Help You Understand! | OOP PHP Tutorial**]. [Video](https://youtu.be/yrFr5PMdk2A). YouTube.
+
+## Connecting to databases and error handling in PHP
+
+- McGrath, M. (2021). **PHP in easy steps (4th ed.): Updated for PHP 8**. In Easy Steps Limited.
+  8. Handling files (6, 7)
+- Martinez, J., et al. (2019). **The PHP workshop: Learn to build interactive applications and kickstart your career as a web developer**. Packt Publishing, Limited.
+  7. Data persistence (2)
+  8. Error handling (1, 2)
+- PHP Group. (2025). [**mysql_connect**](https://www.php.net/manual/en/function.mysql-connect.php). PHP Manual. Licensed Under Creative Commons 3.0
+- W3Schools. (n.d.). [**PHP Connect to MySQL**](https://www.w3schools.com/php/php_mysql_connect.asp). Licensed under fair use for educational purposes.
+- Bro Code. (2024, May 20). **PHP how to connect to MySQL database** [Video]((https://youtu.be/-1DTYAQ25bY). YouTube.
+- Simplilearn. (2021, March 23). **PHP with MySQL tutorial For beginners** [Video](https://youtu.be/nP-MvFoDVZE). YouTube.
+
+## Advanced topics in server-side programming and frameworks
+
+- MDN Web Docs. (2023, June 8). [**REST**](https://developer.mozilla.org/en-US/docs/Glossary/REST). Licensed under Creative Commons 4.0.
+- FastAPI. (n.d.). [**Tutorial - User Guide**](https://fastapi.tiangolo.com/tutorial/). Licensed under fair use.
+- Martinez, J., et al. (2019). **The PHP workshop: Learn to build interactive applications and kickstart your career as a web developer**. Packt Publishing, Limited.
+  10. Web services (1, 2)
+- Monteiro, F. (2018). **Hands-on full stack web development with Angular 6 and Laravel 5: Become fluent in both frontend and backend web development with Docker, Angular, and Laravel**. Packt Publishing.
+  1. Understanding the core concepts of Laravel5 (2-5)
+- Rohit, J. R. (2018). **Building serverless applications with Python: Develop fast, scalable, and cost-effective web applications that are always available**. Packt Publishing.
+  1. The serverless paradigm (1, 4)
+- Heafield, M. (n.d.). [**Awesome FastAPI. GitHub**](https://github.com/mjhea0/awesome-fastapi). Licensed under fair use.
+- Bytebytego. (2022, August 24). **What is REST API? Examples and how to use it: crash course system design #3** [Video](https://youtu.be/-mN3VyJuCjM). YouTube.
+- Caleb Curry. (2020, November 20). **REST API crash course - introduction + full Python API tutorial** [Video](https://youtu.be/qbLc5a9jdXo). YouTube.
+- Danni Krossing. (2024, April 21). **Laravel PHP framework tutorial for beginners | Laravel for complete beginners | Laravel tutorial** [Video](https://youtu.be/Rz6SMgKrSYE). YouTube.
+- IBM Technology. (2020, December 12). **What is serverless?** [Video](https://youtu.be/vxJobGtqKVM). YouTube.
+- Krish Naik. (2020, Novemebr 18). **Introduction to FastAPI- how to create API's using FastAPI- data science** [Video](https://youtu.be/WU65u9d-97c). YouTube.
+- KnoDAX. (2023, June 30). **Serverless computing -- pros and cons** [Video](https://youtu.be/S4ogQlhDqag). YouTube.
+- Learnbywhiteboard. (2023, May 12). **Difference between REST API vs Web API vs SOAP API explained** [Video](https://youtu.be/2mqN7ZhDsUA). YouTube.
+- Laracasts. (2024, May 17). **Everything you need to know about Laravel in 30 minutes** [Video](https://youtu.be/e7z6KJkGhmg). YouTube.
+- Patrick Loeber. (2020, November 4). **FastAPI Introduction - Build Your First Web App - Python Tutorial** [Video](https://youtu.be/0RS9W8MtZe4). YouTube.
+
+## Security features in server-side programming
+
+- Martinez, J., et al. (2019). **The PHP workshop: Learn to build interactive applications and kickstart your career as a web developer**. Packt Publishing, Limited.
+  6. Using HTTP (3, 4)
+  7. Data persistence (2)
+  10. Web services (2)
+- OWASP Foundation. (2023). [**API7:2023 Server Side Request Forgery**](https://owasp.org/API-Security/editions/2023/en/0xa7-server-side-request-forgery/). OWASP. Licensed under Creative Commons 4.0.
+- OWASP Foundation. (n.d.). [**OWASP API Security Project**](https://owasp.org/www-project-api-security/). OWASP. Licensed under Creative Commons 4.0.
+- OWASP Foundation. (n.d.). [**OWASP top ten web application security risks**](https://owasp.org/www-project-top-ten/). OWASP. Licensed under Creative Commons 4.0.
+- OWASP Foundation. (n.d.). [**SQL injection**](https://owasp.org/www-community/attacks/SQL_Injection). OWASP. Licensed under Creative Commons 4.0.
+- Paragon Initiative Enterprises. (2015, May 26). [**Preventing SQL injection in PHP applications - the easy and definitive guide**](https://paragonie.com/blog/2015/05/preventing-sql-injection-in-php-applications-easy-and-definitive-guide). Licensed under Creative Commons 4.0.
+- PHP Group. (2025). [**Encrypted Storage Model**](https://www.php.net/manual/en/security.database.storage.php). PHP Manual. Licensed under Creative Commons 3.0.
+- PHP Group. (2025). [**SQL Injection**](https://www.php.net/manual/en/security.database.sql-injection.php). PHP Manual. Licensed under Creative Commons 3.0.
+- W3Schools. (n.d.). [**Cyber security web application attacks**](https://www.w3schools.com/cybersecurity/cybersecurity_web_applications_attacks.php). Licensed under fair use for educational purposes.
+- W3Schools. (n.d.). [**Cyber security web applications**](https://www.w3schools.com/cybersecurity/cybersecurity_web_applications.php). Licensed under fair use for educational purposes.
+- W3Schools. (n.d.). [**PHP Crypt() function**](https://www.w3schools.com/Php/func_string_crypt.asp). Licensed under fair use for educational purposes.
+- Simplilearn. (2024, July 8). **What is an API? | API security explained | API security Best Practices | Simplilearn** [Video](https://youtu.be/XYoPn7-FSHs). YouTube.
+- Danni Krossing. (2023, July 3). **List of All Basic PHP Security You Need to Know** [Video](https://youtu.be/ZcwfGXIoA6A). YouTube.
+- Hussein Nasser. (2020, July 20). **1 hour of popular web attacks (XSS, CSRF, SSRF, SQL injection)** [Video](https://youtu.be/pdC3H8SX-F4). YouTube.
+
+## Synthesis
+
+## Synthesis: The Internet
 
 ### History of the Web
 
@@ -394,21 +582,7 @@ W3C provides standards to help make the Web accessible, which are internationall
 
 Around 15-20% of the population has disabilities. The UN convention of the Rights of Persons with Disabilities defines the access to information (including the Web) as a human right. Most countries around the world ratified this UN convention, and several adopted binding policies too.
 
-
-## Introduction to HTML
-
-**References:**
-
-- MDN Contributors (2020, February 13). _**Information Architecture—Planning a simple website**_. Retrieved from [here](http://www.w3.org/community/webed/wiki/Information_Architecture_-_planning_out_a_web_site).
-- W3C (2017, November 11). _**What does a good web page need?**_. Retrieved from [here](http://www.w3.org/community/webed/wiki/What_does_a_good_web_page_need).
-- Raggett, D. (2005, May 25). _**Getting Started with HTML**_. Retrieved from [here](http://www.w3.org/MarkUp/Guide/).
-- _**Getting Started**_. (n.d.) Retrieved from [here](http://www.htmldog.com/guides/html/beginner/gettingstarted/).
-- _**Lesson 3: Elements and tags**_. (n.d.). Retrieved from [here](http://html.net/tutorials/html/lesson3.php).
-- Krossing, D. (2017, June 22). _**1: How to get started with HTML & CSS | HTML tutorial for beginners | Learn HTML and CSS | mmtuts**_. [Video]. YouTube. Retrieved from [here](https://youtu.be/pm5OVxpul48).
-- Wright, J. (2010, November 10). _**Learn HTML in 12 minutes**_. [Video]. YouTube. Retrieved from [here](https://youtu.be/bWPMSSsVdPk).
-- Web Dev Simplified. (2018, August 22). _**Learn CSS in 20 minutes**_ [Video]. YouTube. Retrieved from [here](https://youtu.be/1PnVor36_40).
-- Locke, M. (2010, January 22). _**Website Design Tips: The Standard Website Layout**_ [Video]. Retrieved from [here](https://youtu.be/3meSOXY9uGA).
-- Locke, M. (2010, February 5). Color Selection and Web Design [Video]. Retrieved from [here](https://youtu.be/Ukl9yecLxIQ).
+## Synthesis: Introduction to HTML
 
 ### Planning a simple website
 
@@ -465,11 +639,7 @@ Usability makes a site behave in a rational and expected way. Bad usability stem
 
 Accessibility affects many people, not only those with disabilities. Assistive technology is any extra piece of computer equipment or hardware that helps a person interact with their computer more successfully.
 
-
-
-
-
-
+...
 
 - W3C (2017, November 11). _**What does a good web page need?**_. Retrieved from [here](https://www.w3.org/wiki/What_does_a_good_web_page_need).
 - Raggett, D. (2005, May 25). _**Getting Started with HTML**_. Retrieved from [here](http://www.w3.org/MarkUp/Guide/).
@@ -480,73 +650,3 @@ Accessibility affects many people, not only those with disabilities. Assistive t
 - Web Dev Simplified. (2018, August 22). _**Learn CSS in 20 minutes**_ [Video]. YouTube. Retrieved from [here](https://youtu.be/1PnVor36_40).
 - Locke, M. (2010, January 22). _**Website Design Tips: The Standard Website Layout**_ [Video]. Retrieved from [here](https://youtu.be/3meSOXY9uGA).
 - Locke, M. (2010, February 5). Color Selection and Web Design [Video]. Retrieved from [here](https://youtu.be/Ukl9yecLxIQ).
-
-
-
-
-
-
-
-
-
-## Advanced HTML
-
-**References:**
-
-- w3schools. (n.d.). _**HTML Tutorial**_. Retrieved from [here](https://www.w3schools.com/html/default.asp).
-- Morris, J. (2018, July 30). HTML tags, attributes and elements [Video]. YouTube. Retrieved from [here](https://youtu.be/vNOyRZIkC7o).
-- LearnCode.academy. (2013, October 21). Web development tutorial for beginners (#1) - How to build webpages with HTML, CSS, Javascript. YouTube. Retrieved from [here](https://youtu.be/3JluqTojuME).
-
-
-## CSS: Cascading Styling Sheets
-
-**References:**
-
-- MDN Contributors. (2019, December 4). _**CSS basics**_. Retrieved from [here](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics).
-- MDN Contributors. (2020. January 9). _**Inheritance and Cascade**_. Retrieved from [here](https://developer.mozilla.org/en-US/docs/Learn/CSS).
-- MDN Contributors. (2021, April 23). _**Fundamental text and font styling**_. Retrieved from [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals).
-- MDN Contributors. (2020, February 20). _**CSS Building Blocks**_. Retrieved from [here](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks).
-- Khan Academy. (2014, November 25). _**CSS inheritance | Intro to HTML/CSS: Making webpages | Computer Programming | Khan Academy**_ [Video]. YouTube. Retrieved from [here](https://youtu.be/PhyF-HdbV8M).
-- Codeacademy. _**Learn HTML**_. Retrieved from [here](https://www.codecademy.com/learn/learn-html).
-- Codeacademy. _**Learn CSS**_. Retrieved from [here](https://www.codecademy.com/learn/learn-css).
-
-
-## JavaScript
-
-**References:**
-
-- MDN Contributors. (2024, February 4). Learn web development, Retrieved from [here](https://developer.mozilla.org/en-US/docs/Learn).
-- MDN Contributors. (2024, January 24). What is JavaScript? Retrieved from [here](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript).
-- Hack Reactor. (2016, March 11). Say what? Introduction to Javascript [Video]. YouTube. Retrieved from [here](https://youtu.be/Osrjn8FGKMM).
-- Codeacademy. _**Learn JavaScript: Introduction**_. Retrieved from [here](https://www.codecademy.com/learn/introduction-to-javascript).
-- Codeacademy. _**Learn JavaScript: Functions**_. Retrieved from [here](https://www.codecademy.com/learn/introduction-to-javascript).
-- w3schools. _**JavaScript functions**_. Retrieved from [here](https://www.w3schools.com/js/js_functions.asp).
-
-## XML
-
-**References:**
-
-- w3schools. (n.d.). _**XML tutorial**_. Retrieved from [here](http://www.w3schools.com/xml/default.asp).
-- Banas, D. (2010, May 9). _**Learn XML tutorial**_ [Video]. Retrieved from [here](https://youtu.be/qgZVAznwX38).
-
-## Server side programming with PHP
-
-**References:**
-
-- Achour, M., Betz, F., et. al. (2020, February 2). _**PHP Manuel: Getting started - Introduction**_. Retrieved from [here](http://php.net/manual/en/introduction.php).
-- W3Schools. (n.d.). _**PHP introduction**_. Retrieved from [here](http://www.w3schools.com/php/php_intro.asp) (complete the introductory tutorial on PHP).
-- LinkedIn Learning. (2014, July 29). _**Web technology tutorial: Server-side scripting | lynda.com**_ [Video]. YouTube. Retrieved from [here](https://youtu.be/JnCLmLO9LhA).
-- W3Schools. (n.d.) _**PHP tutorial**. Retrieved from [here](https://www.w3schools.com/php/) (complete the PHP tutorial).
-
-## Introduction to Mobile Web
-
-**References:**
-
-- W3C. (2016). _**Mobile Web**_. Retrieved from [here](http://www.w3.org/standards/webdesign/mobilweb).
-- Smashing Magazine (2012, July 2). _**Guidelines For Mobile Web development**_. Retrieved from [here](https://www.smashingmagazine.com/2012/07/guidelines-for-mobile-web-development/).
-- W3Schools. (n.d.). _**JQuery tutorial**_. Retrieved from [here](http://www.w3schools.com/jquerymobile/default.asp).
-- Digital Garage. (2019, January 14). _**Understanding mobile web and mobile apps**_ [Video]. YouTube. Retrieved from [here](https://youtu.be/w4_iBMnFKk4).
-
-
-
-
