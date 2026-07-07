@@ -2,7 +2,9 @@
 
 <br>![databases image](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/resources/databases.jpg)
 
+
 ## Table of Contents
+
 + [Databases 1](#databases-1)
   + [Resources](#resources)
   + [Databases and the Relational Data Model](#databases-and-the-relational-data-model)
@@ -14,10 +16,18 @@
   + [Database Interaction and Connectivity](#database-interaction-and-connectivity)
   + [Database Development Process](#database-development-process)
 + [Databases 2](#databases-2)
+  + [Resources](#resources)
+  + [Introduction to Database systems](#introduction-to-database-systems)
+  + [Transaction management and Concurrency control](#transaction-management-and-concurrency-control)
+  + [Advanced SQL and Modern query techniques](#advanced-sql-and-modern-query-techniques)
+  + [Application development and administration](#application-development-and-administration)
+  + [Database security and Compliance](#database-security-and-compliance)
+  + [Backup, Recovery, and Availability](#backup-recovery-and-availability)
+  + [Distributed databases and Cloud concepts](#distributed-databases-and-cloud-concepts)
+  + [Emerging trends and Future directions in databases](#emerging-trends-and-future-directions-in-databases)
 
 
 ## Databases 1
-
 
 ### Resources
 
@@ -29,7 +39,6 @@
   - [EdrawMax](https://www.edrawsoft.com/edraw-max/): Online tool for ER diagram design.
   - [dbdiagram.io](https://dbdiagram.io/home): Tool for visualizing database relationships.
   - [Flowchart Maker](https://www.smartdraw.com/flowchart/flowchart-maker.htm?id=373852&gad_source=1): Online software with ER diagram capabilities.
-
 
 ### Databases and the Relational Data Model
 
@@ -53,7 +62,6 @@
 
   - CBT Nuggets. (2019, July 18). _Databases in the real world_. YouTube. Retrieved from [here](https://youtu.be/whmYCRfB4lQ).
 
-
 ### Entity-Relationship (E-R) Modelling
 
   2. __Data Models__
@@ -73,7 +81,6 @@
   - Nalimov, C. (2021, September 22). _What is a conceptual data model? With examples!_. Retrieved from [here](https://www.gleek.io/blog/conceptual-data-model.html).
   - Ellie. (2022, July 6). _Conceptual vs logical data models - What are the key differences?_. YouTube. Retrieved from [here](https://youtu.be/Ex6wszg2XZ8).
 
-
 ### Relational Database Design
 
   6. __Relational Database Design__
@@ -88,7 +95,6 @@
   - Peterson, R. (2023, December 9). _Functional dependency in DBMS: What is, types and examples_. Guru99. Retrieved from [here](https://www.guru99.com/dbms-functional-dependency.html).
   - Peterson, R. (2023, December 26). _What is normalization in DBMS (SQL)? 1NF, 2NF, 3NF example_. Guru99. Retrieved from [here](https://www.guru99.com/database-normalization.html).
   - CBT Nuggets. (2021, August 15). _How to normalize a database table_ [Video]. YouTube. Retrieved from [here](https://youtu.be/siiYInWniFs).
-
 
 ### Structured Query Language (SQL)
 
@@ -106,7 +112,6 @@
   - Peterson, R. (2023, December 16). _**SQL Cheat sheet with commands & description (2024)**_. GURU99. Retrieved from [here](https://www.guru99.com/sql-cheat-sheet.html)
   - _**SQL: How to create and delete a table with SQL query. (n.d.)**_. EnableGeek. Retrieved from [here](https://www.enablegeek.com/tutorial/create-delete-table-sql-query/)
 
-
 ### SQL Database Operations
 
   4. __SQL-Fundamentals__
@@ -117,7 +122,6 @@
 
   - Peterson, R. (2023, December 26). _**MySQL – ALTER, DROP, RENAME, MODIFY**_. GURU99. Retrieved from [here](https://www.guru99.com/alter-drop-rename.html).
   - Yadav, A. (2022, February 28). _**Create, Insert, Update, Delete, Select, Truncate, Drop Statement In Oracle PL-SQL**_. C # Corner. Retrieved from [here](https://www.c-sharpcorner.com/article/create-insert-update-delete-select-truncate-drop-statement-in-oracle-pl-sq/).
-
 
 ### Advanced Structured Query Language (SQL) Queries and Data Integrity
 
@@ -151,7 +155,6 @@
   - Segner, M. (2023, March 24). Data integrity vs. data validity: Key differences with a zoo analogy. Data Reliability. Retrieved from [here](https://www.montecarlodata.com/blog-data-integrity-vs-data-validity/).
   - Watt, A. (n.d.). Chapter 9: Integrity rules and constraints. LibreTexts. Retrieved from [here](https://eng.libretexts.org/Bookshelves/Computer_Science/Databases_and_Data_Structures/Database_Design_(Watt)/01%3A_Chapters/1.09%3A_Chapter_9_Integrity_Rules_and_Constraints).
 
-
 ### Database Interaction and Connectivity
 
   5. Joins, Constraints and Advanced SQL 
@@ -171,7 +174,6 @@
   - What is ODBC – Open database connectivity. (2023, June 10). Insightsoftware. Retrieved from [here](https://insightsoftware.com/blog/what-is-odbc/).
   - Zanini, A. (2023, February 14). Database transactions 101: The essential guide. DbVisualizer. Retrieved from [here](https://www.dbvis.com/thetable/database-transactions-101-the-essential-guide/).
 
-
 ### Database Development Process
 
   - Alter database. (n.d.). Snowflake Documentation. Retrieved from [here](https://docs.snowflake.com/en/sql-reference/sql/alter-database).
@@ -186,3 +188,186 @@
 
 ## Databases 2
 
+### Resources
+
+- Huawei Technologies Co., Ltd. (2022). _**Database Principles and Technologies - Based on Huawei GaussDB**_. Springer.
+- Solomon, F., Jayaram, P., & Saqqa, A. A. (2019). _**The SQL Workshop: Learn to create, manipulate and secure data and manage relational databases with SQL**_. Packt Publishing.
+Pivert, O. (Ed.). (2018). _**NoSQL Data Models: Trends and Challenges**_. John Wiley & Sons.
+- Osama, Ahmad. (2018). _**Professional Azure SQL Database Administration**_. Packt Publishing.
+
+### Introduction to Database systems
+
+- _**Database Principles and Technologies**_ (2022)
+  1. Introduction to Database systems
+    1.1. Overview of Database systems
+	1.2. History of Database technology
+- _**The SQL Workshop**_ (2019)
+  1. SQL basics
+  2. Manipulating data
+  3. Normalization
+- _**NoSQL Data Models: Trends and Challenges**_ (2018)
+  - (pp. 19–34 recommended)
+- Videos:
+  - Steven Accardo (2020, November 24). _**Introduction to Databases & ER Diagrams**_ [Video](https://youtube.com/watch?v=sx8UA7eU-ug).
+    
+### Transaction management and Concurrency control
+
+- _**Database Principles and Technologies**_ (2022)
+  1. Introduction to Databases
+    1.2.3. Benefits of Databases
+  2. Basic knowledge of Database
+    2.1.3. Backup and Recovery management
+	2.2.13. Transactions
+  4. SQL syntax categories
+    4.4. Data control
+  8. Introduction to Huawei Cloud Database GaussDB
+    8.2.2. GaussDB
+- _**The SQL Workshop (2019)**_
+  11. Advanced SQL
+- Videos:
+  - Tech Vault. (2024, October 2). _**Transactions (1) - ACID Properties (English) with Amr Elhelw**_ [Video](https://youtube.com/watch?v=ac6zw6sn-Wo). YouTube.
+    
+### Advanced SQL and Modern query techniques
+
+- _**Database Principles and Technologies**_ (2022)
+  2. Basic knowledge of Database
+    2.2.11. Index
+  4. SQL syntax categories
+    4.3. Data definition
+  6 . Database development environment
+    6.1. GaussDB database driver
+	6.2.2. DRS
+  7. Database design fundamentals
+    7.5.3. Maintaining data integrity
+- _**The SQL Workshop**_ (2019)
+  1. SQL basics
+    - An overview of basic SQL commands
+  8. SQL programming
+- _**Professional Azure SQL Database Administration**_ (2018)
+  5. Securing an Azure SQL database
+  6. Scaling out Azure SQL database
+  9. Monitoring and tuning Azure SQL database
+- _**NoSQL Data Models: Trends and Challenges**_ (2018)
+  1. No SQL languages and systems
+    1.1.2.1.
+  2. Distributed SPARQL query processing
+    2.3.2. Query optimization
+- Videos:
+  - Joey Blue. (2017, September 14). _**Learn SQL in 1 Hour - SQL Basics for Beginners**_ [Video](https://youtube.com/watch?v=9Pzj7Aj25lw).
+
+### Application development and administration
+
+- _**Database Principles and Technologies**_ (2022)
+  2. Basic knowledge of database
+    2.1. Database management
+	2.2.7. Partition
+	2.2.10. View
+	2.2.11. Index
+  4. SQL syntax categories
+    4.3.2. Creating a table
+	4.3.6. View
+- _**NoSQL Data Models: Trends and Challenges**_ (2018)
+  4. Big data integration in cloud environments
+    4.3.2. Model based approaches
+	4.4.2. ODBAPI
+- _**Professional Azure SQL Database Administration**_ (2018)
+  9. Monitoring and tuning Azure SQL database
+- Mueller, J. P., & Massaron, L. (2019). _**Python for Data Science for Dummies**_. John Wiley & Sons.
+  6. Working with real data
+- Videos
+  - Web Dev Simplified. (2019, May 14). _**Build A REST API with Node.js, Express & MongoDB**_ [Video](https://youtube.com/watch?v=fgTGADljAeg). YouTube.
+  - IBM Technology. (2023, April 7). _**GraphQL vs REST: Which is Better for APIs?**_ [Video](https://youtube.com/watch?v=PTfZcN20fro). YouTube.
+
+### Database security and Compliance
+
+- _**Database Principles and Technologies**_ (2022)
+  5. Database security fundamentals
+- _**The SQL Workshop**_ (2019)
+  9. Securing
+- _**Professional Azure SQL Database Administration**_ (2018)
+  5. Securing Azure SQL databases
+- Hsu, T. H.-C. (2020). _**Hands-On Security in DevOps: Ensure Continuous Security, Deployment, and Delivery with DevSecOps**_. Packt Publishing.
+  1. DevSecOps drivers and challenges
+    Section - Legal and security compliance (pp. 50)
+  4. Security requirements and compliance
+    Section - Privacy requirements for GDPR (pp. 151)
+  19. GDPR compliance case study (pp. 447)
+- Videos:
+  - Computerphile. (2016, June 15). _**Running an SQL Injection Attack - Computerphile**_ [Video](https://youtube.com/watch?v=ciNHn38EyRc). YouTube.
+  - CodeLucky. (2025, May 20). _**Database Encryption: A Beginner's Guide to Protecting Sensitive Data**_ [Video](https://youtube.com/watch?v=0eQ1fwOLuWA). YouTube.
+
+### Backup, Recovery, and Availability
+
+- _**Database Principles and Technologies**_ (2022)
+  1. Introduction to Databases
+    1.3. Architecture of Relational databases
+  2. Basic knowledge of database
+    2.1.1. Database management and its scope of work
+	2.1.3. Backup and Recovery management
+  6. Database development environment
+    6.2.2. DRS
+  8. Introduction to Huawei Cloud database GaussDB
+    8.3. No SQL databases
+- _**Professional Azure SQL Database Administration**_ (2018)
+  3. Backing up the Azure SQL database
+  4. Restoring an Azure SQL database
+  8. High availability and Disaster recovery
+- Videos:
+  - Hayk Simonyan. (2024, September 17). _**Database Replication & Sharding Explained**_ [Video](https://youtube.com/watch?v=jLEp1XI_L6Q). YouTube.
+  - Cracking FAANG  (2022, August 20). _**DATABASE REPLICATION EXPLAINED | SYSTEMS DESIGN SERIES**_ [Video](https://youtube.com/watch?v=PQLKQng-nJA). YouTube.
+
+### Distributed databases and Cloud concepts
+
+- _**Database Principles and Technologies**_ (2022)
+  1. Introduction to databases
+    1.2.4. Development characteristics of the database
+	1.2.11. No SQL database
+	1.3.5. Group architecture: Multi-master architecture
+  2. Basic knowledge of databases
+    2.2.1. Database and Database instances
+	2.2.7. Partition
+	2.2.8. Data distribution
+  4. SQL syntax categories
+    4.3.2. Creating a table
+  6. Database development
+    6.2.1. DDM
+	6.2.2. DRS
+- _**NoSQL Data Models: Trends and Challenges**_ (2018)
+  2. Distributed SPARQL query processing
+    2.3. SPARQL query processing
+	2.4. SPARQL & MapReduce
+  4. Big data integration in Cloud environments
+    4.7.2. Open issues
+- _**Professional Azure SQL Database Administration**_ (2018)
+  6. Scaling Azure SQL databases
+- Videos:
+  - CockroachDB. (2020, December 17). _**Distributed SQL Architecture | Cloud Database | Distributed Database**_ [Video](https://youtube.com/watch?v=j5k3nvl1qJY). YouTube.
+  - Distributed Systems Course. (2019, March 22). _**L16: The CAP Theorem**_ [Video](https://youtube.com/watch?v=k-Yaq8AHlFA). YouTube.
+  - Open Data Science. (2024, October 3). _**An Intro to Federated Learning with Flower with Daniel J. Beutel**_ [Video](https://youtube.com/watch?v=tdEwGT3QBjU). YouTube.
+
+### Emerging trends and Future directions in databases
+
+- _**Database Principles and Technologies**_ (2022)
+  1. Introduction to databases
+    1.2.9. Other Data models
+	1.2.11. No SQL database
+  8. Introduction to Huawei Cloud databases
+    8.1.1. GaussDB database family
+	8.3.1. GaussDB (for Mongo)
+- _**NoSQL Data Models: Trends and Challenges**_ (2018)
+  6. Fuzzy preferences queries to No SQL graph databases
+- _**Professional Azure SQL Database Administration**_ (2018)
+  6. Scaling out Azure SQL databases
+    Section: Vertical scaling (pp. 96)
+	Section: Horizontal scaling (pp. 101)
+	Section: Multi-tenant data models (pp. 103)
+  7. Elastic pools
+    Section: Introducing Elastic pools (pp. 123-125)
+	Section: Elastic jobs and Use cases (pp. 128)
+  9. Monitoring and tuning Azure SQL database
+    Section: Automatic tuning
+- Videos:
+  - Laiture Academy. (2021, November 29). _**Neo4j (Graph Database) Crash Course**_ [Video](https://youtube.com/watch?v=8jNPelugC2s). YouTube.
+  - InfluxData. (2022. February 18). _**InfluxDB: The Basics of Time Series Data**_ [Video](https://youtube.com/watch?v=wBWTj-1XiRU). YouTube.
+  - Amazon Web Services. (2022, August 31). _**Getting Started with Amazon Aurora Serverless v2 | Amazon Web Services**_ [Video](https://youtube.com/watch?v=UJIDaVmoRT0). YouTube.
+  - IBM Research. (2016, May 4). _**IBM Brings Quantum Computing to the Cloud**_ [Video](https://youtube.com/watch?v=DZ2DcILZAbM). YouTube.

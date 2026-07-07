@@ -6,6 +6,7 @@
 + [References](#references)
 + [Basics](#basics)
   + [Definitions](#definitions)
+  + [Shaders](#shaders)
   + [Graphics pipeline](#graphics-pipeline)
   + [Coordinate systems and transformations](#coordinates-systems-and-transformations)
   + [Vertex data](#vertex-data)
@@ -58,6 +59,14 @@
 - **Library**: Collection of resources that can be used during software development to implement a computer program. Some useful libraries for computer graphics are:
   - **GLM**: Header-only mathematics library for graphics software. Designed based on the GLSL (shading language).
   - **GLFW**: Can create and manage windows and contexts, and handle user input from mouse, keyboard, and joystick.
+
+### Shaders
+
+Shaders are small programs run on a GPU to manipulate graphical data within the rendering pipeline. They run in parallel, processing massive amounts of data simultaneously. They get some input from a previous stage, process it, and output a result for the next stage.
+
+
+
+
 
 ### Graphics pipeline
 
@@ -868,7 +877,7 @@ GPU vendors assume that when you’re storing an 8-bit intensity in a texture or
 - **Surface normal**: Fragment normal obtained by interpolating various vertex normals. Alternatively: Single normal used by all the fragments of a triangle.
 - **Map/Sampled normal**: Fragment normal obtained from a normal map using UV coords (vertex attribute).
 
-Instead of only using **per-surface normals**, we can additionally use **per-fragment normals** (map normals). This makes lighting think that the surface has more detail. We can store these normals in a 2D texture (normal map), where the XYZ components are stored as RGB values. The normal range is [-1,1], but color range is [0,1], so we need to transform normal's range during read and write operations:
+Instead of only using **per-surface normals**, we can additionally use **per-fragment normals** (map normal). This makes lighting think that the surface has more detail. We can store these normals in a 2D texture (normal map), where the XYZ components are stored as RGB values. The normal range is [-1,1], but color range is [0,1], so we need to transform normal's range during read and write operations:
 
 - Store them onto a 2D texture: `vec3 rgb_normal = normal * 0.5 + 0.5`
 - Read them in the fragment shader: `normal = normalize(normal * 2 - 1` (we transform them back)
@@ -876,10 +885,10 @@ Instead of only using **per-surface normals**, we can additionally use **per-fra
 **Tangent space**: Map normals are expressed in tangent space, where normals always point roughly in the positive Z direction. This coordinate space is a local coordinate system defined at each vertex, and interpolated for each fragment. It's local to the surface of a triangle (kind of the local space of the normal maps' vectors). 
 
 - **X (T) (tangent)**: Aligned with the surface texture positive U-axis (depends upon the triangle's surface and texture orientation).
-- **Y (B) (bitangent)**: Aligned with the positive surface texture positive V-axis (depends upon the triangle's surface and texture orientation).
+- **Y (B) (bitangent)**: Aligned with the surface texture positive V-axis (depends upon the triangle's surface and texture orientation).
 - **Z (N) (surface normal)**: Aligned with the surface normal.
 
-We use a **map normal** on a plane that has its own **surface normal**, so lighting won't look correct unless we compute the correct normals for our fragments. We need to do all the lighting in the same coordinate space.
+We use a **map normal** on a plane that has its own **surface normal**. Lighting won't look correct unless we compute the correct normals for our fragments. We need to do all the lighting in the same coordinate space.
 
 If we express the unit axes of one coordinate system A in terms of another B and arrange them in a matrix, that matrix can convert vectors from A into B.
 
@@ -898,7 +907,7 @@ outTBN = transpose(mat3(tangent, bitangent, normal));
 
 There're 2 ways we can use a TBN matrix for normal mapping (we explain the second one):
 
-- Take the **TBN matrix** (`mat3(tangent, bitangent, normal)`) that transforms any vector from tangent to world space, pass it to the __fragment shader__, and use it to transform the sampled normal from tangent space to world space. Now the sampled normal is in the same space as the other lighting variables.
+- Take the **TBN matrix** (`mat3(tangent, bitangent, normal)`) that transforms any vector from tangent to world space, pass it to the **fragment shader**, and use it to transform the sampled normal from tangent space to world space. Now the sampled normal is in the same space as the other lighting variables.
 - Take the **inverse of the TBN matrix** (`transpose(mat3(tangent, bitangent, normal))`) (transpose of orthogonal matrix == its inverse; and transpose is cheaper than inverse) that transforms any vector from world space to tangent space, and use it in the __vertex shader__ to transform not the normal, but the other relevant lighting variables to tangent space, and pass them to the fragment shader. Now the other lighting variables are in the same space as the sampled normal. Steps:
 
   1. Once we have the tangent (or the bitangent) vector, we pass it to the vertex shader as a vertex attribute.
@@ -936,7 +945,7 @@ normal = normalize(normal * 2.f - 1.f);   // transform to range [-1, 1]
 By convention, images (jpeg, png…) are almost always in sRGB color space (non-linear). With Paint you can check the sRGB color coordinates. When passing a sRGB image to the shader as texture, it will automatically transform the texture to RGB (linear) (if you told Vulkan to do so) because it's easier for making operations with colors. Later, when the shader outputs the result, the color is automatically transformed back to sRGB. Therefore, the data about the normals that you get in the shader (RGB) is different than the original image (sRGB), so we have 2 options ([link](https://stackoverflow.com/questions/73608823/colors-in-range-0-255-doesnt-correspond-to-colors-in-range-0-1/73617701#73617701)):
 
 - Transform the data to sRGB in the shader in order to get the correct data.
-- Ise images in RGB color space (tell Vulkan about this).
+- Issue images in RGB color space (tell Vulkan about this).
 
 **Computing Tangents for a mesh**:
 

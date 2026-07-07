@@ -11,6 +11,13 @@
   + [Syncing repos](#basics)
   + [Managing history](#managing-history)
 + [Collaboration](#collaboration)
+  +[Branches](#branches)
+  +[Switching branches](#switching-branches)
+  +[Remote branches](#remote-branches)
+  +[Branching workflows](#branching-workflows)
+  +[Integrating branches](#integrating-branches)
+  +[Tagging](#tagging)
+  +[Reviewing changes](#reviewing-changes)
 
 ## References
 
@@ -172,7 +179,7 @@ How to change your Git history before sharing your work with others.
 
 ### Branches
 
-**Git branch**: Independent line of development within a repository. Represents a snapshot of the project's files at a certain point in time. Separate branches can be merged into one branch. Changes in the primary of other branches will not affect your branch unless you pull the latest changes from those branches. It's common practice to create a new branch for each task (makes it easier to identify what changes to expect and simplifies backtracking).
+**Git branch**: Pointer to a specific commit in your repo's history. Independent line of development within a repository. Represents a snapshot of the project's files at a certain point in time. Separate branches can be merged into one branch. Changes in the primary of other branches will not affect your branch unless you pull the latest changes from those branches. It's common practice to create a new branch for each task (makes it easier to identify what changes to expect and simplifies backtracking).
 
 **Benefits** of branches:
 
@@ -183,11 +190,28 @@ How to change your Git history before sharing your work with others.
 
 **Branch creation** (`git branch <branch_name>`): This creates a separate line of development that diverges from the main codebase. When creating a branch, Git creates a pointer to a specific commit (HEAD of the branch). A branch can be named to identify its purpose. In a branch we can make changes and commits independently from other branches. The various commits we make in the branch form a chronological history of changes specific to that branch.
 
+### Switching branches
+
 **Switching branches** (`git checkout <branch>`): This updates the files (files, directories, and their contents) in your working tree (working directory) to match the latest commits (version) on the branch you're switching to. It's like switching between different workspaces. Git moves the HEAD pointer to point the latest commit of the branch you switched to. Committed changes in the previous branch will be hidden or replaced. If you have uncommitted changes (that conflict with the branch you're switching to), Git will prevent the switch until you either commit, stash, or discard those changes.
 
-- **Pointing to branches**:
+**Pointing to branches**: A branch is a pointer to a specific commit in your repo's history.
 
-  - **Branch**: Pointer to a specific commit in your repo's history.
-  - **HEAD pointer**: Reference to the currently checked-out branch or the commit you're working on. When switching branches, Git moves HEAD to point to the latest commit of the new branch.
-  - **Branch pointer**: When creating a new branch, Git creates a new pointer that initially points to the same commit as the branch you created it from.
-  - **Commit history**: 
+- **HEAD pointer**: Reference to the currently checked-out branch or the commit you're working on. When switching branches, Git moves `HEAD` to point to the latest commit of the new branch. It's used to represent the current snapshot of a branch. For a new repo, Git will point `HEAD` to the main branch by default. Changing where `HEAD` points will update your active branch.
+  - `HEAD~<n>`: Refers to the ancestors (`HEAD~1` refers to the commit's first parent, `HEAD~2` refers its first grandparent, etc.).
+  - `HEAD^<N>`: Refers to the parents of merge commits (`HEAD^1` refers to the first parent of `HEAD` where head is a merge commit, `HEAD^2` refers to the first grandparent of `HEAD` where head is a merge commit, etc.).
+- **Branch pointer**: When creating a new branch, Git creates a new pointer that initially points to the same commit as the branch you created it from.
+- **Commit history**: The commits form a linked list where each commit points to its parent commit/s. Branches are maintained by moving these pointers to different commits as new commits are made, effectively changing the state of the branch.
+  
+<br>![Usage of ~ and ^](https://raw.githubusercontent.com/AnselmoGPP/know_base/master/topics/software_development/resources/git_1.png)
+
+**Stashing branches**: Mechanism to save your changes temporarily. Stashing refers to temporarily shelving changes that you've made to your working directory so that you can work on something else, typically without committing those changes to your branch.
+
+### Remote branches
+
+### Branching workflows
+
+### Integrating branches
+
+### Tagging
+
+### Reviewing changes

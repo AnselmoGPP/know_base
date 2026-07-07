@@ -1,6 +1,8 @@
 # Doxygen
 
-## Table of Contents
+## Table of contents
+
++ [References](#references)
 + [Installation](#installation)
 + [Getting started](#getting-started)
 + [Documenting the code](#documenting-the-code)
@@ -9,8 +11,12 @@
   + [Boilerplate](#boilerplate)
   + [Basic format of documentation blocks](#basic-format-of-documentation-blocks)
   + [Common structure of documentation blocks](#common-structure-of-documentation-blocks)
-+ [References](#references)
 
+## References
+
+- [Doxygen manual](https://www.doxygen.nl/manual/)
+- [Documenting C++ code](https://developer.lsst.io/cpp/api-docs.html)
+- [How to document C++](http://www.edparrish.net/common/cppdoc.html)
 
 ## Installation
 
@@ -88,9 +94,14 @@ You can probably leave the values of most tags with its default values. You can 
 - `RECURSIVE` set to `YES`: recursive parsing a source tree
 - `EXCLUDE`
 - `EXCLUDE_PATTERNS` is used to omit directories from a source tree. Example: `EXCLUDE_PATTERNS = */test/*` (omit all test directories from a source tree).
-- `EXTRACT_ALL` set to `YES`: doxygen will pretend everything in your sources is documented (won’t generate warnings about undocumented member).
-- `SOURCE_BROWSER` set to `YES`: doxygen will generate cross-reference a (documented) entity with its definition in the source files.
-- `INLINE_SOURCES` set to `YES`: Include the sources directly into the documentation.
+- `EXTRACT_ALL`: Forces Doxygen to document everything, even if a function doesn't have a comment block yet (won’t generate warnings about undocumented member). Great for finding gaps.
+- `SOURCE_BROWSER`: Cross-reference a (documented) entity with its definition in the source files.
+- `INLINE_SOURCES`: Include sources directly into the documentation.
+- `HAVE_DOT`: Use Graphviz to generate call graphs and class diagrams. You should also put in `DOT_PATH` the path to `dot.exe`.
+- `CALL_GRAPH`: Generates visual diagrams showing what a function calls.
+- `CALLER_GRAPH`: Generate visual diagrams showing who calls this function.
+- `GENERATE_TREEVIEW`: Generate clean, interactive sidebar navigation tree to the HTML output.
+- `GRAPHICAL_HIERARCHY`
 
 **My favorite options**:
 
@@ -98,10 +109,18 @@ You can probably leave the values of most tags with its default values. You can 
 - `PROJECT_BRIEF = "brief description here"`
 - `INPUT = include`
 - `RECURSIVE = YES`
-- `EXTRACT_ALL = NO`
+- `EXTRACT_ALL = YES`
 - `EXTRACT_PRIVATE = YES`
 - `SOURCE_BROWSER = YES`
 - `OUTPUT_DIRECTORY = XXX`
+- `HAVE_DOT = YES`
+- `DOT_PATH = :/Program Files/Graphviz/bin`
+
+### Visuals
+
+- **Default** Doxygen HTML theme looks a bit like it was designed in 2005.
+- **Doxygen Awesome CSS**: Most popular option. It’s a drop-in CSS file that gives Doxygen a modern, GitHub-like look with dark mode support.
+- etc.
 
 ### Running doxygen
 
@@ -117,19 +136,32 @@ Specify format: `HTML_OUTPUT`, `RTF_OUTPUT`, `LATEX_OUTPUT`, `XML_OUTPUT`, `MAN_
 
 ### Documenting the sources
 
-`EXTRACT_ALL` set to `NO` (default): doxygen will only generate documentation for documented entities.
-
 Ways of documenting **members**, **classes** and **namespaces**:
 
 - Place a special documentation block in front (or behind) of the declaration or definition
 - Place a special documentation block with a structural command (it links the block with an entity that can be documented) somewhere else (another file or location). Files can only be documented this way.
 
-
 ## Documenting the code
+
+### Dedicated main page
+
+To fill the documentation homepage you can create a standalone file (like `mainpage.md`) or put a `@mainpage` tag in your codebase to introduce the project.
+
+```
+/**
+ * @mainpage My API project
+ * * # Introduction
+ * Welcome to the My API documentation. This library handles high-performance data processing.
+ * * # Quick Start
+ * 1. Initialize the context: `API_Init()`
+ * 2. Process data: `API_Process()`
+ * 3. Clean up: `API_Shutdown()`
+ */
+```
 
 ### Special comment blocks
 
-Special C++ style comment block with additional markings that let doxygen identify it as structured text that need to end up in the generated document.
+**Special comment block**: Special C++ style comment block with additional markings that let doxygen identify it as structured text that needs to end up in the generated document.
 
 For each entity in the code there are 2 or 3 types of **descriptions**, which together form the documentation for that entity:
 
@@ -547,9 +579,3 @@ double sum(std::vector<double> & const values) {
 12. [References](https://developer.lsst.io/cpp/api-docs.html#cpp-doxygen-references) (optional)
 13. [Examples](https://developer.lsst.io/cpp/api-docs.html#cpp-doxygen-examples) (optional)
 
-
-## References
-
-- [Doxygen manual](https://www.doxygen.nl/manual/)
-- [Documenting C++ code](https://developer.lsst.io/cpp/api-docs.html)
-- [How to document C++](http://www.edparrish.net/common/cppdoc.html)
